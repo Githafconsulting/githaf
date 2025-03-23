@@ -19,7 +19,7 @@ const Hero: React.FC = () => {
   return (
     <section 
       id="home"
-      className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden bg-gradient-to-b from-[#5022b8] to-[#3a1f7a]"
+      className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden bg-[#1A1F2C]"
     >
       {/* Gradient background */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
@@ -66,7 +66,7 @@ const Hero: React.FC = () => {
               <Button 
                 variant="primary" 
                 size="lg"
-                className="bg-white text-[#5022b8] hover:bg-white/90"
+                className="bg-[#ea33f7] text-white hover:bg-[#ea33f7]/90"
                 icon={<ArrowRight size={18} />}
                 iconPosition="right"
               >
