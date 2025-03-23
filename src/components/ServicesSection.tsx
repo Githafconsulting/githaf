@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { 
   BarChart3, 
@@ -57,14 +58,14 @@ const services = [
   {
     id: 1,
     title: 'Mobile App Development',
-    description: 'Custom mobile apps tailored to your business needs, ensuring efficiency, engagement, and seamless user experiences across platforms.',
+    description: 'Powered with AI - Custom mobile apps tailored to your business needs, ensuring efficiency, engagement, and seamless user experiences across platforms.',
     icon: <Smartphone className="w-8 h-8 text-primary" />,
     category: 'tech',
   },
   {
     id: 2,
     title: 'Website Development',
-    description: 'High-performance, responsive websites designed to enhance your online presence, engage customers, and drive business growth.',
+    description: 'Powered with AI - High-performance, responsive websites designed to enhance your online presence, engage customers, and drive business growth.',
     icon: <Code className="w-8 h-8 text-primary" />,
     category: 'tech',
   },
@@ -134,29 +135,24 @@ const ServicesSection: React.FC = () => {
     : services.filter(service => service.category === activeCategory);
 
   const currentCategoryColor = categories.find(cat => cat.id === activeCategory)?.color || 'bg-[#F7F9FC]';
-  const currentBorderColor = categoryColors[activeCategory as keyof typeof categoryColors] || 'white';
 
   return (
-    <section id="services" className={cn("py-20 md:py-32", currentCategoryColor)}>
+    <section id="services" className={cn("py-12 md:py-20", currentCategoryColor)}>
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center max-w-3xl mx-auto mb-12 reveal">
+        <div className="text-center max-w-3xl mx-auto mb-8 reveal">
           <h2 className="mb-4 text-3xl md:text-4xl font-bold">Our Services</h2>
         </div>
 
-        <div className="flex justify-center mb-16">
+        <div className="flex justify-center mb-10 overflow-x-auto pb-2">
           <div className="inline-flex bg-secondary/50 p-1 rounded-full">
             {categories.map((category) => (
               <button
                 key={category.id}
                 onClick={() => setActiveCategory(category.id)}
-                className={`px-4 py-2 text-sm font-medium rounded-full transition-all whitespace-nowrap
+                className={`px-3 py-1.5 text-xs sm:text-sm font-medium rounded-full transition-all whitespace-nowrap
                   ${activeCategory === category.id 
                     ? 'bg-white text-foreground shadow-sm' 
                     : 'text-foreground/80 hover:text-foreground'}`}
-                style={{
-                  borderColor: activeCategory === category.id ? categoryColors[category.id as keyof typeof categoryColors] : 'transparent',
-                  borderWidth: activeCategory === category.id ? '2px' : '0px'
-                }}
               >
                 {category.name}
               </button>
@@ -164,29 +160,24 @@ const ServicesSection: React.FC = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {filteredServices.map((service, index) => {
             const serviceColor = serviceColors[service.id] || 'bg-background';
             
             return (
               <div key={service.id} className="reveal" style={{ transitionDelay: `${index * 100}ms` }}>
                 <AnimatedCard 
-                  className={cn("h-full rounded-xl shadow-sm hover:shadow-md transition-shadow p-6", 
+                  className={cn("h-full rounded-xl shadow-sm hover:shadow-md transition-shadow p-4 sm:p-6", 
                     serviceColor)}
                   intensity={5}
-                  customStyle={{
-                    borderWidth: '2px',
-                    borderStyle: 'solid',
-                    borderColor: currentBorderColor
-                  }}
                 >
                   <div className="flex flex-col h-full">
                     <div className="p-2 rounded-lg bg-white/70 w-fit mb-4">
                       {service.icon}
                     </div>
-                    <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
-                    <p className="text-muted-foreground flex-grow">{service.description}</p>
-                    <div className="mt-4 pt-4 border-t" style={{ borderColor: currentBorderColor }}>
+                    <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">{service.title}</h3>
+                    <p className="text-sm sm:text-base text-muted-foreground flex-grow">{service.description}</p>
+                    <div className="mt-3 pt-3 border-t border-gray-200">
                       <Button 
                         variant="ghost" 
                         size="sm" 

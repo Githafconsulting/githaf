@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
 import Button from './Button';
@@ -19,7 +18,7 @@ const Hero: React.FC = () => {
   return (
     <section 
       id="home"
-      className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden bg-[#1A1F2C]"
+      className="relative pt-20 pb-12 md:pt-28 md:pb-20 overflow-hidden bg-[#1A1F2C]"
     >
       {/* Gradient background */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
@@ -28,7 +27,7 @@ const Hero: React.FC = () => {
       </div>
 
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           {/* Text content */}
           <div>
             <div 
@@ -95,10 +94,6 @@ const Hero: React.FC = () => {
                 alt="Digital Transformation Process" 
                 className="w-full h-full object-cover"
               />
-              <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
-                <h3 className="text-2xl font-bold text-white">Githaf Consulting</h3>
-                <p className="text-white/80">Driving digital excellence</p>
-              </div>
             </div>
           </div>
         </div>

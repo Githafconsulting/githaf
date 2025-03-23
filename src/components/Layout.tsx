@@ -16,7 +16,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       reveals.forEach((reveal) => {
         const windowHeight = window.innerHeight;
         const elementTop = reveal.getBoundingClientRect().top;
-        const elementVisible = 150;
+        const elementVisible = 100; // Reduced from 150 to start animations earlier
         
         if (elementTop < windowHeight - elementVisible) {
           reveal.classList.add('active');
