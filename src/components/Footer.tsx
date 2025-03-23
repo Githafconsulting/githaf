@@ -49,10 +49,10 @@ const Footer: React.FC = () => {
             <h4 className="text-lg font-semibold mb-4 text-white">Our Services</h4>
             <ul className="space-y-3">
               {[
-                'Mobile App Development', 
-                'Website Development', 
-                'Payments & Fintech Solutions', 
                 'AI Agents', 
+                'Website Development', 
+                'Mobile App Development', 
+                'Payments & Fintech Solutions', 
                 'Automated Workflow'
               ].map((item) => (
                 <li key={item}>
@@ -74,11 +74,6 @@ const Footer: React.FC = () => {
             <address className="not-italic text-white/80 space-y-3">
               <p>Kirby Le Soken, UK</p>
               <p>Damac Hills 2, UAE</p>
-              <p className="mt-4">
-                <a href="tel:+447530551944" className="hover:text-white transition-colors">
-                  +44 7530551944
-                </a>
-              </p>
               <p>
                 <a href="tel:+971562078508" className="hover:text-white transition-colors">
                   +971 562078508

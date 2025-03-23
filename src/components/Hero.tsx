@@ -76,15 +76,6 @@ const Hero: React.FC = () => {
                   Explore Our Services
                 </Button>
               </a>
-              <a href="#contact" className="w-full sm:w-auto">
-                <Button 
-                  variant="outline" 
-                  size={isMobile ? "sm" : "lg"}
-                  className="bg-[#ea33f7] text-white hover:bg-[#ea33f7]/90 border-[#ea33f7] w-full"
-                >
-                  Contact Us
-                </Button>
-              </a>
             </div>
           </div>
           
@@ -97,8 +88,8 @@ const Hero: React.FC = () => {
             <div className="relative w-full max-w-[600px] mx-auto rounded-xl overflow-hidden aspect-[4/3] shadow-lg">
               <div className="absolute inset-0 bg-gradient-to-t from-[#1A1F2C] via-transparent to-transparent z-10"></div>
               <img 
-                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" 
-                alt="Digital Transformation Process" 
+                src="/lovable-uploads/eb57cce0-361d-48a6-8739-b1206472d9cb.png" 
+                alt="Digital Transformation" 
                 className="w-full h-full object-cover"
               />
             </div>

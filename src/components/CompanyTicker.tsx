@@ -5,12 +5,12 @@ const companies = [
   {
     id: 1,
     name: 'HSBC',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/HSBC_logo_%282018%29.svg/1200px-HSBC_logo_%282018%29.svg.png',
+    logo: '/lovable-uploads/231ef831-e20d-478b-9138-dada4cb70a77.png',
   },
   {
     id: 2,
     name: 'Royal Bank of Scotland',
-    logo: 'https://logos-world.net/wp-content/uploads/2021/02/Royal-Bank-of-Scotland-Logo.png',
+    logo: '/lovable-uploads/32ca709a-b666-41dc-a5bb-aa539477800c.png',
   },
   {
     id: 3,
