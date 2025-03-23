@@ -9,7 +9,7 @@ const testimonials = [
     name: 'Sarah Johnson',
     role: 'CEO, TechStart Inc.',
     image: 'https://randomuser.me/api/portraits/women/1.jpg',
-    content: 'Working with TechTransform has been a game-changer for our business. Their strategic guidance helped us implement new technologies that increased our operational efficiency by 40% and opened new revenue streams.',
+    content: "Working with TechTransform has been a game-changer for our business. Their strategic guidance helped us implement new technologies that increased our operational efficiency by 40% and opened new revenue streams.",
     rating: 5,
   },
   {
@@ -17,7 +17,7 @@ const testimonials = [
     name: 'Michael Chen',
     role: 'CTO, Innovate Solutions',
     image: 'https://randomuser.me/api/portraits/men/2.jpg',
-    content: 'Their team's technical expertise is unmatched. They didn't just recommend solutions—they worked alongside us to implement them, ensuring our team was fully trained and confident with the new systems.',
+    content: "Their team's technical expertise is unmatched. They didn't just recommend solutions—they worked alongside us to implement them, ensuring our team was fully trained and confident with the new systems.",
     rating: 5,
   },
   {
@@ -25,7 +25,7 @@ const testimonials = [
     name: 'Emma Rodriguez',
     role: 'Marketing Director, Global Retail',
     image: 'https://randomuser.me/api/portraits/women/3.jpg',
-    content: 'The digital marketing strategy TechTransform developed for us transformed our online presence. We've seen a 200% increase in qualified leads and a significant boost in conversion rates.',
+    content: "The digital marketing strategy TechTransform developed for us transformed our online presence. We've seen a 200% increase in qualified leads and a significant boost in conversion rates.",
     rating: 5,
   },
   {
@@ -33,7 +33,7 @@ const testimonials = [
     name: 'David Kim',
     role: 'Operations Manager, LogiTech Services',
     image: 'https://randomuser.me/api/portraits/men/4.jpg',
-    content: 'TechTransform's process optimization recommendations helped us eliminate bottlenecks we didn't even know existed. Our processing times have been reduced by 60%, and customer satisfaction scores are at an all-time high.',
+    content: "TechTransform's process optimization recommendations helped us eliminate bottlenecks we didn't even know existed. Our processing times have been reduced by 60%, and customer satisfaction scores are at an all-time high.",
     rating: 5,
   },
 ];
