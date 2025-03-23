@@ -1,22 +1,14 @@
-
 import React, { useState } from 'react';
 import { 
-  BarChart3, 
-  Globe, 
-  Zap, 
-  TrendingUp, 
-  RefreshCw, 
-  LineChart, 
-  Code, 
   Smartphone, 
+  Code, 
   CreditCard, 
-  Brain, 
   PieChart, 
   Briefcase, 
   Bot, 
   Workflow,
   Search,
-  BadgeDollarSign,
+  Globe,
   GraduationCap,
   ArrowRight
 } from 'lucide-react';
@@ -33,6 +25,7 @@ const categoryColors = {
   'marketing': '#E86EAD',
 };
 
+// Service colors - now used for both headers and sub-services
 const serviceColors = {
   1: 'bg-[#D3E4FD]/80', // Mobile App Dev - Soft Blue
   2: 'bg-[#D3E4FD]/50', // Website Dev - Lighter Blue
@@ -137,13 +130,13 @@ const ServicesSection: React.FC = () => {
   const currentCategoryColor = categories.find(cat => cat.id === activeCategory)?.color || 'bg-[#F7F9FC]';
 
   return (
-    <section id="services" className={cn("py-12 md:py-20", currentCategoryColor)}>
+    <section id="services" className={cn("py-8 md:py-16", currentCategoryColor)}>
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center max-w-3xl mx-auto mb-8 reveal">
+        <div className="text-center max-w-3xl mx-auto mb-6 reveal">
           <h2 className="mb-4 text-3xl md:text-4xl font-bold">Our Services</h2>
         </div>
 
-        <div className="flex justify-center mb-10 overflow-x-auto pb-2">
+        <div className="flex justify-center mb-8 overflow-x-auto pb-2">
           <div className="inline-flex bg-secondary/50 p-1 rounded-full">
             {categories.map((category) => (
               <button
@@ -160,22 +153,22 @@ const ServicesSection: React.FC = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
           {filteredServices.map((service, index) => {
             const serviceColor = serviceColors[service.id] || 'bg-background';
             
             return (
-              <div key={service.id} className="reveal" style={{ transitionDelay: `${index * 100}ms` }}>
+              <div key={service.id} className="reveal" style={{ transitionDelay: `${index * 50}ms` }}>
                 <AnimatedCard 
                   className={cn("h-full rounded-xl shadow-sm hover:shadow-md transition-shadow p-4 sm:p-6", 
                     serviceColor)}
                   intensity={5}
                 >
                   <div className="flex flex-col h-full">
-                    <div className="p-2 rounded-lg bg-white/70 w-fit mb-4">
+                    <div className={cn("p-2 rounded-lg w-fit mb-4", serviceColor)}>
                       {service.icon}
                     </div>
-                    <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">{service.title}</h3>
+                    <h3 className="text-lg sm:text-xl font-semibold mb-2">{service.title}</h3>
                     <p className="text-sm sm:text-base text-muted-foreground flex-grow">{service.description}</p>
                     <div className="mt-3 pt-3 border-t border-gray-200">
                       <Button 

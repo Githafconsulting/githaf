@@ -16,7 +16,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       reveals.forEach((reveal) => {
         const windowHeight = window.innerHeight;
         const elementTop = reveal.getBoundingClientRect().top;
-        const elementVisible = 100; // Reduced from 150 to start animations earlier
+        const elementVisible = 50; // Reduced to start animations earlier
         
         if (elementTop < windowHeight - elementVisible) {
           reveal.classList.add('active');
@@ -25,7 +25,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     };
     
     // Initial check on mount
-    handleScroll();
+    setTimeout(handleScroll, 100); // Short delay to ensure elements are positioned
     
     // Add scroll event listener
     window.addEventListener('scroll', handleScroll);

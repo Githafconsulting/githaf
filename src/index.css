@@ -95,6 +95,7 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+    overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -136,6 +137,18 @@
   .glass-dark {
     @apply bg-black/30 backdrop-blur-md border border-white/10;
   }
+  
+  @media (max-width: 640px) {
+    h1 {
+      @apply text-3xl;
+    }
+    h2 {
+      @apply text-2xl;
+    }
+    h3 {
+      @apply text-xl;
+    }
+  }
 }
 
 /* Custom scrollbar */
@@ -169,7 +182,7 @@
 .reveal {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Faster animation */
 }
 
 .reveal.active {
@@ -185,4 +198,16 @@
 
 .lazy-image.loaded {
   opacity: 1;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .reveal {
+    transition: opacity 0.4s ease, transform 0.4s ease; /* Even faster on mobile */
+  }
 }
