@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
 import AnimatedCard from './AnimatedCard';
@@ -8,7 +9,7 @@ const testimonials = [
     name: 'HSBC',
     role: 'Global Banking',
     image: 'https://randomuser.me/api/portraits/men/1.jpg',
-    content: "Githaf Consulting successfully led the transformation of our corporate payments system globally, implementing innovative solutions that increased our processing efficiency by 40% and improved compliance reporting.",
+    content: "Githaf Consulting successfully led the transformation of our corporate payments system globally, implementing innovative solutions that significantly increased our processing efficiency and improved compliance reporting.",
     rating: 5,
   },
   {
@@ -24,7 +25,7 @@ const testimonials = [
     name: 'Paypoint',
     role: 'Payment Services',
     image: 'https://randomuser.me/api/portraits/men/3.jpg',
-    content: "The new payments platform Githaf developed for us revolutionized our transaction processing capabilities. We've seen a 200% increase in processing speed and significant improvements in reliability and security.",
+    content: "The new payments platform Githaf developed for us revolutionized our transaction processing capabilities. We've seen substantial improvements in processing speed and notable enhancements in reliability and security.",
     rating: 5,
   },
   {
@@ -32,7 +33,7 @@ const testimonials = [
     name: 'Developer Village',
     role: 'Multiple Industries',
     image: 'https://randomuser.me/api/portraits/women/4.jpg',
-    content: "Githaf's AI automation and integration services have transformed our business operations. Their AI agents have reduced manual processing by 70%, allowing our team to focus on strategic initiatives rather than repetitive tasks.",
+    content: "Githaf's AI automation and integration services have transformed our business operations. Their AI agents have considerably reduced manual processing, allowing our team to focus on strategic initiatives rather than repetitive tasks.",
     rating: 5,
   },
 ];
