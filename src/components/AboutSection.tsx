@@ -12,25 +12,26 @@ const keyPoints = [
   'Ongoing support and optimization services',
 ];
 
+// Array of colors for the bullet points
+const iconColors = [
+  '#0EA5E9', // Ocean Blue
+  '#8B5CF6', // Vivid Purple
+  '#F97316', // Bright Orange
+  '#D946EF', // Magenta Pink
+  '#000000e6', // Black
+  '#ea384c', // Red
+];
+
 const AboutSection: React.FC = () => {
   const isMobile = useIsMobile();
   
   return (
     <section id="about" className="py-4 md:py-8 relative">
-      {/* Background accent */}
-      <div className="absolute top-1/2 right-0 -translate-y-1/2 w-1/3 h-2/3 bg-primary/5 rounded-l-3xl -z-10"></div>
-      
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 items-center">
           {/* Image column */}
           <div className="order-2 lg:order-1 reveal">
             <div className="relative">
-              {!isMobile && (
-                <>
-                  <div className="absolute -top-4 -left-4 w-20 sm:w-32 h-20 sm:h-32 bg-primary/10 rounded-xl -z-10"></div>
-                  <div className="absolute -bottom-4 -right-4 w-20 sm:w-32 h-20 sm:h-32 bg-accent/10 rounded-xl -z-10"></div>
-                </>
-              )}
               <div className="relative rounded-xl overflow-hidden">
                 <img 
                   src="/lovable-uploads/313bdaca-fadf-4d22-9181-d3f6de4259f6.png" 
@@ -58,8 +59,8 @@ const AboutSection: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-3 sm:mb-4">
               {keyPoints.map((point, index) => (
                 <div key={index} className="flex items-start">
-                  <div className="mr-2 mt-0.5 text-primary flex-shrink-0">
-                    <Check size={16} />
+                  <div className="mr-2 mt-0.5 flex-shrink-0">
+                    <Check size={16} color={iconColors[index % iconColors.length]} />
                   </div>
                   <p className="text-sm text-foreground">{point}</p>
                 </div>
