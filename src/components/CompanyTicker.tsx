@@ -15,12 +15,27 @@ const companies = [
   {
     id: 3,
     name: 'LuupFX',
-    logo: 'https://assets-global.website-files.com/60792fe0ef5e296ef9ad9e6a/612f3851b2701e5a7ef14a27_luupfx-logo.svg',
+    logo: 'public/lovable-uploads/231ef831-e20d-478b-9138-dada4cb70a77.png',
   },
   {
     id: 4,
-    name: 'Paypoint',
-    logo: 'https://seeklogo.com/images/P/paypoint-logo-95C891229A-seeklogo.com.png',
+    name: 'PayPoint',
+    logo: 'public/lovable-uploads/e0567348-cc7c-4700-bed1-4e5c47cc9292.png',
+  },
+  {
+    id: 5,
+    name: 'SAB',
+    logo: 'public/lovable-uploads/5b4c8fbf-d69e-4d10-bdf7-acb5ba67e51f.png',
+  },
+  {
+    id: 6,
+    name: 'Al Ghurair',
+    logo: 'public/lovable-uploads/dbd77a96-2640-4065-ac5e-5b01e6f72ff4.png',
+  },
+  {
+    id: 7,
+    name: 'RBS',
+    logo: 'public/lovable-uploads/32ca709a-b666-41dc-a5bb-aa539477800c.png',
   },
 ];
 
@@ -28,7 +43,7 @@ const CompanyTicker: React.FC = () => {
   return (
     <section className="py-12 bg-white overflow-hidden">
       <div className="container mx-auto px-4">
-        <h3 className="text-center mb-8 text-2xl">Trusted By Leading Companies</h3>
+        <h3 className="text-center mb-8 text-2xl">Successfully delivered for leading companies</h3>
         
         <div className="relative">
           {/* Gradient overlays for smooth edge fade */}
