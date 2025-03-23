@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { 
   BarChart3, 
@@ -23,6 +24,15 @@ import AnimatedCard from './AnimatedCard';
 import { cn } from '@/lib/utils';
 import Button from './Button';
 
+// Updated colors for categories
+const categoryColors = {
+  'all': 'white',
+  'tech': '#D7707E',
+  'transformation': '#25A385',
+  'ai': '#4682B4',
+  'marketing': '#E86EAD',
+};
+
 const serviceColors = {
   1: 'bg-[#D3E4FD]/80', // Mobile App Dev - Soft Blue
   2: 'bg-[#D3E4FD]/50', // Website Dev - Lighter Blue
@@ -38,9 +48,9 @@ const serviceColors = {
 
 const categories = [
   { id: 'all', name: 'All Services', color: 'bg-[#F7F9FC]' }, // Light gray background like Make.com
+  { id: 'ai', name: 'AI Services', color: 'bg-[#E5DEFF]/30' }, // Soft Purple
   { id: 'tech', name: 'Tech Services', color: 'bg-[#D3E4FD]/30' }, // Soft Blue
   { id: 'transformation', name: 'Transformation Services', color: 'bg-[#FDE1D3]/30' }, // Soft Peach
-  { id: 'ai', name: 'AI Services', color: 'bg-[#E5DEFF]/30' }, // Soft Purple
   { id: 'marketing', name: 'Digital Marketing', color: 'bg-[#F2FCE2]/30' }, // Soft Green
 ];
 
@@ -125,6 +135,7 @@ const ServicesSection: React.FC = () => {
     : services.filter(service => service.category === activeCategory);
 
   const currentCategoryColor = categories.find(cat => cat.id === activeCategory)?.color || 'bg-[#F7F9FC]';
+  const currentBorderColor = categoryColors[activeCategory as keyof typeof categoryColors] || 'white';
 
   return (
     <section id="services" className={cn("py-20 md:py-32", currentCategoryColor)}>
@@ -147,6 +158,10 @@ const ServicesSection: React.FC = () => {
                   ${activeCategory === category.id 
                     ? 'bg-white text-foreground shadow-sm' 
                     : 'text-foreground/80 hover:text-foreground'}`}
+                style={{
+                  borderColor: activeCategory === category.id ? categoryColors[category.id as keyof typeof categoryColors] : 'transparent',
+                  borderWidth: activeCategory === category.id ? '2px' : '0px'
+                }}
               >
                 {category.name}
               </button>
@@ -161,9 +176,14 @@ const ServicesSection: React.FC = () => {
             return (
               <div key={service.id} className="reveal" style={{ transitionDelay: `${index * 100}ms` }}>
                 <AnimatedCard 
-                  className={cn("h-full border rounded-xl shadow-sm hover:shadow-md transition-shadow p-6", 
+                  className={cn("h-full rounded-xl shadow-sm hover:shadow-md transition-shadow p-6", 
                     serviceColor)}
                   intensity={5}
+                  style={{
+                    borderWidth: '2px',
+                    borderStyle: 'solid',
+                    borderColor: currentBorderColor
+                  }}
                 >
                   <div className="flex flex-col h-full">
                     <div className="p-2 rounded-lg bg-white/70 w-fit mb-4">
@@ -171,7 +191,7 @@ const ServicesSection: React.FC = () => {
                     </div>
                     <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
                     <p className="text-muted-foreground flex-grow">{service.description}</p>
-                    <div className="mt-4 pt-4 border-t border-border">
+                    <div className="mt-4 pt-4 border-t" style={{ borderColor: currentBorderColor }}>
                       <Button 
                         variant="ghost" 
                         size="sm" 

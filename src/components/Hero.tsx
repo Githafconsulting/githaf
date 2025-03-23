@@ -75,36 +75,31 @@ const Hero: React.FC = () => {
               <Button 
                 variant="outline" 
                 size="lg"
-                className="border-white text-white hover:bg-white/10"
+                className="bg-[#ea33f7] text-white hover:bg-[#ea33f7]/90 border-[#ea33f7]"
               >
                 Contact Us
               </Button>
             </div>
           </div>
           
-          {/* Visual element */}
+          {/* Visual element - replaced with an image */}
           <div 
             className={`opacity-0 transition-all duration-1000 delay-300 ${
               isVisible ? 'opacity-100' : ''
             }`}
           >
-            <AnimatedCard 
-              className="glass p-6 aspect-[4/3] w-full max-w-[600px] mx-auto bg-white/10 backdrop-blur-xl border border-white/20"
-              shine
-              border
-            >
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-full h-full p-6 flex flex-col">
-                  {/* Abstract digital transformation visual */}
-                  <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
-                    <div className="absolute w-48 h-48 bg-[#6f42c1]/30 rounded-full filter blur-xl animate-float"></div>
-                    <div className="absolute w-32 h-32 bg-[#8e5cf5]/40 rounded-full -translate-x-16 translate-y-10 filter blur-lg animate-float" style={{ animationDelay: '1s' }}></div>
-                    <div className="absolute w-40 h-40 bg-[#4e2799]/40 rounded-full translate-x-20 -translate-y-12 filter blur-lg animate-float" style={{ animationDelay: '2s' }}></div>
-                    <div className="relative z-10 font-display text-5xl font-bold text-white">Githaf Consulting</div>
-                  </div>
-                </div>
+            <div className="relative w-full max-w-[600px] mx-auto rounded-xl overflow-hidden aspect-[4/3] shadow-lg">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1A1F2C] via-transparent to-transparent z-10"></div>
+              <img 
+                src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" 
+                alt="Digital Transformation" 
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
+                <h3 className="text-2xl font-bold text-white">Githaf Consulting</h3>
+                <p className="text-white/80">Driving digital excellence</p>
               </div>
-            </AnimatedCard>
+            </div>
           </div>
         </div>
       </div>
