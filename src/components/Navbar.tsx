@@ -44,7 +44,7 @@ const Navbar: React.FC = () => {
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4',
         scrolled 
           ? 'bg-white shadow-sm' 
-          : 'bg-[#5022b8]'
+          : 'bg-[#1A1F2C]'
       )}
     >
       <div className="container mx-auto px-4 md:px-6">
@@ -54,7 +54,7 @@ const Navbar: React.FC = () => {
             href="#home" 
             className={cn(
               "text-xl md:text-2xl font-display font-bold tracking-tight",
-              scrolled ? "text-[#5022b8]" : "text-white"
+              scrolled ? "text-[#ea33f7]" : "text-[#ea33f7]"
             )}
           >
             Githaf Consulting
@@ -69,8 +69,8 @@ const Navbar: React.FC = () => {
                 className={cn(
                   "px-3 py-2 text-sm font-medium transition-colors duration-200",
                   scrolled 
-                    ? "text-gray-700 hover:text-[#5022b8]" 
-                    : "text-white/80 hover:text-white"
+                    ? "text-gray-700 hover:text-[#ea33f7]" 
+                    : "text-white hover:text-[#ea33f7]"
                 )}
                 onClick={handleNavClick}
               >
@@ -81,11 +81,7 @@ const Navbar: React.FC = () => {
               <Button 
                 variant="primary" 
                 size="sm"
-                className={cn(
-                  scrolled 
-                    ? "bg-[#5022b8] text-white" 
-                    : "bg-white text-[#5022b8]"
-                )}
+                className="bg-[#ea33f7] text-white"
               >
                 Get Started
               </Button>
@@ -121,7 +117,7 @@ const Navbar: React.FC = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#5022b8] transition-colors duration-200"
+                className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#ea33f7] transition-colors duration-200"
                 onClick={handleNavClick}
               >
                 {item.name}
@@ -131,7 +127,7 @@ const Navbar: React.FC = () => {
               <Button 
                 variant="primary" 
                 size="sm" 
-                className="w-full bg-[#5022b8] text-white"
+                className="w-full bg-[#ea33f7] text-white"
               >
                 Get Started
               </Button>

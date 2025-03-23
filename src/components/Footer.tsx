@@ -6,12 +6,12 @@ const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
   
   return (
-    <footer className="bg-[#5022b8] pt-16 pb-8 text-white">
+    <footer className="bg-[#1A1F2C] pt-16 pb-8 text-white">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           {/* Company info */}
           <div>
-            <h3 className="text-xl font-display font-bold mb-4 text-white">Githaf Consulting</h3>
+            <h3 className="text-xl font-display font-bold mb-4 text-[#ea33f7]">Githaf Consulting</h3>
             <p className="text-white/80 mb-6">
               Transforming businesses through innovative AI and digital solutions and strategic consulting.
             </p>
