@@ -82,7 +82,7 @@ const Hero: React.FC = () => {
             </div>
           </div>
           
-          {/* Visual element - replaced with an image */}
+          {/* Visual element - circular process leading to money image */}
           <div 
             className={`opacity-0 transition-all duration-1000 delay-300 ${
               isVisible ? 'opacity-100' : ''
@@ -91,8 +91,8 @@ const Hero: React.FC = () => {
             <div className="relative w-full max-w-[600px] mx-auto rounded-xl overflow-hidden aspect-[4/3] shadow-lg">
               <div className="absolute inset-0 bg-gradient-to-t from-[#1A1F2C] via-transparent to-transparent z-10"></div>
               <img 
-                src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" 
-                alt="Digital Transformation" 
+                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" 
+                alt="Digital Transformation Process" 
                 className="w-full h-full object-cover"
               />
               <div className="absolute bottom-0 left-0 right-0 p-6 z-20">

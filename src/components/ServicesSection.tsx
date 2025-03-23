@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { 
   BarChart3, 
@@ -141,11 +140,7 @@ const ServicesSection: React.FC = () => {
     <section id="services" className={cn("py-20 md:py-32", currentCategoryColor)}>
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center max-w-3xl mx-auto mb-12 reveal">
-          <p className="text-sm font-medium text-primary mb-2">WHAT WE DO</p>
           <h2 className="mb-4 text-3xl md:text-4xl font-bold">Our Services</h2>
-          <p className="text-lg text-muted-foreground">
-            Comprehensive solutions to drive your digital transformation journey
-          </p>
         </div>
 
         <div className="flex justify-center mb-16">
@@ -179,7 +174,7 @@ const ServicesSection: React.FC = () => {
                   className={cn("h-full rounded-xl shadow-sm hover:shadow-md transition-shadow p-6", 
                     serviceColor)}
                   intensity={5}
-                  style={{
+                  customStyle={{
                     borderWidth: '2px',
                     borderStyle: 'solid',
                     borderColor: currentBorderColor

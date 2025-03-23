@@ -4,7 +4,7 @@ import { Check } from 'lucide-react';
 import Button from './Button';
 
 const keyPoints = [
-  'Over 10 years of industry experience',
+  'Over 18 years of industry experience',
   'Team of certified consultants and specialists',
   'Proven track record of successful transformations',
   'Tailored solutions for businesses of all sizes',
@@ -38,11 +38,11 @@ const AboutSection: React.FC = () => {
           {/* Content column */}
           <div className="order-1 lg:order-2 reveal">
             <h2 className="mb-6">
-              About <span className="text-primary">Githaf Consulting</span>
+              About <span className="text-[#ea33f7]">Githaf Consulting</span>
             </h2>
             
             <p className="text-lg text-muted-foreground mb-6">
-              We're a team of seasoned consultants with deep expertise in technology integration, business strategy, and digital marketing. Our mission is to help businesses navigate the complexities of digital transformation with confidence and clarity.
+              We're a team of seasoned consultants with deep expertise in technology integration, business strategy, and digital marketing. Our mission is to help SMEs and Large Businesses navigate the digital age with ease, confidence and clarity in order to achieve their goals and increase revenue.
             </p>
             
             <p className="text-lg text-muted-foreground mb-8">
