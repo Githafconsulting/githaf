@@ -52,7 +52,7 @@ const Navbar: React.FC = () => {
             href="#home" 
             className="text-xl md:text-2xl font-display font-bold tracking-tight text-foreground"
           >
-            TechTransform
+            Githaf Consulting
           </a>
 
           {/* Desktop Navigation */}

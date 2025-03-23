@@ -37,7 +37,7 @@ const Hero: React.FC = () => {
               }`}
             >
               <span className="inline-block px-3 py-1 mb-4 text-sm font-medium bg-secondary text-secondary-foreground rounded-full">
-                Digital Transformation Consultancy
+                AI and Digital Transformation Consultancy
               </span>
             </div>
             
@@ -55,7 +55,7 @@ const Hero: React.FC = () => {
                 isVisible ? 'opacity-100 translate-y-0' : ''
               }`}
             >
-              We help businesses navigate the complexities of digital transformation with strategic consulting, innovative technologies, and data-driven marketing solutions.
+              We help businesses navigate the complexities of digital transformation with strategic consulting, innovative AI technologies, and data-driven solutions.
             </p>
             
             <div 
@@ -95,7 +95,7 @@ const Hero: React.FC = () => {
                     <div className="absolute w-48 h-48 bg-primary/20 rounded-full filter blur-xl animate-float"></div>
                     <div className="absolute w-32 h-32 bg-accent/30 rounded-full -translate-x-16 translate-y-10 filter blur-lg animate-float" style={{ animationDelay: '1s' }}></div>
                     <div className="absolute w-40 h-40 bg-secondary/40 rounded-full translate-x-20 -translate-y-12 filter blur-lg animate-float" style={{ animationDelay: '2s' }}></div>
-                    <div className="relative z-10 font-display text-5xl font-bold text-foreground">TechTransform</div>
+                    <div className="relative z-10 font-display text-5xl font-bold text-foreground">Githaf Consulting</div>
                   </div>
                 </div>
               </div>

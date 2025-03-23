@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
 import AnimatedCard from './AnimatedCard';
@@ -8,7 +9,7 @@ const testimonials = [
     name: 'HSBC',
     role: 'Global Banking',
     image: 'https://randomuser.me/api/portraits/men/1.jpg',
-    content: "Working with Githaf Consulting has been a game-changer for our digital transformation initiatives. Their strategic guidance helped us implement new technologies that increased our operational efficiency by 40%.",
+    content: "Githaf Consulting successfully led the transformation of our corporate payments system globally, implementing innovative solutions that increased our processing efficiency by 40% and improved compliance reporting.",
     rating: 5,
   },
   {
@@ -16,7 +17,7 @@ const testimonials = [
     name: 'Monitise',
     role: 'Financial Technology',
     image: 'https://randomuser.me/api/portraits/women/2.jpg',
-    content: "Their team's technical expertise is unmatched. They didn't just recommend solutions—they worked alongside us to implement them, ensuring our team was fully trained and confident with the new systems.",
+    content: "Their team's expertise in mobile development was crucial for our banking apps. Githaf Consulting helped us design and implement a suite of mobile banking applications that provided a seamless experience across multiple platforms.",
     rating: 5,
   },
   {
@@ -24,15 +25,15 @@ const testimonials = [
     name: 'Paypoint',
     role: 'Payment Services',
     image: 'https://randomuser.me/api/portraits/men/3.jpg',
-    content: "The AI-powered solutions Githaf developed for us transformed our payment processing capabilities. We've seen a 200% increase in processing speed and a significant reduction in manual interventions.",
+    content: "The new payments platform Githaf developed for us revolutionized our transaction processing capabilities. We've seen a 200% increase in processing speed and significant improvements in reliability and security.",
     rating: 5,
   },
   {
     id: 4,
-    name: 'Al Ghurair',
-    role: 'Conglomerate',
+    name: 'Various SMEs',
+    role: 'Multiple Industries',
     image: 'https://randomuser.me/api/portraits/women/4.jpg',
-    content: "Githaf's process optimization recommendations helped us eliminate bottlenecks we didn't even know existed. Our processing times have been reduced by 60%, and customer satisfaction scores are at an all-time high.",
+    content: "Githaf's AI automation and integration services have transformed our business operations. Their AI agents have reduced manual processing by 70%, allowing our team to focus on strategic initiatives rather than repetitive tasks.",
     rating: 5,
   },
 ];

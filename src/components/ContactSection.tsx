@@ -50,7 +50,7 @@ const ContactSection: React.FC = () => {
             <div className="reveal">
               <h2 className="mb-6">Get In Touch</h2>
               <p className="text-lg text-muted-foreground mb-8">
-                Ready to start your digital transformation journey? Contact us today to schedule a consultation and discover how we can help your business thrive in the digital age.
+                Ready to start your AI and digital transformation journey? Contact us today to schedule a consultation and discover how we can help your business thrive in the digital age.
               </p>
               
               <div className="space-y-6 mb-8">
@@ -60,7 +60,7 @@ const ContactSection: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="text-base font-semibold mb-1">Email Us</h4>
-                    <p className="text-muted-foreground">gravitasitconsultingltd@gmail.com</p>
+                    <p className="text-muted-foreground">gravitasitconsulting@gmail.com</p>
                   </div>
                 </div>
                 
@@ -70,7 +70,8 @@ const ContactSection: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="text-base font-semibold mb-1">Call Us</h4>
-                    <p className="text-muted-foreground">+971 562078508</p>
+                    <p className="text-muted-foreground">UK: +44 7530551944</p>
+                    <p className="text-muted-foreground">UAE: +971 562078508</p>
                   </div>
                 </div>
               </div>

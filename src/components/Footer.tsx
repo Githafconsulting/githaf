@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ArrowRight, Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -13,38 +13,8 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-xl font-display font-bold mb-4">Githaf Consulting</h3>
             <p className="text-muted-foreground mb-6">
-              Transforming businesses through innovative digital solutions and strategic consulting.
+              Transforming businesses through innovative AI and digital solutions and strategic consulting.
             </p>
-            <div className="flex space-x-4">
-              <a 
-                href="#" 
-                className="w-8 h-8 flex items-center justify-center rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
-                aria-label="Facebook"
-              >
-                <Facebook size={16} />
-              </a>
-              <a 
-                href="#" 
-                className="w-8 h-8 flex items-center justify-center rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
-                aria-label="Twitter"
-              >
-                <Twitter size={16} />
-              </a>
-              <a 
-                href="#" 
-                className="w-8 h-8 flex items-center justify-center rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin size={16} />
-              </a>
-              <a 
-                href="#" 
-                className="w-8 h-8 flex items-center justify-center rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
-                aria-label="Instagram"
-              >
-                <Instagram size={16} />
-              </a>
-            </div>
           </div>
           
           {/* Quick links */}
@@ -70,10 +40,10 @@ const Footer: React.FC = () => {
             <h4 className="text-lg font-semibold mb-4">Our Services</h4>
             <ul className="space-y-3">
               {[
+                'AI Integration', 
                 'Digital Strategy', 
                 'Technology Implementation', 
                 'Data Analytics', 
-                'Digital Marketing', 
                 'Process Optimization'
               ].map((item) => (
                 <li key={item}>
@@ -96,13 +66,18 @@ const Footer: React.FC = () => {
               <p>Kirby Le Soken, UK</p>
               <p>Damac Hills 2, UAE</p>
               <p className="mt-4">
+                <a href="tel:+447530551944" className="hover:text-primary transition-colors">
+                  +44 7530551944
+                </a>
+              </p>
+              <p>
                 <a href="tel:+971562078508" className="hover:text-primary transition-colors">
                   +971 562078508
                 </a>
               </p>
               <p>
-                <a href="mailto:gravitasitconsultingltd@gmail.com" className="hover:text-primary transition-colors">
-                  gravitasitconsultingltd@gmail.com
+                <a href="mailto:gravitasitconsulting@gmail.com" className="hover:text-primary transition-colors">
+                  gravitasitconsulting@gmail.com
                 </a>
               </p>
             </address>
