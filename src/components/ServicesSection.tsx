@@ -22,14 +22,29 @@ import {
 } from 'lucide-react';
 import AnimatedCard from './AnimatedCard';
 import { cn } from '@/lib/utils';
+import { Button } from './Button';
+
+// Define service colors (individual colors for each service)
+const serviceColors = {
+  1: 'bg-[#D3E4FD]/80', // Mobile App Dev - Soft Blue
+  2: 'bg-[#D3E4FD]/50', // Website Dev - Lighter Blue
+  3: 'bg-[#D3E4FD]/70', // Payments - Medium Blue
+  4: 'bg-[#FDE1D3]/70', // Business Analysis - Medium Peach
+  5: 'bg-[#FDE1D3]/50', // Enterprise Agility - Lighter Peach
+  6: 'bg-[#E5DEFF]/80', // AI Agents - Deeper Purple
+  7: 'bg-[#E5DEFF]/60', // Automated Workflow - Medium Purple
+  8: 'bg-[#F2FCE2]/70', // Facebook Marketing - Medium Green
+  9: 'bg-[#F2FCE2]/50', // Google Marketing - Lighter Green
+  10: 'bg-[#FDE1D3]/60', // Training - Different Peach
+};
 
 // Define service categories with colors
 const categories = [
-  { id: 'all', name: 'All Services', color: 'bg-secondary/30' },
-  { id: 'tech', name: 'Tech Services', color: 'bg-[#D3E4FD]/50' }, // Soft Blue
-  { id: 'transformation', name: 'Transformation Services', color: 'bg-[#FDE1D3]/50' }, // Soft Peach
-  { id: 'ai', name: 'AI Services', color: 'bg-[#E5DEFF]/50' }, // Soft Purple
-  { id: 'marketing', name: 'Digital Marketing', color: 'bg-[#F2FCE2]/50' }, // Soft Green
+  { id: 'all', name: 'All Services', color: 'bg-[#F7F9FC]' }, // Light gray background like Make.com
+  { id: 'tech', name: 'Tech Services', color: 'bg-[#D3E4FD]/30' }, // Soft Blue
+  { id: 'transformation', name: 'Transformation Services', color: 'bg-[#FDE1D3]/30' }, // Soft Peach
+  { id: 'ai', name: 'AI Services', color: 'bg-[#E5DEFF]/30' }, // Soft Purple
+  { id: 'marketing', name: 'Digital Marketing', color: 'bg-[#F2FCE2]/30' }, // Soft Green
 ];
 
 // Define services with categories
@@ -114,60 +129,65 @@ const ServicesSection: React.FC = () => {
     : services.filter(service => service.category === activeCategory);
 
   // Find the current category color
-  const currentCategoryColor = categories.find(cat => cat.id === activeCategory)?.color || 'bg-secondary/30';
+  const currentCategoryColor = categories.find(cat => cat.id === activeCategory)?.color || 'bg-[#F7F9FC]';
 
   return (
     <section id="services" className={cn("py-20 md:py-32", currentCategoryColor)}>
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center max-w-3xl mx-auto mb-12 reveal">
-          <h2 className="mb-4">Our Services</h2>
+          <p className="text-sm font-medium text-primary mb-2">WHAT WE DO</p>
+          <h2 className="mb-4 text-3xl md:text-4xl font-bold">Our Services</h2>
           <p className="text-lg text-muted-foreground">
             Comprehensive solutions to drive your digital transformation journey
           </p>
         </div>
 
-        {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-2 mb-12">
-          {categories.map((category) => (
-            <button
-              key={category.id}
-              onClick={() => setActiveCategory(category.id)}
-              className={`px-4 py-2 text-sm font-medium rounded-full transition-all 
-                ${activeCategory === category.id 
-                  ? 'bg-primary text-primary-foreground' 
-                  : 'bg-secondary text-foreground hover:bg-primary/10'}`}
-            >
-              {category.name}
-            </button>
-          ))}
+        {/* Category Filter - Make.com style tabs */}
+        <div className="flex justify-center mb-16">
+          <div className="inline-flex bg-secondary/50 p-1 rounded-full">
+            {categories.map((category) => (
+              <button
+                key={category.id}
+                onClick={() => setActiveCategory(category.id)}
+                className={`px-4 py-2 text-sm font-medium rounded-full transition-all whitespace-nowrap
+                  ${activeCategory === category.id 
+                    ? 'bg-white text-foreground shadow-sm' 
+                    : 'text-foreground/80 hover:text-foreground'}`}
+              >
+                {category.name}
+              </button>
+            ))}
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredServices.map((service, index) => {
-            // Get the category color
-            const categoryColor = categories.find(cat => cat.id === service.category)?.color || 'bg-background';
+            // Get the service's individual color
+            const serviceColor = serviceColors[service.id] || 'bg-background';
             
             return (
               <div key={service.id} className="reveal" style={{ transitionDelay: `${index * 100}ms` }}>
                 <AnimatedCard 
                   className={cn("h-full border rounded-xl shadow-sm hover:shadow-md transition-shadow p-6", 
-                    activeCategory === 'all' ? categoryColor : 'bg-background')}
+                    serviceColor)}
                   intensity={5}
                 >
                   <div className="flex flex-col h-full">
-                    <div className="p-2 rounded-lg bg-primary/10 w-fit mb-4">
+                    <div className="p-2 rounded-lg bg-white/70 w-fit mb-4">
                       {service.icon}
                     </div>
                     <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
                     <p className="text-muted-foreground flex-grow">{service.description}</p>
                     <div className="mt-4 pt-4 border-t border-border">
-                      <a 
-                        href="#contact" 
-                        className="text-primary font-medium inline-flex items-center hover:underline"
+                      <Button 
+                        variant="ghost" 
+                        size="sm" 
+                        className="text-primary font-medium px-0 hover:bg-transparent hover:underline"
+                        icon={<ArrowRight className="w-4 h-4" />}
+                        iconPosition="right"
                       >
                         Learn more
-                        <ArrowRight className="ml-1 w-4 h-4" />
-                      </a>
+                      </Button>
                     </div>
                   </div>
                 </AnimatedCard>
