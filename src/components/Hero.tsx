@@ -65,22 +65,26 @@ const Hero: React.FC = () => {
                 isVisible ? 'opacity-100 translate-y-0' : ''
               }`}
             >
-              <Button 
-                variant="primary" 
-                size={isMobile ? "sm" : "lg"}
-                className="bg-[#ea33f7] text-white hover:bg-[#ea33f7]/90"
-                icon={<ArrowRight size={isMobile ? 16 : 18} />}
-                iconPosition="right"
-              >
-                Explore Our Services
-              </Button>
-              <Button 
-                variant="outline" 
-                size={isMobile ? "sm" : "lg"}
-                className="bg-[#ea33f7] text-white hover:bg-[#ea33f7]/90 border-[#ea33f7]"
-              >
-                Contact Us
-              </Button>
+              <a href="#services">
+                <Button 
+                  variant="primary" 
+                  size={isMobile ? "sm" : "lg"}
+                  className="bg-[#ea33f7] text-white hover:bg-[#ea33f7]/90 w-full sm:w-auto"
+                  icon={<ArrowRight size={isMobile ? 16 : 18} />}
+                  iconPosition="right"
+                >
+                  Explore Our Services
+                </Button>
+              </a>
+              <a href="#contact" className="w-full sm:w-auto">
+                <Button 
+                  variant="outline" 
+                  size={isMobile ? "sm" : "lg"}
+                  className="bg-[#ea33f7] text-white hover:bg-[#ea33f7]/90 border-[#ea33f7] w-full"
+                >
+                  Contact Us
+                </Button>
+              </a>
             </div>
           </div>
           

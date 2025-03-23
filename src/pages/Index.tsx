@@ -6,11 +6,13 @@ import ServicesSection from '@/components/ServicesSection';
 import AboutSection from '@/components/AboutSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import ContactSection from '@/components/ContactSection';
+import CompanyTicker from '@/components/CompanyTicker';
 
 const Index = () => {
   return (
     <Layout>
       <Hero />
+      <CompanyTicker />
       <div className="space-y-0 sm:space-y-1 md:space-y-2">
         <ServicesSection />
         <AboutSection />

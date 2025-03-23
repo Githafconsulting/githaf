@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
 import AnimatedCard from './AnimatedCard';
@@ -30,7 +29,7 @@ const testimonials = [
   },
   {
     id: 4,
-    name: 'Various SMEs',
+    name: 'Developer Village',
     role: 'Multiple Industries',
     image: 'https://randomuser.me/api/portraits/women/4.jpg',
     content: "Githaf's AI automation and integration services have transformed our business operations. Their AI agents have reduced manual processing by 70%, allowing our team to focus on strategic initiatives rather than repetitive tasks.",
