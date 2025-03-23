@@ -9,6 +9,7 @@ interface AnimatedCardProps {
   shine?: boolean;
   border?: boolean;
   animate?: boolean;
+  customStyle?: React.CSSProperties;
 }
 
 const AnimatedCard: React.FC<AnimatedCardProps> = ({
@@ -18,6 +19,7 @@ const AnimatedCard: React.FC<AnimatedCardProps> = ({
   shine = false,
   border = false,
   animate = true,
+  customStyle,
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -83,7 +85,7 @@ const AnimatedCard: React.FC<AnimatedCardProps> = ({
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      style={transformStyle}
+      style={{...transformStyle, ...customStyle}}
     >
       {children}
       {shine && (
