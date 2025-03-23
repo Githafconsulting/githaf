@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { Check } from 'lucide-react';
-import Button from './Button';
 
 const keyPoints = [
   'Over 18 years of industry experience',
@@ -59,13 +58,6 @@ const AboutSection: React.FC = () => {
                 </div>
               ))}
             </div>
-            
-            <Button 
-              variant="primary"
-              className="mt-2"
-            >
-              Our Approach
-            </Button>
           </div>
         </div>
       </div>

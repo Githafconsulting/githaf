@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { 
   Smartphone, 
@@ -10,11 +11,10 @@ import {
   Search,
   Globe,
   GraduationCap,
-  ArrowRight
+  ClipboardList
 } from 'lucide-react';
 import AnimatedCard from './AnimatedCard';
 import { cn } from '@/lib/utils';
-import Button from './Button';
 
 // Updated colors for categories
 const categoryColors = {
@@ -37,6 +37,7 @@ const serviceColors = {
   8: 'bg-[#F2FCE2]/70', // Facebook Marketing - Medium Green
   9: 'bg-[#F2FCE2]/50', // Google Marketing - Lighter Green
   10: 'bg-[#FDE1D3]/60', // Training - Different Peach
+  11: 'bg-[#FDE1D3]/40', // Programme Governance - Light Peach
 };
 
 const categories = [
@@ -114,8 +115,15 @@ const services = [
   {
     id: 10,
     title: 'Training & Courses',
-    description: 'Courses on transformation, enterprise agility, software engineering, and data engineering to equip your team with the latest skills.',
+    description: 'Courses on Enterprise Agility, Programme Management and Governance, Software Engineering, Data Engineering, and Leveraging AI for Automation.',
     icon: <GraduationCap className="w-8 h-8 text-primary" />,
+    category: 'transformation',
+  },
+  {
+    id: 11,
+    title: 'Programme Governance & Management',
+    description: 'Expert governance and management for complex programs, ensuring alignment with business objectives, risk mitigation, and successful delivery.',
+    icon: <ClipboardList className="w-8 h-8 text-primary" />,
     category: 'transformation',
   },
 ];
@@ -169,18 +177,7 @@ const ServicesSection: React.FC = () => {
                       {service.icon}
                     </div>
                     <h3 className="text-lg sm:text-xl font-semibold mb-2">{service.title}</h3>
-                    <p className="text-sm sm:text-base text-muted-foreground flex-grow">{service.description}</p>
-                    <div className="mt-3 pt-3 border-t border-gray-200">
-                      <Button 
-                        variant="ghost" 
-                        size="sm" 
-                        className="text-primary font-medium px-0 hover:bg-transparent hover:underline"
-                        icon={<ArrowRight className="w-4 h-4" />}
-                        iconPosition="right"
-                      >
-                        Learn more
-                      </Button>
-                    </div>
+                    <p className="text-sm sm:text-base text-muted-foreground">{service.description}</p>
                   </div>
                 </AnimatedCard>
               </div>
