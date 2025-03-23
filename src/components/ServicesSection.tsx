@@ -43,7 +43,7 @@ const serviceColors = {
 const categories = [
   { id: 'all', name: 'All Services', color: 'bg-[#F7F9FC]' }, // Light gray background like Make.com
   { id: 'ai', name: 'AI Services', color: 'bg-[#E5DEFF]/30' }, // Soft Purple
-  { id: 'tech', name: 'Tech Services', color: 'bg-[#D3E4FD]/30' }, // Soft Blue
+  { id: 'tech', name: 'Technology Services', color: 'bg-[#D3E4FD]/30' }, // Soft Blue
   { id: 'transformation', name: 'Transformation Services', color: 'bg-[#FDE1D3]/30' }, // Soft Peach
   { id: 'marketing', name: 'Digital Marketing', color: 'bg-[#F2FCE2]/30' }, // Soft Green
 ];
@@ -130,7 +130,10 @@ const services = [
 
 // Pre-filter the services for each category to avoid doing this on every render
 const filteredServicesByCategory = {
-  all: services,
+  all: [...services.filter(service => service.category === 'ai'),
+        ...services.filter(service => service.category === 'tech'),
+        ...services.filter(service => service.category === 'transformation'),
+        ...services.filter(service => service.category === 'marketing')],
   tech: services.filter(service => service.category === 'tech'),
   ai: services.filter(service => service.category === 'ai'),
   transformation: services.filter(service => service.category === 'transformation'),
@@ -160,18 +163,26 @@ const ServicesSection: React.FC = () => {
 
         <div className="flex justify-center mb-8 overflow-x-auto pb-2">
           <div className="inline-flex bg-secondary/50 p-1 rounded-full">
-            {categories.map((category) => (
-              <button
-                key={category.id}
-                onClick={() => setActiveCategory(category.id)}
-                className={`px-3 py-1.5 text-xs sm:text-sm font-medium rounded-full transition-all whitespace-nowrap
-                  ${activeCategory === category.id 
-                    ? 'bg-white text-foreground shadow-sm' 
-                    : 'text-foreground/80 hover:text-foreground'}`}
-              >
-                {category.name}
-              </button>
-            ))}
+            {categories.map((category) => {
+              // Match button colors to their category's color
+              const buttonStyle = category.id !== 'all' 
+                ? { backgroundColor: category.id === activeCategory ? 'white' : category.color.replace('bg-', '') } 
+                : {};
+                
+              return (
+                <button
+                  key={category.id}
+                  onClick={() => setActiveCategory(category.id)}
+                  className={`px-3 py-1.5 text-xs sm:text-sm font-medium rounded-full transition-all whitespace-nowrap
+                    ${activeCategory === category.id 
+                      ? 'bg-white text-foreground shadow-sm' 
+                      : 'text-foreground/80 hover:text-foreground'}`}
+                  style={buttonStyle}
+                >
+                  {category.name}
+                </button>
+              );
+            })}
           </div>
         </div>
 
