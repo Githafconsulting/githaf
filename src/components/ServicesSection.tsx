@@ -1,3 +1,4 @@
+
 import React, { useState, useMemo } from 'react';
 import { 
   Smartphone, 
@@ -17,7 +18,6 @@ import { cn } from '@/lib/utils';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const categoryColors = {
-  'all': 'white',
   'tech': '#D7707E',
   'transformation': '#25A385',
   'ai': '#4682B4',
@@ -39,7 +39,6 @@ const serviceColors = {
 };
 
 const categories = [
-  { id: 'all', name: 'All Services', color: 'bg-[#F7F9FC]' },
   { id: 'ai', name: 'AI Services', color: 'bg-[#E5DEFF]/30' },
   { id: 'tech', name: 'Technology Services', color: 'bg-[#D3E4FD]/30' },
   { id: 'transformation', name: 'Transformation Services', color: 'bg-[#FDE1D3]/30' },
@@ -127,18 +126,14 @@ const services = [
 ];
 
 const filteredServicesByCategory = {
-  all: [...services.filter(service => service.category === 'ai'),
-        ...services.filter(service => service.category === 'tech'),
-        ...services.filter(service => service.category === 'transformation'),
-        ...services.filter(service => service.category === 'marketing')],
-  tech: services.filter(service => service.category === 'tech'),
   ai: services.filter(service => service.category === 'ai'),
+  tech: services.filter(service => service.category === 'tech'),
   transformation: services.filter(service => service.category === 'transformation'),
   marketing: services.filter(service => service.category === 'marketing'),
 };
 
 const ServicesSection: React.FC = () => {
-  const [activeCategory, setActiveCategory] = useState('all');
+  const [activeCategory, setActiveCategory] = useState('ai');
   const isMobile = useIsMobile();
 
   const filteredServices = useMemo(() => 
@@ -147,7 +142,7 @@ const ServicesSection: React.FC = () => {
   );
 
   const currentCategoryColor = useMemo(() => 
-    categories.find(cat => cat.id === activeCategory)?.color || 'bg-[#F7F9FC]',
+    categories.find(cat => cat.id === activeCategory)?.color || 'bg-[#E5DEFF]/30',
     [activeCategory]
   );
 
@@ -161,9 +156,7 @@ const ServicesSection: React.FC = () => {
         <div className="flex justify-center mb-6 overflow-x-auto pb-2">
           <div className="inline-flex bg-secondary/50 p-1 rounded-full">
             {categories.map((category) => {
-              const buttonStyle = category.id !== 'all' 
-                ? { backgroundColor: category.id === activeCategory ? 'white' : category.color.replace('bg-', '') } 
-                : {};
+              const buttonStyle = { backgroundColor: category.id === activeCategory ? 'white' : category.color.replace('bg-', '') };
                 
               return (
                 <button
