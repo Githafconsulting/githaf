@@ -33,8 +33,8 @@ const AboutSection: React.FC = () => {
               )}
               <div className="relative rounded-xl overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81" 
-                  alt="Diverse team of smartly dressed professionals" 
+                  src="/lovable-uploads/313bdaca-fadf-4d22-9181-d3f6de4259f6.png" 
+                  alt="Diverse team of professionals collaborating around a table with laptops" 
                   className="w-full h-auto object-cover aspect-[4/3] lazy-image"
                 />
               </div>
