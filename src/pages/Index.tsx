@@ -13,7 +13,7 @@ const Index = () => {
     <Layout>
       <Hero />
       <CompanyTicker />
-      <div className="space-y-0 sm:space-y-1 md:space-y-2">
+      <div className="space-y-0">
         <ServicesSection />
         <AboutSection />
         <TestimonialsSection />

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Mail, MessageSquare, Send } from 'lucide-react';
 import Button from './Button';
@@ -48,8 +47,11 @@ const ContactSection: React.FC = () => {
     }
   };
 
+  // Email address split into parts to prevent easy scraping
+  const emailParts = ['gravitasitconsulting', 'gmail.com'];
+
   return (
-    <section id="contact" className="py-20 md:py-32 relative overflow-hidden">
+    <section id="contact" className="py-12 md:py-20 relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute left-0 top-1/3 w-1/3 h-1/3 bg-primary/5 rounded-r-full -z-10"></div>
       <div className="absolute right-0 bottom-0 w-1/4 h-1/3 bg-accent/5 rounded-tl-full -z-10"></div>
@@ -71,7 +73,11 @@ const ContactSection: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="text-base font-semibold mb-1">Email Us</h4>
-                    <p className="text-muted-foreground">gravitasitconsulting@gmail.com</p>
+                    <p className="text-muted-foreground select-none" aria-label="Email address">
+                      <span>{emailParts[0]}</span>
+                      <span>@</span>
+                      <span>{emailParts[1]}</span>
+                    </p>
                   </div>
                 </div>
                 

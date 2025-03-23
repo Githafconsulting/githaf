@@ -65,6 +65,15 @@ const Hero: React.FC = () => {
                 isVisible ? 'opacity-100 translate-y-0' : ''
               }`}
             >
+              <a href="#services" className="w-full sm:w-auto">
+                <Button 
+                  variant="primary" 
+                  size={isMobile ? "sm" : "lg"}
+                  className="bg-[#ea33f7] text-white hover:bg-[#ea33f7]/90 w-full"
+                >
+                  Explore Our Services
+                </Button>
+              </a>
               <a href="#contact">
                 <Button 
                   variant="primary" 
@@ -74,15 +83,6 @@ const Hero: React.FC = () => {
                   iconPosition="right"
                 >
                   Contact Us
-                </Button>
-              </a>
-              <a href="#services" className="w-full sm:w-auto">
-                <Button 
-                  variant="outline" 
-                  size={isMobile ? "sm" : "lg"}
-                  className="bg-transparent text-white hover:bg-white/10 border-white/30 w-full"
-                >
-                  Explore Our Services
                 </Button>
               </a>
             </div>

@@ -41,9 +41,9 @@ const companies = [
 
 const CompanyTicker: React.FC = () => {
   return (
-    <section className="py-12 bg-white overflow-hidden">
+    <section className="py-8 bg-white overflow-hidden">
       <div className="container mx-auto px-4">
-        <h3 className="text-center mb-8 text-2xl">Successfully delivered for leading companies</h3>
+        <h3 className="text-center mb-6 text-2xl">Successfully delivered for leading companies</h3>
         
         <div className="relative">
           {/* Gradient overlays for smooth edge fade */}

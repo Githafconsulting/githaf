@@ -77,7 +77,7 @@ const AboutSection: React.FC = () => {
                   <div className="mr-2 mt-0.5 flex-shrink-0">
                     {point.icon}
                   </div>
-                  <p className="text-sm text-foreground">{point.text}</p>
+                  <p className="text-sm text-muted-foreground">{point.text}</p>
                 </div>
               ))}
             </div>
