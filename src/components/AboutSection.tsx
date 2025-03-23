@@ -48,11 +48,11 @@ const AboutSection: React.FC = () => {
             </h2>
             
             <p className="text-base text-muted-foreground mb-2 sm:mb-3">
-              We're a team of seasoned consultants with deep expertise in technology integration, business strategy, and digital marketing. Our mission is to help SMEs and Large Businesses navigate the digital age with ease, confidence and clarity in order to achieve their goals and increase revenue.
+              We're a team of experienced consultants specializing in technology, business strategy, and digital marketing. Our goal is to help SMEs and large businesses thrive in the digital world, increase revenue, and stay competitive.
             </p>
             
             <p className="text-base text-muted-foreground mb-3 sm:mb-4">
-              Our proven methodology combines strategic thinking with practical implementation, ensuring that our clients not only envision their digital future but realize it in a way that drives measurable business results.
+              By combining smart strategies with practical solutions, we ensure our clients not only plan for the future but also achieve real, measurable results in today's fast-paced market.
             </p>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-3 sm:mb-4">
