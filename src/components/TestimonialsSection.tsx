@@ -9,7 +9,7 @@ const testimonials = [
     name: 'HSBC',
     role: 'Global Banking',
     image: 'https://randomuser.me/api/portraits/men/1.jpg',
-    content: "Githaf Consulting successfully led the transformation of our corporate payments system globally, implementing innovative solutions that significantly increased our processing efficiency and improved compliance reporting.",
+    content: "The team successfully led the transformation of our corporate payments system globally, implementing innovative solutions that significantly increased our processing efficiency and improved compliance reporting.",
     rating: 5,
   },
   {
@@ -17,7 +17,7 @@ const testimonials = [
     name: 'Monitise',
     role: 'Financial Technology',
     image: 'https://randomuser.me/api/portraits/women/2.jpg',
-    content: "Their team's expertise in mobile development was crucial for our banking apps. Githaf Consulting helped us design and implement a suite of mobile banking applications that provided a seamless experience across multiple platforms.",
+    content: "Their team's expertise in mobile development was crucial for our banking apps. They helped us design and implement a suite of mobile banking applications that provided a seamless experience across multiple platforms.",
     rating: 5,
   },
   {
@@ -25,7 +25,7 @@ const testimonials = [
     name: 'Paypoint',
     role: 'Payment Services',
     image: 'https://randomuser.me/api/portraits/men/3.jpg',
-    content: "The new payments platform Githaf developed for us revolutionized our transaction processing capabilities. We've seen substantial improvements in processing speed and notable enhancements in reliability and security.",
+    content: "The new payments platform the team developed for us revolutionized our transaction processing capabilities. We've seen substantial improvements in processing speed and notable enhancements in reliability and security.",
     rating: 5,
   },
   {
@@ -33,7 +33,7 @@ const testimonials = [
     name: 'Developer Village',
     role: 'Multiple Industries',
     image: 'https://randomuser.me/api/portraits/women/4.jpg',
-    content: "Githaf's AI automation and integration services have transformed our business operations. Their AI agents have considerably reduced manual processing, allowing our team to focus on strategic initiatives rather than repetitive tasks.",
+    content: "The team's AI automation and integration services have transformed our business operations. Their AI agents have considerably reduced manual processing, allowing our team to focus on strategic initiatives rather than repetitive tasks.",
     rating: 5,
   },
 ];
