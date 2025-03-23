@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { 
   BarChart3, 
@@ -22,9 +21,8 @@ import {
 } from 'lucide-react';
 import AnimatedCard from './AnimatedCard';
 import { cn } from '@/lib/utils';
-import { Button } from './Button';
+import Button from './Button';
 
-// Define service colors (individual colors for each service)
 const serviceColors = {
   1: 'bg-[#D3E4FD]/80', // Mobile App Dev - Soft Blue
   2: 'bg-[#D3E4FD]/50', // Website Dev - Lighter Blue
@@ -38,7 +36,6 @@ const serviceColors = {
   10: 'bg-[#FDE1D3]/60', // Training - Different Peach
 };
 
-// Define service categories with colors
 const categories = [
   { id: 'all', name: 'All Services', color: 'bg-[#F7F9FC]' }, // Light gray background like Make.com
   { id: 'tech', name: 'Tech Services', color: 'bg-[#D3E4FD]/30' }, // Soft Blue
@@ -47,7 +44,6 @@ const categories = [
   { id: 'marketing', name: 'Digital Marketing', color: 'bg-[#F2FCE2]/30' }, // Soft Green
 ];
 
-// Define services with categories
 const services = [
   {
     id: 1,
@@ -128,7 +124,6 @@ const ServicesSection: React.FC = () => {
     ? services 
     : services.filter(service => service.category === activeCategory);
 
-  // Find the current category color
   const currentCategoryColor = categories.find(cat => cat.id === activeCategory)?.color || 'bg-[#F7F9FC]';
 
   return (
@@ -142,7 +137,6 @@ const ServicesSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Category Filter - Make.com style tabs */}
         <div className="flex justify-center mb-16">
           <div className="inline-flex bg-secondary/50 p-1 rounded-full">
             {categories.map((category) => (
@@ -162,7 +156,6 @@ const ServicesSection: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredServices.map((service, index) => {
-            // Get the service's individual color
             const serviceColor = serviceColors[service.id] || 'bg-background';
             
             return (
