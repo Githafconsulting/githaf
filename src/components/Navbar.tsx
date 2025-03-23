@@ -42,7 +42,9 @@ const Navbar: React.FC = () => {
     <nav 
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4',
-        scrolled ? 'bg-background/80 backdrop-blur-lg shadow-sm' : 'bg-transparent'
+        scrolled 
+          ? 'bg-white shadow-sm' 
+          : 'bg-[#5022b8]'
       )}
     >
       <div className="container mx-auto px-4 md:px-6">
@@ -50,7 +52,10 @@ const Navbar: React.FC = () => {
           {/* Logo */}
           <a 
             href="#home" 
-            className="text-xl md:text-2xl font-display font-bold tracking-tight text-foreground"
+            className={cn(
+              "text-xl md:text-2xl font-display font-bold tracking-tight",
+              scrolled ? "text-[#5022b8]" : "text-white"
+            )}
           >
             Githaf Consulting
           </a>
@@ -61,14 +66,27 @@ const Navbar: React.FC = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors duration-200"
+                className={cn(
+                  "px-3 py-2 text-sm font-medium transition-colors duration-200",
+                  scrolled 
+                    ? "text-gray-700 hover:text-[#5022b8]" 
+                    : "text-white/80 hover:text-white"
+                )}
                 onClick={handleNavClick}
               >
                 {item.name}
               </a>
             ))}
             <div className="ml-4">
-              <Button variant="primary" size="sm">
+              <Button 
+                variant="primary" 
+                size="sm"
+                className={cn(
+                  scrolled 
+                    ? "bg-[#5022b8] text-white" 
+                    : "bg-white text-[#5022b8]"
+                )}
+              >
                 Get Started
               </Button>
             </div>
@@ -78,7 +96,10 @@ const Navbar: React.FC = () => {
           <div className="md:hidden">
             <button
               aria-label="Toggle menu"
-              className="p-2 text-foreground"
+              className={cn(
+                "p-2",
+                scrolled ? "text-gray-700" : "text-white"
+              )}
               onClick={() => setIsOpen(!isOpen)}
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -90,7 +111,7 @@ const Navbar: React.FC = () => {
       {/* Mobile Navigation */}
       <div 
         className={cn(
-          'md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-md shadow-md transition-all duration-300 ease-in-out transform',
+          'md:hidden absolute top-full left-0 right-0 bg-white shadow-md transition-all duration-300 ease-in-out transform',
           isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'
         )}
       >
@@ -100,14 +121,18 @@ const Navbar: React.FC = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors duration-200"
+                className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#5022b8] transition-colors duration-200"
                 onClick={handleNavClick}
               >
                 {item.name}
               </a>
             ))}
             <div className="pt-2">
-              <Button variant="primary" size="sm" className="w-full">
+              <Button 
+                variant="primary" 
+                size="sm" 
+                className="w-full bg-[#5022b8] text-white"
+              >
                 Get Started
               </Button>
             </div>

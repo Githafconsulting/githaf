@@ -38,7 +38,7 @@ const AboutSection: React.FC = () => {
           {/* Content column */}
           <div className="order-1 lg:order-2 reveal">
             <h2 className="mb-6">
-              About <span className="text-primary">TechTransform</span>
+              About <span className="text-primary">Githaf Consulting</span>
             </h2>
             
             <p className="text-lg text-muted-foreground mb-6">
