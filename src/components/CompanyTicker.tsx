@@ -15,22 +15,22 @@ const companies = [
   {
     id: 3,
     name: 'LuupFX',
-    logo: '/lovable-uploads/231ef831-e20d-478b-9138-dada4cb70a77.png',
+    logo: '/lovable-uploads/a8677b99-fa88-4401-97cf-e8409faa645a.png',
   },
   {
     id: 4,
     name: 'PayPoint',
-    logo: '/lovable-uploads/e0567348-cc7c-4700-bed1-4e5c47cc9292.png',
+    logo: '/lovable-uploads/d9d7e005-339a-4d0f-837e-e66055b8d5c1.png',
   },
   {
     id: 5,
     name: 'SAB',
-    logo: '/lovable-uploads/5b4c8fbf-d69e-4d10-bdf7-acb5ba67e51f.png',
+    logo: '/lovable-uploads/695a2823-ea21-41c3-989a-aa34e9306aad.png',
   },
   {
     id: 6,
     name: 'Al Ghurair',
-    logo: '/lovable-uploads/dbd77a96-2640-4065-ac5e-5b01e6f72ff4.png',
+    logo: '/lovable-uploads/c3325f33-66ce-4975-ba17-e8c1524d56ff.png',
   },
   {
     id: 7,

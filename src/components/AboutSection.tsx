@@ -5,7 +5,6 @@ import {
   Users, 
   CheckSquare, 
   AlignJustify, 
-  BarChart, 
   Headphones 
 } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -26,10 +25,6 @@ const keyPoints = [
   {
     text: 'Tailored solutions for businesses of all sizes',
     icon: <AlignJustify size={16} className="text-[#D946EF]" />
-  },
-  {
-    text: 'Data-driven approach to digital strategy',
-    icon: <BarChart size={16} className="text-[#000000e6]" />
   },
   {
     text: 'Ongoing support and optimization services',

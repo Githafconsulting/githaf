@@ -113,6 +113,10 @@ export default {
 				float: {
 					'0%, 100%': { transform: 'translateY(0)' },
 					'50%': { transform: 'translateY(-10px)' }
+				},
+				marquee: {
+					'0%': { transform: 'translateX(0)' },
+					'100%': { transform: 'translateX(-50%)' }
 				}
 			},
 			animation: {
@@ -125,7 +129,8 @@ export default {
 				'slide-left': 'slide-left 0.6s ease-out forwards',
 				'slide-right': 'slide-right 0.6s ease-out forwards',
 				'scale-in': 'scale-in 0.3s ease-out forwards',
-				'float': 'float 6s ease-in-out infinite'
+				'float': 'float 6s ease-in-out infinite',
+				'marquee': 'marquee 25s linear infinite'
 			},
 			backdropBlur: {
 				xs: '2px',
