@@ -1,25 +1,40 @@
 
 import React from 'react';
-import { Check } from 'lucide-react';
+import { 
+  Award, 
+  Users, 
+  CheckSquare, 
+  AlignJustify, 
+  BarChart, 
+  Headphones 
+} from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const keyPoints = [
-  'Over 18 years of industry experience',
-  'Team of certified consultants and specialists',
-  'Proven track record of successful transformations',
-  'Tailored solutions for businesses of all sizes',
-  'Data-driven approach to digital strategy',
-  'Ongoing support and optimization services',
-];
-
-// Array of colors for the bullet points
-const iconColors = [
-  '#0EA5E9', // Ocean Blue
-  '#8B5CF6', // Vivid Purple
-  '#F97316', // Bright Orange
-  '#D946EF', // Magenta Pink
-  '#000000e6', // Black
-  '#ea384c', // Red
+  {
+    text: 'Over 18 years of industry experience',
+    icon: <Award size={16} className="text-[#0EA5E9]" />
+  },
+  {
+    text: 'Team of certified consultants and specialists',
+    icon: <Users size={16} className="text-[#8B5CF6]" />
+  },
+  {
+    text: 'Proven track record of successful transformations',
+    icon: <CheckSquare size={16} className="text-[#F97316]" />
+  },
+  {
+    text: 'Tailored solutions for businesses of all sizes',
+    icon: <AlignJustify size={16} className="text-[#D946EF]" />
+  },
+  {
+    text: 'Data-driven approach to digital strategy',
+    icon: <BarChart size={16} className="text-[#000000e6]" />
+  },
+  {
+    text: 'Ongoing support and optimization services',
+    icon: <Headphones size={16} className="text-[#ea384c]" />
+  },
 ];
 
 const AboutSection: React.FC = () => {
@@ -60,9 +75,9 @@ const AboutSection: React.FC = () => {
               {keyPoints.map((point, index) => (
                 <div key={index} className="flex items-start">
                   <div className="mr-2 mt-0.5 flex-shrink-0">
-                    <Check size={16} color={iconColors[index % iconColors.length]} />
+                    {point.icon}
                   </div>
-                  <p className="text-sm text-foreground">{point}</p>
+                  <p className="text-sm text-foreground">{point.text}</p>
                 </div>
               ))}
             </div>

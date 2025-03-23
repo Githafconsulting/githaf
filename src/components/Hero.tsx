@@ -61,11 +61,11 @@ const Hero: React.FC = () => {
             </p>
             
             <div 
-              className={`flex flex-col sm:flex-row gap-3 opacity-0 transform translate-y-8 transition-all duration-700 delay-300 ease-out ${
+              className={`flex flex-col sm:flex-row gap-3 mb-8 opacity-0 transform translate-y-8 transition-all duration-700 delay-300 ease-out ${
                 isVisible ? 'opacity-100 translate-y-0' : ''
               }`}
             >
-              <a href="#services">
+              <a href="#contact">
                 <Button 
                   variant="primary" 
                   size={isMobile ? "sm" : "lg"}
@@ -73,16 +73,16 @@ const Hero: React.FC = () => {
                   icon={<ArrowRight size={isMobile ? 16 : 18} />}
                   iconPosition="right"
                 >
-                  Explore Our Services
+                  Contact Us
                 </Button>
               </a>
-              <a href="#contact" className="w-full sm:w-auto">
+              <a href="#services" className="w-full sm:w-auto">
                 <Button 
                   variant="outline" 
                   size={isMobile ? "sm" : "lg"}
                   className="bg-transparent text-white hover:bg-white/10 border-white/30 w-full"
                 >
-                  Contact Us
+                  Explore Our Services
                 </Button>
               </a>
             </div>

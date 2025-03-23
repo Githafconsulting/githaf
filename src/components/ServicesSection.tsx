@@ -1,4 +1,3 @@
-
 import React, { useState, useMemo } from 'react';
 import { 
   Smartphone, 
@@ -84,7 +83,7 @@ const services = [
   {
     id: 6,
     title: 'AI Agents',
-    description: 'Implement AI agents such as chatbots, lead generation, customer service and voice AI agents, personal assistants, data analytics, social media manager and much more.',
+    description: 'We Implement AI agents to automate repetitive tasks, streamline your business processes and keep your business running 247; such as chatbots, lead generation, customer service and voice AI agents, personal assistants, data analytics, social media manager and much more.',
     icon: <Bot className="w-8 h-8 text-primary" />,
     category: 'ai',
   },
