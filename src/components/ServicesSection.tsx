@@ -21,14 +21,15 @@ import {
   ArrowRight
 } from 'lucide-react';
 import AnimatedCard from './AnimatedCard';
+import { cn } from '@/lib/utils';
 
-// Define service categories
+// Define service categories with colors
 const categories = [
-  { id: 'all', name: 'All Services' },
-  { id: 'tech', name: 'Tech Services' },
-  { id: 'transformation', name: 'Transformation Services' },
-  { id: 'ai', name: 'AI Services' },
-  { id: 'marketing', name: 'Digital Marketing' },
+  { id: 'all', name: 'All Services', color: 'bg-secondary/30' },
+  { id: 'tech', name: 'Tech Services', color: 'bg-[#D3E4FD]/50' }, // Soft Blue
+  { id: 'transformation', name: 'Transformation Services', color: 'bg-[#FDE1D3]/50' }, // Soft Peach
+  { id: 'ai', name: 'AI Services', color: 'bg-[#E5DEFF]/50' }, // Soft Purple
+  { id: 'marketing', name: 'Digital Marketing', color: 'bg-[#F2FCE2]/50' }, // Soft Green
 ];
 
 // Define services with categories
@@ -112,8 +113,11 @@ const ServicesSection: React.FC = () => {
     ? services 
     : services.filter(service => service.category === activeCategory);
 
+  // Find the current category color
+  const currentCategoryColor = categories.find(cat => cat.id === activeCategory)?.color || 'bg-secondary/30';
+
   return (
-    <section id="services" className="py-20 md:py-32 bg-secondary/30">
+    <section id="services" className={cn("py-20 md:py-32", currentCategoryColor)}>
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center max-w-3xl mx-auto mb-12 reveal">
           <h2 className="mb-4">Our Services</h2>
@@ -139,31 +143,37 @@ const ServicesSection: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredServices.map((service, index) => (
-            <div key={service.id} className="reveal" style={{ transitionDelay: `${index * 100}ms` }}>
-              <AnimatedCard 
-                className="h-full bg-background border rounded-xl shadow-sm hover:shadow-md transition-shadow p-6"
-                intensity={5}
-              >
-                <div className="flex flex-col h-full">
-                  <div className="p-2 rounded-lg bg-primary/10 w-fit mb-4">
-                    {service.icon}
+          {filteredServices.map((service, index) => {
+            // Get the category color
+            const categoryColor = categories.find(cat => cat.id === service.category)?.color || 'bg-background';
+            
+            return (
+              <div key={service.id} className="reveal" style={{ transitionDelay: `${index * 100}ms` }}>
+                <AnimatedCard 
+                  className={cn("h-full border rounded-xl shadow-sm hover:shadow-md transition-shadow p-6", 
+                    activeCategory === 'all' ? categoryColor : 'bg-background')}
+                  intensity={5}
+                >
+                  <div className="flex flex-col h-full">
+                    <div className="p-2 rounded-lg bg-primary/10 w-fit mb-4">
+                      {service.icon}
+                    </div>
+                    <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
+                    <p className="text-muted-foreground flex-grow">{service.description}</p>
+                    <div className="mt-4 pt-4 border-t border-border">
+                      <a 
+                        href="#contact" 
+                        className="text-primary font-medium inline-flex items-center hover:underline"
+                      >
+                        Learn more
+                        <ArrowRight className="ml-1 w-4 h-4" />
+                      </a>
+                    </div>
                   </div>
-                  <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
-                  <p className="text-muted-foreground flex-grow">{service.description}</p>
-                  <div className="mt-4 pt-4 border-t border-border">
-                    <a 
-                      href="#contact" 
-                      className="text-primary font-medium inline-flex items-center hover:underline"
-                    >
-                      Learn more
-                      <ArrowRight className="ml-1 w-4 h-4" />
-                    </a>
-                  </div>
-                </div>
-              </AnimatedCard>
-            </div>
-          ))}
+                </AnimatedCard>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
