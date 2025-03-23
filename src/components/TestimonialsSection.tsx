@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
 import AnimatedCard from './AnimatedCard';
@@ -6,34 +5,34 @@ import AnimatedCard from './AnimatedCard';
 const testimonials = [
   {
     id: 1,
-    name: 'Sarah Johnson',
-    role: 'CEO, TechStart Inc.',
-    image: 'https://randomuser.me/api/portraits/women/1.jpg',
-    content: "Working with TechTransform has been a game-changer for our business. Their strategic guidance helped us implement new technologies that increased our operational efficiency by 40% and opened new revenue streams.",
+    name: 'HSBC',
+    role: 'Global Banking',
+    image: 'https://randomuser.me/api/portraits/men/1.jpg',
+    content: "Working with Githaf Consulting has been a game-changer for our digital transformation initiatives. Their strategic guidance helped us implement new technologies that increased our operational efficiency by 40%.",
     rating: 5,
   },
   {
     id: 2,
-    name: 'Michael Chen',
-    role: 'CTO, Innovate Solutions',
-    image: 'https://randomuser.me/api/portraits/men/2.jpg',
+    name: 'Monitise',
+    role: 'Financial Technology',
+    image: 'https://randomuser.me/api/portraits/women/2.jpg',
     content: "Their team's technical expertise is unmatched. They didn't just recommend solutions—they worked alongside us to implement them, ensuring our team was fully trained and confident with the new systems.",
     rating: 5,
   },
   {
     id: 3,
-    name: 'Emma Rodriguez',
-    role: 'Marketing Director, Global Retail',
-    image: 'https://randomuser.me/api/portraits/women/3.jpg',
-    content: "The digital marketing strategy TechTransform developed for us transformed our online presence. We've seen a 200% increase in qualified leads and a significant boost in conversion rates.",
+    name: 'Paypoint',
+    role: 'Payment Services',
+    image: 'https://randomuser.me/api/portraits/men/3.jpg',
+    content: "The AI-powered solutions Githaf developed for us transformed our payment processing capabilities. We've seen a 200% increase in processing speed and a significant reduction in manual interventions.",
     rating: 5,
   },
   {
     id: 4,
-    name: 'David Kim',
-    role: 'Operations Manager, LogiTech Services',
-    image: 'https://randomuser.me/api/portraits/men/4.jpg',
-    content: "TechTransform's process optimization recommendations helped us eliminate bottlenecks we didn't even know existed. Our processing times have been reduced by 60%, and customer satisfaction scores are at an all-time high.",
+    name: 'Al Ghurair',
+    role: 'Conglomerate',
+    image: 'https://randomuser.me/api/portraits/women/4.jpg',
+    content: "Githaf's process optimization recommendations helped us eliminate bottlenecks we didn't even know existed. Our processing times have been reduced by 60%, and customer satisfaction scores are at an all-time high.",
     rating: 5,
   },
 ];
@@ -81,7 +80,7 @@ const TestimonialsSection: React.FC = () => {
         <div className="text-center max-w-3xl mx-auto mb-16 reveal">
           <h2 className="mb-4">What Our Clients Say</h2>
           <p className="text-lg text-muted-foreground">
-            Real results from businesses that have partnered with us
+            Real results from industry leaders that have partnered with us
           </p>
         </div>
 
