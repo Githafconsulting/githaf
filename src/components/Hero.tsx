@@ -39,7 +39,7 @@ const Hero: React.FC = () => {
               }`}
             >
               <span className="inline-block px-3 py-1 mb-3 text-xs sm:text-sm font-medium bg-white/10 text-white rounded-full">
-                AI and Digital Transformation Consultancy
+                AI and Digital Transformation
               </span>
             </div>
             
