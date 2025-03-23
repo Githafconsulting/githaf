@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Send } from 'lucide-react';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -18,7 +18,7 @@ interface Message {
 
 const ChatBotDialog: React.FC<ChatBotDialogProps> = ({ open, onOpenChange }) => {
   const [messages, setMessages] = useState<Message[]>([
-    { id: 1, content: "Hello! I'm the Githaf Consulting AI assistant. How can I help you today?", isBot: true }
+    { id: 1, content: "Hi there! I'm your virtual assistant from Githaf Consulting. How can I help you today?", isBot: true }
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -43,19 +43,27 @@ const ChatBotDialog: React.FC<ChatBotDialogProps> = ({ open, onOpenChange }) => 
   const generateResponse = (query: string) => {
     const lowerQuery = query.toLowerCase();
     
-    // Simple pattern matching to provide responses based on website content
-    if (lowerQuery.includes('service') || lowerQuery.includes('offer')) {
-      return "Githaf Consulting offers AI Integration, Digital Strategy, Technology Implementation, Data Analytics, and Process Optimization services. We help businesses navigate digital transformation with innovative solutions.";
+    // More conversational responses
+    if (lowerQuery.includes('service') || lowerQuery.includes('offer') || lowerQuery.includes('help')) {
+      return "We specialize in AI integration, digital strategy, and technology implementation. Would you like me to tell you more about a specific service? We can help with AI agents, website development, mobile apps, or fintech solutions.";
     } else if (lowerQuery.includes('contact') || lowerQuery.includes('reach') || lowerQuery.includes('email')) {
-      return "You can contact us at gravitasitconsulting@gmail.com, call us at +44 7530551944 (UK) or +971 562078508 (UAE), or fill out the contact form on our website.";
+      return "You can reach our team at gravitasitconsulting@gmail.com or call +971 562078508 (UAE). Is there something specific you'd like assistance with today?";
     } else if (lowerQuery.includes('location') || lowerQuery.includes('office') || lowerQuery.includes('based')) {
-      return "We have offices in Kirby Le Soken, UK and Damac Hills 2, UAE.";
+      return "We have offices in Kirby Le Soken, UK and Damac Hills 2, UAE. Are you interested in meeting in person or would you prefer a virtual consultation?";
     } else if (lowerQuery.includes('client') || lowerQuery.includes('work') || lowerQuery.includes('company')) {
-      return "We've successfully delivered projects for leading companies including HSBC, Royal Bank of Scotland, LuupFX, Paypoint, and SABB.";
+      return "We've worked with some amazing companies like HSBC, Royal Bank of Scotland, and PayPoint. What industry is your company in? Perhaps I can share some relevant success stories.";
     } else if (lowerQuery.includes('transform') || lowerQuery.includes('digital') || lowerQuery.includes('ai')) {
-      return "We help businesses transform into the digital age with strategic consulting, innovative AI technologies, and data-driven solutions. Our expertise spans AI integration and digital transformation.";
+      return "Digital transformation is all about using technology to fundamentally change how you operate and deliver value. Our team can help guide this journey - from strategy development to implementation. What aspects of digital transformation are you most interested in?";
+    } else if (lowerQuery.includes('hello') || lowerQuery.includes('hi') || lowerQuery.includes('hey')) {
+      return "Hello there! It's great to meet you. I'm here to answer any questions about how we can help transform your business through AI and digital solutions. What brings you to our site today?";
+    } else if (lowerQuery.includes('thank') || lowerQuery.includes('thanks')) {
+      return "You're very welcome! Is there anything else I can help you with today?";
+    } else if (lowerQuery.includes('price') || lowerQuery.includes('cost') || lowerQuery.includes('expensive')) {
+      return "Our pricing varies based on project scope and requirements. We'd be happy to provide a personalized quote after understanding your specific needs. Would you like to schedule a consultation to discuss this further?";
+    } else if (lowerQuery.includes('time') || lowerQuery.includes('long') || lowerQuery.includes('schedule')) {
+      return "Project timelines depend on complexity and requirements. We pride ourselves on efficient delivery while ensuring quality. Could you tell me a bit more about what you're looking to achieve so I can give you a better estimate?";
     } else {
-      return "Thank you for your message. We specialize in AI and digital transformation consulting. Is there something specific about our services, experience, or how we can help your business that you'd like to know?";
+      return "That's an interesting point! I'd love to learn more about your specific needs so we can determine how best to assist you. Could you share a bit more about your business challenges or what you're hoping to achieve?";
     }
   };
 
@@ -71,6 +79,9 @@ const ChatBotDialog: React.FC<ChatBotDialogProps> = ({ open, onOpenChange }) => 
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
           <DialogTitle>Githaf Assistant</DialogTitle>
+          <DialogDescription>
+            Ask me anything about our services or how we can help your business
+          </DialogDescription>
         </DialogHeader>
         
         <div className="flex flex-col h-[400px]">

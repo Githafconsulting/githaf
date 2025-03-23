@@ -81,14 +81,13 @@ const ContactSection: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="text-base font-semibold mb-1">Call Us</h4>
-                    <p className="text-muted-foreground">UK: +44 7530551944</p>
                     <p className="text-muted-foreground">UAE: +971 562078508</p>
                   </div>
                 </div>
               </div>
               
               <div className="p-6 bg-background border rounded-xl">
-                <h4 className="text-lg font-semibold mb-3">Office Hours</h4>
+                <h4 className="text-lg font-semibold mb-3">Office Hours (UK and UAE)</h4>
                 <div className="space-y-2 text-muted-foreground">
                   <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
                   <p>Saturday - Sunday: Closed</p>

@@ -76,6 +76,15 @@ const Hero: React.FC = () => {
                   Explore Our Services
                 </Button>
               </a>
+              <a href="#contact" className="w-full sm:w-auto">
+                <Button 
+                  variant="outline" 
+                  size={isMobile ? "sm" : "lg"}
+                  className="bg-transparent text-white hover:bg-white/10 border-white/30 w-full"
+                >
+                  Contact Us
+                </Button>
+              </a>
             </div>
           </div>
           

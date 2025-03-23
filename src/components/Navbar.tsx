@@ -77,15 +77,6 @@ const Navbar: React.FC = () => {
                 {item.name}
               </a>
             ))}
-            <div className="ml-4">
-              <Button 
-                variant="primary" 
-                size="sm"
-                className="bg-[#ea33f7] text-white"
-              >
-                Get Started
-              </Button>
-            </div>
           </div>
 
           {/* Mobile Menu Button */}
@@ -123,15 +114,6 @@ const Navbar: React.FC = () => {
                 {item.name}
               </a>
             ))}
-            <div className="pt-2">
-              <Button 
-                variant="primary" 
-                size="sm" 
-                className="w-full bg-[#ea33f7] text-white"
-              >
-                Get Started
-              </Button>
-            </div>
           </div>
         </div>
       </div>
