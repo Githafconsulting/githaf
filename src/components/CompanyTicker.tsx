@@ -41,14 +41,14 @@ const companies = [
 
 const CompanyTicker: React.FC = () => {
   return (
-    <section className="py-8 bg-white overflow-hidden">
+    <section className="py-8 bg-[#F2FCE2]/50 overflow-hidden">
       <div className="container mx-auto px-4">
         <h3 className="text-center mb-6 text-2xl">Successfully delivered for leading companies</h3>
         
         <div className="relative">
           {/* Gradient overlays for smooth edge fade */}
-          <div className="absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-white to-transparent z-10"></div>
-          <div className="absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-white to-transparent z-10"></div>
+          <div className="absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-[#F2FCE2]/50 to-transparent z-10"></div>
+          <div className="absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-[#F2FCE2]/50 to-transparent z-10"></div>
           
           {/* Ticker - first instance */}
           <div className="ticker-track flex items-center space-x-16 animate-marquee">

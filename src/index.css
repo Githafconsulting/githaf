@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
 @tailwind base;
@@ -248,13 +249,26 @@
 
 /* Reduced section spacing (cut in half) */
 section {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
 @media (min-width: 768px) {
   section {
-    padding-top: 4rem; 
-    padding-bottom: 4rem;
+    padding-top: 3rem; 
+    padding-bottom: 3rem;
   }
+}
+
+/* Section background colors for visual separation */
+#testimonials {
+  background-color: rgba(242, 252, 226, 0.3); /* Soft Green */
+}
+
+#contact {
+  background-color: rgba(229, 222, 255, 0.2); /* Soft Purple */
+}
+
+#services {
+  background-color: rgba(253, 225, 211, 0.25); /* Soft Peach */
 }
