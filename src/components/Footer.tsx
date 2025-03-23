@@ -5,6 +5,15 @@ import { ArrowRight } from 'lucide-react';
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
   
+  // Get services from ServicesSection for consistency
+  const services = [
+    'AI Integration', 
+    'Digital Strategy', 
+    'Technology Implementation', 
+    'Data Analytics', 
+    'Process Optimization'
+  ];
+  
   return (
     <footer className="bg-[#1A1F2C] pt-16 pb-8 text-white">
       <div className="container mx-auto px-4 md:px-6">
@@ -13,7 +22,7 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-xl font-display font-bold mb-4 text-[#ea33f7]">Githaf Consulting</h3>
             <p className="text-white/80 mb-6">
-              Transforming businesses through innovative AI and digital solutions and strategic consulting.
+              Preparing and transforming businesses through innovative AI and digital solutions.
             </p>
           </div>
           
@@ -21,7 +30,7 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4 text-white">Quick Links</h4>
             <ul className="space-y-3">
-              {['Home', 'About', 'Services', 'Case Studies', 'Contact'].map((item) => (
+              {['Home', 'About', 'Services', 'Testimonials', 'Contact'].map((item) => (
                 <li key={item}>
                   <a 
                     href={`#${item.toLowerCase().replace(' ', '-')}`}
@@ -40,11 +49,11 @@ const Footer: React.FC = () => {
             <h4 className="text-lg font-semibold mb-4 text-white">Our Services</h4>
             <ul className="space-y-3">
               {[
-                'AI Integration', 
-                'Digital Strategy', 
-                'Technology Implementation', 
-                'Data Analytics', 
-                'Process Optimization'
+                'Mobile App Development', 
+                'Website Development', 
+                'Payments & Fintech Solutions', 
+                'AI Agents', 
+                'Automated Workflow'
               ].map((item) => (
                 <li key={item}>
                   <a 
@@ -87,9 +96,9 @@ const Footer: React.FC = () => {
         <div className="pt-8 mt-8 border-t border-white/20 text-center text-white/70 text-sm">
           <p>© {currentYear} Githaf Consulting. All rights reserved.</p>
           <div className="mt-2 space-x-4">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+            <a href="/privacy-policy.pdf" className="hover:text-white transition-colors">Privacy Policy</a>
             <span>•</span>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+            <a href="/terms-of-service.pdf" className="hover:text-white transition-colors">Terms of Service</a>
           </div>
         </div>
       </div>

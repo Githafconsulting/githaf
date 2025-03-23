@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Mail, MessageSquare, Send } from 'lucide-react';
 import Button from './Button';
+import { toast } from "sonner";
 
 const ContactSection: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -12,29 +13,39 @@ const ContactSection: React.FC = () => {
   });
   
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
-      console.log('Form submitted:', formData);
-      setIsSubmitting(false);
-      setSubmitted(true);
-      setFormData({ name: '', email: '', company: '', message: '' });
+    try {
+      // Send email using the mailto URI scheme
+      const subject = encodeURIComponent(`Website Inquiry from ${formData.name}`);
+      const body = encodeURIComponent(
+        `Name: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company}\n\nMessage:\n${formData.message}`
+      );
       
-      // Reset success message after some time
-      setTimeout(() => {
-        setSubmitted(false);
-      }, 5000);
-    }, 1500);
+      // Open the mailto link
+      window.open(`mailto:gravitasitconsulting@gmail.com?subject=${subject}&body=${body}`);
+      
+      console.log('Form submitted:', formData);
+      
+      // Show success message
+      toast.success("Thank you for your message! We'll get back to you soon.");
+      
+      // Reset form
+      setFormData({ name: '', email: '', company: '', message: '' });
+    } catch (error) {
+      console.error('Error sending email:', error);
+      toast.error("There was an issue sending your message. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -89,12 +100,6 @@ const ContactSection: React.FC = () => {
             <div className="reveal">
               <form onSubmit={handleSubmit} className="bg-background border rounded-xl p-6 shadow-sm">
                 <h3 className="text-xl font-semibold mb-6">Send us a message</h3>
-                
-                {submitted && (
-                  <div className="mb-6 p-4 bg-green-50 text-green-700 rounded-lg border border-green-200">
-                    Thank you for your message! We'll get back to you soon.
-                  </div>
-                )}
                 
                 <div className="space-y-4">
                   <div>
