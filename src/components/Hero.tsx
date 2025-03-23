@@ -1,24 +1,27 @@
+
 import React, { useState, useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
 import Button from './Button';
 import AnimatedCard from './AnimatedCard';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const Hero: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
-    // Trigger animations on component mount
+    // Trigger animations on component mount with shorter delay on mobile
     const timer = setTimeout(() => {
       setIsVisible(true);
-    }, 100);
+    }, isMobile ? 50 : 100);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [isMobile]);
 
   return (
     <section 
       id="home"
-      className="relative pt-20 pb-12 md:pt-28 md:pb-20 overflow-hidden bg-[#1A1F2C]"
+      className="relative pt-16 pb-8 md:pt-24 md:pb-16 overflow-hidden bg-[#1A1F2C]"
     >
       {/* Gradient background */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
@@ -26,8 +29,8 @@ const Hero: React.FC = () => {
         <div className="absolute bottom-0 left-0 translate-y-[20%] -translate-x-[10%] w-[30rem] h-[30rem] rounded-full bg-[#4e2799]/20 blur-3xl"></div>
       </div>
 
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
           {/* Text content */}
           <div>
             <div 
@@ -35,13 +38,13 @@ const Hero: React.FC = () => {
                 isVisible ? 'opacity-100 translate-y-0' : ''
               }`}
             >
-              <span className="inline-block px-3 py-1 mb-4 text-sm font-medium bg-white/10 text-white rounded-full">
+              <span className="inline-block px-3 py-1 mb-3 text-xs sm:text-sm font-medium bg-white/10 text-white rounded-full">
                 AI and Digital Transformation Consultancy
               </span>
             </div>
             
             <h1 
-              className={`mb-6 text-white opacity-0 transform translate-y-8 transition-all duration-700 delay-100 ease-out ${
+              className={`mb-4 text-white opacity-0 transform translate-y-8 transition-all duration-700 delay-100 ease-out ${
                 isVisible ? 'opacity-100 translate-y-0' : ''
               }`}
             >
@@ -50,7 +53,7 @@ const Hero: React.FC = () => {
             </h1>
             
             <p 
-              className={`text-lg md:text-xl text-white/80 mb-8 max-w-xl opacity-0 transform translate-y-8 transition-all duration-700 delay-200 ease-out ${
+              className={`text-base md:text-lg text-white/80 mb-6 max-w-xl opacity-0 transform translate-y-8 transition-all duration-700 delay-200 ease-out ${
                 isVisible ? 'opacity-100 translate-y-0' : ''
               }`}
             >
@@ -58,22 +61,22 @@ const Hero: React.FC = () => {
             </p>
             
             <div 
-              className={`flex flex-col sm:flex-row gap-4 opacity-0 transform translate-y-8 transition-all duration-700 delay-300 ease-out ${
+              className={`flex flex-col sm:flex-row gap-3 opacity-0 transform translate-y-8 transition-all duration-700 delay-300 ease-out ${
                 isVisible ? 'opacity-100 translate-y-0' : ''
               }`}
             >
               <Button 
                 variant="primary" 
-                size="lg"
+                size={isMobile ? "sm" : "lg"}
                 className="bg-[#ea33f7] text-white hover:bg-[#ea33f7]/90"
-                icon={<ArrowRight size={18} />}
+                icon={<ArrowRight size={isMobile ? 16 : 18} />}
                 iconPosition="right"
               >
                 Explore Our Services
               </Button>
               <Button 
                 variant="outline" 
-                size="lg"
+                size={isMobile ? "sm" : "lg"}
                 className="bg-[#ea33f7] text-white hover:bg-[#ea33f7]/90 border-[#ea33f7]"
               >
                 Contact Us
@@ -81,7 +84,7 @@ const Hero: React.FC = () => {
             </div>
           </div>
           
-          {/* Visual element - circular process leading to money image */}
+          {/* Visual element */}
           <div 
             className={`opacity-0 transition-all duration-1000 delay-300 ${
               isVisible ? 'opacity-100' : ''

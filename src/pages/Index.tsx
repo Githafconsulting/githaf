@@ -11,10 +11,12 @@ const Index = () => {
   return (
     <Layout>
       <Hero />
-      <ServicesSection />
-      <AboutSection />
-      <TestimonialsSection />
-      <ContactSection />
+      <div className="space-y-0 sm:space-y-1 md:space-y-2">
+        <ServicesSection />
+        <AboutSection />
+        <TestimonialsSection />
+        <ContactSection />
+      </div>
     </Layout>
   );
 };

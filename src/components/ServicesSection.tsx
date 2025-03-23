@@ -1,4 +1,3 @@
-
 import React, { useState, useMemo } from 'react';
 import { 
   Smartphone, 
@@ -15,8 +14,8 @@ import {
 } from 'lucide-react';
 import AnimatedCard from './AnimatedCard';
 import { cn } from '@/lib/utils';
+import { useIsMobile } from '@/hooks/use-mobile';
 
-// Updated colors for categories
 const categoryColors = {
   'all': 'white',
   'tech': '#D7707E',
@@ -25,27 +24,26 @@ const categoryColors = {
   'marketing': '#E86EAD',
 };
 
-// Service colors - now used for both headers and sub-services
 const serviceColors = {
-  1: 'bg-[#D3E4FD]/80', // Mobile App Dev - Soft Blue
-  2: 'bg-[#D3E4FD]/50', // Website Dev - Lighter Blue
-  3: 'bg-[#D3E4FD]/70', // Payments - Medium Blue
-  4: 'bg-[#FDE1D3]/70', // Business Analysis - Medium Peach
-  5: 'bg-[#FDE1D3]/50', // Enterprise Agility - Lighter Peach
-  6: 'bg-[#E5DEFF]/80', // AI Agents - Deeper Purple
-  7: 'bg-[#E5DEFF]/60', // Automated Workflow - Medium Purple
-  8: 'bg-[#F2FCE2]/70', // Facebook Marketing - Medium Green
-  9: 'bg-[#F2FCE2]/50', // Google Marketing - Lighter Green
-  10: 'bg-[#FDE1D3]/60', // Training - Different Peach
-  11: 'bg-[#FDE1D3]/40', // Programme Governance - Light Peach
+  1: 'bg-[#D3E4FD]/80',
+  2: 'bg-[#D3E4FD]/50',
+  3: 'bg-[#D3E4FD]/70',
+  4: 'bg-[#FDE1D3]/70',
+  5: 'bg-[#FDE1D3]/50',
+  6: 'bg-[#E5DEFF]/80',
+  7: 'bg-[#E5DEFF]/60',
+  8: 'bg-[#F2FCE2]/70',
+  9: 'bg-[#F2FCE2]/50',
+  10: 'bg-[#FDE1D3]/60',
+  11: 'bg-[#FDE1D3]/40',
 };
 
 const categories = [
-  { id: 'all', name: 'All Services', color: 'bg-[#F7F9FC]' }, // Light gray background like Make.com
-  { id: 'ai', name: 'AI Services', color: 'bg-[#E5DEFF]/30' }, // Soft Purple
-  { id: 'tech', name: 'Technology Services', color: 'bg-[#D3E4FD]/30' }, // Soft Blue
-  { id: 'transformation', name: 'Transformation Services', color: 'bg-[#FDE1D3]/30' }, // Soft Peach
-  { id: 'marketing', name: 'Digital Marketing', color: 'bg-[#F2FCE2]/30' }, // Soft Green
+  { id: 'all', name: 'All Services', color: 'bg-[#F7F9FC]' },
+  { id: 'ai', name: 'AI Services', color: 'bg-[#E5DEFF]/30' },
+  { id: 'tech', name: 'Technology Services', color: 'bg-[#D3E4FD]/30' },
+  { id: 'transformation', name: 'Transformation Services', color: 'bg-[#FDE1D3]/30' },
+  { id: 'marketing', name: 'Digital Marketing', color: 'bg-[#F2FCE2]/30' },
 ];
 
 const services = [
@@ -128,7 +126,6 @@ const services = [
   },
 ];
 
-// Pre-filter the services for each category to avoid doing this on every render
 const filteredServicesByCategory = {
   all: [...services.filter(service => service.category === 'ai'),
         ...services.filter(service => service.category === 'tech'),
@@ -142,8 +139,8 @@ const filteredServicesByCategory = {
 
 const ServicesSection: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState('all');
+  const isMobile = useIsMobile();
 
-  // Use the pre-filtered services instead of filtering on each render
   const filteredServices = useMemo(() => 
     filteredServicesByCategory[activeCategory as keyof typeof filteredServicesByCategory],
     [activeCategory]
@@ -155,16 +152,15 @@ const ServicesSection: React.FC = () => {
   );
 
   return (
-    <section id="services" className={cn("py-8 md:py-16", currentCategoryColor)}>
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center max-w-3xl mx-auto mb-6 reveal">
-          <h2 className="mb-4 text-3xl md:text-4xl font-bold">Our Services</h2>
+    <section id="services" className={cn("py-4 md:py-8", currentCategoryColor)}>
+      <div className="container mx-auto px-4">
+        <div className="text-center max-w-3xl mx-auto mb-4 reveal">
+          <h2 className="mb-3 text-3xl md:text-4xl font-bold">Our Services</h2>
         </div>
 
-        <div className="flex justify-center mb-8 overflow-x-auto pb-2">
+        <div className="flex justify-center mb-6 overflow-x-auto pb-2">
           <div className="inline-flex bg-secondary/50 p-1 rounded-full">
             {categories.map((category) => {
-              // Match button colors to their category's color
               const buttonStyle = category.id !== 'all' 
                 ? { backgroundColor: category.id === activeCategory ? 'white' : category.color.replace('bg-', '') } 
                 : {};
@@ -173,7 +169,7 @@ const ServicesSection: React.FC = () => {
                 <button
                   key={category.id}
                   onClick={() => setActiveCategory(category.id)}
-                  className={`px-3 py-1.5 text-xs sm:text-sm font-medium rounded-full transition-all whitespace-nowrap
+                  className={`px-2 py-1 md:px-3 md:py-1.5 text-xs sm:text-sm font-medium rounded-full transition-all whitespace-nowrap
                     ${activeCategory === category.id 
                       ? 'bg-white text-foreground shadow-sm' 
                       : 'text-foreground/80 hover:text-foreground'}`}
@@ -186,24 +182,24 @@ const ServicesSection: React.FC = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
           {filteredServices.map((service, index) => {
             const serviceColor = serviceColors[service.id] || 'bg-background';
             
             return (
               <div key={service.id} className="reveal" style={{ transitionDelay: `${index * 20}ms` }}>
                 <AnimatedCard 
-                  className={cn("h-full rounded-xl shadow-sm hover:shadow-md transition-shadow p-4 sm:p-6", 
+                  className={cn("h-full rounded-xl shadow-sm hover:shadow-md transition-shadow p-3 sm:p-4", 
                     serviceColor)}
-                  intensity={3}
-                  animate={false} // Disable animation on initial load for better performance
+                  intensity={isMobile ? 0 : 2}
+                  animate={false}
                 >
                   <div className="flex flex-col h-full">
-                    <div className={cn("p-2 rounded-lg w-fit mb-4", serviceColor)}>
+                    <div className={cn("p-2 rounded-lg w-fit mb-3", serviceColor)}>
                       {service.icon}
                     </div>
-                    <h3 className="text-lg sm:text-xl font-semibold mb-2">{service.title}</h3>
-                    <p className="text-sm sm:text-base text-muted-foreground">{service.description}</p>
+                    <h3 className="text-base sm:text-lg font-semibold mb-2">{service.title}</h3>
+                    <p className="text-sm text-muted-foreground">{service.description}</p>
                   </div>
                 </AnimatedCard>
               </div>
