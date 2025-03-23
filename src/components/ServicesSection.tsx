@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { 
   Smartphone, 
   Code, 
@@ -128,14 +128,28 @@ const services = [
   },
 ];
 
+// Pre-filter the services for each category to avoid doing this on every render
+const filteredServicesByCategory = {
+  all: services,
+  tech: services.filter(service => service.category === 'tech'),
+  ai: services.filter(service => service.category === 'ai'),
+  transformation: services.filter(service => service.category === 'transformation'),
+  marketing: services.filter(service => service.category === 'marketing'),
+};
+
 const ServicesSection: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState('all');
 
-  const filteredServices = activeCategory === 'all' 
-    ? services 
-    : services.filter(service => service.category === activeCategory);
+  // Use the pre-filtered services instead of filtering on each render
+  const filteredServices = useMemo(() => 
+    filteredServicesByCategory[activeCategory as keyof typeof filteredServicesByCategory],
+    [activeCategory]
+  );
 
-  const currentCategoryColor = categories.find(cat => cat.id === activeCategory)?.color || 'bg-[#F7F9FC]';
+  const currentCategoryColor = useMemo(() => 
+    categories.find(cat => cat.id === activeCategory)?.color || 'bg-[#F7F9FC]',
+    [activeCategory]
+  );
 
   return (
     <section id="services" className={cn("py-8 md:py-16", currentCategoryColor)}>
@@ -166,11 +180,12 @@ const ServicesSection: React.FC = () => {
             const serviceColor = serviceColors[service.id] || 'bg-background';
             
             return (
-              <div key={service.id} className="reveal" style={{ transitionDelay: `${index * 50}ms` }}>
+              <div key={service.id} className="reveal" style={{ transitionDelay: `${index * 20}ms` }}>
                 <AnimatedCard 
                   className={cn("h-full rounded-xl shadow-sm hover:shadow-md transition-shadow p-4 sm:p-6", 
                     serviceColor)}
-                  intensity={5}
+                  intensity={3}
+                  animate={false} // Disable animation on initial load for better performance
                 >
                   <div className="flex flex-col h-full">
                     <div className={cn("p-2 rounded-lg w-fit mb-4", serviceColor)}>
