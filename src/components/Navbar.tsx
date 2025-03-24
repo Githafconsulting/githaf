@@ -1,8 +1,7 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Button from './Button';
-import { useMediaQuery } from '@/hooks/use-mobile';
+import { useIsMobile } from '@/hooks/use-mobile';
 import { Menu, X, Calendar } from 'lucide-react';
 
 // Navbar links configuration
@@ -16,7 +15,7 @@ const navLinks = [
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const isMobile = useMediaQuery('(max-width: 768px)');
+  const isMobile = useIsMobile();
   
   // Handle scroll event to change navbar style
   useEffect(() => {
@@ -64,7 +63,7 @@ const Navbar: React.FC = () => {
             ))}
             
             <Link to="/booking" className="ml-2">
-              <Button variant="primary" size="sm" icon={<Calendar className="h-4 w-4" />}>
+              <Button variant="primary" size="sm" icon={<Calendar className="h-4 w-4" }}>
                 Book a Consultation
               </Button>
             </Link>
@@ -97,7 +96,7 @@ const Navbar: React.FC = () => {
             ))}
             <div className="pt-2 pb-1">
               <Link to="/booking" onClick={closeMenu} className="block w-full">
-                <Button variant="primary" className="w-full" icon={<Calendar className="h-4 w-4" />}>
+                <Button variant="primary" className="w-full" icon={<Calendar className="h-4 w-4" }}>
                   Book a Consultation
                 </Button>
               </Link>
