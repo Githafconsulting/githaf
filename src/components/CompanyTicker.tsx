@@ -5,37 +5,37 @@ const companies = [
   {
     id: 1,
     name: 'Al Ghurair',
-    logo: '/lovable-uploads/d246c202-fb81-4e58-97c1-eb6d5daf7fcd.png',
+    logo: '/lovable-uploads/a0073076-68b3-4aa7-971d-908a73a47896.png',
   },
   {
     id: 2,
-    name: 'HSBC',
-    logo: '/lovable-uploads/91979d71-d4f0-4e41-9257-ca9f9dedb627.png',
+    name: 'SABB',
+    logo: '/lovable-uploads/10241d5d-627c-4ad9-a525-3b18f15e0045.png',
   },
   {
     id: 3,
-    name: 'Moody\'s Analytics',
-    logo: '/lovable-uploads/c359da7c-103f-4724-b144-559561f9d892.png',
+    name: 'PayPoint',
+    logo: '/lovable-uploads/8e610932-bda3-42e5-af36-3fb36f7b9c65.png',
   },
   {
     id: 4,
     name: 'RBS',
-    logo: '/lovable-uploads/4f33ade9-2c85-4b95-b1d7-4e7399575ab1.png',
+    logo: '/lovable-uploads/7d47048c-fc5b-497b-8bd5-d4a039365fe1.png',
   },
   {
     id: 5,
-    name: 'PayPoint',
-    logo: '/lovable-uploads/e6466ff8-72d7-4e0f-9039-a33337cfe95a.png',
+    name: 'Moody\'s Analytics',
+    logo: '/lovable-uploads/2088550a-02e3-4100-a1b0-145847a1c7ad.png',
   },
   {
     id: 6,
-    name: 'SABB',
-    logo: '/lovable-uploads/7e4a1c78-3be9-4a71-8539-49234501db66.png',
+    name: 'HSBC',
+    logo: '/lovable-uploads/92b598ed-8d68-4494-8551-7efd930a511e.png',
   },
   {
     id: 7,
     name: 'LuupFX',
-    logo: '/lovable-uploads/d6a463ed-2fc9-46fe-9246-b235e28e67dc.png',
+    logo: '/lovable-uploads/2fab4ce2-fedf-4aae-84a4-26edb77fbde8.png',
   },
 ];
 
@@ -51,7 +51,7 @@ const CompanyTicker: React.FC = () => {
           <div className="absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-white to-transparent z-10"></div>
           
           {/* Ticker - first instance */}
-          <div className="ticker-track flex items-center space-x-16 animate-marquee">
+          <div className="ticker-track flex items-center space-x-16 animate-rtl-marquee">
             {companies.map((company) => (
               <div key={company.id} className="ticker-item flex-shrink-0">
                 <img 
