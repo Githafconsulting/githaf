@@ -58,8 +58,14 @@ const CompanyTicker: React.FC = () => {
                   src={company.logo} 
                   alt={company.name} 
                   className="h-14 sm:h-16 w-auto object-contain"
-                  aria-label={company.name}
+                  loading="eager"
+                  onError={(e) => {
+                    console.error(`Failed to load image for ${company.name}:`, e);
+                    const imgElement = e.target as HTMLImageElement;
+                    imgElement.style.display = 'none';
+                  }}
                 />
+                <p className="text-xs text-center mt-2 text-gray-600">{company.name}</p>
               </div>
             ))}
             {/* Duplicate companies for seamless looping */}
@@ -69,8 +75,14 @@ const CompanyTicker: React.FC = () => {
                   src={company.logo} 
                   alt={company.name} 
                   className="h-14 sm:h-16 w-auto object-contain"
-                  aria-label={company.name}
+                  loading="eager"
+                  onError={(e) => {
+                    console.error(`Failed to load image for ${company.name}:`, e);
+                    const imgElement = e.target as HTMLImageElement;
+                    imgElement.style.display = 'none';
+                  }}
                 />
+                <p className="text-xs text-center mt-2 text-gray-600">{company.name}</p>
               </div>
             ))}
           </div>
