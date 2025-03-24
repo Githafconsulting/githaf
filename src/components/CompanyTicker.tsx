@@ -58,6 +58,7 @@ const CompanyTicker: React.FC = () => {
                   src={company.logo} 
                   alt={company.name} 
                   className="h-14 sm:h-16 w-auto object-contain"
+                  aria-label={company.name}
                 />
               </div>
             ))}
@@ -68,6 +69,7 @@ const CompanyTicker: React.FC = () => {
                   src={company.logo} 
                   alt={company.name} 
                   className="h-14 sm:h-16 w-auto object-contain"
+                  aria-label={company.name}
                 />
               </div>
             ))}
