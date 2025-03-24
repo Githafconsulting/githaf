@@ -4,23 +4,38 @@ import React from 'react';
 const companies = [
   {
     id: 1,
-    name: 'HSBC',
-    logo: '/lovable-uploads/231ef831-e20d-478b-9138-dada4cb70a77.png',
+    name: 'Al Ghurair',
+    logo: '/lovable-uploads/1da8ace2-bf3f-4449-80cb-d92205ecdbf9.png',
   },
   {
     id: 2,
-    name: 'Royal Bank of Scotland',
-    logo: '/lovable-uploads/32ca709a-b666-41dc-a5bb-aa539477800c.png',
+    name: 'HSBC',
+    logo: '/lovable-uploads/afba669d-e77b-472d-99ff-d712029153f9.png',
   },
   {
     id: 3,
-    name: 'LuupFX',
-    logo: '/lovable-uploads/a8677b99-fa88-4401-97cf-e8409faa645a.png',
+    name: 'RBS',
+    logo: '/lovable-uploads/96e12eab-f0b4-476f-b1ab-b5f7bd3cfe4d.png',
   },
   {
     id: 4,
-    name: 'Moodys Analytics',
-    logo: '/lovable-uploads/d9d7e005-339a-4d0f-837e-e66055b8d5c1.png',
+    name: 'Moody\'s Analytics',
+    logo: '/lovable-uploads/f5647534-e917-4f4a-816c-521e7feb28d0.png',
+  },
+  {
+    id: 5,
+    name: 'PayPoint',
+    logo: '/lovable-uploads/b74e8273-b6d5-4bf6-a32e-057794581501.png',
+  },
+  {
+    id: 6,
+    name: 'SABB',
+    logo: '/lovable-uploads/7b42f154-4f32-49fe-91a1-226e3365d3e2.png',
+  },
+  {
+    id: 7,
+    name: 'LuupFX',
+    logo: '/lovable-uploads/f1a887c6-f2c9-4e24-b9b3-bdae31815cc0.png',
   },
 ];
 
