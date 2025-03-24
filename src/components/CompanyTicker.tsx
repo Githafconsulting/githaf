@@ -40,9 +40,10 @@ const companies = [
 ];
 
 const CompanyTicker: React.FC = () => {
-  // Track loading state for debugging
+  // Track loading state
   const [imagesLoaded, setImagesLoaded] = useState(0);
   const [imagesErrored, setImagesErrored] = useState(0);
+  const [imageStatuses, setImageStatuses] = useState<Record<number, boolean>>({});
 
   useEffect(() => {
     // Log loading stats for debugging
@@ -51,14 +52,44 @@ const CompanyTicker: React.FC = () => {
     }
   }, [imagesLoaded, imagesErrored]);
 
-  const handleImageLoad = (companyName: string) => {
+  const handleImageLoad = (companyId: number, companyName: string) => {
     console.log(`Successfully loaded image for ${companyName}`);
     setImagesLoaded(prev => prev + 1);
+    setImageStatuses(prev => ({...prev, [companyId]: true}));
   };
 
-  const handleImageError = (companyName: string, e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+  const handleImageError = (companyId: number, companyName: string, e: React.SyntheticEvent<HTMLImageElement, Event>) => {
     console.error(`Failed to load image for ${companyName}:`, e);
     setImagesErrored(prev => prev + 1);
+    setImageStatuses(prev => ({...prev, [companyId]: false}));
+  };
+
+  // Create company logo/name display component
+  const CompanyLogo = ({ company, isDuplicate = false }: { company: typeof companies[0], isDuplicate?: boolean }) => {
+    const key = isDuplicate ? `dup-${company.id}` : `${company.id}`;
+    const showFallback = imageStatuses[company.id] === false;
+    
+    return (
+      <div key={key} className="ticker-item flex-shrink-0">
+        <div className="h-16 w-32 flex items-center justify-center">
+          {!showFallback ? (
+            <img 
+              src={company.logo} 
+              alt={company.name} 
+              className="h-full w-auto max-w-full object-contain"
+              loading="eager"
+              onLoad={() => handleImageLoad(company.id, company.name)}
+              onError={(e) => handleImageError(company.id, company.name, e)}
+            />
+          ) : (
+            <div className="bg-gray-100 h-12 w-12 rounded-full flex items-center justify-center text-lg font-semibold">
+              {company.name.charAt(0)}
+            </div>
+          )}
+        </div>
+        <p className="text-xs text-center mt-2 text-gray-600">{company.name}</p>
+      </div>
+    );
   };
 
   return (
@@ -74,35 +105,12 @@ const CompanyTicker: React.FC = () => {
           {/* Ticker - first instance */}
           <div className="ticker-track flex items-center space-x-16 animate-rtl-marquee">
             {companies.map((company) => (
-              <div key={company.id} className="ticker-item flex-shrink-0">
-                <div className="h-14 sm:h-16 w-32 flex items-center justify-center">
-                  <img 
-                    src={company.logo} 
-                    alt={company.name} 
-                    className="h-full w-auto object-contain"
-                    loading="eager"
-                    onLoad={() => handleImageLoad(company.name)}
-                    onError={(e) => handleImageError(company.name, e)}
-                  />
-                </div>
-                <p className="text-xs text-center mt-2 text-gray-600">{company.name}</p>
-              </div>
+              <CompanyLogo key={company.id} company={company} />
             ))}
+            
             {/* Duplicate companies for seamless looping */}
             {companies.map((company) => (
-              <div key={`dup-${company.id}`} className="ticker-item flex-shrink-0">
-                <div className="h-14 sm:h-16 w-32 flex items-center justify-center">
-                  <img 
-                    src={company.logo} 
-                    alt={company.name} 
-                    className="h-full w-auto object-contain"
-                    loading="eager"
-                    onLoad={() => handleImageLoad(company.name)}
-                    onError={(e) => handleImageError(company.name, e)}
-                  />
-                </div>
-                <p className="text-xs text-center mt-2 text-gray-600">{company.name}</p>
-              </div>
+              <CompanyLogo key={`dup-${company.id}`} company={company} isDuplicate={true} />
             ))}
           </div>
         </div>
