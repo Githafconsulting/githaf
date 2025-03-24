@@ -1,7 +1,9 @@
+
 import React, { useState } from 'react';
-import { Mail, MessageSquare, Send } from 'lucide-react';
+import { Mail, MessageSquare, Send, Calendar } from 'lucide-react';
 import Button from './Button';
 import { toast } from "sonner";
+import { Link } from 'react-router-dom';
 
 const ContactSection: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -84,6 +86,20 @@ const ContactSection: React.FC = () => {
                   <div>
                     <h4 className="text-base font-semibold mb-1">Call Us</h4>
                     <p className="text-muted-foreground">UAE: +971 562078508</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start">
+                  <div className="p-3 rounded-lg bg-primary/10 mr-4">
+                    <Calendar className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="text-base font-semibold mb-1">Book a Consultation</h4>
+                    <p className="text-muted-foreground">
+                      <Link to="/booking" className="text-primary hover:underline">
+                        Schedule a meeting with our experts
+                      </Link>
+                    </p>
                   </div>
                 </div>
               </div>
@@ -176,6 +192,15 @@ const ContactSection: React.FC = () => {
                   >
                     {isSubmitting ? 'Sending...' : 'Send Message'}
                   </Button>
+                  
+                  <div className="text-center pt-2">
+                    <p className="text-sm text-muted-foreground">
+                      Need a scheduled consultation?{' '}
+                      <Link to="/booking" className="text-primary hover:underline">
+                        Book a time slot
+                      </Link>
+                    </p>
+                  </div>
                 </div>
               </form>
             </div>
