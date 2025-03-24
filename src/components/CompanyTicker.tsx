@@ -5,37 +5,37 @@ const companies = [
   {
     id: 1,
     name: 'Al Ghurair',
-    logo: '/lovable-uploads/a0073076-68b3-4aa7-971d-908a73a47896.png',
+    logo: '/lovable-uploads/7c874dd2-2839-4ccc-b351-bd5cb000b4f8.png',
   },
   {
     id: 2,
     name: 'SABB',
-    logo: '/lovable-uploads/10241d5d-627c-4ad9-a525-3b18f15e0045.png',
+    logo: '/lovable-uploads/7110493e-eb9e-4bb9-89b9-b472c1fed90c.png',
   },
   {
     id: 3,
     name: 'PayPoint',
-    logo: '/lovable-uploads/8e610932-bda3-42e5-af36-3fb36f7b9c65.png',
+    logo: '/lovable-uploads/2abf8e4b-445e-45db-a169-1b1bf48a80f1.png',
   },
   {
     id: 4,
     name: 'RBS',
-    logo: '/lovable-uploads/7d47048c-fc5b-497b-8bd5-d4a039365fe1.png',
+    logo: '/lovable-uploads/f634365e-bac3-45cf-b24d-ffe0942da999.png',
   },
   {
     id: 5,
     name: 'Moody\'s Analytics',
-    logo: '/lovable-uploads/2088550a-02e3-4100-a1b0-145847a1c7ad.png',
+    logo: '/lovable-uploads/77ec07fe-550f-4e78-a595-153055987da2.png',
   },
   {
     id: 6,
     name: 'HSBC',
-    logo: '/lovable-uploads/92b598ed-8d68-4494-8551-7efd930a511e.png',
+    logo: '/lovable-uploads/56b2d8ee-6c1f-40db-9af3-6dc95dd880f7.png',
   },
   {
     id: 7,
     name: 'LuupFX',
-    logo: '/lovable-uploads/2fab4ce2-fedf-4aae-84a4-26edb77fbde8.png',
+    logo: '/lovable-uploads/ee62c6c3-4404-43d1-94c2-d74ecb019e88.png',
   },
 ];
 
@@ -76,7 +76,7 @@ const CompanyTicker: React.FC = () => {
             <img 
               src={company.logo} 
               alt={company.name} 
-              className="h-full w-auto max-w-full object-contain"
+              className="h-12 w-auto max-w-full object-contain"
               loading="eager"
               onLoad={() => handleImageLoad(company.id, company.name)}
               onError={(e) => handleImageError(company.id, company.name, e)}
@@ -103,7 +103,7 @@ const CompanyTicker: React.FC = () => {
           <div className="absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-white to-transparent z-10"></div>
           
           {/* Ticker - first instance */}
-          <div className="ticker-track flex items-center space-x-16 animate-rtl-marquee">
+          <div className="ticker-track flex items-center space-x-16 animate-marquee">
             {companies.map((company) => (
               <CompanyLogo key={company.id} company={company} />
             ))}

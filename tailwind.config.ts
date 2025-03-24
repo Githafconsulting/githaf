@@ -117,6 +117,10 @@ export default {
 				marquee: {
 					'0%': { transform: 'translateX(0)' },
 					'100%': { transform: 'translateX(-50%)' }
+				},
+				'rtl-marquee': {
+					'0%': { transform: 'translateX(0)' },
+					'100%': { transform: 'translateX(-50%)' }
 				}
 			},
 			animation: {
@@ -130,7 +134,8 @@ export default {
 				'slide-right': 'slide-right 0.6s ease-out forwards',
 				'scale-in': 'scale-in 0.3s ease-out forwards',
 				'float': 'float 6s ease-in-out infinite',
-				'marquee': 'marquee 25s linear infinite'
+				'marquee': 'marquee 25s linear infinite',
+				'rtl-marquee': 'rtl-marquee 25s linear infinite'
 			},
 			backdropBlur: {
 				xs: '2px',
