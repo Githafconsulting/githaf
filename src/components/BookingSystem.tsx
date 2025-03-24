@@ -20,8 +20,8 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog';
 import { toast } from 'sonner';
-import { Calendar as CalendarIcon, Clock } from 'lucide-react';
-import { format, addDays, startOfDay, addHours, setHours, setMinutes } from 'date-fns';
+import { Calendar as CalendarIcon, Clock, CalendarCheck } from 'lucide-react';
+import { format, addDays, startOfDay, setHours, setMinutes } from 'date-fns';
 
 const CONSULTATION_TYPES = [
   { id: 'initial', name: 'Initial Consultation', duration: 30 },
@@ -81,27 +81,60 @@ const BookingSystem = () => {
       // Format date and time for the email
       const formattedDate = selectedDate ? format(selectedDate, 'EEEE, MMMM d, yyyy') : '';
       
-      // Construct the email body with all booking details
+      // Calculate event start and end time for Google Calendar link
+      const startDateTime = selectedDate && selectedTime 
+        ? formatForGoogleCalendar(selectedDate, selectedTime)
+        : '';
+      
+      // Calculate end time by adding duration minutes
+      const endDateTime = selectedDate && selectedTime && consultationType
+        ? formatForGoogleCalendar(selectedDate, selectedTime, consultationType.duration)
+        : '';
+      
+      // Create Google Calendar event link
+      const calendarLink = createGoogleCalendarLink({
+        title: `Consultation with ${formData.name} - ${consultationType?.name}`,
+        description: `
+Name: ${formData.name}
+Email: ${formData.email}
+Company: ${formData.company || 'N/A'}
+Phone: ${formData.phone || 'N/A'}
+
+Additional Information:
+${formData.message || 'None provided'}
+        `,
+        startDateTime,
+        endDateTime,
+        location: 'Online Meeting',
+      });
+      
+      // Construct the email body with booking details and calendar link
       const subject = encodeURIComponent(`Consultation Booking from ${formData.name}`);
       const body = encodeURIComponent(
         `Booking Details:\n\n` +
         `Name: ${formData.name}\n` +
         `Email: ${formData.email}\n` +
-        `Company: ${formData.company}\n` +
-        `Phone: ${formData.phone}\n\n` +
+        `Company: ${formData.company || 'N/A'}\n` +
+        `Phone: ${formData.phone || 'N/A'}\n\n` +
         `Consultation Type: ${consultationType?.name}\n` +
         `Date: ${formattedDate}\n` +
         `Time: ${selectedTime}\n` +
         `Duration: ${consultationType?.duration} minutes\n\n` +
-        `Additional Information:\n${formData.message}\n\n` +
-        `Please add this to the gravitasitconsulting Google Calendar.`
+        `Additional Information:\n${formData.message || 'None provided'}\n\n` +
+        `Google Calendar Link: ${calendarLink}\n\n` +
+        `Click the Google Calendar Link above to add this event to your calendar, or copy and paste it into your browser.`
       );
       
-      // Open the mailto link (as a simple implementation)
+      // Open the mailto link to gravitasitconsulting@gmail.com
       window.open(`mailto:gravitasitconsulting@gmail.com?subject=${subject}&body=${body}`);
       
+      // Also open the Google Calendar event in a new tab
+      window.open(calendarLink, '_blank');
+      
       // Show success message
-      toast.success("Your booking request has been sent! We'll confirm your appointment shortly.");
+      toast.success("Your booking request has been sent! We'll confirm your appointment shortly.", {
+        duration: 5000,
+      });
       
       // Reset form
       setFormData({ name: '', email: '', company: '', phone: '', message: '' });
@@ -115,6 +148,7 @@ const BookingSystem = () => {
         date: selectedDate,
         time: selectedTime,
         consultationType: consultationType?.name,
+        calendarLink
       });
     } catch (error) {
       console.error('Error processing booking:', error);
@@ -122,6 +156,38 @@ const BookingSystem = () => {
     } finally {
       setIsSubmitting(false);
     }
+  };
+
+  // Helper to format date and time for Google Calendar URL
+  const formatForGoogleCalendar = (date: Date, timeStr: string, addMinutes = 0) => {
+    const [hours, minutes] = timeStr.split(':').map(Number);
+    const eventDate = new Date(date);
+    eventDate.setHours(hours, minutes, 0, 0);
+    
+    if (addMinutes) {
+      eventDate.setMinutes(eventDate.getMinutes() + addMinutes);
+    }
+    
+    // Format to 'YYYYMMDDTHHmmssZ' format
+    return eventDate.toISOString().replace(/-|:|\.\d+/g, '');
+  };
+
+  // Helper to create Google Calendar link
+  const createGoogleCalendarLink = (
+    { title, description, startDateTime, endDateTime, location }:
+    { title: string, description: string, startDateTime: string, endDateTime: string, location: string }
+  ) => {
+    const baseUrl = 'https://calendar.google.com/calendar/render';
+    const params = new URLSearchParams({
+      action: 'TEMPLATE',
+      text: title,
+      details: description,
+      dates: `${startDateTime}/${endDateTime}`,
+      location: location,
+      add: 'gravitasitconsulting@gmail.com',
+    });
+    
+    return `${baseUrl}?${params.toString()}`;
   };
 
   // Calculate available dates (next 30 days, excluding weekends)
@@ -271,6 +337,7 @@ const BookingSystem = () => {
               className="w-full"
               disabled={!selectedDate || !selectedTime || !selectedType || !formData.name || !formData.email}
             >
+              <CalendarCheck className="mr-2 h-5 w-5" />
               Book Consultation
             </Button>
           </div>
