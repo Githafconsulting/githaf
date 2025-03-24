@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const companies = [
   {
@@ -40,10 +40,31 @@ const companies = [
 ];
 
 const CompanyTicker: React.FC = () => {
+  // Track loading state for debugging
+  const [imagesLoaded, setImagesLoaded] = useState(0);
+  const [imagesErrored, setImagesErrored] = useState(0);
+
+  useEffect(() => {
+    // Log loading stats for debugging
+    if (imagesLoaded > 0 || imagesErrored > 0) {
+      console.log(`Images loaded: ${imagesLoaded}, Images with errors: ${imagesErrored}`);
+    }
+  }, [imagesLoaded, imagesErrored]);
+
+  const handleImageLoad = (companyName: string) => {
+    console.log(`Successfully loaded image for ${companyName}`);
+    setImagesLoaded(prev => prev + 1);
+  };
+
+  const handleImageError = (companyName: string, e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    console.error(`Failed to load image for ${companyName}:`, e);
+    setImagesErrored(prev => prev + 1);
+  };
+
   return (
     <section className="py-10 bg-white overflow-hidden">
       <div className="container mx-auto px-4">
-        <h3 className="text-center mb-8 text-2xl font-medium">Clients</h3>
+        <h2 className="text-center mb-8 text-3xl sm:text-4xl font-semibold">Our Clients</h2>
         
         <div className="relative">
           {/* Gradient overlays for smooth edge fade */}
@@ -54,22 +75,14 @@ const CompanyTicker: React.FC = () => {
           <div className="ticker-track flex items-center space-x-16 animate-rtl-marquee">
             {companies.map((company) => (
               <div key={company.id} className="ticker-item flex-shrink-0">
-                <div className="h-14 sm:h-16 w-auto flex items-center justify-center">
+                <div className="h-14 sm:h-16 w-32 flex items-center justify-center">
                   <img 
                     src={company.logo} 
                     alt={company.name} 
                     className="h-full w-auto object-contain"
                     loading="eager"
-                    onLoad={(e) => {
-                      console.log(`Successfully loaded image for ${company.name}`);
-                      const imgElement = e.target as HTMLImageElement;
-                      imgElement.style.display = 'block';
-                    }}
-                    onError={(e) => {
-                      console.error(`Failed to load image for ${company.name}:`, e);
-                      const imgElement = e.target as HTMLImageElement;
-                      imgElement.style.display = 'none';
-                    }}
+                    onLoad={() => handleImageLoad(company.name)}
+                    onError={(e) => handleImageError(company.name, e)}
                   />
                 </div>
                 <p className="text-xs text-center mt-2 text-gray-600">{company.name}</p>
@@ -78,22 +91,14 @@ const CompanyTicker: React.FC = () => {
             {/* Duplicate companies for seamless looping */}
             {companies.map((company) => (
               <div key={`dup-${company.id}`} className="ticker-item flex-shrink-0">
-                <div className="h-14 sm:h-16 w-auto flex items-center justify-center">
+                <div className="h-14 sm:h-16 w-32 flex items-center justify-center">
                   <img 
                     src={company.logo} 
                     alt={company.name} 
                     className="h-full w-auto object-contain"
                     loading="eager"
-                    onLoad={(e) => {
-                      console.log(`Successfully loaded image for ${company.name}`);
-                      const imgElement = e.target as HTMLImageElement;
-                      imgElement.style.display = 'block';
-                    }}
-                    onError={(e) => {
-                      console.error(`Failed to load image for ${company.name}:`, e);
-                      const imgElement = e.target as HTMLImageElement;
-                      imgElement.style.display = 'none';
-                    }}
+                    onLoad={() => handleImageLoad(company.name)}
+                    onError={(e) => handleImageError(company.name, e)}
                   />
                 </div>
                 <p className="text-xs text-center mt-2 text-gray-600">{company.name}</p>
