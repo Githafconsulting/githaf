@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Button from './Button';
@@ -63,7 +64,7 @@ const Navbar: React.FC = () => {
             ))}
             
             <Link to="/booking" className="ml-2">
-              <Button variant="primary" size="sm" icon={<Calendar className="h-4 w-4" }}>
+              <Button variant="primary" size="sm" icon={<Calendar className="h-4 w-4" />}>
                 Book a Consultation
               </Button>
             </Link>
@@ -96,7 +97,7 @@ const Navbar: React.FC = () => {
             ))}
             <div className="pt-2 pb-1">
               <Link to="/booking" onClick={closeMenu} className="block w-full">
-                <Button variant="primary" className="w-full" icon={<Calendar className="h-4 w-4" }}>
+                <Button variant="primary" className="w-full" icon={<Calendar className="h-4 w-4" />}>
                   Book a Consultation
                 </Button>
               </Link>
