@@ -54,34 +54,48 @@ const CompanyTicker: React.FC = () => {
           <div className="ticker-track flex items-center space-x-16 animate-rtl-marquee">
             {companies.map((company) => (
               <div key={company.id} className="ticker-item flex-shrink-0">
-                <img 
-                  src={company.logo} 
-                  alt={company.name} 
-                  className="h-14 sm:h-16 w-auto object-contain"
-                  loading="eager"
-                  onError={(e) => {
-                    console.error(`Failed to load image for ${company.name}:`, e);
-                    const imgElement = e.target as HTMLImageElement;
-                    imgElement.style.display = 'none';
-                  }}
-                />
+                <div className="h-14 sm:h-16 w-auto flex items-center justify-center">
+                  <img 
+                    src={company.logo} 
+                    alt={company.name} 
+                    className="h-full w-auto object-contain"
+                    loading="eager"
+                    onLoad={(e) => {
+                      console.log(`Successfully loaded image for ${company.name}`);
+                      const imgElement = e.target as HTMLImageElement;
+                      imgElement.style.display = 'block';
+                    }}
+                    onError={(e) => {
+                      console.error(`Failed to load image for ${company.name}:`, e);
+                      const imgElement = e.target as HTMLImageElement;
+                      imgElement.style.display = 'none';
+                    }}
+                  />
+                </div>
                 <p className="text-xs text-center mt-2 text-gray-600">{company.name}</p>
               </div>
             ))}
             {/* Duplicate companies for seamless looping */}
             {companies.map((company) => (
               <div key={`dup-${company.id}`} className="ticker-item flex-shrink-0">
-                <img 
-                  src={company.logo} 
-                  alt={company.name} 
-                  className="h-14 sm:h-16 w-auto object-contain"
-                  loading="eager"
-                  onError={(e) => {
-                    console.error(`Failed to load image for ${company.name}:`, e);
-                    const imgElement = e.target as HTMLImageElement;
-                    imgElement.style.display = 'none';
-                  }}
-                />
+                <div className="h-14 sm:h-16 w-auto flex items-center justify-center">
+                  <img 
+                    src={company.logo} 
+                    alt={company.name} 
+                    className="h-full w-auto object-contain"
+                    loading="eager"
+                    onLoad={(e) => {
+                      console.log(`Successfully loaded image for ${company.name}`);
+                      const imgElement = e.target as HTMLImageElement;
+                      imgElement.style.display = 'block';
+                    }}
+                    onError={(e) => {
+                      console.error(`Failed to load image for ${company.name}:`, e);
+                      const imgElement = e.target as HTMLImageElement;
+                      imgElement.style.display = 'none';
+                    }}
+                  />
+                </div>
                 <p className="text-xs text-center mt-2 text-gray-600">{company.name}</p>
               </div>
             ))}
