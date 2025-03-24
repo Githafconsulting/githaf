@@ -52,17 +52,13 @@ const ContactSection: React.FC = () => {
 
   return (
     <section id="contact" className="py-12 md:py-20 relative overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute left-0 top-1/3 w-1/3 h-1/3 bg-primary/5 rounded-r-full -z-10"></div>
-      <div className="absolute right-0 bottom-0 w-1/4 h-1/3 bg-accent/5 rounded-tl-full -z-10"></div>
-      
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact info */}
             <div className="reveal">
               <h2 className="mb-6">Get In Touch</h2>
-              <p className="text-lg text-muted-foreground mb-8">
+              <p className="text-base text-muted-foreground mb-8">
                 Ready to start your AI and digital transformation journey? Contact us today to schedule a consultation and discover how we can help your business thrive in the digital age.
               </p>
               

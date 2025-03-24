@@ -1,3 +1,4 @@
+
 import React, { useState, useMemo } from 'react';
 import { 
   Smartphone, 
@@ -89,7 +90,7 @@ const services = [
   },
   {
     id: 7,
-    title: 'Automated Workflow',
+    title: 'Automated Workflows',
     description: 'Leverage AI to automate workflows, reduce manual tasks, and improve business process efficiency, freeing up resources for growth.',
     icon: <Workflow className="w-8 h-8 text-primary" />,
     category: 'ai',
@@ -145,6 +146,19 @@ const ServicesSection: React.FC = () => {
     [activeCategory]
   );
 
+  // Function to handle category change with smooth scroll if needed
+  const handleCategoryChange = (categoryId: string) => {
+    setActiveCategory(categoryId);
+    
+    // Ensure services are visible by scrolling to the services grid
+    setTimeout(() => {
+      const servicesGrid = document.querySelector('.services-grid');
+      if (servicesGrid) {
+        servicesGrid.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    }, 10);
+  };
+
   return (
     <section id="services" className={cn("py-4 md:py-8", currentCategoryColor)}>
       <div className="container mx-auto px-4">
@@ -157,7 +171,7 @@ const ServicesSection: React.FC = () => {
             {categories.map((category) => (
               <button
                 key={category.id}
-                onClick={() => setActiveCategory(category.id)}
+                onClick={() => handleCategoryChange(category.id)}
                 className={`px-2 py-1 md:px-3 md:py-1.5 text-xs sm:text-sm font-medium rounded-full transition-all whitespace-nowrap
                   ${activeCategory === category.id 
                     ? 'bg-white text-foreground shadow-sm' 
@@ -172,7 +186,7 @@ const ServicesSection: React.FC = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 services-grid">
           {filteredServices.map((service, index) => {
             const serviceColor = serviceColors[service.id] || 'bg-background';
             

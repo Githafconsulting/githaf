@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { 
-  Award, 
   Users, 
   CheckSquare, 
   AlignJustify, 
@@ -11,11 +10,7 @@ import { useIsMobile } from '@/hooks/use-mobile';
 
 const keyPoints = [
   {
-    text: 'Over 18 years of industry experience',
-    icon: <Award size={16} className="text-[#0EA5E9]" />
-  },
-  {
-    text: 'Team of certified consultants and specialists',
+    text: 'Team of consultants and specialists',
     icon: <Users size={16} className="text-[#8B5CF6]" />
   },
   {

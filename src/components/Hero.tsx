@@ -1,6 +1,5 @@
 
 import React, { useState, useEffect } from 'react';
-import { ArrowRight } from 'lucide-react';
 import Button from './Button';
 import AnimatedCard from './AnimatedCard';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -49,7 +48,7 @@ const Hero: React.FC = () => {
               }`}
             >
               Transform Your Business 
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#ffffff] to-[#e1d5ff]"> Into the Digital Age</span>
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#ffffff] to-[#e1d5ff]"> Into the AI and Digital Age</span>
             </h1>
             
             <p 
@@ -79,8 +78,6 @@ const Hero: React.FC = () => {
                   variant="primary" 
                   size={isMobile ? "sm" : "lg"}
                   className="bg-[#ea33f7] text-white hover:bg-[#ea33f7]/90 w-full sm:w-auto"
-                  icon={<ArrowRight size={isMobile ? 16 : 18} />}
-                  iconPosition="right"
                 >
                   Contact Us
                 </Button>

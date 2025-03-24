@@ -19,23 +19,8 @@ const companies = [
   },
   {
     id: 4,
-    name: 'PayPoint',
+    name: 'Moodys Analytics',
     logo: '/lovable-uploads/d9d7e005-339a-4d0f-837e-e66055b8d5c1.png',
-  },
-  {
-    id: 5,
-    name: 'SAB',
-    logo: '/lovable-uploads/695a2823-ea21-41c3-989a-aa34e9306aad.png',
-  },
-  {
-    id: 6,
-    name: 'Al Ghurair',
-    logo: '/lovable-uploads/c3325f33-66ce-4975-ba17-e8c1524d56ff.png',
-  },
-  {
-    id: 7,
-    name: 'RBS',
-    logo: '/lovable-uploads/32ca709a-b666-41dc-a5bb-aa539477800c.png',
   },
 ];
 
@@ -43,7 +28,7 @@ const CompanyTicker: React.FC = () => {
   return (
     <section className="py-8 bg-[#F2FCE2]/50 overflow-hidden">
       <div className="container mx-auto px-4">
-        <h3 className="text-center mb-6 text-2xl">Successfully delivered for leading companies</h3>
+        <h3 className="text-center mb-6 text-2xl">Clients we</h3>
         
         <div className="relative">
           {/* Gradient overlays for smooth edge fade */}
