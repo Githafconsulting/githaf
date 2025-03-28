@@ -1,3 +1,4 @@
+
 import React, { useState, useMemo } from 'react';
 import { 
   Smartphone, 
@@ -20,13 +21,13 @@ import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 
 const categoryColors = {
+  'all': '#9b87f5',
   'tech': '#D7707E',
   'transformation': '#25A385',
   'ai': '#4682B4',
@@ -48,6 +49,7 @@ const serviceColors = {
 };
 
 const categories = [
+  { id: 'all', name: 'All Services', color: 'bg-[#9b87f5]/30' },
   { id: 'ai', name: 'AI Services', color: 'bg-[#E5DEFF]/30' },
   { id: 'tech', name: 'Technology Services', color: 'bg-[#D3E4FD]/30' },
   { id: 'transformation', name: 'Transformation Services', color: 'bg-[#FDE1D3]/30' },
@@ -75,13 +77,6 @@ const services = [
     description: 'Secure, scalable payment systems and fintech solutions to streamline transactions, improve user experience, and foster financial innovation.',
     icon: <CreditCard className="w-8 h-8 text-primary" />,
     category: 'tech',
-  },
-  {
-    id: 4,
-    title: 'Business Analysis',
-    description: 'Comprehensive business analysis to identify inefficiencies, optimize processes, and implement actionable strategies for improved performance.',
-    icon: <PieChart className="w-8 h-8 text-primary" />,
-    category: 'transformation',
   },
   {
     id: 5,
@@ -134,25 +129,21 @@ const services = [
   },
 ];
 
-const filteredServicesByCategory = {
-  ai: services.filter(service => service.category === 'ai'),
-  tech: services.filter(service => service.category === 'tech'),
-  transformation: services.filter(service => service.category === 'transformation'),
-  marketing: services.filter(service => service.category === 'marketing'),
-};
-
 const ServicesSection: React.FC = () => {
-  const [activeCategory, setActiveCategory] = useState('ai');
+  const [activeCategory, setActiveCategory] = useState('all');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const isMobile = useIsMobile();
 
-  const filteredServices = useMemo(() => 
-    filteredServicesByCategory[activeCategory as keyof typeof filteredServicesByCategory],
-    [activeCategory]
-  );
+  const filteredServices = useMemo(() => {
+    if (activeCategory === 'all') {
+      return services;
+    } else {
+      return services.filter(service => service.category === activeCategory);
+    }
+  }, [activeCategory]);
 
   const currentCategoryColor = useMemo(() => 
-    categories.find(cat => cat.id === activeCategory)?.color || 'bg-[#E5DEFF]/30',
+    categories.find(cat => cat.id === activeCategory)?.color || 'bg-[#9b87f5]/30',
     [activeCategory]
   );
 
