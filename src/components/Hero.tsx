@@ -48,7 +48,7 @@ const Hero: React.FC = () => {
               }`}
             >
               Transform Your Business 
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#ffffff] to-[#e1d5ff]"> Into the AI and Digital Age</span>
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#ffffff] to-[#9b87f5]"> Into the AI and Digital Age</span>
             </h1>
             
             <p 
@@ -68,7 +68,7 @@ const Hero: React.FC = () => {
                 <Button 
                   variant="primary" 
                   size={isMobile ? "sm" : "lg"}
-                  className="bg-[#ea33f7] text-white hover:bg-[#ea33f7]/90 w-full"
+                  className="bg-[#9b87f5] text-white hover:bg-[#8B5CF6]/90 w-full"
                 >
                   Explore Our Services
                 </Button>
@@ -77,7 +77,7 @@ const Hero: React.FC = () => {
                 <Button 
                   variant="primary" 
                   size={isMobile ? "sm" : "lg"}
-                  className="bg-[#ea33f7] text-white hover:bg-[#ea33f7]/90 w-full sm:w-auto"
+                  className="bg-[#9b87f5] text-white hover:bg-[#8B5CF6]/90 w-full sm:w-auto"
                 >
                   Contact Us
                 </Button>

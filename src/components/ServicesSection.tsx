@@ -1,4 +1,3 @@
-
 import React, { useState, useMemo } from 'react';
 import { 
   Smartphone, 
@@ -11,11 +10,21 @@ import {
   Search,
   Globe,
   GraduationCap,
-  ClipboardList
+  ClipboardList,
+  ChevronDown
 } from 'lucide-react';
 import AnimatedCard from './AnimatedCard';
 import { cn } from '@/lib/utils';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { 
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 
 const categoryColors = {
   'tech': '#D7707E',
@@ -134,6 +143,7 @@ const filteredServicesByCategory = {
 
 const ServicesSection: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState('ai');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const isMobile = useIsMobile();
 
   const filteredServices = useMemo(() => 
@@ -146,11 +156,9 @@ const ServicesSection: React.FC = () => {
     [activeCategory]
   );
 
-  // Function to handle category change with smooth scroll if needed
   const handleCategoryChange = (categoryId: string) => {
     setActiveCategory(categoryId);
     
-    // Ensure services are visible by scrolling to the services grid
     setTimeout(() => {
       const servicesGrid = document.querySelector('.services-grid');
       if (servicesGrid) {
@@ -163,7 +171,70 @@ const ServicesSection: React.FC = () => {
     <section id="services" className={cn("py-4 md:py-8", currentCategoryColor)}>
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-4 reveal">
-          <h2 className="mb-3 text-3xl md:text-4xl font-bold">Our Services</h2>
+          <h2 className="mb-3 text-3xl md:text-4xl font-semibold">Our Services</h2>
+          
+          <div className="hidden md:flex justify-center mb-6">
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="bg-white hover:bg-white/90">All Services</NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="grid grid-cols-2 gap-3 p-4 w-[500px]">
+                      {services.map(service => (
+                        <NavigationMenuLink 
+                          key={service.id}
+                          className="flex items-center p-3 hover:bg-muted rounded-md"
+                          href={`#service-${service.id}`}
+                          onClick={() => {
+                            handleCategoryChange(service.category);
+                            setTimeout(() => {
+                              document.getElementById(`service-${service.id}`)?.scrollIntoView({ behavior: 'smooth' });
+                            }, 100);
+                          }}
+                        >
+                          <div className="mr-3">{service.icon}</div>
+                          <div>
+                            <div className="font-medium">{service.title}</div>
+                            <div className="text-xs text-muted-foreground line-clamp-1">{service.description.substring(0, 50)}...</div>
+                          </div>
+                        </NavigationMenuLink>
+                      ))}
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
+          </div>
+          
+          <div className="md:hidden mb-6">
+            <Collapsible open={isMenuOpen} onOpenChange={setIsMenuOpen}>
+              <CollapsibleTrigger className="flex items-center justify-center w-full bg-white hover:bg-white/90 px-4 py-2 rounded-md">
+                <span className="mr-2">All Services</span>
+                <ChevronDown className={`h-4 w-4 transition-transform ${isMenuOpen ? 'rotate-180' : ''}`} />
+              </CollapsibleTrigger>
+              <CollapsibleContent>
+                <div className="mt-2 bg-white p-3 rounded-md shadow-sm space-y-2">
+                  {services.map(service => (
+                    <a 
+                      key={service.id}
+                      className="flex items-center p-2 hover:bg-muted rounded-md"
+                      href={`#service-${service.id}`}
+                      onClick={() => {
+                        handleCategoryChange(service.category);
+                        setIsMenuOpen(false);
+                        setTimeout(() => {
+                          document.getElementById(`service-${service.id}`)?.scrollIntoView({ behavior: 'smooth' });
+                        }, 100);
+                      }}
+                    >
+                      <div className="mr-2">{service.icon}</div>
+                      <div className="text-sm font-medium">{service.title}</div>
+                    </a>
+                  ))}
+                </div>
+              </CollapsibleContent>
+            </Collapsible>
+          </div>
         </div>
 
         <div className="flex justify-center mb-6 overflow-x-auto pb-2">
@@ -191,7 +262,12 @@ const ServicesSection: React.FC = () => {
             const serviceColor = serviceColors[service.id] || 'bg-background';
             
             return (
-              <div key={service.id} className="reveal" style={{ transitionDelay: `${index * 20}ms` }}>
+              <div 
+                key={service.id} 
+                id={`service-${service.id}`}
+                className="reveal" 
+                style={{ transitionDelay: `${index * 20}ms` }}
+              >
                 <AnimatedCard 
                   className={cn("h-full rounded-xl shadow-sm hover:shadow-md transition-shadow p-3 sm:p-4", 
                     serviceColor)}
