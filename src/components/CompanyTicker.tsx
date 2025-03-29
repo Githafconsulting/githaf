@@ -15,7 +15,7 @@ const companies = [
   {
     id: 3,
     name: 'PayPoint',
-    logo: '/lovable-uploads/paypoint.png',
+    logo: '/lovable-uploads/Paypoint.png',
   },
   {
     id: 4,
@@ -25,12 +25,12 @@ const companies = [
   {
     id: 5,
     name: 'Moody\'s Analytics',
-    logo: '/lovable-uploads/Moodys.png',
+    logo: '/lovable-uploads/Moodys .png', // Note: there's a space after Moodys
   },
   {
     id: 6,
     name: 'HSBC',
-    logo: '/lovable-uploads/hsbc.jpeg.jpg',
+    logo: '/lovable-uploads/HSBC.png',
   }, 
   {
     id: 7,
@@ -40,65 +40,41 @@ const companies = [
 ];
 
 const CompanyTicker: React.FC = () => {
-  // Track loading state
+  const [isLoaded, setIsLoaded] = useState(false);
   const [imagesLoaded, setImagesLoaded] = useState(0);
-  const [imagesErrored, setImagesErrored] = useState(0);
-  const [imageStatuses, setImageStatuses] = useState<Record<number, boolean>>({});
   
-  // Fix incorrect image paths if needed
-  const getFixedImagePath = (path: string) => {
-    // Check if the path includes "lovable-uploads" but doesn't have correct casing
-    if (path.toLowerCase().includes('paypoint.png')) {
-      return '/lovable-uploads/Paypoint.png';
-    }
-    if (path.toLowerCase().includes('moodys.png')) {
-      return '/lovable-uploads/Moodys .png'; // Note the space after Moodys
-    }
-    return path;
-  };
-
+  // Only show the ticker once all images have loaded or errored
   useEffect(() => {
-    // Log loading stats for debugging
-    if (imagesLoaded > 0 || imagesErrored > 0) {
-      console.log(`Images loaded: ${imagesLoaded}, Images with errors: ${imagesErrored}`);
+    if (imagesLoaded >= companies.length) {
+      setIsLoaded(true);
     }
-  }, [imagesLoaded, imagesErrored]);
+  }, [imagesLoaded]);
 
-  const handleImageLoad = (companyId: number, companyName: string) => {
+  const handleImageLoad = (companyName: string) => {
     console.log(`Successfully loaded image for ${companyName}`);
     setImagesLoaded(prev => prev + 1);
-    setImageStatuses(prev => ({...prev, [companyId]: true}));
   };
 
-  const handleImageError = (companyId: number, companyName: string, e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-    console.error(`Failed to load image for ${companyName}:`, e);
-    setImagesErrored(prev => prev + 1);
-    setImageStatuses(prev => ({...prev, [companyId]: false}));
+  const handleImageError = (companyName: string, e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    console.error(`Failed to load image for ${companyName}`);
+    setImagesLoaded(prev => prev + 1); // Still count errors as "loaded" for display purposes
   };
 
   // Create company logo/name display component
   const CompanyLogo = ({ company, isDuplicate = false }: { company: typeof companies[0], isDuplicate?: boolean }) => {
     const key = isDuplicate ? `dup-${company.id}` : `${company.id}`;
-    const showFallback = imageStatuses[company.id] === false;
-    const fixedImagePath = getFixedImagePath(company.logo);
     
     return (
       <div key={key} className="ticker-item flex-shrink-0">
         <div className="h-16 w-32 flex items-center justify-center">
-          {!showFallback ? (
-            <img 
-              src={fixedImagePath} 
-              alt={`${company.name} logo`}
-              className="h-12 w-auto max-w-full object-contain"
-              loading="eager"
-              onLoad={() => handleImageLoad(company.id, company.name)}
-              onError={(e) => handleImageError(company.id, company.name, e)}
-            />
-          ) : (
-            <div className="bg-gray-100 h-12 w-12 rounded-full flex items-center justify-center text-lg font-semibold">
-              {company.name.charAt(0)}
-            </div>
-          )}
+          <img 
+            src={company.logo} 
+            alt={`${company.name} logo`}
+            className="h-12 w-auto max-w-full object-contain"
+            loading="eager"
+            onLoad={() => handleImageLoad(company.name)}
+            onError={(e) => handleImageError(company.name, e)}
+          />
         </div>
       </div>
     );
@@ -114,8 +90,11 @@ const CompanyTicker: React.FC = () => {
           <div className="absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-white to-transparent z-10"></div>
           <div className="absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-white to-transparent z-10"></div>
           
-          {/* Ticker - first instance */}
-          <div className="ticker-track flex items-center space-x-16 animate-marquee">
+          {/* Only show the ticker once content is loaded to prevent flickering */}
+          <div 
+            className={`ticker-track flex items-center space-x-16 ${isLoaded ? 'animate-marquee' : 'opacity-0'}`}
+            style={{ willChange: 'transform' }}
+          >
             {companies.map((company) => (
               <CompanyLogo key={company.id} company={company} />
             ))}
