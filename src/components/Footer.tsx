@@ -1,18 +1,10 @@
 
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
-  
-  // Get services from ServicesSection for consistency
-  const services = [
-    'AI Integration', 
-    'Digital Strategy', 
-    'Technology Implementation', 
-    'Data Analytics', 
-    'Process Optimization'
-  ];
   
   return (
     <footer className="bg-[#1A1F2C] pt-16 pb-8 text-white">
@@ -30,15 +22,20 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4 text-white">Quick Links</h4>
             <ul className="space-y-3">
-              {['Home', 'About', 'Services', 'Contact'].map((item) => (
-                <li key={item}>
-                  <a 
-                    href={`#${item.toLowerCase().replace(' ', '-')}`}
+              {[
+                { name: 'Home', path: '/' },
+                { name: 'About', path: '/#about' },
+                { name: 'Services', path: '/#services' },
+                { name: 'Contact', path: '/#contact' }
+              ].map((item) => (
+                <li key={item.name}>
+                  <Link 
+                    to={item.path}
                     className="text-white/70 hover:text-white transition-colors flex items-center"
                   >
                     <ArrowRight size={14} className="mr-2" />
-                    {item}
-                  </a>
+                    {item.name}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -56,13 +53,13 @@ const Footer: React.FC = () => {
                 'Automated Workflow'
               ].map((item) => (
                 <li key={item}>
-                  <a 
-                    href="#services"
+                  <Link 
+                    to="/#services"
                     className="text-white/70 hover:text-white transition-colors flex items-center"
                   >
                     <ArrowRight size={14} className="mr-2" />
                     {item}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -91,9 +88,9 @@ const Footer: React.FC = () => {
         <div className="pt-8 mt-8 border-t border-white/20 text-center text-white/70 text-sm">
           <p>© {currentYear} Githaf Consulting. All rights reserved.</p>
           <div className="mt-2 space-x-4">
-            <a href="/privacy-policy.pdf" className="hover:text-white transition-colors">Privacy Policy</a>
+            <Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <span>•</span>
-            <a href="/terms-of-service.pdf" className="hover:text-white transition-colors">Terms of Service</a>
+            <Link to="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>

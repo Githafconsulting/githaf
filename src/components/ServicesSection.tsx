@@ -1,3 +1,4 @@
+
 import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { 
   Smartphone, 
@@ -10,13 +11,11 @@ import {
   Search,
   Globe,
   GraduationCap,
-  ClipboardList,
-  ChevronDown
+  ClipboardList
 } from 'lucide-react';
 import AnimatedCard from './AnimatedCard';
 import { cn } from '@/lib/utils';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 
 const categoryColors = {
   'all': '#9b87f5',
@@ -142,6 +141,7 @@ const ServicesSection: React.FC = () => {
   const handleCategoryChange = (categoryId: string) => {
     setActiveCategory(categoryId);
     
+    // Immediately scroll to services grid when category is changed
     if (servicesGridRef.current) {
       servicesGridRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }

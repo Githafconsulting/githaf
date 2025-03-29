@@ -1,9 +1,11 @@
 
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
-import { Send } from 'lucide-react';
+import { Send, Phone, Mail, Calendar } from 'lucide-react';
 import { Skeleton } from '@/components/ui/skeleton';
+import { toast } from 'sonner';
+import { Link } from 'react-router-dom';
 
 interface ChatBotDialogProps {
   open: boolean;
@@ -12,16 +14,27 @@ interface ChatBotDialogProps {
 
 interface Message {
   id: number;
-  content: string;
+  content: string | React.ReactNode;
   isBot: boolean;
 }
 
 const ChatBotDialog: React.FC<ChatBotDialogProps> = ({ open, onOpenChange }) => {
   const [messages, setMessages] = useState<Message[]>([
-    { id: 1, content: "Hi there! I'm your virtual assistant from Githaf Consulting. How can I help you today?", isBot: true }
+    { id: 1, content: "Hi there! I'm your virtual assistant from Githaf Consulting. How can I help your business transform with AI today?", isBot: true }
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [leadCapture, setLeadCapture] = useState(false);
+  const [email, setEmail] = useState('');
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const [previousQueries, setPreviousQueries] = useState<Set<string>>(new Set());
+
+  // Autoscroll to bottom on new messages
+  useEffect(() => {
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [messages]);
 
   const handleSend = () => {
     if (!input.trim()) return;
@@ -29,13 +42,18 @@ const ChatBotDialog: React.FC<ChatBotDialogProps> = ({ open, onOpenChange }) => 
     // Add user message
     const userMessageId = messages.length + 1;
     setMessages(prev => [...prev, { id: userMessageId, content: input, isBot: false }]);
+    
+    // Store this query to avoid repetitive answers
+    setPreviousQueries(prev => new Set(prev).add(input.toLowerCase()));
+    
+    const userQuery = input;
     setInput('');
     
     // Simulate bot response
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
-      const response = generateResponse(input);
+      const response = generateResponse(userQuery);
       setMessages(prev => [...prev, { id: userMessageId + 1, content: response, isBot: true }]);
     }, 1000);
   };
@@ -43,28 +61,165 @@ const ChatBotDialog: React.FC<ChatBotDialogProps> = ({ open, onOpenChange }) => 
   const generateResponse = (query: string) => {
     const lowerQuery = query.toLowerCase();
     
-    // More conversational responses
-    if (lowerQuery.includes('service') || lowerQuery.includes('offer') || lowerQuery.includes('help')) {
-      return "We specialize in AI integration, digital strategy, and technology implementation. Would you like me to tell you more about a specific service? We can help with AI agents, website development, mobile apps, or fintech solutions.";
-    } else if (lowerQuery.includes('contact') || lowerQuery.includes('reach') || lowerQuery.includes('email')) {
-      return "You can reach our team at gravitasitconsulting@gmail.com or call +971 562078508 (UAE). Is there something specific you'd like assistance with today?";
-    } else if (lowerQuery.includes('location') || lowerQuery.includes('office') || lowerQuery.includes('based')) {
-      return "We have offices in Kirby Le Soken, UK and Damac Hills 2, UAE. Are you interested in meeting in person or would you prefer a virtual consultation?";
-    } else if (lowerQuery.includes('client') || lowerQuery.includes('work') || lowerQuery.includes('company')) {
-      return "We've worked with some amazing companies like HSBC, Royal Bank of Scotland, and PayPoint. What industry is your company in? Perhaps I can share some relevant success stories.";
-    } else if (lowerQuery.includes('transform') || lowerQuery.includes('digital') || lowerQuery.includes('ai')) {
-      return "Digital transformation is all about using technology to fundamentally change how you operate and deliver value. Our team can help guide this journey - from strategy development to implementation. What aspects of digital transformation are you most interested in?";
-    } else if (lowerQuery.includes('hello') || lowerQuery.includes('hi') || lowerQuery.includes('hey')) {
-      return "Hello there! It's great to meet you. I'm here to answer any questions about how we can help transform your business through AI and digital solutions. What brings you to our site today?";
-    } else if (lowerQuery.includes('thank') || lowerQuery.includes('thanks')) {
-      return "You're very welcome! Is there anything else I can help you with today?";
-    } else if (lowerQuery.includes('price') || lowerQuery.includes('cost') || lowerQuery.includes('expensive')) {
-      return "Our pricing varies based on project scope and requirements. We'd be happy to provide a personalized quote after understanding your specific needs. Would you like to schedule a consultation to discuss this further?";
-    } else if (lowerQuery.includes('time') || lowerQuery.includes('long') || lowerQuery.includes('schedule')) {
-      return "Project timelines depend on complexity and requirements. We pride ourselves on efficient delivery while ensuring quality. Could you tell me a bit more about what you're looking to achieve so I can give you a better estimate?";
-    } else {
-      return "That's an interesting point! I'd love to learn more about your specific needs so we can determine how best to assist you. Could you share a bit more about your business challenges or what you're hoping to achieve?";
+    // Check for intent to provide contact information
+    if (lowerQuery.includes('email') && lowerQuery.includes('my') || 
+        lowerQuery.includes('contact me') || 
+        lowerQuery.includes('get in touch') ||
+        lowerQuery.includes('talk to someone')) {
+      return (
+        <div className="space-y-3">
+          <p>I'd be happy to have one of our consultants reach out to you. Could you share your email address?</p>
+          
+          <div className="mt-2 space-y-2">
+            <input 
+              type="email" 
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Your email address"
+              className="w-full p-2 border rounded text-sm"
+            />
+            <Button 
+              size="sm" 
+              className="w-full" 
+              onClick={() => {
+                if (email && email.includes('@')) {
+                  toast.success("Thank you! Our team will contact you shortly.");
+                  setLeadCapture(true);
+                  setMessages(prev => [...prev, { 
+                    id: prev.length + 1, 
+                    content: <p>Thanks for your interest! A consultant will reach out to you at <strong>{email}</strong> within 24 hours. In the meantime, you might want to <Link to="/booking" className="text-primary font-medium hover:underline">book a consultation</Link> directly.</p>, 
+                    isBot: true 
+                  }]);
+                } else {
+                  toast.error("Please enter a valid email address");
+                }
+              }}
+            >
+              Submit
+            </Button>
+          </div>
+        </div>
+      );
     }
+    
+    // Lead generation focused responses
+    if (lowerQuery.includes('pricing') || lowerQuery.includes('cost') || lowerQuery.includes('how much')) {
+      return (
+        <div className="space-y-2">
+          <p>Our pricing varies based on your specific business needs and project scope. We offer custom solutions tailored to your requirements and budget.</p>
+          <p>Would you like to:</p>
+          <div className="flex flex-col gap-2 mt-1">
+            <Button variant="outline" size="sm" asChild>
+              <Link to="/booking" className="flex items-center">
+                <Calendar className="mr-2 h-4 w-4" />
+                Book a consultation
+              </Link>
+            </Button>
+            <Button variant="outline" size="sm" onClick={() => {
+              setMessages(prev => [...prev, { 
+                id: prev.length + 1, 
+                content: "I'd be happy to have one of our consultants reach out to you. Could you share your email address?", 
+                isBot: true 
+              }]);
+            }}>
+              <Mail className="mr-2 h-4 w-4" />
+              Request pricing info
+            </Button>
+          </div>
+        </div>
+      );
+    }
+    
+    if (lowerQuery.includes('service') || lowerQuery.includes('offer') || lowerQuery.includes('help')) {
+      return (
+        <div className="space-y-2">
+          <p>We specialize in:</p>
+          <ul className="list-disc pl-5 space-y-1">
+            <li>AI Agents & Automation</li>
+            <li>Mobile & Web Development</li>
+            <li>Payment & Fintech Solutions</li>
+            <li>Digital Marketing</li>
+            <li>Enterprise Transformation</li>
+          </ul>
+          <p className="mt-2">Which service are you most interested in for your business?</p>
+        </div>
+      );
+    }
+    
+    if (lowerQuery.includes('ai') || lowerQuery.includes('artificial intelligence') || lowerQuery.includes('automation')) {
+      return (
+        <div className="space-y-2">
+          <p>Our AI services can transform your business by automating repetitive tasks, analyzing data for insights, and creating 24/7 customer support.</p>
+          <p>For example, we've helped clients:</p>
+          <ul className="list-disc pl-5 space-y-1">
+            <li>Reduce customer service costs by 40% with AI chatbots</li>
+            <li>Increase sales conversions by 25% with personalized recommendations</li>
+            <li>Automate data entry tasks saving 20+ hours per week</li>
+          </ul>
+          <p className="mt-2">Would you like to explore how AI could benefit your specific business?</p>
+        </div>
+      );
+    }
+    
+    if (lowerQuery.includes('book') || lowerQuery.includes('appointment') || lowerQuery.includes('schedule') || lowerQuery.includes('consultation')) {
+      return (
+        <div className="space-y-2">
+          <p>I'd be happy to help you schedule a consultation with our team!</p>
+          <div className="flex justify-center mt-2">
+            <Button asChild>
+              <Link to="/booking" className="flex items-center">
+                <Calendar className="mr-2 h-4 w-4" />
+                Book a Consultation Now
+              </Link>
+            </Button>
+          </div>
+        </div>
+      );
+    }
+    
+    if (lowerQuery.includes('contact') || lowerQuery.includes('phone') || lowerQuery.includes('call')) {
+      return (
+        <div className="space-y-2">
+          <p>You can reach our team through the following channels:</p>
+          <div className="space-y-1">
+            <p className="flex items-center">
+              <Phone className="h-4 w-4 mr-2" />
+              <a href="tel:+971562078508" className="text-primary hover:underline">+971 562078508</a>
+            </p>
+            <p className="flex items-center">
+              <Mail className="h-4 w-4 mr-2" />
+              <a href="mailto:gravitasitconsulting@gmail.com" className="text-primary hover:underline">gravitasitconsulting@gmail.com</a>
+            </p>
+          </div>
+          <p className="mt-2">Would you prefer that someone from our team contact you directly?</p>
+        </div>
+      );
+    }
+    
+    // Fallback response with lead generation intent
+    return (
+      <div className="space-y-2">
+        <p>Thanks for your question! To provide the most personalized guidance for your business needs, our consultants would love to learn more about your specific situation.</p>
+        <div className="flex flex-col gap-2 mt-2">
+          <Button variant="outline" size="sm" asChild>
+            <Link to="/booking" className="flex items-center">
+              <Calendar className="mr-2 h-4 w-4" />
+              Book a free consultation
+            </Link>
+          </Button>
+          <Button variant="outline" size="sm" onClick={() => {
+            setMessages(prev => [...prev, { 
+              id: prev.length + 1, 
+              content: "I'd be happy to have one of our consultants reach out to you. Could you share your email address?", 
+              isBot: true 
+            }]);
+          }}>
+            <Mail className="mr-2 h-4 w-4" />
+            Request more information
+          </Button>
+        </div>
+      </div>
+    );
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -80,7 +235,7 @@ const ChatBotDialog: React.FC<ChatBotDialogProps> = ({ open, onOpenChange }) => 
         <DialogHeader>
           <DialogTitle>Githaf Assistant</DialogTitle>
           <DialogDescription>
-            Ask me anything about our services or how we can help your business
+            How can we help transform your business with AI?
           </DialogDescription>
         </DialogHeader>
         
@@ -111,6 +266,7 @@ const ChatBotDialog: React.FC<ChatBotDialogProps> = ({ open, onOpenChange }) => 
                 </div>
               </div>
             )}
+            <div ref={messagesEndRef} />
           </div>
           
           {/* Input area */}

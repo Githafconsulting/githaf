@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Button from './Button';
@@ -46,12 +45,11 @@ const Navbar: React.FC = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
+          {/* Logo - Always keep the same color */}
           <Link 
             to="/" 
-            className={`font-bold text-3xl transition-colors ${
-              isScrolled ? 'text-foreground' : 'text-[#ea33f7]'
-            }`}
+            className="font-bold text-3xl"
+            style={{ color: '#ea33f7' }}
           >
             Githaf Consulting
           </Link>
