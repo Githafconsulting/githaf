@@ -26,17 +26,16 @@ const categoryColors = {
 };
 
 const serviceColors = {
-  1: 'bg-[#D3E4FD]/80',
-  2: 'bg-[#D3E4FD]/50',
-  3: 'bg-[#D3E4FD]/70',
-  4: 'bg-[#FDE1D3]/70',
-  5: 'bg-[#FDE1D3]/50',
-  6: 'bg-[#E5DEFF]/80',
-  7: 'bg-[#E5DEFF]/60',
-  8: 'bg-[#F2FCE2]/70',
-  9: 'bg-[#F2FCE2]/50',
-  10: 'bg-[#FDE1D3]/60',
-  11: 'bg-[#FDE1D3]/40',
+  1: 'bg-[#E5DEFF]/80', // AI Agents
+  2: 'bg-[#E5DEFF]/60', // Automated Workflows
+  3: 'bg-[#D3E4FD]/80', // Website Development
+  4: 'bg-[#D3E4FD]/70', // Mobile App Development
+  5: 'bg-[#D3E4FD]/50', // Payments & Fintech
+  6: 'bg-[#F2FCE2]/70', // Facebook Marketing
+  7: 'bg-[#F2FCE2]/50', // Google Marketing
+  8: 'bg-[#FFDEE2]/40', // Enterprise Agility
+  9: 'bg-[#FFDEE2]/30', // Programme Governance
+  10: 'bg-[#FFDEE2]/20', // Training & Courses
 };
 
 const categories = [
@@ -47,75 +46,76 @@ const categories = [
   { id: 'marketing', name: 'Digital Marketing', color: 'bg-[#F2FCE2]/30' },
 ];
 
+// Reordered services
 const services = [
   {
     id: 1,
-    title: 'Mobile App Development',
-    description: 'Powered with AI - Custom mobile apps tailored to your business needs, ensuring efficiency, engagement, and seamless user experiences across platforms.',
-    icon: <Smartphone className="w-8 h-8 text-primary" />,
-    category: 'tech',
-  },
-  {
-    id: 2,
-    title: 'Website Development',
-    description: 'Powered with AI - High-performance, responsive websites designed to enhance your online presence, engage customers, and drive business growth.',
-    icon: <Code className="w-8 h-8 text-primary" />,
-    category: 'tech',
-  },
-  {
-    id: 3,
-    title: 'Payments & Fintech Solutions',
-    description: 'Secure, scalable payment systems and fintech solutions to streamline transactions, improve user experience, and foster financial innovation.',
-    icon: <CreditCard className="w-8 h-8 text-primary" />,
-    category: 'tech',
-  },
-  {
-    id: 5,
-    title: 'Enterprise Agility',
-    description: 'Agile methodologies and effective program management to drive faster decision-making and business adaptation in rapidly changing environments.',
-    icon: <Briefcase className="w-8 h-8 text-primary" />,
-    category: 'transformation',
-  },
-  {
-    id: 6,
     title: 'AI Agents',
     description: 'We Implement AI agents to automate repetitive tasks, streamline your business processes and keep your business running 247; such as chatbots, lead generation, customer service and voice AI agents, personal assistants, data analytics, social media manager and much more.',
     icon: <Bot className="w-8 h-8 text-primary" />,
     category: 'ai',
   },
   {
-    id: 7,
+    id: 2,
     title: 'Automated Workflows',
     description: 'Leverage AI to automate workflows, reduce manual tasks, and improve business process efficiency, freeing up resources for growth.',
     icon: <Workflow className="w-8 h-8 text-primary" />,
     category: 'ai',
   },
   {
-    id: 8,
+    id: 3,
+    title: 'Website Development',
+    description: 'Powered with AI - High-performance, responsive websites designed to enhance your online presence, engage customers, and drive business growth.',
+    icon: <Code className="w-8 h-8 text-primary" />,
+    category: 'tech',
+  },
+  {
+    id: 4,
+    title: 'Mobile App Development',
+    description: 'Powered with AI - Custom mobile apps tailored to your business needs, ensuring efficiency, engagement, and seamless user experiences across platforms.',
+    icon: <Smartphone className="w-8 h-8 text-primary" />,
+    category: 'tech',
+  },
+  {
+    id: 5,
+    title: 'Payments & Fintech Solutions',
+    description: 'Secure, scalable payment systems and fintech solutions to streamline transactions, improve user experience, and foster financial innovation.',
+    icon: <CreditCard className="w-8 h-8 text-primary" />,
+    category: 'tech',
+  },
+  {
+    id: 6,
     title: 'Facebook Marketing',
     description: 'Targeted Facebook marketing strategies to engage your audience, increase conversions, and grow your business\'s online presence.',
     icon: <Globe className="w-8 h-8 text-primary" />,
     category: 'marketing',
   },
   {
-    id: 9,
+    id: 7,
     title: 'Google Marketing',
     description: 'Data-driven Google Ads strategies to reach the right audience, drive traffic, and maximize ROI for your business.',
     icon: <Search className="w-8 h-8 text-primary" />,
     category: 'marketing',
   },
   {
+    id: 8,
+    title: 'Enterprise Agility',
+    description: 'Agile methodologies and effective program management to drive faster decision-making and business adaptation in rapidly changing environments.',
+    icon: <Briefcase className="w-8 h-8 text-primary" />,
+    category: 'transformation',
+  },
+  {
+    id: 9,
+    title: 'Programme Governance & Management',
+    description: 'Expert governance and management for complex programs, ensuring alignment with business objectives, risk mitigation, and successful delivery.',
+    icon: <ClipboardList className="w-8 h-8 text-primary" />,
+    category: 'transformation',
+  },
+  {
     id: 10,
     title: 'Training & Courses',
     description: 'Courses on Enterprise Agility, Programme Management and Governance, Software Engineering, Data Engineering, and Leveraging AI for Automation.',
     icon: <GraduationCap className="w-8 h-8 text-primary" />,
-    category: 'transformation',
-  },
-  {
-    id: 11,
-    title: 'Programme Governance & Management',
-    description: 'Expert governance and management for complex programs, ensuring alignment with business objectives, risk mitigation, and successful delivery.',
-    icon: <ClipboardList className="w-8 h-8 text-primary" />,
     category: 'transformation',
   },
 ];

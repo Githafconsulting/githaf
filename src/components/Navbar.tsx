@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Button from './Button';
@@ -37,6 +38,16 @@ const Navbar: React.FC = () => {
     setIsMenuOpen(false);
   };
 
+  // Function to handle smooth scrolling to section
+  const scrollToSection = (sectionId: string, event: React.MouseEvent) => {
+    event.preventDefault();
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      closeMenu();
+    }
+  };
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -45,7 +56,7 @@ const Navbar: React.FC = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo - Always keep the same color */}
+          {/* Logo - Always the same color */}
           <Link 
             to="/" 
             className="font-bold text-3xl"
@@ -57,15 +68,20 @@ const Navbar: React.FC = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex md:items-center md:gap-1">
             {navLinks.map((link) => (
-              <Link
+              <a
                 key={link.name}
-                to={link.path}
+                href={link.path}
+                onClick={(e) => {
+                  if (link.path.startsWith('/#')) {
+                    scrollToSection(link.path.substring(2), e);
+                  }
+                }}
                 className={`px-4 py-2 text-sm font-bold hover:opacity-80 transition-colors ${
                   isScrolled ? 'text-foreground' : 'text-white'
                 }`}
               >
                 {link.name}
-              </Link>
+              </a>
             ))}
             
             <Link to="/booking" className="ml-2">
@@ -93,16 +109,19 @@ const Navbar: React.FC = () => {
         <div className="md:hidden absolute top-16 left-0 right-0 bg-background border-b shadow-md">
           <div className="container mx-auto px-4 py-4 flex flex-col space-y-2">
             {navLinks.map((link) => (
-              <Link
+              <a
                 key={link.name}
-                to={link.path}
-                className={`px-4 py-3 font-bold hover:bg-accent/50 rounded-md transition-colors ${
-                  isScrolled ? 'text-foreground' : 'text-white'
-                }`}
-                onClick={closeMenu}
+                href={link.path}
+                onClick={(e) => {
+                  if (link.path.startsWith('/#')) {
+                    scrollToSection(link.path.substring(2), e);
+                  }
+                  closeMenu();
+                }}
+                className="px-4 py-3 font-bold hover:bg-accent/50 rounded-md transition-colors text-foreground"
               >
                 {link.name}
-              </Link>
+              </a>
             ))}
             <div className="pt-2 pb-1">
               <Link to="/booking" onClick={closeMenu} className="block w-full">

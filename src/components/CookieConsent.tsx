@@ -53,7 +53,10 @@ const CookieConsent: React.FC = () => {
     console.log('Analytics cookies enabled');
     
     // For demonstration purposes - in a real app you'd initialize your tracking code here
-    window.cookiesEnabled = true;
+    // Using a safe way to add the property to window
+    if (typeof window !== 'undefined') {
+      (window as any).cookiesEnabled = true;
+    }
   };
   
   if (!isVisible) return null;

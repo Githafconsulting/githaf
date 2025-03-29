@@ -1,10 +1,18 @@
 
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
+  
+  // Function to handle smooth scrolling to section
+  const scrollToSection = (sectionId: string, event: React.MouseEvent) => {
+    event.preventDefault();
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   
   return (
     <footer className="bg-[#1A1F2C] pt-16 pb-8 text-white">
@@ -23,19 +31,20 @@ const Footer: React.FC = () => {
             <h4 className="text-lg font-semibold mb-4 text-white">Quick Links</h4>
             <ul className="space-y-3">
               {[
-                { name: 'Home', path: '/' },
-                { name: 'About', path: '/#about' },
-                { name: 'Services', path: '/#services' },
-                { name: 'Contact', path: '/#contact' }
+                { name: 'Home', path: '/', id: null },
+                { name: 'About', path: '/#about', id: 'about' },
+                { name: 'Services', path: '/#services', id: 'services' },
+                { name: 'Contact', path: '/#contact', id: 'contact' }
               ].map((item) => (
                 <li key={item.name}>
-                  <Link 
-                    to={item.path}
+                  <a 
+                    href={item.path}
+                    onClick={(e) => item.id && scrollToSection(item.id, e)}
                     className="text-white/70 hover:text-white transition-colors flex items-center"
                   >
                     <ArrowRight size={14} className="mr-2" />
                     {item.name}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -53,13 +62,14 @@ const Footer: React.FC = () => {
                 'Automated Workflow'
               ].map((item) => (
                 <li key={item}>
-                  <Link 
-                    to="/#services"
+                  <a 
+                    href="/#services"
+                    onClick={(e) => scrollToSection('services', e)}
                     className="text-white/70 hover:text-white transition-colors flex items-center"
                   >
                     <ArrowRight size={14} className="mr-2" />
                     {item}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -71,10 +81,11 @@ const Footer: React.FC = () => {
             <address className="not-italic text-white/80 space-y-3">
               <p>Kirby Le Soken, UK</p>
               <p>Damac Hills 2, UAE</p>
-              <p>
-                <a href="tel:+971562078508" className="hover:text-white transition-colors">
-                  +971 562078508
-                </a>
+              <p className="select-none">
+                UK: <span className="user-select-none">+447530551944</span>
+              </p>
+              <p className="select-none">
+                UAE: <span className="user-select-none">+971562078508</span>
               </p>
               <p>
                 <a href="mailto:gravitasitconsulting@gmail.com" className="hover:text-white transition-colors">
@@ -88,9 +99,9 @@ const Footer: React.FC = () => {
         <div className="pt-8 mt-8 border-t border-white/20 text-center text-white/70 text-sm">
           <p>© {currentYear} Githaf Consulting. All rights reserved.</p>
           <div className="mt-2 space-x-4">
-            <Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <a href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</a>
             <span>•</span>
-            <Link to="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</Link>
+            <a href="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</a>
           </div>
         </div>
       </div>
