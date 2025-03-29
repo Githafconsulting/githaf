@@ -30,6 +30,11 @@ const companies = [
     id: 6,
     name: 'HSBC',
     logo: '/lovable-uploads/hsbc.jpeg.jpg',
+  }, 
+  {
+    id: 7,
+    name: 'LUUP',
+    logo: '/lovable-uploads/LUUP.png',
   },
 ];
 
