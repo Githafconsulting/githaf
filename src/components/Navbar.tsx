@@ -47,7 +47,12 @@ const Navbar: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link to="/" className="font-bold text-3xl" style={{ color: '#ea33f7' }}>
+          <Link 
+            to="/" 
+            className={`font-bold text-3xl transition-colors ${
+              isScrolled ? 'text-foreground' : 'text-[#ea33f7]'
+            }`}
+          >
             Githaf Consulting
           </Link>
           
@@ -57,7 +62,9 @@ const Navbar: React.FC = () => {
               <Link
                 key={link.name}
                 to={link.path}
-                className="px-4 py-2 text-sm font-bold text-white hover:text-foreground transition-colors"
+                className={`px-4 py-2 text-sm font-bold hover:opacity-80 transition-colors ${
+                  isScrolled ? 'text-foreground' : 'text-white'
+                }`}
               >
                 {link.name}
               </Link>
@@ -72,7 +79,9 @@ const Navbar: React.FC = () => {
           
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 text-muted-foreground focus:outline-none"
+            className={`md:hidden p-2 focus:outline-none transition-colors ${
+              isScrolled ? 'text-foreground' : 'text-muted-foreground'
+            }`}
             onClick={toggleMenu}
             aria-label="Toggle menu"
           >
@@ -89,7 +98,9 @@ const Navbar: React.FC = () => {
               <Link
                 key={link.name}
                 to={link.path}
-                className="px-4 py-3 font-bold text-white hover:text-foreground hover:bg-accent/50 rounded-md transition-colors"
+                className={`px-4 py-3 font-bold hover:bg-accent/50 rounded-md transition-colors ${
+                  isScrolled ? 'text-foreground' : 'text-white'
+                }`}
                 onClick={closeMenu}
               >
                 {link.name}
