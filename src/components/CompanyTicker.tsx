@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 
 const companies = [
@@ -43,6 +44,18 @@ const CompanyTicker: React.FC = () => {
   const [imagesLoaded, setImagesLoaded] = useState(0);
   const [imagesErrored, setImagesErrored] = useState(0);
   const [imageStatuses, setImageStatuses] = useState<Record<number, boolean>>({});
+  
+  // Fix incorrect image paths if needed
+  const getFixedImagePath = (path: string) => {
+    // Check if the path includes "lovable-uploads" but doesn't have correct casing
+    if (path.toLowerCase().includes('paypoint.png')) {
+      return '/lovable-uploads/Paypoint.png';
+    }
+    if (path.toLowerCase().includes('moodys.png')) {
+      return '/lovable-uploads/Moodys .png'; // Note the space after Moodys
+    }
+    return path;
+  };
 
   useEffect(() => {
     // Log loading stats for debugging
@@ -67,14 +80,15 @@ const CompanyTicker: React.FC = () => {
   const CompanyLogo = ({ company, isDuplicate = false }: { company: typeof companies[0], isDuplicate?: boolean }) => {
     const key = isDuplicate ? `dup-${company.id}` : `${company.id}`;
     const showFallback = imageStatuses[company.id] === false;
+    const fixedImagePath = getFixedImagePath(company.logo);
     
     return (
       <div key={key} className="ticker-item flex-shrink-0">
         <div className="h-16 w-32 flex items-center justify-center">
           {!showFallback ? (
             <img 
-              src={company.logo} 
-              
+              src={fixedImagePath} 
+              alt={`${company.name} logo`}
               className="h-12 w-auto max-w-full object-contain"
               loading="eager"
               onLoad={() => handleImageLoad(company.id, company.name)}
