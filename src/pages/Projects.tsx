@@ -1,0 +1,166 @@
+
+import React, { useState } from 'react';
+import Layout from '@/components/Layout';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Briefcase, Globe, Smartphone, Cpu } from 'lucide-react';
+
+// Project data
+const projects = [
+  {
+    id: 1,
+    title: 'E-commerce Platform',
+    category: 'web',
+    description: 'A full-featured e-commerce platform with customer accounts, product management, and payment processing.',
+    image: '/placeholder.svg',
+    technologies: ['React', 'Node.js', 'MongoDB'],
+    url: '#',
+  },
+  {
+    id: 2,
+    title: 'Healthcare Management System',
+    category: 'web',
+    description: 'A comprehensive healthcare management system for hospitals and clinics.',
+    image: '/placeholder.svg',
+    technologies: ['Vue.js', 'Django', 'PostgreSQL'],
+    url: '#',
+  },
+  {
+    id: 3,
+    title: 'Fitness Tracking App',
+    category: 'mobile',
+    description: 'A mobile app that helps users track their fitness goals and workouts.',
+    image: '/placeholder.svg',
+    technologies: ['React Native', 'Firebase'],
+    url: '#',
+  },
+  {
+    id: 4,
+    title: 'Restaurant Ordering System',
+    category: 'mobile',
+    description: 'A mobile app for restaurants to manage orders and reservations.',
+    image: '/placeholder.svg',
+    technologies: ['Flutter', 'Firebase'],
+    url: '#',
+  },
+  {
+    id: 5,
+    title: 'AI Content Generator',
+    category: 'ai',
+    description: 'An AI-powered tool that generates high-quality content for blogs and social media.',
+    image: '/placeholder.svg',
+    technologies: ['OpenAI API', 'Python', 'Next.js'],
+    url: '#',
+  },
+  {
+    id: 6,
+    title: 'Intelligent Customer Support',
+    category: 'ai',
+    description: 'An AI chatbot that handles customer support inquiries for businesses.',
+    image: '/placeholder.svg',
+    technologies: ['LangChain', 'React', 'FastAPI'],
+    url: '#',
+  },
+];
+
+// Category icon mappings
+const categoryIcons = {
+  all: <Briefcase className="h-5 w-5" />,
+  web: <Globe className="h-5 w-5" />,
+  mobile: <Smartphone className="h-5 w-5" />,
+  ai: <Cpu className="h-5 w-5" />,
+};
+
+const Projects = () => {
+  const [activeCategory, setActiveCategory] = useState<string>('all');
+
+  // Filter projects based on active category
+  const filteredProjects = activeCategory === 'all' 
+    ? projects 
+    : projects.filter(project => project.category === activeCategory);
+
+  return (
+    <Layout 
+      title="Projects | Githaf Consulting"
+      description="Explore our diverse portfolio of web applications, mobile apps, and AI solutions."
+    >
+      <div className="container mx-auto px-4 py-16 md:py-24">
+        <div className="text-center mb-12">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Projects</h1>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Explore our portfolio of innovative web applications, mobile apps, and AI solutions tailored for businesses.
+          </p>
+        </div>
+        
+        {/* Category Filter Tabs */}
+        <div className="flex justify-center mb-12">
+          <Tabs 
+            defaultValue="all" 
+            value={activeCategory} 
+            onValueChange={setActiveCategory}
+            className="w-full max-w-md"
+          >
+            <TabsList className="grid grid-cols-4 w-full">
+              <TabsTrigger value="all" className="flex items-center gap-1">
+                {categoryIcons.all} All
+              </TabsTrigger>
+              <TabsTrigger value="web" className="flex items-center gap-1">
+                {categoryIcons.web} Web
+              </TabsTrigger>
+              <TabsTrigger value="mobile" className="flex items-center gap-1">
+                {categoryIcons.mobile} Mobile
+              </TabsTrigger>
+              <TabsTrigger value="ai" className="flex items-center gap-1">
+                {categoryIcons.ai} AI
+              </TabsTrigger>
+            </TabsList>
+          </Tabs>
+        </div>
+        
+        {/* Projects Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filteredProjects.map((project) => (
+            <Card key={project.id} className="overflow-hidden border border-border/40 group hover:border-primary/50 transition-colors">
+              <div className="aspect-video relative overflow-hidden bg-muted">
+                <img 
+                  src={project.image} 
+                  alt={project.title}
+                  className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
+              <CardHeader>
+                <div className="flex justify-between items-start">
+                  <CardTitle className="text-xl">{project.title}</CardTitle>
+                  {project.category === 'web' && <Globe className="h-5 w-5 text-muted-foreground" />}
+                  {project.category === 'mobile' && <Smartphone className="h-5 w-5 text-muted-foreground" />}
+                  {project.category === 'ai' && <Cpu className="h-5 w-5 text-muted-foreground" />}
+                </div>
+                <CardDescription>{project.description}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex flex-wrap gap-2">
+                  {project.technologies.map((tech, index) => (
+                    <Badge key={index} variant="secondary">{tech}</Badge>
+                  ))}
+                </div>
+              </CardContent>
+              <CardFooter className="border-t bg-muted/50">
+                <a 
+                  href={project.url} 
+                  className="text-sm font-medium text-primary hover:underline"
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  View Project →
+                </a>
+              </CardFooter>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </Layout>
+  );
+};
+
+export default Projects;
