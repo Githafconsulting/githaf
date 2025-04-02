@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Button from './Button';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Menu, X, Calendar, Briefcase } from 'lucide-react';
+import Logo from './Logo';
 
 // Navbar links configuration
 const navLinks = [
@@ -57,13 +58,13 @@ const Navbar: React.FC = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo - Always the same color */}
+          {/* Logo with company name */}
           <Link 
             to="/" 
-            className="font-bold text-3xl"
-            style={{ color: '#ea33f7' }}
+            className="flex items-center gap-2 font-bold text-3xl"
           >
-            Githaf Consulting
+            <Logo size="md" className="flex-shrink-0" />
+            <span style={{ color: '#ea33f7' }}>Githaf Consulting</span>
           </Link>
           
           {/* Desktop Navigation */}
