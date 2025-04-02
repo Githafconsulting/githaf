@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import Layout from '@/components/Layout';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 import { Briefcase, Globe, Smartphone, Cpu } from 'lucide-react';
 
 // Project data
@@ -12,18 +11,16 @@ const projects = [
     id: 1,
     title: 'SDL PKB Knowledge Base',
     category: 'web',
-    description: 'A comprehensive knowledge base platform for SDL PKB with extensive documentation and search capabilities.',
+    description: 'A comprehensive knowledge base platform with extensive documentation and search capabilities.',
     image: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
-    technologies: ['React', 'Node.js', 'MongoDB'],
     url: 'https://www.sdlpkb.co.uk',
   },
   {
     id: 2,
     title: 'Debra Debs Fashion',
     category: 'web',
-    description: 'An elegant e-commerce platform for Debra Debs fashion brand featuring their latest collections.',
+    description: 'An elegant e-commerce platform featuring the latest fashion collections.',
     image: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
-    technologies: ['Vue.js', 'Django', 'PostgreSQL'],
     url: 'https://www.debradebs.com',
   },
   {
@@ -32,7 +29,6 @@ const projects = [
     category: 'web',
     description: 'A comprehensive healthcare management system for hospitals and clinics.',
     image: '/placeholder.svg',
-    technologies: ['Vue.js', 'Django', 'PostgreSQL'],
     url: '#',
   },
   {
@@ -41,7 +37,6 @@ const projects = [
     category: 'mobile',
     description: 'A mobile app that helps users track their fitness goals and workouts.',
     image: '/placeholder.svg',
-    technologies: ['React Native', 'Firebase'],
     url: '#',
   },
   {
@@ -50,7 +45,6 @@ const projects = [
     category: 'mobile',
     description: 'A mobile app for restaurants to manage orders and reservations.',
     image: '/placeholder.svg',
-    technologies: ['Flutter', 'Firebase'],
     url: '#',
   },
   {
@@ -59,7 +53,6 @@ const projects = [
     category: 'ai',
     description: 'An AI-powered tool that generates high-quality content for blogs and social media.',
     image: '/placeholder.svg',
-    technologies: ['OpenAI API', 'Python', 'Next.js'],
     url: '#',
   },
   {
@@ -68,7 +61,6 @@ const projects = [
     category: 'ai',
     description: 'An AI chatbot that handles customer support inquiries for businesses.',
     image: '/placeholder.svg',
-    technologies: ['LangChain', 'React', 'FastAPI'],
     url: '#',
   },
 ];
@@ -130,41 +122,37 @@ const Projects = () => {
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project) => (
-            <Card key={project.id} className="overflow-hidden border border-border/40 group hover:border-primary/50 transition-colors">
-              <div className="aspect-video relative overflow-hidden bg-muted">
-                <img 
-                  src={project.image} 
-                  alt={project.title}
-                  className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
-                />
-              </div>
-              <CardHeader>
-                <div className="flex justify-between items-start">
-                  <CardTitle className="text-xl">{project.title}</CardTitle>
-                  {project.category === 'web' && <Globe className="h-5 w-5 text-muted-foreground" />}
-                  {project.category === 'mobile' && <Smartphone className="h-5 w-5 text-muted-foreground" />}
-                  {project.category === 'ai' && <Cpu className="h-5 w-5 text-muted-foreground" />}
+            <a 
+              href={project.url} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              key={project.id}
+              className="block group"
+            >
+              <Card className="overflow-hidden border border-border/40 group-hover:border-primary/50 transition-colors h-full flex flex-col">
+                <div className="aspect-video relative overflow-hidden bg-muted">
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
+                  />
                 </div>
-                <CardDescription>{project.description}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  {project.technologies.map((tech, index) => (
-                    <Badge key={index} variant="secondary">{tech}</Badge>
-                  ))}
-                </div>
-              </CardContent>
-              <CardFooter className="border-t bg-muted/50">
-                <a 
-                  href={project.url} 
-                  className="text-sm font-medium text-primary hover:underline"
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                >
-                  View Project →
-                </a>
-              </CardFooter>
-            </Card>
+                <CardHeader>
+                  <div className="flex justify-between items-start">
+                    <CardTitle className="text-xl">{project.title}</CardTitle>
+                    {project.category === 'web' && <Globe className="h-5 w-5 text-muted-foreground" />}
+                    {project.category === 'mobile' && <Smartphone className="h-5 w-5 text-muted-foreground" />}
+                    {project.category === 'ai' && <Cpu className="h-5 w-5 text-muted-foreground" />}
+                  </div>
+                  <CardDescription>{project.description}</CardDescription>
+                </CardHeader>
+                <CardFooter className="mt-auto border-t bg-muted/50">
+                  <span className="text-sm font-medium text-primary">
+                    View Project →
+                  </span>
+                </CardFooter>
+              </Card>
+            </a>
           ))}
         </div>
       </div>
