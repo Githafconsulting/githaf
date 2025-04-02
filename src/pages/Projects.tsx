@@ -10,15 +10,24 @@ import { Briefcase, Globe, Smartphone, Cpu } from 'lucide-react';
 const projects = [
   {
     id: 1,
-    title: 'E-commerce Platform',
+    title: 'SDL PKB Knowledge Base',
     category: 'web',
-    description: 'A full-featured e-commerce platform with customer accounts, product management, and payment processing.',
-    image: '/placeholder.svg',
+    description: 'A comprehensive knowledge base platform for SDL PKB with extensive documentation and search capabilities.',
+    image: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
     technologies: ['React', 'Node.js', 'MongoDB'],
-    url: '#',
+    url: 'https://www.sdlpkb.co.uk',
   },
   {
     id: 2,
+    title: 'Debra Debs Fashion',
+    category: 'web',
+    description: 'An elegant e-commerce platform for Debra Debs fashion brand featuring their latest collections.',
+    image: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
+    technologies: ['Vue.js', 'Django', 'PostgreSQL'],
+    url: 'https://www.debradebs.com',
+  },
+  {
+    id: 3,
     title: 'Healthcare Management System',
     category: 'web',
     description: 'A comprehensive healthcare management system for hospitals and clinics.',
@@ -27,7 +36,7 @@ const projects = [
     url: '#',
   },
   {
-    id: 3,
+    id: 4,
     title: 'Fitness Tracking App',
     category: 'mobile',
     description: 'A mobile app that helps users track their fitness goals and workouts.',
@@ -36,7 +45,7 @@ const projects = [
     url: '#',
   },
   {
-    id: 4,
+    id: 5,
     title: 'Restaurant Ordering System',
     category: 'mobile',
     description: 'A mobile app for restaurants to manage orders and reservations.',
@@ -45,7 +54,7 @@ const projects = [
     url: '#',
   },
   {
-    id: 5,
+    id: 6,
     title: 'AI Content Generator',
     category: 'ai',
     description: 'An AI-powered tool that generates high-quality content for blogs and social media.',
@@ -54,7 +63,7 @@ const projects = [
     url: '#',
   },
   {
-    id: 6,
+    id: 7,
     title: 'Intelligent Customer Support',
     category: 'ai',
     description: 'An AI chatbot that handles customer support inquiries for businesses.',
