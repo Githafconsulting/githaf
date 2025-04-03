@@ -22,7 +22,7 @@ const WebDevelopment = () => {
     {
       id: 3,
       title: 'Website Audit',
-      description: 'Comprehensive analysis of your website's performance, SEO, user experience, and technical health to identify improvement areas.',
+      description: 'Comprehensive analysis of your website\'s performance, SEO, user experience, and technical health to identify improvement areas.',
       icon: <Search className="h-10 w-10 text-primary" />,
     },
   ];
