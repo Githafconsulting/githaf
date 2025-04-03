@@ -12,12 +12,14 @@ import TermsOfService from "./pages/TermsOfService";
 import Projects from "./pages/Projects";
 import WebDevelopment from "./pages/WebDevelopment";
 import WebsiteAudit from "./pages/WebsiteAudit";
+import Favicon from "./components/Favicon";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
+      <Favicon />
       <Toaster />
       <Sonner />
       <BrowserRouter>

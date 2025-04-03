@@ -6,47 +6,15 @@ import { Button } from '@/components/ui/button';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Search, AlertTriangle, CheckCircle, ArrowRight } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { performWebsiteAudit, generateImprovementRecommendations, type AuditResult, type ImprovementData } from '@/services/auditService';
 
 const WebsiteAudit = () => {
   const [url, setUrl] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [auditResults, setAuditResults] = useState<null | {
-    performance: string;
-    seo: string;
-    accessibility: string;
-    bestPractices: string;
-  }>(null);
+  const [auditResults, setAuditResults] = useState<AuditResult | null>(null);
+  const [improvementsData, setImprovementsData] = useState<ImprovementData[]>([]);
   const [showImprovements, setShowImprovements] = useState(false);
   const { toast } = useToast();
-
-  // Mock audit improvements data
-  const improvementsData = [
-    {
-      requirement: 'Page Load Speed',
-      current: 'Your site loads in 5.2 seconds',
-      improvement: 'We can optimize it to load in under 2 seconds'
-    },
-    {
-      requirement: 'Mobile Responsiveness',
-      current: 'Not fully responsive on all devices',
-      improvement: 'We can implement a fully responsive design that works on all screen sizes'
-    },
-    {
-      requirement: 'SEO Optimization',
-      current: 'Missing meta tags and structured data',
-      improvement: 'We can add complete meta tags and implement structured data for better search rankings'
-    },
-    {
-      requirement: 'Security',
-      current: 'HTTP protocol and outdated SSL',
-      improvement: 'We will implement HTTPS with the latest TLS protocols'
-    },
-    {
-      requirement: 'Content Organization',
-      current: 'Content is not properly structured for SEO',
-      improvement: 'We can implement proper heading hierarchy and content organization'
-    }
-  ];
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUrl(e.target.value);
@@ -78,20 +46,27 @@ const WebsiteAudit = () => {
 
     setIsLoading(true);
     
-    // Simulate an API call with a timeout
-    setTimeout(() => {
-      setAuditResults({
-        performance: "74/100",
-        seo: "82/100",
-        accessibility: "68/100",
-        bestPractices: "79/100",
-      });
+    try {
+      const results = await performWebsiteAudit(url);
+      setAuditResults(results);
+      
+      // Generate improvement recommendations based on the audit results
+      const improvements = generateImprovementRecommendations(results);
+      setImprovementsData(improvements);
+      
       setIsLoading(false);
       toast({
         title: "Audit Complete",
         description: "Your website audit has been completed successfully.",
       });
-    }, 3000);
+    } catch (error) {
+      setIsLoading(false);
+      toast({
+        title: "Audit Failed",
+        description: "We couldn't complete the audit. Please try again later.",
+        variant: "destructive",
+      });
+    }
   };
 
   return (
@@ -126,7 +101,7 @@ const WebsiteAudit = () => {
             <div className="text-center py-12">
               <div className="inline-block h-12 w-12 animate-spin rounded-full border-4 border-solid border-primary border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"></div>
               <p className="mt-4 text-lg">Analyzing your website...</p>
-              <p className="text-muted-foreground">This may take a few moments</p>
+              <p className="text-muted-foreground">This may take a few minutes for a thorough analysis</p>
             </div>
           )}
 
@@ -137,77 +112,61 @@ const WebsiteAudit = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                 <div className="p-6 border rounded-lg shadow-sm">
                   <h3 className="text-xl font-semibold mb-2">Performance</h3>
-                  <div className="text-3xl font-bold">{auditResults.performance}</div>
+                  <div className="text-3xl font-bold">{auditResults.performance.score}/100</div>
                   <ul className="mt-4 space-y-2 text-sm">
-                    <li className="flex items-center gap-2">
-                      <AlertTriangle className="h-4 w-4 text-yellow-500" />
-                      Page load speed needs improvement
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <AlertTriangle className="h-4 w-4 text-yellow-500" />
-                      Large image files detected
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-4 w-4 text-green-500" />
-                      Good server response time
-                    </li>
+                    {auditResults.performance.issues.map((issue, index) => (
+                      <li key={index} className="flex items-center gap-2">
+                        {issue.severity === 'critical' && <AlertTriangle className="h-4 w-4 text-red-500" />}
+                        {issue.severity === 'warning' && <AlertTriangle className="h-4 w-4 text-yellow-500" />}
+                        {issue.severity === 'info' && <CheckCircle className="h-4 w-4 text-green-500" />}
+                        {issue.description}
+                      </li>
+                    ))}
                   </ul>
                 </div>
                 
                 <div className="p-6 border rounded-lg shadow-sm">
                   <h3 className="text-xl font-semibold mb-2">SEO</h3>
-                  <div className="text-3xl font-bold">{auditResults.seo}</div>
+                  <div className="text-3xl font-bold">{auditResults.seo.score}/100</div>
                   <ul className="mt-4 space-y-2 text-sm">
-                    <li className="flex items-center gap-2">
-                      <AlertTriangle className="h-4 w-4 text-yellow-500" />
-                      Missing meta descriptions
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <AlertTriangle className="h-4 w-4 text-yellow-500" />
-                      Improper heading structure
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-4 w-4 text-green-500" />
-                      Good URL structure
-                    </li>
+                    {auditResults.seo.issues.map((issue, index) => (
+                      <li key={index} className="flex items-center gap-2">
+                        {issue.severity === 'critical' && <AlertTriangle className="h-4 w-4 text-red-500" />}
+                        {issue.severity === 'warning' && <AlertTriangle className="h-4 w-4 text-yellow-500" />}
+                        {issue.severity === 'info' && <CheckCircle className="h-4 w-4 text-green-500" />}
+                        {issue.description}
+                      </li>
+                    ))}
                   </ul>
                 </div>
                 
                 <div className="p-6 border rounded-lg shadow-sm">
                   <h3 className="text-xl font-semibold mb-2">Accessibility</h3>
-                  <div className="text-3xl font-bold">{auditResults.accessibility}</div>
+                  <div className="text-3xl font-bold">{auditResults.accessibility.score}/100</div>
                   <ul className="mt-4 space-y-2 text-sm">
-                    <li className="flex items-center gap-2">
-                      <AlertTriangle className="h-4 w-4 text-yellow-500" />
-                      Low color contrast
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <AlertTriangle className="h-4 w-4 text-yellow-500" />
-                      Missing alt text on images
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <AlertTriangle className="h-4 w-4 text-yellow-500" />
-                      Navigation needs keyboard accessibility
-                    </li>
+                    {auditResults.accessibility.issues.map((issue, index) => (
+                      <li key={index} className="flex items-center gap-2">
+                        {issue.severity === 'critical' && <AlertTriangle className="h-4 w-4 text-red-500" />}
+                        {issue.severity === 'warning' && <AlertTriangle className="h-4 w-4 text-yellow-500" />}
+                        {issue.severity === 'info' && <CheckCircle className="h-4 w-4 text-green-500" />}
+                        {issue.description}
+                      </li>
+                    ))}
                   </ul>
                 </div>
                 
                 <div className="p-6 border rounded-lg shadow-sm">
                   <h3 className="text-xl font-semibold mb-2">Best Practices</h3>
-                  <div className="text-3xl font-bold">{auditResults.bestPractices}</div>
+                  <div className="text-3xl font-bold">{auditResults.bestPractices.score}/100</div>
                   <ul className="mt-4 space-y-2 text-sm">
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-4 w-4 text-green-500" />
-                      HTTPS implementation
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <AlertTriangle className="h-4 w-4 text-yellow-500" />
-                      Outdated libraries detected
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <AlertTriangle className="h-4 w-4 text-yellow-500" />
-                      Cache policy needs improvement
-                    </li>
+                    {auditResults.bestPractices.issues.map((issue, index) => (
+                      <li key={index} className="flex items-center gap-2">
+                        {issue.severity === 'critical' && <AlertTriangle className="h-4 w-4 text-red-500" />}
+                        {issue.severity === 'warning' && <AlertTriangle className="h-4 w-4 text-yellow-500" />}
+                        {issue.severity === 'info' && <CheckCircle className="h-4 w-4 text-green-500" />}
+                        {issue.description}
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </div>
