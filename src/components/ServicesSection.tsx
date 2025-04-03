@@ -16,6 +16,7 @@ import {
 import AnimatedCard from './AnimatedCard';
 import { cn } from '@/lib/utils';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { useNavigate } from 'react-router-dom';
 
 const categoryColors = {
   'all': '#9b87f5',
@@ -54,6 +55,7 @@ const services = [
     description: 'We Implement AI agents to automate repetitive tasks, streamline your business processes and keep your business running 247; such as chatbots, lead generation, customer service and voice AI agents, personal assistants, data analytics, social media manager and much more.',
     icon: <Bot className="w-8 h-8 text-primary" />,
     category: 'ai',
+    path: null,
   },
   {
     id: 2,
@@ -61,6 +63,7 @@ const services = [
     description: 'Leverage AI to automate workflows, reduce manual tasks, and improve business process efficiency, freeing up resources for growth.',
     icon: <Workflow className="w-8 h-8 text-primary" />,
     category: 'ai',
+    path: null,
   },
   {
     id: 3,
@@ -68,6 +71,7 @@ const services = [
     description: 'Powered with AI - High-performance, responsive websites designed to enhance your online presence, engage customers, and drive business growth.',
     icon: <Code className="w-8 h-8 text-primary" />,
     category: 'tech',
+    path: '/web-development',
   },
   {
     id: 4,
@@ -75,6 +79,7 @@ const services = [
     description: 'Powered with AI - Custom mobile apps tailored to your business needs, ensuring efficiency, engagement, and seamless user experiences across platforms.',
     icon: <Smartphone className="w-8 h-8 text-primary" />,
     category: 'tech',
+    path: null,
   },
   {
     id: 5,
@@ -82,6 +87,7 @@ const services = [
     description: 'Secure, scalable payment systems and fintech solutions to streamline transactions, improve user experience, and foster financial innovation.',
     icon: <CreditCard className="w-8 h-8 text-primary" />,
     category: 'tech',
+    path: null,
   },
   {
     id: 6,
@@ -89,6 +95,7 @@ const services = [
     description: 'Targeted Facebook marketing strategies to engage your audience, increase conversions, and grow your business\'s online presence.',
     icon: <Globe className="w-8 h-8 text-primary" />,
     category: 'marketing',
+    path: null,
   },
   {
     id: 7,
@@ -96,6 +103,7 @@ const services = [
     description: 'Data-driven Google Ads strategies to reach the right audience, drive traffic, and maximize ROI for your business.',
     icon: <Search className="w-8 h-8 text-primary" />,
     category: 'marketing',
+    path: null,
   },
   {
     id: 8,
@@ -103,6 +111,7 @@ const services = [
     description: 'Agile methodologies and effective program management to drive faster decision-making and business adaptation in rapidly changing environments.',
     icon: <Briefcase className="w-8 h-8 text-primary" />,
     category: 'transformation',
+    path: null,
   },
   {
     id: 9,
@@ -110,6 +119,7 @@ const services = [
     description: 'Expert governance and management for complex programs, ensuring alignment with business objectives, risk mitigation, and successful delivery.',
     icon: <ClipboardList className="w-8 h-8 text-primary" />,
     category: 'transformation',
+    path: null,
   },
   {
     id: 10,
@@ -117,6 +127,7 @@ const services = [
     description: 'Courses on Enterprise Agility, Programme Management and Governance, Software Engineering, Data Engineering, and Leveraging AI for Automation.',
     icon: <GraduationCap className="w-8 h-8 text-primary" />,
     category: 'transformation',
+    path: null,
   },
 ];
 
@@ -124,6 +135,7 @@ const ServicesSection: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState('all');
   const servicesGridRef = useRef<HTMLDivElement>(null);
   const isMobile = useIsMobile();
+  const navigate = useNavigate();
 
   const filteredServices = useMemo(() => {
     if (activeCategory === 'all') {
@@ -144,6 +156,12 @@ const ServicesSection: React.FC = () => {
     // Immediately scroll to services grid when category is changed
     if (servicesGridRef.current) {
       servicesGridRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  const handleServiceClick = (service: typeof services[0]) => {
+    if (service.path) {
+      navigate(service.path);
     }
   };
 
@@ -187,10 +205,11 @@ const ServicesSection: React.FC = () => {
                 id={`service-${service.id}`}
                 className="reveal" 
                 style={{ transitionDelay: `${index * 20}ms` }}
+                onClick={() => handleServiceClick(service)}
               >
                 <AnimatedCard 
                   className={cn("h-full rounded-xl shadow-sm hover:shadow-md transition-shadow p-3 sm:p-4", 
-                    serviceColor)}
+                    serviceColor, service.path ? "cursor-pointer hover:scale-[1.02] transition-transform" : "")}
                   intensity={isMobile ? 0 : 2}
                   animate={false}
                 >
@@ -200,6 +219,11 @@ const ServicesSection: React.FC = () => {
                     </div>
                     <h3 className="text-base sm:text-lg font-semibold mb-2">{service.title}</h3>
                     <p className="text-sm text-muted-foreground">{service.description}</p>
+                    {service.path && (
+                      <div className="mt-3 text-sm font-medium text-primary">
+                        View Services →
+                      </div>
+                    )}
                   </div>
                 </AnimatedCard>
               </div>
