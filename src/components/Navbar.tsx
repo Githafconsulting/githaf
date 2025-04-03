@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Button from './Button';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Menu, X, Calendar, Briefcase } from 'lucide-react';
@@ -15,10 +15,20 @@ const navLinks = [
   { name: 'Contact', path: '/#contact' },
 ];
 
+// Pages with light backgrounds that need dark text
+const lightBackgroundPages = [
+  '/web-development',
+  '/website-audit',
+];
+
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const isMobile = useIsMobile();
+  const location = useLocation();
+  
+  // Check if current page has a light background
+  const hasLightBackground = lightBackgroundPages.includes(location.pathname);
   
   // Handle scroll event to change navbar style
   useEffect(() => {
@@ -50,6 +60,13 @@ const Navbar: React.FC = () => {
     }
   };
 
+  // Determine text color based on scroll state and page background
+  const textColor = isScrolled 
+    ? 'text-foreground' 
+    : hasLightBackground 
+      ? 'text-foreground' 
+      : 'text-white';
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -78,9 +95,7 @@ const Navbar: React.FC = () => {
                     scrollToSection(link.path.substring(2), e);
                   }
                 }}
-                className={`px-4 py-2 text-sm font-bold hover:opacity-80 transition-colors ${
-                  isScrolled ? 'text-foreground' : 'text-white'
-                }`}
+                className={`px-4 py-2 text-sm font-bold hover:opacity-80 transition-colors ${textColor}`}
               >
                 {link.name}
               </a>
@@ -96,7 +111,7 @@ const Navbar: React.FC = () => {
           {/* Mobile Menu Button */}
           <button
             className={`md:hidden p-2 focus:outline-none transition-colors ${
-              isScrolled ? 'text-foreground' : 'text-muted-foreground'
+              isScrolled || hasLightBackground ? 'text-foreground' : 'text-muted-foreground'
             }`}
             onClick={toggleMenu}
             aria-label="Toggle menu"

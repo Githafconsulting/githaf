@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Layout from '@/components/Layout';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Bot, MessageSquare, Search } from 'lucide-react';
@@ -12,18 +13,21 @@ const WebDevelopment = () => {
       title: 'AI Voice Agent',
       description: 'Intelligent voice agents that can handle customer inquiries, provide information, and assist with tasks through natural conversation.',
       icon: <Bot className="h-10 w-10 text-primary" />,
+      link: '#',
     },
     {
       id: 2,
       title: 'AI Chatbot',
       description: 'Smart chatbots that engage with website visitors, answer questions, and provide support 24/7 without human intervention.',
       icon: <MessageSquare className="h-10 w-10 text-primary" />,
+      link: '#',
     },
     {
       id: 3,
       title: 'Website Audit',
       description: 'Comprehensive analysis of your website\'s performance, SEO, user experience, and technical health to identify improvement areas.',
       icon: <Search className="h-10 w-10 text-primary" />,
+      link: '/website-audit',
     },
   ];
 
@@ -53,9 +57,11 @@ const WebDevelopment = () => {
                 <CardDescription className="text-base">{product.description}</CardDescription>
               </CardContent>
               <CardFooter className="mt-auto pt-4">
-                <Button variant="default" className="w-full">
-                  Learn More
-                </Button>
+                <Link to={product.link} className="w-full">
+                  <Button variant="default" className="w-full">
+                    Learn More
+                  </Button>
+                </Link>
               </CardFooter>
             </Card>
           ))}
