@@ -35,8 +35,10 @@ const WebsiteAudit = () => {
     }
 
     // Validate URL format
+    let normalizedUrl;
     try {
-      new URL(url.startsWith('http') ? url : `https://${url}`);
+      normalizedUrl = url.startsWith('http') ? url : `https://${url}`;
+      new URL(normalizedUrl);
     } catch (error) {
       toast({
         title: "Invalid URL",
@@ -49,7 +51,10 @@ const WebsiteAudit = () => {
     setIsLoading(true);
     
     try {
-      const results = await performWebsiteAudit(url);
+      console.log(`Starting audit for: ${normalizedUrl}`);
+      const results = await performWebsiteAudit(normalizedUrl);
+      console.log("Audit results received:", results);
+      
       setAuditResults(results);
       
       // Generate improvement recommendations based on the audit results
@@ -62,6 +67,7 @@ const WebsiteAudit = () => {
         description: "Your website audit has been completed successfully.",
       });
     } catch (error) {
+      console.error("Error in handleAudit:", error);
       setIsLoading(false);
       toast({
         title: "Audit Failed",

@@ -61,7 +61,9 @@ export async function performWebsiteAudit(url: string): Promise<AuditResult> {
   const normalizedUrl = url.startsWith('http') ? url : `https://${url}`;
   
   try {
-    // Send request to the real API service for auditing
+    console.log(`Attempting to audit ${normalizedUrl}`);
+    
+    // Try to send request to the real API service for auditing
     const response = await fetch(`https://api.githafconsulting.com/audit/v2?url=${encodeURIComponent(normalizedUrl)}`, {
       method: 'GET',
       headers: {
@@ -71,7 +73,7 @@ export async function performWebsiteAudit(url: string): Promise<AuditResult> {
     });
 
     if (!response.ok) {
-      throw new Error(`Failed to audit website: ${response.statusText}`);
+      throw new Error(`Server responded with status: ${response.status}`);
     }
 
     const data = await response.json();
@@ -92,6 +94,7 @@ export async function performWebsiteAudit(url: string): Promise<AuditResult> {
     return data;
   } catch (error) {
     console.error('Error during website audit:', error);
+    console.log(`Generating mock audit for ${normalizedUrl}`);
     
     // For fallback, use the mock data including competitor analysis
     return generateMockAuditResult(normalizedUrl);
@@ -108,6 +111,8 @@ async function findAndAnalyzeCompetitors(url: string): Promise<any[]> {
         'Content-Type': 'application/json',
         'X-API-KEY': 'gthf-audit-prod-2025',
       },
+      // Add timeout to prevent long waits
+      signal: AbortSignal.timeout(5000),
     });
     
     if (!response.ok) {
@@ -142,6 +147,8 @@ async function analyzeCompetitor(competitorUrl: string): Promise<any> {
         'Content-Type': 'application/json',
         'X-API-KEY': 'gthf-audit-prod-2025',
       },
+      // Add timeout to prevent long waits
+      signal: AbortSignal.timeout(5000),
     });
     
     if (!response.ok) {
