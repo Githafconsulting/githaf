@@ -1,4 +1,3 @@
-
 import { toast } from "@/hooks/use-toast";
 
 export interface AuditResult {
@@ -70,6 +69,8 @@ export async function performWebsiteAudit(url: string): Promise<AuditResult> {
         'Content-Type': 'application/json',
         'X-API-KEY': 'gthf-audit-prod-2025',
       },
+      // Add timeout to prevent long waits
+      signal: AbortSignal.timeout(8000),
     });
 
     if (!response.ok) {
@@ -97,7 +98,9 @@ export async function performWebsiteAudit(url: string): Promise<AuditResult> {
     console.log(`Generating mock audit for ${normalizedUrl}`);
     
     // For fallback, use the mock data including competitor analysis
-    return generateMockAuditResult(normalizedUrl);
+    const mockData = generateMockAuditResult(normalizedUrl);
+    console.log("Mock data generated:", mockData);
+    return mockData;
   }
 }
 
@@ -259,7 +262,7 @@ function generateMockAuditResult(url: string): AuditResult {
   const monthlyVisits = 5000 + (urlHash * 500);
   const organicTraffic = Math.floor(monthlyVisits * (0.4 + (urlHash % 30) / 100));
   
-  return {
+  const mockResult: AuditResult = {
     performance: {
       score: basePerformance,
       issues: [
@@ -339,6 +342,8 @@ function generateMockAuditResult(url: string): AuditResult {
       mockCompetitorData(url, 2)
     ]
   };
+  
+  return mockResult;
 }
 
 // Generate mock competitor data with some variation

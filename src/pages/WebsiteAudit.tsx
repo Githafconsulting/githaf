@@ -9,6 +9,7 @@ import { Search, AlertTriangle, CheckCircle, ArrowRight, BarChart, Users, Clock,
 import { useToast } from '@/hooks/use-toast';
 import { performWebsiteAudit, generateImprovementRecommendations, type AuditResult, type ImprovementData } from '@/services/auditService';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { Skeleton } from '@/components/ui/skeleton';
 
 const WebsiteAudit = () => {
   const [url, setUrl] = useState('');
@@ -49,11 +50,17 @@ const WebsiteAudit = () => {
     }
 
     setIsLoading(true);
+    setAuditResults(null); // Reset previous results
+    setImprovementsData([]); // Reset previous improvements
     
     try {
       console.log(`Starting audit for: ${normalizedUrl}`);
       const results = await performWebsiteAudit(normalizedUrl);
       console.log("Audit results received:", results);
+      
+      if (!results) {
+        throw new Error("No results returned from audit");
+      }
       
       setAuditResults(results);
       
