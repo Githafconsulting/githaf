@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { DownloadCloud } from 'lucide-react';
@@ -11,7 +11,7 @@ interface QuoteSummaryProps {
   additionalFees: AdditionalFee[];
   discount: Discount;
   totals: Totals;
-  onGenerateReport: () => void;
+  onGenerateReport: (convertedCurrency?: { code: string; amount: number }) => void;
 }
 
 export const QuoteSummary: React.FC<QuoteSummaryProps> = ({
@@ -22,6 +22,15 @@ export const QuoteSummary: React.FC<QuoteSummaryProps> = ({
   onGenerateReport,
 }) => {
   const activeServices = selectedServices.filter(service => service.selected);
+  const [convertedCurrency, setConvertedCurrency] = useState<{ code: string; amount: number } | null>(null);
+
+  const handleCurrencyConverted = (currencyCode: string, amount: number) => {
+    setConvertedCurrency({ code: currencyCode, amount });
+  };
+
+  const handleGenerateReport = () => {
+    onGenerateReport(convertedCurrency || undefined);
+  };
 
   return (
     <Card className="sticky top-24">
@@ -106,7 +115,11 @@ export const QuoteSummary: React.FC<QuoteSummaryProps> = ({
               
               {/* Currency Converter */}
               {activeServices.length > 0 && (
-                <CurrencyConverter amount={totals.finalTotal} baseCurrency="USD" />
+                <CurrencyConverter 
+                  amount={totals.finalTotal} 
+                  baseCurrency="USD" 
+                  onCurrencyConverted={handleCurrencyConverted}
+                />
               )}
             </div>
           </div>
@@ -116,7 +129,7 @@ export const QuoteSummary: React.FC<QuoteSummaryProps> = ({
       <CardFooter className="pt-2">
         <Button 
           className="w-full" 
-          onClick={onGenerateReport}
+          onClick={handleGenerateReport}
           disabled={activeServices.length === 0}
         >
           <DownloadCloud className="mr-2 h-4 w-4" />
@@ -126,4 +139,3 @@ export const QuoteSummary: React.FC<QuoteSummaryProps> = ({
     </Card>
   );
 };
-
