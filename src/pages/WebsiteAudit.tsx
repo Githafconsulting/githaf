@@ -7,7 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Search, AlertTriangle, CheckCircle, ArrowRight, BarChart, Users, Clock, TrendingUp, Trophy, AlertCircle } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import { performWebsiteAudit, generateImprovementRecommendations, type AuditResult, type ImprovementData } from '@/services/auditService';
+import { performWebsiteAudit, generateImprovementRecommendations, type AuditResult, type ImprovementData } from '@/services/audit';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
