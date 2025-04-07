@@ -1,7 +1,7 @@
 
 import { toast } from "@/hooks/use-toast";
 import { AuditResult } from "./types";
-import { transformBackupAPIResponse, mockCompetitorData } from "./transformUtils";
+import { transformBackupAPIResponse, mockCompetitorData } from "./transforms";
 
 // Primary API endpoint
 export async function fetchFromPrimaryAPI(url: string): Promise<AuditResult> {

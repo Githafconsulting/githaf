@@ -6,7 +6,7 @@ import {
   fetchFromBackupAPI,
   findAndAnalyzeCompetitors
 } from "./apiService";
-import { generateMockAuditResult } from "./transformUtils";
+import { generateMockAuditResult } from "./transforms";
 import { generateImprovementRecommendations } from "./improvementService";
 
 // Main function to perform website audit with real API
