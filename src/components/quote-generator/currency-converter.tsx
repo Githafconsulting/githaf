@@ -7,6 +7,7 @@ import { Loader2 } from 'lucide-react';
 interface CurrencyConverterProps {
   amount: number;
   baseCurrency?: string;
+  onCurrencyConverted?: (currencyCode: string, amount: number) => void;
 }
 
 interface ExchangeRateResponse {
@@ -17,7 +18,8 @@ interface ExchangeRateResponse {
 
 export const CurrencyConverter: React.FC<CurrencyConverterProps> = ({ 
   amount, 
-  baseCurrency = 'USD' 
+  baseCurrency = 'USD',
+  onCurrencyConverted
 }) => {
   const [targetCurrency, setTargetCurrency] = useState<string>('');
   const [convertedAmount, setConvertedAmount] = useState<number | null>(null);
@@ -66,8 +68,15 @@ export const CurrencyConverter: React.FC<CurrencyConverterProps> = ({
           throw new Error(`Exchange rate for ${targetCurrency} not found`);
         }
         
-        setConvertedAmount(amount * rate);
-        console.log(`Converted ${amount} ${baseCurrency} to ${amount * rate} ${targetCurrency}`);
+        const converted = amount * rate;
+        setConvertedAmount(converted);
+        
+        // Call the callback if provided
+        if (onCurrencyConverted) {
+          onCurrencyConverted(targetCurrency, converted);
+        }
+        
+        console.log(`Converted ${amount} ${baseCurrency} to ${converted} ${targetCurrency}`);
       } catch (err) {
         console.error('Error fetching exchange rates:', err);
         setError('Could not fetch rates at this time');
@@ -78,7 +87,7 @@ export const CurrencyConverter: React.FC<CurrencyConverterProps> = ({
     };
     
     fetchExchangeRate();
-  }, [amount, baseCurrency, targetCurrency]);
+  }, [amount, baseCurrency, targetCurrency, onCurrencyConverted]);
 
   const formatCurrency = (value: number, currencyCode: string) => {
     return new Intl.NumberFormat('en-US', {
