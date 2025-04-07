@@ -4,6 +4,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/componen
 import { Button } from '@/components/ui/button';
 import { DownloadCloud } from 'lucide-react';
 import { SelectedService, AdditionalFee, Discount, Totals } from './use-quote-generator';
+import { CurrencyConverter } from './currency-converter';
 
 interface QuoteSummaryProps {
   selectedServices: SelectedService[];
@@ -102,6 +103,11 @@ export const QuoteSummary: React.FC<QuoteSummaryProps> = ({
                   ${totals.finalTotal.toLocaleString()}
                 </span>
               </div>
+              
+              {/* Currency Converter */}
+              {activeServices.length > 0 && (
+                <CurrencyConverter amount={totals.finalTotal} baseCurrency="USD" />
+              )}
             </div>
           </div>
         )}
@@ -120,3 +126,4 @@ export const QuoteSummary: React.FC<QuoteSummaryProps> = ({
     </Card>
   );
 };
+
