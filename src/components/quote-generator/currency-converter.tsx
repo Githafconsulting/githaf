@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { toast } from 'sonner';
+import { Loader2 } from 'lucide-react';
 
 interface CurrencyConverterProps {
   amount: number;
@@ -44,18 +45,20 @@ export const CurrencyConverter: React.FC<CurrencyConverterProps> = ({
         setIsLoading(true);
         setError(null);
         
+        // Use the free API endpoint that doesn't require an API key
         const response = await fetch(
-          `https://api.exchangerate.host/latest?base=${baseCurrency}&symbols=${targetCurrency}`
+          `https://open.er-api.com/v6/latest/${baseCurrency}`
         );
         
         if (!response.ok) {
-          throw new Error('Failed to fetch exchange rates');
+          throw new Error(`HTTP error! Status: ${response.status}`);
         }
         
-        const data: ExchangeRateResponse = await response.json();
+        const data = await response.json();
         
-        if (!data.success) {
-          throw new Error('Invalid response from exchange rate API');
+        // Check if the response contains the rates
+        if (!data.rates) {
+          throw new Error('Invalid response format from exchange rate API');
         }
         
         const rate = data.rates[targetCurrency];
@@ -64,6 +67,7 @@ export const CurrencyConverter: React.FC<CurrencyConverterProps> = ({
         }
         
         setConvertedAmount(amount * rate);
+        console.log(`Converted ${amount} ${baseCurrency} to ${amount * rate} ${targetCurrency}`);
       } catch (err) {
         console.error('Error fetching exchange rates:', err);
         setError('Could not fetch rates at this time');
@@ -110,7 +114,8 @@ export const CurrencyConverter: React.FC<CurrencyConverterProps> = ({
       </div>
 
       {isLoading && targetCurrency && (
-        <div className="mt-2 text-sm text-muted-foreground">
+        <div className="mt-2 flex items-center text-sm text-muted-foreground">
+          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
           Converting...
         </div>
       )}
@@ -130,4 +135,3 @@ export const CurrencyConverter: React.FC<CurrencyConverterProps> = ({
     </div>
   );
 };
-
