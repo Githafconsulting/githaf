@@ -3,7 +3,6 @@ import React from 'react';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-import { FormControl, FormItem, FormLabel } from '@/components/ui/form';
 import { Discount } from './use-quote-generator';
 
 interface QuoteDiscountsProps {
@@ -22,29 +21,29 @@ export const QuoteDiscounts: React.FC<QuoteDiscountsProps> = ({
       <h3 className="text-lg font-semibold mb-4">Discount</h3>
       
       <div className="space-y-4">
-        <RadioGroup 
-          defaultValue={discount.type} 
-          onValueChange={(value) => onDiscountTypeChange(value as 'percentage' | 'amount')}
-          className="flex space-x-4"
-        >
-          <FormItem className="flex items-center space-x-2 space-y-0">
-            <FormControl>
-              <RadioGroupItem value="percentage" id="discount-percentage" />
-            </FormControl>
-            <FormLabel htmlFor="discount-percentage" className="font-normal">
-              Percentage
-            </FormLabel>
-          </FormItem>
-          
-          <FormItem className="flex items-center space-x-2 space-y-0">
-            <FormControl>
-              <RadioGroupItem value="amount" id="discount-amount" />
-            </FormControl>
-            <FormLabel htmlFor="discount-amount" className="font-normal">
-              Fixed Amount
-            </FormLabel>
-          </FormItem>
-        </RadioGroup>
+        <div className="flex space-x-4">
+          <div className="flex items-center space-x-2">
+            <RadioGroup 
+              value={discount.type} 
+              onValueChange={(value) => onDiscountTypeChange(value as 'percentage' | 'amount')}
+              className="flex space-x-4"
+            >
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="percentage" id="discount-percentage" />
+                <Label htmlFor="discount-percentage" className="font-normal">
+                  Percentage
+                </Label>
+              </div>
+              
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="amount" id="discount-amount" />
+                <Label htmlFor="discount-amount" className="font-normal">
+                  Fixed Amount
+                </Label>
+              </div>
+            </RadioGroup>
+          </div>
+        </div>
         
         <div className="grid grid-cols-2 gap-4 items-center">
           <Label htmlFor="discount-value">
