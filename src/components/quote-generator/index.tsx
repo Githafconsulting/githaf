@@ -17,6 +17,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Plus, Trash, FileText, Save } from 'lucide-react';
 import { Label } from '@/components/ui/label';
 import { toast } from 'sonner';
+import { SelectedService } from './types';
 
 export const QuoteGenerator = () => {
   const {
@@ -37,9 +38,9 @@ export const QuoteGenerator = () => {
     handleClientInfoChange
   } = useQuoteGenerator();
 
-  // Filter agents and services
-  const agents = services.filter(service => service.type === 'agent');
-  const standardServices = services.filter(service => service.type === 'service');
+  // Filter agents and services from the selected services to ensure proper typing
+  const agents = selectedServices.filter(service => service.type === 'agent');
+  const standardServices = selectedServices.filter(service => service.type === 'service');
   
   // Get active agents count and total price
   const activeAgents = selectedServices.filter(s => s.selected && s.type === 'agent');

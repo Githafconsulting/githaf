@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Calendar } from '@/components/ui/calendar';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -48,11 +48,19 @@ const BookingSystem = () => {
   });
   const [confirmationOpen, setConfirmationOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showTimeSlots, setShowTimeSlots] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
+
+  // Automatically show time slots when date is selected
+  useEffect(() => {
+    if (selectedDate) {
+      setShowTimeSlots(true);
+    }
+  }, [selectedDate]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -154,6 +162,7 @@ ${formData.message || 'None provided'}
       setSelectedDate(undefined);
       setSelectedTime(undefined);
       setSelectedType(undefined);
+      setShowTimeSlots(false);
       setConfirmationOpen(false);
       
     } catch (error) {
@@ -225,7 +234,7 @@ ${formData.message || 'None provided'}
           className="rounded-md border shadow p-3 pointer-events-auto"
         />
         
-        {selectedDate && (
+        {showTimeSlots && (
           <div className="mt-6">
             <div className="flex items-center gap-2 mb-4">
               <Clock className="h-5 w-5 text-primary" />
