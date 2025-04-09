@@ -6,7 +6,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Plus, Trash } from 'lucide-react';
-import { Service, SelectedService } from './use-quote-generator';
+import { Service, SelectedService } from './types';
 
 interface QuoteServiceTableProps {
   services: Service[];

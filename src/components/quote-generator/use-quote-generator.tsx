@@ -13,7 +13,8 @@ import {
 } from './handlers';
 import { generatePDF } from './pdf-generator';
 
-export { SelectedService, AdditionalFee, Discount, Totals };
+// Export types using the 'export type' syntax to comply with isolatedModules
+export type { SelectedService, AdditionalFee, Discount, Totals };
 
 export const useQuoteGenerator = () => {
   // Initialize selected services
