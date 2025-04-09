@@ -46,87 +46,87 @@ export const generatePDF = async (
   // Create quote content HTML
   reportContainer.innerHTML = `
     <div style="max-width: 800px; margin: 0 auto;">
-      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 40px;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 30px;">
         <div>
-          <h1 style="color: #ea33f7; font-size: 28px; margin: 0;">CUSTOM QUOTE</h1>
-          <p style="margin: 5px 0 0; color: #666;">Generated on ${formattedDate}</p>
+          <h1 style="color: #ea33f7; font-size: 20px; margin: 0;">CUSTOM QUOTE</h1>
+          <p style="margin: 5px 0 0; color: #666; font-size: 10px;">Generated on ${formattedDate}</p>
         </div>
         <div style="text-align: right;">
-          <img src="/logo.svg" alt="Githaf Consulting" style="width: 100px; height: auto; margin-bottom: 10px;">
-          <p style="margin: 0; font-weight: bold;">Githaf Consulting</p>
-          <p style="margin: 0; font-size: 14px;">AI and Digital Transformation</p>
+          <img src="/logo.svg" alt="Githaf Consulting" style="width: 70px; height: auto; margin-bottom: 5px;">
+          <p style="margin: 0; font-weight: bold; font-size: 11px;">Githaf Consulting</p>
+          <p style="margin: 0; font-size: 9px;">AI and Digital Transformation</p>
         </div>
       </div>
       
       ${activeServices.length > 0 ? `
-        <div style="margin-bottom: 30px;">
-          <h2 style="color: #333; border-bottom: 2px solid #ea33f7; padding-bottom: 8px; margin-bottom: 15px;">Selected Services</h2>
+        <div style="margin-bottom: 20px;">
+          <h2 style="color: #333; border-bottom: 1px solid #ea33f7; padding-bottom: 5px; margin-bottom: 10px; font-size: 14px;">Selected Services</h2>
           <div>
             ${activeServices.map(service => `
-              <div style="margin-bottom: 20px;">
-                <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
-                  <h3 style="margin: 0; font-size: 16px;">${service.name}</h3>
-                  <p style="margin: 0; font-weight: bold;">$${service.price.toLocaleString()}</p>
+              <div style="margin-bottom: 12px;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 3px;">
+                  <h3 style="margin: 0; font-size: 12px;">${service.name}</h3>
+                  <p style="margin: 0; font-weight: bold; font-size: 12px;">$${service.price.toLocaleString()}</p>
                 </div>
-                <p style="margin: 0; color: #666; font-size: 14px;">${service.description}</p>
-                ${service.notes ? `<p style="margin: 5px 0 0; font-style: italic; font-size: 14px;">Note: ${service.notes}</p>` : ''}
+                <p style="margin: 0; color: #666; font-size: 10px;">${service.description}</p>
+                ${service.notes ? `<p style="margin: 3px 0 0; font-style: italic; font-size: 9px;">Note: ${service.notes}</p>` : ''}
               </div>
             `).join('')}
           </div>
-          <p style="margin: 10px 0 0; font-style: italic; font-size: 14px; color: #666;">* Services are one-off payments</p>
+          <p style="margin: 5px 0 0; font-style: italic; font-size: 9px; color: #666;">* Services are one-off payments</p>
         </div>
       ` : ''}
       
       ${activeAgents.length > 0 ? `
-        <div style="margin-bottom: 30px;">
-          <h2 style="color: #333; border-bottom: 2px solid #ea33f7; padding-bottom: 8px; margin-bottom: 15px;">Selected AI Agents</h2>
+        <div style="margin-bottom: 20px;">
+          <h2 style="color: #333; border-bottom: 1px solid #ea33f7; padding-bottom: 5px; margin-bottom: 10px; font-size: 14px;">Selected AI Agents</h2>
           <div>
             ${activeAgents.map(agent => `
-              <div style="margin-bottom: 20px;">
-                <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
-                  <h3 style="margin: 0; font-size: 16px;">${agent.name}</h3>
-                  <p style="margin: 0; font-weight: bold;">$${agent.price.toLocaleString()}</p>
+              <div style="margin-bottom: 12px;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 3px;">
+                  <h3 style="margin: 0; font-size: 12px;">${agent.name}</h3>
+                  <p style="margin: 0; font-weight: bold; font-size: 12px;">$${agent.price.toLocaleString()}</p>
                 </div>
-                <p style="margin: 0; color: #666; font-size: 14px;">${agent.description}</p>
-                ${agent.notes ? `<p style="margin: 5px 0 0; font-style: italic; font-size: 14px;">Note: ${agent.notes}</p>` : ''}
+                <p style="margin: 0; color: #666; font-size: 10px;">${agent.description}</p>
+                ${agent.notes ? `<p style="margin: 3px 0 0; font-style: italic; font-size: 9px;">Note: ${agent.notes}</p>` : ''}
               </div>
             `).join('')}
           </div>
-          <p style="margin: 10px 0 0; font-style: italic; font-size: 14px; color: #666;">* Agents are billed monthly</p>
+          <p style="margin: 5px 0 0; font-style: italic; font-size: 9px; color: #666;">* Agents are billed monthly</p>
         </div>
       ` : ''}
       
-      <div style="margin-bottom: 30px;">
-        <h2 style="color: #333; border-bottom: 2px solid #ea33f7; padding-bottom: 8px; margin-bottom: 15px;">Additional Fees</h2>
+      <div style="margin-bottom: 20px;">
+        <h2 style="color: #333; border-bottom: 1px solid #ea33f7; padding-bottom: 5px; margin-bottom: 10px; font-size: 14px;">Additional Fees</h2>
         ${additionalFees.map(fee => `
-          <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-            <p style="margin: 0;">${fee.name}</p>
-            <p style="margin: 0;">$${fee.price.toLocaleString()}</p>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+            <p style="margin: 0; font-size: 11px;">${fee.name}</p>
+            <p style="margin: 0; font-size: 11px;">$${fee.price.toLocaleString()}</p>
           </div>
         `).join('')}
-        <p style="margin: 10px 0 0; font-style: italic; font-size: 14px; color: #666;">* Consultation and deployment fees are one-off payments</p>
+        <p style="margin: 5px 0 0; font-style: italic; font-size: 9px; color: #666;">* Consultation and deployment fees are one-off payments</p>
       </div>
       
       ${discount.value > 0 ? `
-        <div style="margin-bottom: 30px;">
-          <h2 style="color: #333; border-bottom: 2px solid #ea33f7; padding-bottom: 8px; margin-bottom: 15px;">Applied Discount</h2>
+        <div style="margin-bottom: 20px;">
+          <h2 style="color: #333; border-bottom: 1px solid #ea33f7; padding-bottom: 5px; margin-bottom: 10px; font-size: 14px;">Applied Discount</h2>
           <div style="display: flex; justify-content: space-between;">
-            <p style="margin: 0;">${discount.type === 'percentage' ? `${discount.value}% Discount` : 'Fixed Discount'}</p>
-            <p style="margin: 0; color: #ea33f7;">-$${totals.discountAmount.toLocaleString()}</p>
+            <p style="margin: 0; font-size: 11px;">${discount.type === 'percentage' ? `${discount.value}% Discount` : 'Fixed Discount'}</p>
+            <p style="margin: 0; color: #ea33f7; font-size: 11px;">-$${totals.discountAmount.toLocaleString()}</p>
           </div>
         </div>
       ` : ''}
       
-      <div style="margin: 40px 0; border-top: 2px solid #ddd; padding-top: 20px;">
-        <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
-          <h2 style="margin: 0; font-size: 20px;">Total</h2>
-          <h2 style="margin: 0; font-size: 24px; color: #ea33f7;">$${totals.finalTotal.toLocaleString()}</h2>
+      <div style="margin: 25px 0; border-top: 1px solid #ddd; padding-top: 15px;">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 10px; background-color: #f8f8f8; padding: 10px; border-radius: 4px;">
+          <h2 style="margin: 0; font-size: 16px;">Total</h2>
+          <h2 style="margin: 0; font-size: 18px; color: #ea33f7;">$${totals.finalTotal.toLocaleString()}</h2>
         </div>
         
         ${convertedCurrency ? `
-          <div style="display: flex; justify-content: space-between; margin-top: 5px;">
-            <p style="margin: 0; font-size: 16px;">Converted Total (${convertedCurrency.code})</p>
-            <p style="margin: 0; font-size: 16px; color: #ea33f7;">${new Intl.NumberFormat('en-US', {
+          <div style="display: flex; justify-content: space-between; margin-top: 5px; padding: 0 10px;">
+            <p style="margin: 0; font-size: 12px;">Converted Total (${convertedCurrency.code})</p>
+            <p style="margin: 0; font-size: 12px; color: #ea33f7;">${new Intl.NumberFormat('en-US', {
               style: 'currency',
               currency: convertedCurrency.code,
               minimumFractionDigits: 2,
@@ -136,9 +136,9 @@ export const generatePDF = async (
         ` : ''}
       </div>
       
-      <div style="margin-top: 60px; border-top: 1px solid #eee; padding-top: 20px; font-size: 14px; color: #777; text-align: center;">
-        <p style="margin-bottom: 10px;">This quote is valid for 30 days from the date of issue.</p>
-        <p style="margin-bottom: 10px;">To proceed with this quote, please contact us at contact@githaf.com or call us at +1 (555) 123-4567.</p>
+      <div style="margin-top: 40px; border-top: 1px solid #eee; padding-top: 15px; font-size: 9px; color: #777; text-align: center;">
+        <p style="margin-bottom: 5px;">This quote is valid for 30 days from the date of issue.</p>
+        <p style="margin-bottom: 5px;">To proceed with this quote, please contact us at contact@githaf.com or call us at +1 (555) 123-4567.</p>
         <p>© ${new Date().getFullYear()} Githaf Consulting. All rights reserved.</p>
       </div>
     </div>

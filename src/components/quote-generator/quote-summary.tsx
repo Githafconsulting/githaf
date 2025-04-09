@@ -53,7 +53,7 @@ export const QuoteSummary: React.FC<QuoteSummaryProps> = ({
             {/* Selected Services */}
             {activeStandardServices.length > 0 && (
               <div>
-                <h3 className="font-medium mb-3">Selected Services</h3>
+                <h3 className="font-medium mb-3 text-sm">Selected Services</h3>
                 <ul className="space-y-3">
                   {activeStandardServices.map(service => (
                     <li key={service.id} className="flex justify-between border-b pb-2">
@@ -78,7 +78,7 @@ export const QuoteSummary: React.FC<QuoteSummaryProps> = ({
             {/* Selected Agents */}
             {activeAgents.length > 0 && (
               <div>
-                <h3 className="font-medium mb-3">Selected Agents</h3>
+                <h3 className="font-medium mb-3 text-sm">Selected Agents</h3>
                 <ul className="space-y-3">
                   {activeAgents.map(agent => (
                     <li key={agent.id} className="flex justify-between border-b pb-2">
@@ -102,13 +102,13 @@ export const QuoteSummary: React.FC<QuoteSummaryProps> = ({
             
             {/* Services Subtotal */}
             <div className="flex justify-between pt-2">
-              <span className="font-medium">Services Subtotal</span>
+              <span className="font-medium text-sm">Services Subtotal</span>
               <span className="font-medium">${totals.subtotal.toLocaleString()}</span>
             </div>
             
             {/* Additional Fees */}
             <div>
-              <h3 className="font-medium mb-3">Additional Fees</h3>
+              <h3 className="font-medium mb-3 text-sm">Additional Fees</h3>
               <ul className="space-y-2">
                 {additionalFees.map(fee => (
                   <li key={fee.id} className="flex justify-between">
@@ -118,7 +118,7 @@ export const QuoteSummary: React.FC<QuoteSummaryProps> = ({
                 ))}
               </ul>
               <div className="flex justify-between mt-2 pt-2 border-t">
-                <span>Fees Subtotal</span>
+                <span className="text-sm">Fees Subtotal</span>
                 <span>${totals.feesTotal.toLocaleString()}</span>
               </div>
               <p className="text-xs text-muted-foreground mt-2 italic">
@@ -129,7 +129,7 @@ export const QuoteSummary: React.FC<QuoteSummaryProps> = ({
             {/* Discount */}
             {totals.discountAmount > 0 && (
               <div>
-                <h3 className="font-medium mb-2">Applied Discount</h3>
+                <h3 className="font-medium mb-2 text-sm">Applied Discount</h3>
                 <div className="flex justify-between">
                   <span>
                     {discount.type === 'percentage' 
@@ -143,7 +143,7 @@ export const QuoteSummary: React.FC<QuoteSummaryProps> = ({
             
             {/* Total */}
             <div className="pt-4 border-t border-t-2">
-              <div className="flex justify-between text-xl">
+              <div className="flex justify-between text-lg">
                 <span className="font-bold">Total</span>
                 <span className="font-bold text-green-600">
                   ${totals.finalTotal.toLocaleString()}
