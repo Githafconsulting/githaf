@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { QuoteServiceTable } from './quote-service-table';
+import { CollapsibleAgents } from './collapsible-agents';
 import { QuoteSummary } from './quote-summary';
 import { QuoteAdditionalFees } from './quote-additional-fees';
 import { QuoteDiscounts } from './quote-discounts';
@@ -24,15 +25,28 @@ export const QuoteGenerator = () => {
     handleGenerateReport
   } = useQuoteGenerator();
 
+  // Filter agents for the collapsible section
+  const agents = services.filter(service => service.type === 'agent');
+
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
       <div className="lg:col-span-2 space-y-6">
         <Card>
           <CardContent className="pt-6">
-            <h2 className="text-2xl font-semibold mb-4">Available Services</h2>
+            <h2 className="text-2xl font-semibold mb-4">Our Services</h2>
             <QuoteServiceTable 
               services={services}
               selectedServices={selectedServices}
+              onToggle={handleServiceToggle}
+              onPriceChange={handleServicePriceChange}
+              onNoteChange={handleServiceNoteChange}
+              onRemove={handleRemoveService}
+            />
+
+            <h2 className="text-2xl font-semibold mt-8 mb-2">Our Agents</h2>
+            <CollapsibleAgents 
+              agents={agents}
+              selectedAgents={selectedServices}
               onToggle={handleServiceToggle}
               onPriceChange={handleServicePriceChange}
               onNoteChange={handleServiceNoteChange}

@@ -25,6 +25,9 @@ export const QuoteServiceTable: React.FC<QuoteServiceTableProps> = ({
   onNoteChange,
   onRemove,
 }) => {
+  // Filter out only service type items (not agents)
+  const serviceItems = services.filter(service => service.type === 'service');
+
   return (
     <div className="overflow-auto">
       <Table>
@@ -39,7 +42,7 @@ export const QuoteServiceTable: React.FC<QuoteServiceTableProps> = ({
           </TableRow>
         </TableHeader>
         <TableBody>
-          {services.map((service) => {
+          {serviceItems.map((service) => {
             const selectedService = selectedServices.find(s => s.id === service.id);
             const isSelected = selectedService?.selected || false;
             
