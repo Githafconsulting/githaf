@@ -1,11 +1,14 @@
+
 import React from 'react';
 import { QuoteServiceTable } from './quote-service-table';
-import { CollapsibleAgents } from './collapsible-agents';
 import { QuoteSummary } from './quote-summary';
 import { QuoteAdditionalFees } from './quote-additional-fees';
 import { QuoteDiscounts } from './quote-discounts';
 import { useQuoteGenerator } from './use-quote-generator';
 import { Card, CardContent } from '@/components/ui/card';
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
+import { Button } from '@/components/ui/button';
+import { ChevronDown } from 'lucide-react';
 
 export const QuoteGenerator = () => {
   const {
@@ -24,8 +27,17 @@ export const QuoteGenerator = () => {
     handleGenerateReport
   } = useQuoteGenerator();
 
-  // Filter agents for the collapsible section
+  // Filter agents and services
   const agents = services.filter(service => service.type === 'agent');
+  const standardServices = services.filter(service => service.type === 'service');
+  
+  // Get active agents count and total price
+  const activeAgents = selectedServices.filter(s => s.selected && s.type === 'agent');
+  const agentsCount = activeAgents.length;
+  const agentsTotal = activeAgents.reduce((sum, agent) => sum + agent.price, 0);
+  
+  // State for agents section collapsible
+  const [isAgentSectionOpen, setIsAgentSectionOpen] = React.useState(false);
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -34,7 +46,7 @@ export const QuoteGenerator = () => {
           <CardContent className="pt-6">
             <h2 className="text-2xl font-semibold mb-4">Our Services</h2>
             <QuoteServiceTable 
-              services={services}
+              services={standardServices}
               selectedServices={selectedServices}
               onToggle={handleServiceToggle}
               onPriceChange={handleServicePriceChange}
@@ -42,14 +54,97 @@ export const QuoteGenerator = () => {
               onRemove={handleRemoveService}
             />
 
-            <CollapsibleAgents 
-              agents={agents}
-              selectedAgents={selectedServices}
-              onToggle={handleServiceToggle}
-              onPriceChange={handleServicePriceChange}
-              onNoteChange={handleServiceNoteChange}
-              onRemove={handleRemoveService}
-            />
+            {/* Collapsible Agents Section */}
+            <div className="mt-8">
+              <Collapsible 
+                open={isAgentSectionOpen} 
+                onOpenChange={setIsAgentSectionOpen}
+                className="w-full border rounded-md p-4"
+              >
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h2 className="text-2xl font-semibold">Our Agents</h2>
+                    {!isAgentSectionOpen && agentsCount > 0 && (
+                      <p className="text-sm text-muted-foreground">
+                        {agentsCount} agent{agentsCount !== 1 ? 's' : ''} selected 
+                        (${agentsTotal.toLocaleString()})
+                      </p>
+                    )}
+                  </div>
+                  <CollapsibleTrigger asChild>
+                    <Button variant="ghost" size="sm">
+                      <ChevronDown 
+                        className={`h-4 w-4 transition-transform ${isAgentSectionOpen ? 'rotate-180' : ''}`} 
+                      />
+                      <span className="sr-only">Toggle agents</span>
+                    </Button>
+                  </CollapsibleTrigger>
+                </div>
+                
+                <CollapsibleContent className="mt-4 space-y-4">
+                  {agents.map((agent) => {
+                    const selectedAgent = selectedServices.find(a => a.id === agent.id);
+                    const isSelected = selectedAgent?.selected || false;
+                    
+                    return (
+                      <div key={agent.id} className="border rounded-md p-4">
+                        <div className="flex items-center justify-between mb-2">
+                          <div className="flex items-center">
+                            <input 
+                              type="checkbox"
+                              id={`agent-${agent.id}`}
+                              checked={isSelected}
+                              onChange={() => handleServiceToggle(agent.id)}
+                              className="mr-2 h-4 w-4"
+                            />
+                            <label htmlFor={`agent-${agent.id}`} className="font-medium">
+                              {agent.name}
+                            </label>
+                          </div>
+                          <div className="text-right">
+                            <input
+                              type="number"
+                              value={selectedAgent?.price || agent.defaultPrice}
+                              onChange={(e) => handleServicePriceChange(agent.id, Number(e.target.value))}
+                              disabled={!isSelected}
+                              className="w-24 text-right border rounded px-2 py-1"
+                            />
+                          </div>
+                        </div>
+                        
+                        <p className="text-sm text-muted-foreground mb-2">{agent.description}</p>
+                        
+                        <div>
+                          <label htmlFor={`notes-${agent.id}`} className="block text-sm font-medium mb-1">
+                            Notes
+                          </label>
+                          <textarea
+                            id={`notes-${agent.id}`}
+                            value={selectedAgent?.notes || ''}
+                            onChange={(e) => handleServiceNoteChange(agent.id, e.target.value)}
+                            disabled={!isSelected}
+                            className="w-full border rounded px-2 py-1 text-sm min-h-[60px]"
+                            placeholder="Add any specific requirements..."
+                          />
+                        </div>
+                        
+                        {isSelected && (
+                          <div className="flex justify-end mt-2">
+                            <Button 
+                              variant="outline" 
+                              size="sm" 
+                              onClick={() => handleRemoveService(agent.id)}
+                            >
+                              Remove
+                            </Button>
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                </CollapsibleContent>
+              </Collapsible>
+            </div>
           </CardContent>
         </Card>
 

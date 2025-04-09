@@ -12,49 +12,29 @@ import {
   createDiscountTypeChangeHandler
 } from './handlers';
 import { generatePDF } from './pdf-generator';
-import { saveToSession, loadFromSession, STORAGE_KEYS } from './session-storage';
 
 // Export types using the 'export type' syntax to comply with isolatedModules
 export type { SelectedService, AdditionalFee, Discount, Totals };
 
 export const useQuoteGenerator = () => {
-  // Initialize selected services from session storage or default
-  const [selectedServices, setSelectedServices] = useState<SelectedService[]>(() => 
-    loadFromSession(STORAGE_KEYS.SELECTED_SERVICES, 
-      initialServices.map(service => ({
-        ...service,
-        selected: false,
-        price: service.defaultPrice,
-        notes: '',
-      }))
-    )
+  // Initialize selected services with default values (no persistence)
+  const [selectedServices, setSelectedServices] = useState<SelectedService[]>(
+    initialServices.map(service => ({
+      ...service,
+      selected: false,
+      price: service.defaultPrice,
+      notes: '',
+    }))
   );
 
-  // Additional fees from session storage or default
-  const [additionalFees, setAdditionalFees] = useState<AdditionalFee[]>(() => 
-    loadFromSession(STORAGE_KEYS.ADDITIONAL_FEES, initialAdditionalFees)
-  );
+  // Additional fees with default values (no persistence)
+  const [additionalFees, setAdditionalFees] = useState<AdditionalFee[]>(initialAdditionalFees);
 
-  // Discount from session storage or default
-  const [discount, setDiscount] = useState<Discount>(() => 
-    loadFromSession(STORAGE_KEYS.DISCOUNT, initialDiscount)
-  );
+  // Discount with default values (no persistence)
+  const [discount, setDiscount] = useState<Discount>(initialDiscount);
 
   // Calculated totals
   const [totals, setTotals] = useState<Totals>(initialTotals);
-
-  // Save to session storage whenever state changes
-  useEffect(() => {
-    saveToSession(STORAGE_KEYS.SELECTED_SERVICES, selectedServices);
-  }, [selectedServices]);
-
-  useEffect(() => {
-    saveToSession(STORAGE_KEYS.ADDITIONAL_FEES, additionalFees);
-  }, [additionalFees]);
-
-  useEffect(() => {
-    saveToSession(STORAGE_KEYS.DISCOUNT, discount);
-  }, [discount]);
 
   // Calculate totals whenever selected services or fees change
   useEffect(() => {
