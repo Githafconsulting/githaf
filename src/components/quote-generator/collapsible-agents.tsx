@@ -35,15 +35,20 @@ export const CollapsibleAgents: React.FC<CollapsibleAgentsProps> = ({
           <AccordionItem key={agent.id} value={agent.id}>
             <AccordionTrigger className="hover:no-underline">
               <div className="flex items-center space-x-4">
-                <Checkbox 
-                  id={`agent-${agent.id}`}
-                  checked={isSelected}
-                  onCheckedChange={() => onToggle(agent.id)}
-                  onClick={(e) => e.stopPropagation()}
-                />
-                <label htmlFor={`agent-${agent.id}`} className="cursor-pointer" onClick={(e) => e.stopPropagation()}>
-                  {agent.name}
-                </label>
+                <div className="flex items-center" onClick={(e) => e.stopPropagation()}>
+                  <Checkbox 
+                    id={`agent-${agent.id}`}
+                    checked={isSelected}
+                    onCheckedChange={() => onToggle(agent.id)}
+                    className="mr-2"
+                  />
+                  <label 
+                    htmlFor={`agent-${agent.id}`} 
+                    className="cursor-pointer" 
+                  >
+                    {agent.name}
+                  </label>
+                </div>
               </div>
             </AccordionTrigger>
             <AccordionContent>
