@@ -88,8 +88,8 @@ const Footer: React.FC = () => {
                 UAE: <span className="user-select-none">+971562078508</span>
               </p>
               <p>
-                <a href="mailto:gravitasitconsulting@gmail.com" className="hover:text-white transition-colors">
-                  gravitasitconsulting@gmail.com
+                <a href="mailto:info@githafconsulting.com" className="hover:text-white transition-colors">
+                  info@githafconsulting.com
                 </a>
               </p>
             </address>

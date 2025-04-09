@@ -139,7 +139,7 @@ export const generatePDF = async (
       <div style="margin-top: 40px; border-top: 1px solid #ea33f7; padding-top: 15px; font-size: 8px; color: #555; text-align: center;">
         <p style="margin-bottom: 5px;">This quote is valid for 30 days from the date of issue.</p>
         <p style="margin-bottom: 5px;">To proceed with this quote, please contact us at info@githafconsulting.com</p>
-        <p style="margin-bottom: 5px;">UK: +447530551944 | UAE: +971562078508, +971553678114</p>
+        <p style="margin-bottom: 5px;">UK: +447530551944 | UAE: +971562078508</p>
         <p>© ${new Date().getFullYear()} Githaf Consulting. All rights reserved.</p>
       </div>
     </div>
