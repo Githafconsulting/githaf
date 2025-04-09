@@ -3,7 +3,7 @@ import React from 'react';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-import { Discount } from './use-quote-generator';
+import { Discount } from './types';
 
 interface QuoteDiscountsProps {
   discount: Discount;

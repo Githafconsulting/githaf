@@ -2,7 +2,7 @@
 import React from 'react';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { AdditionalFee } from './use-quote-generator';
+import { AdditionalFee } from './types';
 
 interface QuoteAdditionalFeesProps {
   fees: AdditionalFee[];
