@@ -25,6 +25,8 @@ export const CurrencyConverter: React.FC<CurrencyConverterProps> = ({
   const [convertedAmount, setConvertedAmount] = useState<number | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
+  const [lastFetchTimestamp, setLastFetchTimestamp] = useState<number>(0);
+  const [rates, setRates] = useState<Record<string, number>>({});
 
   const currencies = [
     { code: 'USD', name: 'US Dollar' },
@@ -39,55 +41,75 @@ export const CurrencyConverter: React.FC<CurrencyConverterProps> = ({
     { code: 'CNY', name: 'Chinese Yuan' },
   ];
 
+  // Fetch exchange rates only when needed
+  const fetchExchangeRates = async () => {
+    // If we already fetched within the last minute, use cached rates
+    const now = Date.now();
+    if (now - lastFetchTimestamp < 60000 && Object.keys(rates).length > 0) {
+      return rates;
+    }
+
+    try {
+      setIsLoading(true);
+      setError(null);
+      
+      // Use the free API endpoint that doesn't require an API key
+      const response = await fetch(
+        `https://open.er-api.com/v6/latest/${baseCurrency}`
+      );
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      
+      const data = await response.json();
+      
+      // Check if the response contains the rates
+      if (!data.rates) {
+        throw new Error('Invalid response format from exchange rate API');
+      }
+      
+      setRates(data.rates);
+      setLastFetchTimestamp(now);
+      return data.rates;
+    } catch (err) {
+      console.error('Error fetching exchange rates:', err);
+      setError('Could not fetch rates at this time');
+      toast.error('Failed to fetch currency exchange rates');
+      return null;
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  // Update conversion when currency changes or amount changes
   useEffect(() => {
     if (!targetCurrency) return;
     
-    const fetchExchangeRate = async () => {
-      try {
-        setIsLoading(true);
-        setError(null);
-        
-        // Use the free API endpoint that doesn't require an API key
-        const response = await fetch(
-          `https://open.er-api.com/v6/latest/${baseCurrency}`
-        );
-        
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        
-        const data = await response.json();
-        
-        // Check if the response contains the rates
-        if (!data.rates) {
-          throw new Error('Invalid response format from exchange rate API');
-        }
-        
-        const rate = data.rates[targetCurrency];
-        if (!rate) {
-          throw new Error(`Exchange rate for ${targetCurrency} not found`);
-        }
-        
-        const converted = amount * rate;
-        setConvertedAmount(converted);
-        
-        // Call the callback if provided
-        if (onCurrencyConverted) {
-          onCurrencyConverted(targetCurrency, converted);
-        }
-        
-        console.log(`Converted ${amount} ${baseCurrency} to ${converted} ${targetCurrency}`);
-      } catch (err) {
-        console.error('Error fetching exchange rates:', err);
-        setError('Could not fetch rates at this time');
-        toast.error('Failed to fetch currency exchange rates');
-      } finally {
-        setIsLoading(false);
+    const updateConversion = async () => {
+      const currentRates = await fetchExchangeRates();
+      
+      if (!currentRates) return;
+      
+      const rate = currentRates[targetCurrency];
+      if (!rate) {
+        setError(`Exchange rate for ${targetCurrency} not found`);
+        return;
       }
+      
+      const converted = amount * rate;
+      setConvertedAmount(converted);
+      
+      // Call the callback if provided
+      if (onCurrencyConverted) {
+        onCurrencyConverted(targetCurrency, converted);
+      }
+      
+      console.log(`Converted ${amount} ${baseCurrency} to ${converted} ${targetCurrency}`);
     };
     
-    fetchExchangeRate();
-  }, [amount, baseCurrency, targetCurrency, onCurrencyConverted]);
+    updateConversion();
+  }, [amount, targetCurrency, baseCurrency, onCurrencyConverted]);
 
   const formatCurrency = (value: number, currencyCode: string) => {
     return new Intl.NumberFormat('en-US', {
@@ -144,3 +166,4 @@ export const CurrencyConverter: React.FC<CurrencyConverterProps> = ({
     </div>
   );
 };
+
