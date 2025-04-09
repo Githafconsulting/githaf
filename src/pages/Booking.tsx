@@ -1,7 +1,7 @@
 
 import React from 'react';
 import Layout from '@/components/Layout';
-import BookingSystem from '@/components/BookingSystem';
+import BookingSystem from '@/components/booking';
 import { CalendarCheck } from 'lucide-react';
 
 const Booking = () => {
