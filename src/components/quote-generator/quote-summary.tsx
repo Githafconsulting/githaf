@@ -53,7 +53,7 @@ export const QuoteSummary: React.FC<QuoteSummaryProps> = ({
             {/* Selected Services */}
             {activeStandardServices.length > 0 && (
               <div>
-                <h3 className="font-medium mb-3 text-sm">Selected Services</h3>
+                <h3 className="font-medium mb-3 text-lg">Selected Services</h3>
                 <ul className="space-y-3">
                   {activeStandardServices.map(service => (
                     <li key={service.id} className="flex justify-between border-b pb-2">
@@ -78,7 +78,7 @@ export const QuoteSummary: React.FC<QuoteSummaryProps> = ({
             {/* Selected Agents */}
             {activeAgents.length > 0 && (
               <div>
-                <h3 className="font-medium mb-3 text-sm">Selected Agents</h3>
+                <h3 className="font-medium mb-3 text-lg">Selected Agents</h3>
                 <ul className="space-y-3">
                   {activeAgents.map(agent => (
                     <li key={agent.id} className="flex justify-between border-b pb-2">
@@ -108,7 +108,7 @@ export const QuoteSummary: React.FC<QuoteSummaryProps> = ({
             
             {/* Additional Fees */}
             <div>
-              <h3 className="font-medium mb-3 text-sm">Additional Fees</h3>
+              <h3 className="font-medium mb-3 text-lg">Additional Fees</h3>
               <ul className="space-y-2">
                 {additionalFees.map(fee => (
                   <li key={fee.id} className="flex justify-between">
@@ -129,7 +129,7 @@ export const QuoteSummary: React.FC<QuoteSummaryProps> = ({
             {/* Discount */}
             {totals.discountAmount > 0 && (
               <div>
-                <h3 className="font-medium mb-2 text-sm">Applied Discount</h3>
+                <h3 className="font-medium mb-2 text-lg">Applied Discount</h3>
                 <div className="flex justify-between">
                   <span>
                     {discount.type === 'percentage' 

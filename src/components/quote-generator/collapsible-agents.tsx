@@ -1,13 +1,12 @@
 
-import React, { useState, useMemo } from 'react';
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
-import { ChevronDown, ChevronUp } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import React from 'react';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Input } from '@/components/ui/input';
 import { Checkbox } from '@/components/ui/checkbox';
+import { Button } from '@/components/ui/button';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Textarea } from '@/components/ui/textarea';
-import { Plus, Trash } from 'lucide-react';
+import { Plus, Trash, FileText } from 'lucide-react';
 import { Service, SelectedService } from './types';
 
 interface CollapsibleAgentsProps {
@@ -27,130 +26,102 @@ export const CollapsibleAgents: React.FC<CollapsibleAgentsProps> = ({
   onNoteChange,
   onRemove,
 }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  // Calculate agents summary data
-  const selectedAgentsCount = useMemo(() => {
-    return selectedAgents.filter(agent => agent.selected).length;
-  }, [selectedAgents]);
-
-  const totalAgentsPrice = useMemo(() => {
-    return selectedAgents
-      .filter(agent => agent.selected)
-      .reduce((sum, agent) => sum + agent.price, 0);
-  }, [selectedAgents]);
-
   return (
-    <div className="mt-6 border rounded-lg overflow-hidden">
-      <Collapsible open={isOpen} onOpenChange={setIsOpen}>
-        <div className="bg-accent/30 p-4">
-          <CollapsibleTrigger asChild>
-            <div className="flex items-center justify-between cursor-pointer w-full">
-              <div>
-                <h3 className="text-lg font-medium">AI Agents</h3>
-                <p className="text-sm text-muted-foreground mt-1">
-                  {selectedAgentsCount} agents selected
-                  {selectedAgentsCount > 0 && ` ($${totalAgentsPrice.toLocaleString()} total)`}
-                </p>
-              </div>
-              <Button variant="ghost" size="sm">
-                {isOpen ? (
-                  <ChevronUp className="h-5 w-5" />
-                ) : (
-                  <ChevronDown className="h-5 w-5" />
-                )}
-              </Button>
-            </div>
-          </CollapsibleTrigger>
-        </div>
+    <Accordion type="single" collapsible className="w-full">
+      {agents.map((agent) => {
+        const selectedAgent = selectedAgents.find(a => a.id === agent.id);
+        const isSelected = selectedAgent?.selected || false;
 
-        <CollapsibleContent>
-          <div className="overflow-auto p-2">
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead className="w-[50px]">Select</TableHead>
-                  <TableHead>Agent</TableHead>
-                  <TableHead>Description</TableHead>
-                  <TableHead className="w-[120px]">Price ($)</TableHead>
-                  <TableHead>Notes</TableHead>
-                  <TableHead className="w-[100px] text-right">Actions</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {agents.map((agent) => {
-                  const selectedAgent = selectedAgents.find(a => a.id === agent.id);
-                  const isSelected = selectedAgent?.selected || false;
+        return (
+          <AccordionItem key={agent.id} value={agent.id}>
+            <AccordionTrigger className="hover:no-underline">
+              <div className="flex items-center space-x-4">
+                <Checkbox 
+                  id={`agent-${agent.id}`}
+                  checked={isSelected}
+                  onCheckedChange={() => onToggle(agent.id)}
+                  onClick={(e) => e.stopPropagation()}
+                />
+                <label htmlFor={`agent-${agent.id}`} className="cursor-pointer" onClick={(e) => e.stopPropagation()}>
+                  {agent.name}
+                </label>
+              </div>
+            </AccordionTrigger>
+            <AccordionContent>
+              <div className="space-y-4 pt-4 px-2">
+                <p className="text-sm text-muted-foreground">{agent.description}</p>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor={`price-${agent.id}`} className="text-sm font-medium mb-1 block">
+                      Monthly Price ($)
+                    </label>
+                    <Input
+                      id={`price-${agent.id}`}
+                      type="number"
+                      min={0}
+                      value={selectedAgent?.price || agent.defaultPrice}
+                      onChange={(e) => onPriceChange(agent.id, parseFloat(e.target.value) || 0)}
+                      disabled={!isSelected}
+                    />
+                  </div>
                   
-                  return (
-                    <TableRow key={agent.id}>
-                      <TableCell>
-                        <Checkbox 
-                          id={`agent-${agent.id}`}
-                          checked={isSelected}
-                          onCheckedChange={() => onToggle(agent.id)}
-                        />
-                      </TableCell>
-                      <TableCell className="font-medium">
-                        <label 
-                          htmlFor={`agent-${agent.id}`}
-                          className="cursor-pointer"
+                  <div>
+                    <label className="text-sm font-medium mb-1 block">Notes</label>
+                    <Dialog>
+                      <DialogTrigger asChild>
+                        <Button 
+                          variant="outline" 
+                          className={`w-full ${selectedAgent?.notes ? 'text-primary' : ''}`}
+                          disabled={!isSelected}
                         >
-                          {agent.name}
-                        </label>
-                      </TableCell>
-                      <TableCell className="text-muted-foreground text-sm">
-                        {agent.description}
-                      </TableCell>
-                      <TableCell>
-                        <Input
-                          type="number"
-                          min={0}
-                          value={selectedAgent?.price || agent.defaultPrice}
-                          onChange={(e) => onPriceChange(agent.id, parseFloat(e.target.value) || 0)}
-                          className="w-full"
-                        />
-                      </TableCell>
-                      <TableCell>
+                          <FileText className="mr-2 h-4 w-4" />
+                          {selectedAgent?.notes ? 'View/Edit Notes' : 'Add Notes'}
+                        </Button>
+                      </DialogTrigger>
+                      <DialogContent>
+                        <DialogHeader>
+                          <DialogTitle>Add Notes for {agent.name}</DialogTitle>
+                        </DialogHeader>
                         <Textarea
                           value={selectedAgent?.notes || ''}
                           onChange={(e) => onNoteChange(agent.id, e.target.value)}
-                          placeholder="Optional notes..."
-                          className="min-h-[60px] text-sm"
-                          disabled={!isSelected}
+                          placeholder="Enter your notes here..."
+                          className="min-h-[150px]"
                         />
-                      </TableCell>
-                      <TableCell className="text-right space-x-2">
-                        {!isSelected ? (
-                          <Button 
-                            size="sm" 
-                            variant="outline" 
-                            onClick={() => onToggle(agent.id)}
-                            className="w-full"
-                          >
-                            <Plus className="mr-1 h-4 w-4" />
-                            Add
-                          </Button>
-                        ) : (
-                          <Button 
-                            size="sm" 
-                            variant="outline" 
-                            onClick={() => onRemove(agent.id)}
-                            className="w-full text-destructive hover:text-destructive"
-                          >
-                            <Trash className="mr-1 h-4 w-4" />
-                            Remove
-                          </Button>
-                        )}
-                      </TableCell>
-                    </TableRow>
-                  );
-                })}
-              </TableBody>
-            </Table>
-          </div>
-        </CollapsibleContent>
-      </Collapsible>
-    </div>
+                      </DialogContent>
+                    </Dialog>
+                  </div>
+                </div>
+                
+                <div className="flex justify-end pt-2">
+                  {isSelected && (
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      onClick={() => onRemove(agent.id)}
+                      className="text-destructive hover:text-destructive"
+                    >
+                      <Trash className="mr-1 h-4 w-4" />
+                      Remove
+                    </Button>
+                  )}
+                  {!isSelected && (
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      onClick={() => onToggle(agent.id)}
+                    >
+                      <Plus className="mr-1 h-4 w-4" />
+                      Add to Quote
+                    </Button>
+                  )}
+                </div>
+              </div>
+            </AccordionContent>
+          </AccordionItem>
+        );
+      })}
+    </Accordion>
   );
 };

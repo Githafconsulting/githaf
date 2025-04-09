@@ -3,9 +3,10 @@ import React from 'react';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Input } from '@/components/ui/input';
 import { Checkbox } from '@/components/ui/checkbox';
-import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
-import { Plus, Trash } from 'lucide-react';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { Textarea } from '@/components/ui/textarea';
+import { Plus, Trash, FileText } from 'lucide-react';
 import { Service, SelectedService } from './types';
 
 interface QuoteServiceTableProps {
@@ -37,7 +38,7 @@ export const QuoteServiceTable: React.FC<QuoteServiceTableProps> = ({
             <TableHead>Service</TableHead>
             <TableHead>Description</TableHead>
             <TableHead className="w-[120px]">Price ($)</TableHead>
-            <TableHead>Notes</TableHead>
+            <TableHead className="w-[80px]">Notes</TableHead>
             <TableHead className="w-[100px] text-right">Actions</TableHead>
           </TableRow>
         </TableHeader>
@@ -76,13 +77,29 @@ export const QuoteServiceTable: React.FC<QuoteServiceTableProps> = ({
                   />
                 </TableCell>
                 <TableCell>
-                  <Textarea
-                    value={selectedService?.notes || ''}
-                    onChange={(e) => onNoteChange(service.id, e.target.value)}
-                    placeholder="Optional notes..."
-                    className="min-h-[60px] text-sm"
-                    disabled={!isSelected}
-                  />
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <Button 
+                        variant="ghost" 
+                        size="icon" 
+                        disabled={!isSelected}
+                        className={`${selectedService?.notes ? 'text-primary' : 'text-muted-foreground'}`}
+                      >
+                        <FileText className="h-4 w-4" />
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent>
+                      <DialogHeader>
+                        <DialogTitle>Add Notes for {service.name}</DialogTitle>
+                      </DialogHeader>
+                      <Textarea
+                        value={selectedService?.notes || ''}
+                        onChange={(e) => onNoteChange(service.id, e.target.value)}
+                        placeholder="Enter your notes here..."
+                        className="min-h-[150px]"
+                      />
+                    </DialogContent>
+                  </Dialog>
                 </TableCell>
                 <TableCell className="text-right space-x-2">
                   {!isSelected ? (
