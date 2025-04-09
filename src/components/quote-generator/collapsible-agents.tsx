@@ -4,9 +4,8 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { Input } from '@/components/ui/input';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Button } from '@/components/ui/button';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Textarea } from '@/components/ui/textarea';
-import { Plus, Trash, FileText } from 'lucide-react';
+import { Plus, Trash } from 'lucide-react';
 import { Service, SelectedService } from './types';
 
 interface CollapsibleAgentsProps {
@@ -67,30 +66,17 @@ export const CollapsibleAgents: React.FC<CollapsibleAgentsProps> = ({
                   </div>
                   
                   <div>
-                    <label className="text-sm font-medium mb-1 block">Notes</label>
-                    <Dialog>
-                      <DialogTrigger asChild>
-                        <Button 
-                          variant="outline" 
-                          className={`w-full ${selectedAgent?.notes ? 'text-primary' : ''}`}
-                          disabled={!isSelected}
-                        >
-                          <FileText className="mr-2 h-4 w-4" />
-                          {selectedAgent?.notes ? 'View/Edit Notes' : 'Add Notes'}
-                        </Button>
-                      </DialogTrigger>
-                      <DialogContent>
-                        <DialogHeader>
-                          <DialogTitle>Add Notes for {agent.name}</DialogTitle>
-                        </DialogHeader>
-                        <Textarea
-                          value={selectedAgent?.notes || ''}
-                          onChange={(e) => onNoteChange(agent.id, e.target.value)}
-                          placeholder="Enter your notes here..."
-                          className="min-h-[150px]"
-                        />
-                      </DialogContent>
-                    </Dialog>
+                    <label htmlFor={`notes-${agent.id}`} className="text-sm font-medium mb-1 block">
+                      Notes
+                    </label>
+                    <Textarea
+                      id={`notes-${agent.id}`}
+                      placeholder="Add notes here..."
+                      value={selectedAgent?.notes || ''}
+                      onChange={(e) => onNoteChange(agent.id, e.target.value)}
+                      disabled={!isSelected}
+                      className="min-h-[80px]"
+                    />
                   </div>
                 </div>
                 
