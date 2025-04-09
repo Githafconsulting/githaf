@@ -82,66 +82,14 @@ export const QuoteGenerator = () => {
                 </div>
                 
                 <CollapsibleContent className="mt-4 space-y-4">
-                  {agents.map((agent) => {
-                    const selectedAgent = selectedServices.find(a => a.id === agent.id);
-                    const isSelected = selectedAgent?.selected || false;
-                    
-                    return (
-                      <div key={agent.id} className="border rounded-md p-4">
-                        <div className="flex items-center justify-between mb-2">
-                          <div className="flex items-center">
-                            <input 
-                              type="checkbox"
-                              id={`agent-${agent.id}`}
-                              checked={isSelected}
-                              onChange={() => handleServiceToggle(agent.id)}
-                              className="mr-2 h-4 w-4"
-                            />
-                            <label htmlFor={`agent-${agent.id}`} className="font-medium">
-                              {agent.name}
-                            </label>
-                          </div>
-                          <div className="text-right">
-                            <input
-                              type="number"
-                              value={selectedAgent?.price || agent.defaultPrice}
-                              onChange={(e) => handleServicePriceChange(agent.id, Number(e.target.value))}
-                              disabled={!isSelected}
-                              className="w-24 text-right border rounded px-2 py-1"
-                            />
-                          </div>
-                        </div>
-                        
-                        <p className="text-sm text-muted-foreground mb-2">{agent.description}</p>
-                        
-                        <div>
-                          <label htmlFor={`notes-${agent.id}`} className="block text-sm font-medium mb-1">
-                            Notes
-                          </label>
-                          <textarea
-                            id={`notes-${agent.id}`}
-                            value={selectedAgent?.notes || ''}
-                            onChange={(e) => handleServiceNoteChange(agent.id, e.target.value)}
-                            disabled={!isSelected}
-                            className="w-full border rounded px-2 py-1 text-sm min-h-[60px]"
-                            placeholder="Add any specific requirements..."
-                          />
-                        </div>
-                        
-                        {isSelected && (
-                          <div className="flex justify-end mt-2">
-                            <Button 
-                              variant="outline" 
-                              size="sm" 
-                              onClick={() => handleRemoveService(agent.id)}
-                            >
-                              Remove
-                            </Button>
-                          </div>
-                        )}
-                      </div>
-                    );
-                  })}
+                  <QuoteServiceTable 
+                    services={agents}
+                    selectedServices={selectedServices}
+                    onToggle={handleServiceToggle}
+                    onPriceChange={handleServicePriceChange}
+                    onNoteChange={handleServiceNoteChange}
+                    onRemove={handleRemoveService}
+                  />
                 </CollapsibleContent>
               </Collapsible>
             </div>
