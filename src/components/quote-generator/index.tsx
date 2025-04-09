@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { QuoteServiceTable } from './quote-service-table';
 import { CollapsibleAgents } from './collapsible-agents';
@@ -43,7 +42,6 @@ export const QuoteGenerator = () => {
               onRemove={handleRemoveService}
             />
 
-            <h2 className="text-2xl font-semibold mt-8 mb-4">Our Agents</h2>
             <CollapsibleAgents 
               agents={agents}
               selectedAgents={selectedServices}
