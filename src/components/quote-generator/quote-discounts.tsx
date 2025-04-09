@@ -16,6 +16,11 @@ export const QuoteDiscounts: React.FC<QuoteDiscountsProps> = ({
   onDiscountChange,
   onDiscountTypeChange,
 }) => {
+  // Handle focus to select all text
+  const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+    e.target.select();
+  };
+
   return (
     <div>
       <h3 className="text-lg font-semibold mb-4">Discount</h3>
@@ -57,8 +62,9 @@ export const QuoteDiscounts: React.FC<QuoteDiscountsProps> = ({
               id="discount-value"
               type="number"
               min={0}
-              value={discount.value}
+              value={discount.value || ''} // Use empty string when value is 0
               onChange={(e) => onDiscountChange(parseFloat(e.target.value) || 0)}
+              onFocus={handleFocus}
               className="pl-7"
             />
           </div>
