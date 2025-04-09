@@ -43,7 +43,7 @@ export const QuoteGenerator = () => {
               onRemove={handleRemoveService}
             />
 
-            <h2 className="text-2xl font-semibold mt-8 mb-2">Our Agents</h2>
+            <h2 className="text-2xl font-semibold mt-8 mb-4">Our Agents</h2>
             <CollapsibleAgents 
               agents={agents}
               selectedAgents={selectedServices}
