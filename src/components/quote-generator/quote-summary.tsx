@@ -80,11 +80,6 @@ export const QuoteSummary: React.FC<QuoteSummaryProps> = ({
                     <li key={service.id} className="flex justify-between border-b pb-2">
                       <div>
                         <p className="font-medium">{service.name}</p>
-                        {service.notes && (
-                          <p className="text-sm text-muted-foreground mt-1">
-                            Note: {service.notes}
-                          </p>
-                        )}
                       </div>
                       <span className="font-medium">${service.price.toLocaleString()}</span>
                     </li>
@@ -105,11 +100,6 @@ export const QuoteSummary: React.FC<QuoteSummaryProps> = ({
                     <li key={agent.id} className="flex justify-between border-b pb-2">
                       <div>
                         <p className="font-medium">{agent.name}</p>
-                        {agent.notes && (
-                          <p className="text-sm text-muted-foreground mt-1">
-                            Note: {agent.notes}
-                          </p>
-                        )}
                       </div>
                       <span className="font-medium">${agent.price.toLocaleString()}</span>
                     </li>
