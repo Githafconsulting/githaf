@@ -46,3 +46,15 @@ export type ConfirmationDialogProps = {
   isSubmitting: boolean;
   consultationTypes: ConsultationType[];
 };
+
+export type BookingConfirmationProps = {
+  details: {
+    name: string;
+    email: string;
+    date: string;
+    time: string;
+    type: string;
+    calendarLink: string;
+  };
+  onReset: () => void;
+};
