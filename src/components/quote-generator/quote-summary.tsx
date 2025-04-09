@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { DownloadCloud } from 'lucide-react';
-import { SelectedService, AdditionalFee, Discount, Totals } from './use-quote-generator';
+import { SelectedService, AdditionalFee, Discount, Totals } from './types';
 import { CurrencyConverter } from './currency-converter';
 
 interface QuoteSummaryProps {
@@ -32,6 +32,10 @@ export const QuoteSummary: React.FC<QuoteSummaryProps> = ({
     onGenerateReport(convertedCurrency || undefined);
   };
 
+  // Get services and agents separately
+  const activeStandardServices = activeServices.filter(service => service.type === 'service');
+  const activeAgents = activeServices.filter(service => service.type === 'agent');
+
   return (
     <Card className="sticky top-24">
       <CardHeader className="bg-accent/50 rounded-t-lg">
@@ -47,24 +51,54 @@ export const QuoteSummary: React.FC<QuoteSummaryProps> = ({
         ) : (
           <div className="space-y-6">
             {/* Selected Services */}
-            <div>
-              <h3 className="font-medium mb-3">Selected Services</h3>
-              <ul className="space-y-3">
-                {activeServices.map(service => (
-                  <li key={service.id} className="flex justify-between border-b pb-2">
-                    <div>
-                      <p className="font-medium">{service.name}</p>
-                      {service.notes && (
-                        <p className="text-sm text-muted-foreground mt-1">
-                          Note: {service.notes}
-                        </p>
-                      )}
-                    </div>
-                    <span className="font-medium">${service.price.toLocaleString()}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            {activeStandardServices.length > 0 && (
+              <div>
+                <h3 className="font-medium mb-3">Selected Services</h3>
+                <ul className="space-y-3">
+                  {activeStandardServices.map(service => (
+                    <li key={service.id} className="flex justify-between border-b pb-2">
+                      <div>
+                        <p className="font-medium">{service.name}</p>
+                        {service.notes && (
+                          <p className="text-sm text-muted-foreground mt-1">
+                            Note: {service.notes}
+                          </p>
+                        )}
+                      </div>
+                      <span className="font-medium">${service.price.toLocaleString()}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-xs text-muted-foreground mt-2 italic">
+                  * Services are one-off payments
+                </p>
+              </div>
+            )}
+            
+            {/* Selected Agents */}
+            {activeAgents.length > 0 && (
+              <div>
+                <h3 className="font-medium mb-3">Selected Agents</h3>
+                <ul className="space-y-3">
+                  {activeAgents.map(agent => (
+                    <li key={agent.id} className="flex justify-between border-b pb-2">
+                      <div>
+                        <p className="font-medium">{agent.name}</p>
+                        {agent.notes && (
+                          <p className="text-sm text-muted-foreground mt-1">
+                            Note: {agent.notes}
+                          </p>
+                        )}
+                      </div>
+                      <span className="font-medium">${agent.price.toLocaleString()}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-xs text-muted-foreground mt-2 italic">
+                  * Agents are billed monthly
+                </p>
+              </div>
+            )}
             
             {/* Services Subtotal */}
             <div className="flex justify-between pt-2">
@@ -87,6 +121,9 @@ export const QuoteSummary: React.FC<QuoteSummaryProps> = ({
                 <span>Fees Subtotal</span>
                 <span>${totals.feesTotal.toLocaleString()}</span>
               </div>
+              <p className="text-xs text-muted-foreground mt-2 italic">
+                * Consultation and deployment fees are one-off payments
+              </p>
             </div>
             
             {/* Discount */}

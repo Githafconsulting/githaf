@@ -39,8 +39,9 @@ export const generatePDF = async (
     day: 'numeric'
   });
   
-  // Get active services
-  const activeServices = selectedServices.filter(service => service.selected);
+  // Get active services and agents
+  const activeServices = selectedServices.filter(service => service.selected && service.type === 'service');
+  const activeAgents = selectedServices.filter(service => service.selected && service.type === 'agent');
   
   // Create quote content HTML
   reportContainer.innerHTML = `
@@ -57,21 +58,43 @@ export const generatePDF = async (
         </div>
       </div>
       
-      <div style="margin-bottom: 30px;">
-        <h2 style="color: #333; border-bottom: 2px solid #ea33f7; padding-bottom: 8px; margin-bottom: 15px;">Selected Services</h2>
-        <div>
-          ${activeServices.map(service => `
-            <div style="margin-bottom: 20px;">
-              <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
-                <h3 style="margin: 0; font-size: 16px;">${service.name}</h3>
-                <p style="margin: 0; font-weight: bold;">$${service.price.toLocaleString()}</p>
+      ${activeServices.length > 0 ? `
+        <div style="margin-bottom: 30px;">
+          <h2 style="color: #333; border-bottom: 2px solid #ea33f7; padding-bottom: 8px; margin-bottom: 15px;">Selected Services</h2>
+          <div>
+            ${activeServices.map(service => `
+              <div style="margin-bottom: 20px;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+                  <h3 style="margin: 0; font-size: 16px;">${service.name}</h3>
+                  <p style="margin: 0; font-weight: bold;">$${service.price.toLocaleString()}</p>
+                </div>
+                <p style="margin: 0; color: #666; font-size: 14px;">${service.description}</p>
+                ${service.notes ? `<p style="margin: 5px 0 0; font-style: italic; font-size: 14px;">Note: ${service.notes}</p>` : ''}
               </div>
-              <p style="margin: 0; color: #666; font-size: 14px;">${service.description}</p>
-              ${service.notes ? `<p style="margin: 5px 0 0; font-style: italic; font-size: 14px;">Note: ${service.notes}</p>` : ''}
-            </div>
-          `).join('')}
+            `).join('')}
+          </div>
+          <p style="margin: 10px 0 0; font-style: italic; font-size: 14px; color: #666;">* Services are one-off payments</p>
         </div>
-      </div>
+      ` : ''}
+      
+      ${activeAgents.length > 0 ? `
+        <div style="margin-bottom: 30px;">
+          <h2 style="color: #333; border-bottom: 2px solid #ea33f7; padding-bottom: 8px; margin-bottom: 15px;">Selected AI Agents</h2>
+          <div>
+            ${activeAgents.map(agent => `
+              <div style="margin-bottom: 20px;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+                  <h3 style="margin: 0; font-size: 16px;">${agent.name}</h3>
+                  <p style="margin: 0; font-weight: bold;">$${agent.price.toLocaleString()}</p>
+                </div>
+                <p style="margin: 0; color: #666; font-size: 14px;">${agent.description}</p>
+                ${agent.notes ? `<p style="margin: 5px 0 0; font-style: italic; font-size: 14px;">Note: ${agent.notes}</p>` : ''}
+              </div>
+            `).join('')}
+          </div>
+          <p style="margin: 10px 0 0; font-style: italic; font-size: 14px; color: #666;">* Agents are billed monthly</p>
+        </div>
+      ` : ''}
       
       <div style="margin-bottom: 30px;">
         <h2 style="color: #333; border-bottom: 2px solid #ea33f7; padding-bottom: 8px; margin-bottom: 15px;">Additional Fees</h2>
@@ -81,6 +104,7 @@ export const generatePDF = async (
             <p style="margin: 0;">$${fee.price.toLocaleString()}</p>
           </div>
         `).join('')}
+        <p style="margin: 10px 0 0; font-style: italic; font-size: 14px; color: #666;">* Consultation and deployment fees are one-off payments</p>
       </div>
       
       ${discount.value > 0 ? `
@@ -150,4 +174,3 @@ export const generatePDF = async (
     document.body.removeChild(reportContainer);
   }
 };
-
