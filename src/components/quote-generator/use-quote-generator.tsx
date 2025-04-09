@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { SelectedService, AdditionalFee, Discount, Totals, ConvertedCurrency } from './types';
+import { SelectedService, AdditionalFee, Discount, Totals, ConvertedCurrency, ClientInfo } from './types';
 import { initialServices, initialAdditionalFees, initialDiscount, initialTotals } from './initial-data';
 import { 
   createServiceToggleHandler,
@@ -14,11 +14,22 @@ import {
 import { generatePDF } from './pdf-generator';
 
 // Export types using the 'export type' syntax to comply with isolatedModules
-export type { SelectedService, AdditionalFee, Discount, Totals };
+export type { SelectedService, AdditionalFee, Discount, Totals, ClientInfo };
+
+// Initial client info
+const initialClientInfo: ClientInfo = {
+  name: '',
+  telephone: ''
+};
 
 export const useQuoteGenerator = () => {
-  // Initialize selected services with default values (no persistence)
+  // Try to restore session data
+  const sessionData = sessionStorage.getItem('quoteGeneratorData');
+  const parsedSessionData = sessionData ? JSON.parse(sessionData) : null;
+
+  // Initialize selected services with session data if available
   const [selectedServices, setSelectedServices] = useState<SelectedService[]>(
+    parsedSessionData?.selectedServices || 
     initialServices.map(service => ({
       ...service,
       selected: false,
@@ -27,11 +38,20 @@ export const useQuoteGenerator = () => {
     }))
   );
 
-  // Additional fees with default values (no persistence)
-  const [additionalFees, setAdditionalFees] = useState<AdditionalFee[]>(initialAdditionalFees);
+  // Additional fees with session data if available
+  const [additionalFees, setAdditionalFees] = useState<AdditionalFee[]>(
+    parsedSessionData?.additionalFees || initialAdditionalFees
+  );
 
-  // Discount with default values (no persistence)
-  const [discount, setDiscount] = useState<Discount>(initialDiscount);
+  // Discount with session data if available
+  const [discount, setDiscount] = useState<Discount>(
+    parsedSessionData?.discount || initialDiscount
+  );
+
+  // Client info with session data if available
+  const [clientInfo, setClientInfo] = useState<ClientInfo>(
+    parsedSessionData?.clientInfo || initialClientInfo
+  );
 
   // Calculated totals
   const [totals, setTotals] = useState<Totals>(initialTotals);
@@ -63,6 +83,18 @@ export const useQuoteGenerator = () => {
     });
   }, [selectedServices, additionalFees, discount]);
 
+  // Save data to session storage when state changes
+  useEffect(() => {
+    const dataToSave = {
+      selectedServices,
+      additionalFees,
+      discount,
+      clientInfo
+    };
+    
+    sessionStorage.setItem('quoteGeneratorData', JSON.stringify(dataToSave));
+  }, [selectedServices, additionalFees, discount, clientInfo]);
+
   // Create handlers
   const handleServiceToggle = createServiceToggleHandler(setSelectedServices);
   const handleServicePriceChange = createServicePriceChangeHandler(setSelectedServices);
@@ -72,9 +104,17 @@ export const useQuoteGenerator = () => {
   const handleDiscountChange = createDiscountChangeHandler(setDiscount);
   const handleDiscountTypeChange = createDiscountTypeChangeHandler(setDiscount);
 
+  // Handler for client info changes
+  const handleClientInfoChange = (field: keyof ClientInfo, value: string) => {
+    setClientInfo(prev => ({
+      ...prev,
+      [field]: value
+    }));
+  };
+
   // PDF generator wrapper
   const handleGenerateReport = async (convertedCurrency?: ConvertedCurrency) => {
-    await generatePDF(selectedServices, additionalFees, discount, totals, convertedCurrency);
+    await generatePDF(selectedServices, additionalFees, discount, totals, clientInfo, convertedCurrency);
   };
 
   return {
@@ -83,6 +123,7 @@ export const useQuoteGenerator = () => {
     additionalFees,
     discount,
     totals,
+    clientInfo,
     handleServiceToggle,
     handleServicePriceChange,
     handleServiceNoteChange,
@@ -90,6 +131,7 @@ export const useQuoteGenerator = () => {
     handleAdditionalFeeChange,
     handleDiscountChange,
     handleDiscountTypeChange,
+    handleClientInfoChange,
     handleGenerateReport,
   };
 };

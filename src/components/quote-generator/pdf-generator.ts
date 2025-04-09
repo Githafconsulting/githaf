@@ -2,13 +2,14 @@
 import { toast } from 'sonner';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
-import { SelectedService, AdditionalFee, Discount, Totals, ConvertedCurrency } from './types';
+import { SelectedService, AdditionalFee, Discount, Totals, ConvertedCurrency, ClientInfo } from './types';
 
 export const generatePDF = async (
   selectedServices: SelectedService[],
   additionalFees: AdditionalFee[],
   discount: Discount,
   totals: Totals,
+  clientInfo: ClientInfo,
   convertedCurrency?: ConvertedCurrency
 ) => {
   const selectedCount = selectedServices.filter(s => s.selected).length;
@@ -57,6 +58,22 @@ export const generatePDF = async (
           <p style="margin: 0; font-size: 11px;">AI and Digital Transformation</p>
         </div>
       </div>
+      
+      ${clientInfo.name || clientInfo.telephone ? `
+        <div style="margin-bottom: 20px;">
+          <h2 style="color: #ea33f7; border-bottom: 2px solid #ea33f7; padding-bottom: 5px; margin-bottom: 10px; font-size: 14px;">Client Information</h2>
+          <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 5px; font-size: 12px;">
+            ${clientInfo.name ? `
+              <p style="margin: 0; font-weight: bold;">Name:</p>
+              <p style="margin: 0;">${clientInfo.name}</p>
+            ` : ''}
+            ${clientInfo.telephone ? `
+              <p style="margin: 0; font-weight: bold;">Telephone:</p>
+              <p style="margin: 0;">${clientInfo.telephone}</p>
+            ` : ''}
+          </div>
+        </div>
+      ` : ''}
       
       ${activeServices.length > 0 ? `
         <div style="margin-bottom: 20px;">

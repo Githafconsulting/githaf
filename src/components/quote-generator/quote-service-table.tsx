@@ -2,20 +2,21 @@
 import React from 'react';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Input } from '@/components/ui/input';
-import { Checkbox } from '@/components/ui/checkbox';
 import { Button } from '@/components/ui/button';
+import { Plus, Trash, FileText, Save } from 'lucide-react';
+import { Checkbox } from '@/components/ui/checkbox';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Textarea } from '@/components/ui/textarea';
-import { Plus, Trash, FileText } from 'lucide-react';
-import { Service, SelectedService } from './types';
+import { SelectedService } from './types';
+import { toast } from 'sonner';
 
 interface QuoteServiceTableProps {
-  services: Service[];
+  services: SelectedService[];
   selectedServices: SelectedService[];
-  onToggle: (serviceId: string) => void;
-  onPriceChange: (serviceId: string, price: number) => void;
-  onNoteChange: (serviceId: string, notes: string) => void;
-  onRemove: (serviceId: string) => void;
+  onToggle: (id: string) => void;
+  onPriceChange: (id: string, price: number) => void;
+  onNoteChange: (id: string, note: string) => void;
+  onRemove: (id: string) => void;
 }
 
 export const QuoteServiceTable: React.FC<QuoteServiceTableProps> = ({
@@ -26,8 +27,18 @@ export const QuoteServiceTable: React.FC<QuoteServiceTableProps> = ({
   onNoteChange,
   onRemove,
 }) => {
-  // Filter out only service type items (not agents)
-  const serviceItems = services.filter(service => service.type === 'service');
+  const [openDialogId, setOpenDialogId] = React.useState<string | null>(null);
+  const [tempNote, setTempNote] = React.useState<string>('');
+
+  const handleOpenDialog = (service: SelectedService) => {
+    setOpenDialogId(service.id);
+    setTempNote(service.notes || '');
+  };
+
+  const handleSaveNote = (id: string) => {
+    onNoteChange(id, tempNote);
+    toast.success("Notes saved successfully");
+  };
 
   return (
     <div className="overflow-auto">
@@ -43,7 +54,7 @@ export const QuoteServiceTable: React.FC<QuoteServiceTableProps> = ({
           </TableRow>
         </TableHeader>
         <TableBody>
-          {serviceItems.map((service) => {
+          {services.map((service) => {
             const selectedService = selectedServices.find(s => s.id === service.id);
             const isSelected = selectedService?.selected || false;
             
@@ -74,16 +85,18 @@ export const QuoteServiceTable: React.FC<QuoteServiceTableProps> = ({
                     value={selectedService?.price || service.defaultPrice}
                     onChange={(e) => onPriceChange(service.id, parseFloat(e.target.value) || 0)}
                     className="w-full"
+                    disabled={!isSelected}
                   />
                 </TableCell>
                 <TableCell>
-                  <Dialog>
+                  <Dialog open={openDialogId === service.id} onOpenChange={(open) => !open && setOpenDialogId(null)}>
                     <DialogTrigger asChild>
                       <Button 
                         variant="ghost" 
                         size="icon" 
                         disabled={!isSelected}
                         className={`${selectedService?.notes ? 'text-primary' : 'text-muted-foreground'}`}
+                        onClick={() => handleOpenDialog(service)}
                       >
                         <FileText className="h-4 w-4" />
                       </Button>
@@ -92,16 +105,31 @@ export const QuoteServiceTable: React.FC<QuoteServiceTableProps> = ({
                       <DialogHeader>
                         <DialogTitle>Add Notes for {service.name}</DialogTitle>
                       </DialogHeader>
-                      <Textarea
-                        value={selectedService?.notes || ''}
-                        onChange={(e) => onNoteChange(service.id, e.target.value)}
-                        placeholder="Enter your notes here..."
-                        className="min-h-[150px]"
-                      />
+                      <div className="space-y-4">
+                        {selectedService?.notes && (
+                          <div className="p-3 bg-muted rounded-md text-sm">
+                            <p className="font-medium mb-1">Current notes:</p>
+                            <p className="whitespace-pre-wrap">{selectedService.notes}</p>
+                          </div>
+                        )}
+                        <Textarea
+                          value={tempNote}
+                          onChange={(e) => setTempNote(e.target.value)}
+                          placeholder="Enter your notes here..."
+                          className="min-h-[150px]"
+                        />
+                        <Button 
+                          onClick={() => handleSaveNote(service.id)}
+                          className="w-full"
+                        >
+                          <Save className="mr-2 h-4 w-4" />
+                          Save Notes
+                        </Button>
+                      </div>
                     </DialogContent>
                   </Dialog>
                 </TableCell>
-                <TableCell className="text-right space-x-2">
+                <TableCell className="text-right">
                   {!isSelected ? (
                     <Button 
                       size="sm" 

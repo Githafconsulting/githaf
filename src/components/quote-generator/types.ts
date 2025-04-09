@@ -35,3 +35,8 @@ export interface ConvertedCurrency {
   code: string;
   amount: number;
 }
+
+export interface ClientInfo {
+  name: string;
+  telephone: string;
+}

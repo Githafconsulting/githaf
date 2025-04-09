@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { DownloadCloud } from 'lucide-react';
-import { SelectedService, AdditionalFee, Discount, Totals } from './types';
+import { SelectedService, AdditionalFee, Discount, Totals, ClientInfo } from './types';
 import { CurrencyConverter } from './currency-converter';
 
 interface QuoteSummaryProps {
@@ -11,6 +11,7 @@ interface QuoteSummaryProps {
   additionalFees: AdditionalFee[];
   discount: Discount;
   totals: Totals;
+  clientInfo: ClientInfo;
   onGenerateReport: (convertedCurrency?: { code: string; amount: number }) => void;
 }
 
@@ -19,6 +20,7 @@ export const QuoteSummary: React.FC<QuoteSummaryProps> = ({
   additionalFees,
   discount,
   totals,
+  clientInfo,
   onGenerateReport,
 }) => {
   const activeServices = selectedServices.filter(service => service.selected);
@@ -43,6 +45,25 @@ export const QuoteSummary: React.FC<QuoteSummaryProps> = ({
       </CardHeader>
       
       <CardContent className="pt-6">
+        {/* Client Information */}
+        {(clientInfo.name || clientInfo.telephone) && (
+          <div className="mb-4 pb-4 border-b">
+            <h3 className="font-medium mb-2 text-lg">Client Details</h3>
+            {clientInfo.name && (
+              <div className="flex justify-between">
+                <span className="text-muted-foreground">Name:</span>
+                <span className="font-medium">{clientInfo.name}</span>
+              </div>
+            )}
+            {clientInfo.telephone && (
+              <div className="flex justify-between mt-1">
+                <span className="text-muted-foreground">Telephone:</span>
+                <span className="font-medium">{clientInfo.telephone}</span>
+              </div>
+            )}
+          </div>
+        )}
+        
         {activeServices.length === 0 ? (
           <div className="text-center py-8 text-muted-foreground">
             <p>No services selected yet.</p>
