@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import Layout from '@/components/Layout';
 import Hero from '@/components/Hero';
 import ServicesSection from '@/components/ServicesSection';
@@ -8,6 +8,10 @@ import ContactSection from '@/components/ContactSection';
 import CompanyTicker from '@/components/CompanyTicker';
 
 const Index = () => {
+  useEffect(() => {
+    console.log("Index page mounted");
+  }, []);
+
   return (
     <Layout
       title="Githaf Consulting - AI and Digital Transformation Experts | Custom Business Solutions"

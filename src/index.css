@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
 @tailwind base;
@@ -96,6 +95,13 @@
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
     overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  #root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -185,7 +191,7 @@
 .reveal {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.5s ease, transform 0.5s ease; /* Faster animation */
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .reveal.active {
@@ -247,7 +253,7 @@
   }
   
   .reveal {
-    transition: opacity 0.4s ease, transform 0.4s ease; /* Even faster on mobile */
+    transition: opacity 0.4s ease, transform 0.4s ease;
   }
   
   html, body {
@@ -256,7 +262,7 @@
   }
   
   section {
-    padding: 2rem 0; /* Reduced spacing on mobile */
+    padding: 2rem 0;
   }
 }
 
@@ -275,13 +281,13 @@ section {
 
 /* Section background colors for visual separation */
 #testimonials {
-  background-color: rgba(242, 252, 226, 0.3); /* Soft Green */
+  background-color: rgba(242, 252, 226, 0.3);
 }
 
 #contact {
-  background-color: rgba(229, 222, 255, 0.2); /* Soft Purple */
+  background-color: rgba(229, 222, 255, 0.2);
 }
 
 #services {
-  background-color: rgba(253, 225, 211, 0.25); /* Soft Peach */
+  background-color: rgba(253, 225, 211, 0.25);
 }
