@@ -10,7 +10,6 @@ const navLinks = [
   { name: 'Home', path: '/' },
   { name: 'Services', path: '/#services' },
   { name: 'Projects', path: '/projects' },
-  { name: 'Custom Quote', path: '/custom-quote-generator' },
   { name: 'About', path: '/#about' },
   { name: 'Contact', path: '/#contact' },
 ];
@@ -19,7 +18,6 @@ const navLinks = [
 const lightBackgroundPages = [
   '/web-development',
   '/website-audit',
-  '/custom-quote-generator',
 ];
 
 const Navbar: React.FC = () => {
@@ -103,7 +101,7 @@ const Navbar: React.FC = () => {
             ))}
             
             <Link to="/booking" className="ml-2">
-              <Button variant="primary" size="sm" icon={<Calendar className="h-4 w-4" />}>
+              <Button variant="primary" size="sm" icon={<Calendar className="h-4 w-4" }}>
                 Book a Consultation
               </Button>
             </Link>
@@ -143,7 +141,7 @@ const Navbar: React.FC = () => {
             ))}
             <div className="pt-2 pb-1">
               <Link to="/booking" onClick={closeMenu} className="block w-full">
-                <Button variant="primary" className="w-full" icon={<Calendar className="h-4 w-4" />}>
+                <Button variant="primary" className="w-full" icon={<Calendar className="h-4 w-4" }}>
                   Book a Consultation
                 </Button>
               </Link>
