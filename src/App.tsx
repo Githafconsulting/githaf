@@ -15,6 +15,8 @@ import WebsiteAudit from "./pages/WebsiteAudit";
 import CustomQuoteGenerator from "./pages/CustomQuoteGenerator";
 import Favicon from "./components/Favicon";
 
+console.log("App component imported and about to render");
+
 // Create a new QueryClient instance
 const queryClient = new QueryClient();
 
@@ -22,26 +24,28 @@ const App = () => {
   console.log("App component rendering");
   
   return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <BrowserRouter>
-          <Favicon />
-          <Toaster />
-          <Sonner />
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/booking" element={<Booking />} />
-            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="/terms-of-service" element={<TermsOfService />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/web-development" element={<WebDevelopment />} />
-            <Route path="/website-audit" element={<WebsiteAudit />} />
-            <Route path="/custom-quote-generator" element={<CustomQuoteGenerator />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
-      </TooltipProvider>
-    </QueryClientProvider>
+    <div className="w-full h-full min-h-screen bg-background">
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <BrowserRouter>
+            <Favicon />
+            <Toaster />
+            <Sonner />
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/booking" element={<Booking />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/terms-of-service" element={<TermsOfService />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/web-development" element={<WebDevelopment />} />
+              <Route path="/website-audit" element={<WebsiteAudit />} />
+              <Route path="/custom-quote-generator" element={<CustomQuoteGenerator />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </BrowserRouter>
+        </TooltipProvider>
+      </QueryClientProvider>
+    </div>
   );
 };
 

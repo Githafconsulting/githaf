@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import ChatBot from './ChatBot';
@@ -18,6 +18,11 @@ const Layout: React.FC<LayoutProps> = ({
   description = "Expert consulting services for AI implementation and digital transformation strategies."
 }) => {
   console.log("Layout rendering with title:", title);
+  
+  useEffect(() => {
+    console.log("Layout mounted, children:", children ? "present" : "missing");
+    return () => console.log("Layout unmounted");
+  }, [children]);
   
   return (
     <>

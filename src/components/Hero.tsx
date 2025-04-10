@@ -9,13 +9,21 @@ const Hero: React.FC = () => {
   const isMobile = useIsMobile();
 
   useEffect(() => {
+    console.log("Hero component mounted");
+    
     // Trigger animations on component mount with shorter delay on mobile
     const timer = setTimeout(() => {
       setIsVisible(true);
+      console.log("Hero visibility set to true");
     }, isMobile ? 50 : 100);
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      console.log("Hero component unmounted");
+    };
   }, [isMobile]);
+
+  console.log("Hero rendering, isVisible:", isVisible);
 
   return (
     <section 

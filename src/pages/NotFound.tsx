@@ -1,7 +1,6 @@
 
-import React from "react";
+import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
 import Layout from '@/components/Layout';
 
 const NotFound = () => {
@@ -9,6 +8,7 @@ const NotFound = () => {
 
   useEffect(() => {
     console.log("NotFound page mounted for path:", location.pathname);
+    return () => console.log("NotFound page unmounted");
   }, [location.pathname]);
 
   return (

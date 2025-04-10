@@ -1,10 +1,13 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import Layout from '@/components/Layout';
 import { QuoteGenerator } from '@/components/quote-generator';
 
 const CustomQuoteGenerator = () => {
-  console.log("CustomQuoteGenerator page mounted");
+  useEffect(() => {
+    console.log("CustomQuoteGenerator page mounted");
+    return () => console.log("CustomQuoteGenerator page unmounted");
+  }, []);
 
   return (
     <Layout title="Custom Quote Generator | Githaf Consulting" description="Create a customized service package based on your consultation and specific needs.">
