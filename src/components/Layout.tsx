@@ -17,6 +17,8 @@ const Layout: React.FC<LayoutProps> = ({
   title = "Githaf Consulting - AI and Digital Transformation", 
   description = "Expert consulting services for AI implementation and digital transformation strategies."
 }) => {
+  console.log("Layout rendering with children:", !!children);
+  
   // Function to handle reveal animations on scroll
   useEffect(() => {
     const handleScroll = () => {
