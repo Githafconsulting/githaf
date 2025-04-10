@@ -28,7 +28,7 @@ const App = () => {
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <div className="app-container min-h-screen flex flex-col">
+          <div className="app-container min-h-screen flex flex-col" style={{display: 'flex'}}>
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/booking" element={<Booking />} />
