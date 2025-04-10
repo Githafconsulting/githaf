@@ -12,7 +12,6 @@ import TermsOfService from "./pages/TermsOfService";
 import Projects from "./pages/Projects";
 import WebDevelopment from "./pages/WebDevelopment";
 import WebsiteAudit from "./pages/WebsiteAudit";
-import CustomQuoteGenerator from "./pages/CustomQuoteGenerator";
 import Favicon from "./components/Favicon";
 
 const queryClient = new QueryClient();
@@ -32,7 +31,6 @@ const App = () => (
           <Route path="/projects" element={<Projects />} />
           <Route path="/web-development" element={<WebDevelopment />} />
           <Route path="/website-audit" element={<WebsiteAudit />} />
-          <Route path="/custom-quote-generator" element={<CustomQuoteGenerator />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
