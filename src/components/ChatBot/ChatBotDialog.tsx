@@ -8,6 +8,8 @@ import ChatBotDialogHeader from './ChatBotDialogHeader';
 import { useChatBot } from './hooks/useChatBot';
 
 const ChatBotDialog: React.FC<ChatBotDialogProps> = ({ open, onOpenChange }) => {
+  console.log("ChatBotDialog rendering, open:", open);
+
   const {
     messages,
     input,
