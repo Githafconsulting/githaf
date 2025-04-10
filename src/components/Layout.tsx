@@ -30,7 +30,7 @@ const Layout: React.FC<LayoutProps> = ({
         <title>{title}</title>
         <meta name="description" content={description} />
       </Helmet>
-      <div className="flex flex-col min-h-screen w-full">
+      <div className="flex flex-col min-h-screen w-full bg-white">
         <Navbar />
         <main className="flex-grow w-full">
           {children}
