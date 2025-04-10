@@ -24,30 +24,21 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <Favicon />
-        <Toaster />
-        <Sonner />
         <BrowserRouter>
-          <div className="app-container" style={{
-            display: 'flex',
-            flexDirection: 'column',
-            minHeight: '100vh',
-            width: '100%',
-            overflow: 'visible'
-          }}>
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/booking" element={<Booking />} />
-              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-              <Route path="/terms-of-service" element={<TermsOfService />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="/web-development" element={<WebDevelopment />} />
-              <Route path="/website-audit" element={<WebsiteAudit />} />
-              <Route path="/custom-quote-generator" element={<CustomQuoteGenerator />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </div>
+          <Favicon />
+          <Toaster />
+          <Sonner />
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/booking" element={<Booking />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-of-service" element={<TermsOfService />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/web-development" element={<WebDevelopment />} />
+            <Route path="/website-audit" element={<WebsiteAudit />} />
+            <Route path="/custom-quote-generator" element={<CustomQuoteGenerator />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>

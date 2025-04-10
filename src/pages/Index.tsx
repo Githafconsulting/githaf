@@ -15,10 +15,10 @@ const Index = () => {
       title="Githaf Consulting - AI and Digital Transformation Experts | Custom Business Solutions"
       description="Githaf Consulting provides strategic AI implementation, digital transformation, and business consulting services to help companies increase revenue and gain competitive advantage."
     >
-      <div style={{width: '100%', display: 'block'}}>
+      <div className="w-full">
         <Hero />
         <CompanyTicker />
-        <div style={{width: '100%', display: 'block'}}>
+        <div className="w-full">
           <ServicesSection />
           <AboutSection />
           <ContactSection />
