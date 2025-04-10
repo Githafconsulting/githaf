@@ -19,7 +19,7 @@ import Favicon from "./components/Favicon";
 const queryClient = new QueryClient();
 
 const App = () => {
-  console.log("Rendering App component");
+  console.log("App component rendering - checking for blank page issue");
   
   return (
     <QueryClientProvider client={queryClient}>
@@ -28,7 +28,7 @@ const App = () => {
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <div className="app-container min-h-screen flex flex-col" style={{display: 'flex'}}>
+          <div className="app-container min-h-screen flex flex-col" style={{display: 'flex', flexDirection: 'column', minHeight: '100vh', width: '100%'}}>
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/booking" element={<Booking />} />

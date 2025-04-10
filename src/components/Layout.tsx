@@ -18,6 +18,7 @@ const Layout: React.FC<LayoutProps> = ({
   description = "Expert consulting services for AI implementation and digital transformation strategies."
 }) => {
   console.log("Layout rendering with children:", !!children);
+  console.log("Children type:", typeof children);
   console.log("Children content:", children);
   
   // Function to handle reveal animations on scroll
@@ -78,11 +79,11 @@ const Layout: React.FC<LayoutProps> = ({
         <title>{title}</title>
         <meta name="description" content={description} />
       </Helmet>
-      <div className="flex flex-col min-h-screen" style={{display: 'flex', flexDirection: 'column', minHeight: '100vh'}}>
-        <header>
+      <div className="flex flex-col min-h-screen w-full" style={{display: 'flex', flexDirection: 'column', minHeight: '100vh', width: '100%', overflow: 'visible'}}>
+        <header style={{width: '100%', display: 'block'}}>
           <Navbar />
         </header>
-        <main className="flex-grow" role="main" style={{flexGrow: 1, display: 'block'}}>
+        <main className="flex-grow w-full" role="main" style={{flexGrow: 1, display: 'block', width: '100%', overflow: 'visible'}}>
           {children}
         </main>
         <Footer />
