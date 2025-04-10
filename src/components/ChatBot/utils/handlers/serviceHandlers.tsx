@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Calendar } from 'lucide-react';
+import { Calendar, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { MessagesSetter } from '../../types';
 
