@@ -51,7 +51,7 @@ const ChatBotDialog: React.FC<ChatBotDialogProps> = ({ open, onOpenChange }) => 
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
-      const response = generateResponse(userQuery, setMessages, email, setLeadCapture);
+      const response = generateResponse(userQuery, setMessages, email, setEmail, setLeadCapture);
       setMessages(prev => [...prev, { id: userMessageId + 1, content: response, isBot: true }]);
     }, 1000);
   };
