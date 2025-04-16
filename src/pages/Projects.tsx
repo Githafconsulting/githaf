@@ -21,7 +21,7 @@ const projects = [
     category: 'web',
     description: 'A creative digital showcase for an artist\'s portfolio and online presence.',
     image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
-    url: 'https://personal-artist-portfolio.lovable.app/',
+    url: 'https://www.debradebs.com/',
     icon: <Globe className="h-5 w-5 text-muted-foreground" />,
   },
   {
