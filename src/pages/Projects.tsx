@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Layout from '@/components/Layout';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
@@ -18,11 +17,11 @@ const projects = [
   },
   {
     id: 2,
-    title: 'Debra Debs Fashion',
+    title: 'Personal artist webpage',
     category: 'web',
-    description: 'An elegant e-commerce platform featuring the latest fashion collections.',
-    image: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
-    url: 'https://www.debradebs.com',
+    description: 'A creative digital showcase for an artist\'s portfolio and online presence.',
+    image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
+    url: 'https://personal-artist-portfolio.lovable.app/',
     icon: <Globe className="h-5 w-5 text-muted-foreground" />,
   },
   {
