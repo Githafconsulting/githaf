@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Layout from '@/components/Layout';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Briefcase, Globe, Smartphone, Cpu } from 'lucide-react';
+import { Briefcase, Globe, Smartphone, Cpu, Music, TrendingUp, Building, BarChart2, Bot } from 'lucide-react';
 
 // Project data
 const projects = [
@@ -14,6 +14,7 @@ const projects = [
     description: 'A comprehensive knowledge base platform with extensive documentation and search capabilities.',
     image: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
     url: 'https://www.sdlpkb.co.uk',
+    icon: <Globe className="h-5 w-5 text-muted-foreground" />,
   },
   {
     id: 2,
@@ -22,46 +23,52 @@ const projects = [
     description: 'An elegant e-commerce platform featuring the latest fashion collections.',
     image: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
     url: 'https://www.debradebs.com',
+    icon: <Globe className="h-5 w-5 text-muted-foreground" />,
   },
   {
     id: 3,
     title: 'Musicians Management System',
     category: 'web',
     description: 'A comprehensive musicians management system for studios and agencies.',
-    image: '/placeholder.svg',
+    image: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
     url: 'https://melody-vibes-studio.lovable.app/',
+    icon: <Music className="h-5 w-5 text-muted-foreground" />,
   },
   {
     id: 4,
     title: 'Leads Generating SaaS',
     category: 'mobile',
     description: 'A powerful application that helps businesses generate and track high-quality leads.',
-    image: '/placeholder.svg',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
     url: 'https://lead-beacon-insights.lovable.app/',
+    icon: <TrendingUp className="h-5 w-5 text-muted-foreground" />,
   },
   {
     id: 5,
     title: 'African Real Estate Digital Market',
     category: 'mobile',
     description: 'A digital marketplace connecting buyers and sellers in the African real estate market.',
-    image: '/placeholder.svg',
+    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
     url: 'https://africasestate-connect.lovable.app/',
+    icon: <Building className="h-5 w-5 text-muted-foreground" />,
   },
   {
     id: 6,
     title: 'AI Trading Software',
     category: 'ai',
     description: 'An AI-powered tool that analyzes market trends and provides trading recommendations.',
-    image: '/placeholder.svg',
+    image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
     url: 'https://trade-flow-navigator-pro.lovable.app/',
+    icon: <BarChart2 className="h-5 w-5 text-muted-foreground" />,
   },
   {
     id: 7,
     title: 'AI Agent SaaS',
     category: 'ai',
     description: 'A versatile AI agent platform that provides autonomous solutions for businesses.',
-    image: '/placeholder.svg',
+    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
     url: 'https://agent-genesis-platform.lovable.app/',
+    icon: <Bot className="h-5 w-5 text-muted-foreground" />,
   },
 ];
 
@@ -140,9 +147,7 @@ const Projects = () => {
                 <CardHeader>
                   <div className="flex justify-between items-start">
                     <CardTitle className="text-xl">{project.title}</CardTitle>
-                    {project.category === 'web' && <Globe className="h-5 w-5 text-muted-foreground" />}
-                    {project.category === 'mobile' && <Smartphone className="h-5 w-5 text-muted-foreground" />}
-                    {project.category === 'ai' && <Cpu className="h-5 w-5 text-muted-foreground" />}
+                    {project.icon}
                   </div>
                   <CardDescription>{project.description}</CardDescription>
                 </CardHeader>
