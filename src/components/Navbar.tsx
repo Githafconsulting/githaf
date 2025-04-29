@@ -1,16 +1,14 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Button from './Button';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { Menu, X, Calendar, Briefcase, Calculator } from 'lucide-react';
+import { Menu, X, Calendar } from 'lucide-react';
 import Logo from './Logo';
 
 // Navbar links configuration
 const navLinks = [
   { name: 'Home', path: '/' },
   { name: 'Services', path: '/#services' },
-  { name: 'Projects', path: '/projects' },
   { name: 'About', path: '/#about' },
   { name: 'Contact', path: '/#contact' },
 ];
