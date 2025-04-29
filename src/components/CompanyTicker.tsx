@@ -81,9 +81,9 @@ const CompanyTicker: React.FC = () => {
   };
 
   return (
-    <section className="py-10 bg-white overflow-hidden" aria-label="Our Trusted Clients">
+    <section className="py-10 bg-white overflow-hidden" aria-label="Clients">
       <div className="container mx-auto px-4">
-        <h2 className="text-center mb-8 text-3xl sm:text-4xl font-semibold" id="clients">Our Trusted Clients</h2>
+        <h2 className="text-center mb-8 text-3xl sm:text-4xl font-semibold" id="clients">Clients</h2>
         
         <div className="relative">
           {/* Gradient overlays for smooth edge fade */}
