@@ -9,8 +9,6 @@ import Booking from "./pages/Booking";
 import NotFound from "./pages/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
-import WebDevelopment from "./pages/WebDevelopment";
-import WebsiteAudit from "./pages/WebsiteAudit";
 import Favicon from "./components/Favicon";
 
 const queryClient = new QueryClient();
@@ -27,8 +25,6 @@ const App = () => (
           <Route path="/booking" element={<Booking />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
-          <Route path="/web-development" element={<WebDevelopment />} />
-          <Route path="/website-audit" element={<WebsiteAudit />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
