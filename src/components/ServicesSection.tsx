@@ -1,4 +1,3 @@
-
 import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { 
   Smartphone, 
@@ -32,11 +31,10 @@ const serviceColors = {
   3: 'bg-[#D3E4FD]/80', // Website Development
   4: 'bg-[#D3E4FD]/70', // Mobile App Development
   5: 'bg-[#D3E4FD]/50', // Payments & Fintech
-  6: 'bg-[#F2FCE2]/70', // Facebook Marketing
-  7: 'bg-[#F2FCE2]/50', // Google Marketing
-  8: 'bg-[#FFDEE2]/40', // Enterprise Agility
-  9: 'bg-[#FFDEE2]/30', // Programme Governance
-  10: 'bg-[#FFDEE2]/20', // Training & Courses
+  6: 'bg-[#F2FCE2]/70', // Digital Marketing
+  7: 'bg-[#FFDEE2]/40', // Enterprise Agility
+  8: 'bg-[#FFDEE2]/30', // Programme Governance
+  9: 'bg-[#FFDEE2]/20', // Training & Courses
 };
 
 const categories = [
@@ -47,7 +45,7 @@ const categories = [
   { id: 'marketing', name: 'Digital Marketing', color: 'bg-[#F2FCE2]/30' },
 ];
 
-// Reordered services
+// Reordered services with consolidated Digital Marketing
 const services = [
   {
     id: 1,
@@ -91,22 +89,14 @@ const services = [
   },
   {
     id: 6,
-    title: 'Facebook Marketing',
-    description: 'Targeted Facebook marketing strategies to engage your audience, increase conversions, and grow your business\'s online presence.',
+    title: 'Digital Marketing',
+    description: 'Comprehensive digital marketing solutions including SEO, social media advertising, PPC campaigns, content marketing, and analytics to boost your online presence and drive conversions.',
     icon: <Globe className="w-8 h-8 text-primary" />,
     category: 'marketing',
     path: null,
   },
   {
     id: 7,
-    title: 'Google Marketing',
-    description: 'Data-driven Google Ads strategies to reach the right audience, drive traffic, and maximize ROI for your business.',
-    icon: <Search className="w-8 h-8 text-primary" />,
-    category: 'marketing',
-    path: null,
-  },
-  {
-    id: 8,
     title: 'Enterprise Agility',
     description: 'Agile methodologies and effective program management to drive faster decision-making and business adaptation in rapidly changing environments.',
     icon: <Briefcase className="w-8 h-8 text-primary" />,
@@ -114,7 +104,7 @@ const services = [
     path: null,
   },
   {
-    id: 9,
+    id: 8,
     title: 'Programme Governance & Management',
     description: 'Expert governance and management for complex programs, ensuring alignment with business objectives, risk mitigation, and successful delivery.',
     icon: <ClipboardList className="w-8 h-8 text-primary" />,
@@ -122,7 +112,7 @@ const services = [
     path: null,
   },
   {
-    id: 10,
+    id: 9,
     title: 'Training & Courses',
     description: 'Courses on Enterprise Agility, Programme Management and Governance, Software Engineering, Data Engineering, and Leveraging AI for Automation.',
     icon: <GraduationCap className="w-8 h-8 text-primary" />,
