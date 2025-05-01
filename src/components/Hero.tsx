@@ -56,7 +56,7 @@ const Hero: React.FC = () => {
                 isVisible ? 'opacity-100 translate-y-0' : ''
               }`}
             >
-              We help businesses optimise processes and scale their growth and revenue with our AI-powered solutions.
+              We help businesses optimise processes, scale and generate revenue with our powerful AI-powered solutions.
             </p>
             
             <p 
@@ -64,7 +64,7 @@ const Hero: React.FC = () => {
                 isVisible ? 'opacity-100 translate-y-0' : ''
               }`}
             >
-              <strong>Strategic consulting</strong> - <strong>Digital transformation</strong> - <strong>AI solutions</strong>
+              Strategic consulting - Digital transformation - AI solutions
             </p>
             
             <div 
