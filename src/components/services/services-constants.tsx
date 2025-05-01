@@ -1,4 +1,3 @@
-
 import { 
   Smartphone, 
   Code, 
@@ -40,9 +39,9 @@ export const serviceColors = {
 // Category definitions
 export const categories = [
   { id: 'all' as ServiceCategory, name: 'All Services', color: 'bg-[#9b87f5]/30' },
-  { id: 'ai' as ServiceCategory, name: 'AI Services', color: 'bg-[#E5DEFF]/30' },
-  { id: 'tech' as ServiceCategory, name: 'Technology Services', color: 'bg-[#D3E4FD]/30' },
-  { id: 'transformation' as ServiceCategory, name: 'Transformation Services', color: 'bg-[#FDE1D3]/30' },
+  { id: 'ai' as ServiceCategory, name: 'AI Solutions', color: 'bg-[#E5DEFF]/30' },
+  { id: 'tech' as ServiceCategory, name: 'Digital Solutions', color: 'bg-[#D3E4FD]/30' },
+  { id: 'transformation' as ServiceCategory, name: 'Transformation Consulting', color: 'bg-[#FDE1D3]/30' },
   { id: 'marketing' as ServiceCategory, name: 'Digital Marketing', color: 'bg-[#F2FCE2]/30' },
 ];
 
