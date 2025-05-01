@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Layout from '@/components/Layout';
 
@@ -74,7 +73,7 @@ const PrivacyPolicy = () => {
                 If you have any questions about this privacy policy or our privacy practices, please contact us at:
               </p>
               <p className="mt-2">
-                <strong>Email:</strong> <a href="mailto:gravitasitconsulting@gmail.com" className="text-primary">gravitasitconsulting@gmail.com</a>
+                <strong>Email:</strong> <a href="mailto:info@githafconsulting.com" className="text-primary">info@githafconsulting.com</a>
               </p>
             </section>
           </div>

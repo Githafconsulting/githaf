@@ -32,7 +32,7 @@ const ContactSection: React.FC = () => {
       );
       
       // Open the mailto link
-      window.open(`mailto:gravitasitconsulting@gmail.com?subject=${subject}&body=${body}`);
+      window.open(`mailto:info@githafconsulting.com?subject=${subject}&body=${body}`);
       
       console.log('Form submitted:', formData);
       
@@ -50,7 +50,7 @@ const ContactSection: React.FC = () => {
   };
 
   // Email address split into parts to prevent easy scraping
-  const emailParts = ['gravitasitconsulting', 'gmail.com'];
+  const emailParts = ['info', 'githafconsulting.com'];
 
   // Style for unscrappable phone numbers
   const unscrappableStyle = "select-none user-select-none";

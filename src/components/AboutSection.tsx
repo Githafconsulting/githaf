@@ -54,7 +54,7 @@ const AboutSection: React.FC = () => {
             </h2>
             
             <p className="text-base text-muted-foreground mb-2 sm:mb-3">
-              We're a team of experienced consultants specializing in technology, business strategy, and digital marketing. Our goal is to help SMEs and large businesses thrive in the digital world, increase revenue, and stay competitive.
+              We're a team of experienced Business Transformation and Technology consultants specializing in building AI-powered solutions for businesses looking to scale their operations and growth. Our goal is to help them thrive and remain competitive.
             </p>
             
             <p className="text-base text-muted-foreground mb-3 sm:mb-4">
