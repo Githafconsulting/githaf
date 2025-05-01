@@ -52,11 +52,19 @@ const Hero: React.FC = () => {
             </h1>
             
             <p 
-              className={`text-base md:text-lg text-white/80 mb-6 max-w-xl opacity-0 transform translate-y-8 transition-all duration-700 delay-200 ease-out ${
+              className={`text-base md:text-lg text-white/80 mb-2 max-w-xl opacity-0 transform translate-y-8 transition-all duration-700 delay-200 ease-out ${
                 isVisible ? 'opacity-100 translate-y-0' : ''
               }`}
             >
-              We help businesses navigate the complexities of digital transformation with strategic consulting, innovative AI technologies, and data-driven solutions.
+              We help businesses optimise processes, scale and generate revenue with our powerful AI-powered solutions.
+            </p>
+            
+            <p 
+              className={`text-sm md:text-base text-white/70 mb-6 opacity-0 transform translate-y-8 transition-all duration-700 delay-250 ease-out ${
+                isVisible ? 'opacity-100 translate-y-0' : ''
+              }`}
+            >
+              Strategic consulting - Digital transformation - AI solutions
             </p>
             
             <div 
