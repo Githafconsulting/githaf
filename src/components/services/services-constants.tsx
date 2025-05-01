@@ -11,6 +11,7 @@ import {
   GraduationCap
 } from 'lucide-react';
 import React from 'react';
+import { ServiceCategory } from './services-types';
 
 // Category colors for styling
 export const categoryColors = {
@@ -36,11 +37,11 @@ export const serviceColors = {
 
 // Category definitions
 export const categories = [
-  { id: 'all', name: 'All Services', color: 'bg-[#9b87f5]/30' },
-  { id: 'ai', name: 'AI Services', color: 'bg-[#E5DEFF]/30' },
-  { id: 'tech', name: 'Technology Services', color: 'bg-[#D3E4FD]/30' },
-  { id: 'transformation', name: 'Transformation Services', color: 'bg-[#FDE1D3]/30' },
-  { id: 'marketing', name: 'Digital Marketing', color: 'bg-[#F2FCE2]/30' },
+  { id: 'all' as ServiceCategory, name: 'All Services', color: 'bg-[#9b87f5]/30' },
+  { id: 'ai' as ServiceCategory, name: 'AI Services', color: 'bg-[#E5DEFF]/30' },
+  { id: 'tech' as ServiceCategory, name: 'Technology Services', color: 'bg-[#D3E4FD]/30' },
+  { id: 'transformation' as ServiceCategory, name: 'Transformation Services', color: 'bg-[#FDE1D3]/30' },
+  { id: 'marketing' as ServiceCategory, name: 'Digital Marketing', color: 'bg-[#F2FCE2]/30' },
 ];
 
 // Service definitions with icons and descriptions
@@ -50,7 +51,7 @@ export const services = [
     title: 'AI Agents',
     description: 'We Implement AI agents to automate repetitive tasks, streamline your business processes and keep your business running 247; such as chatbots, lead generation, customer service and voice AI agents, personal assistants, data analytics, social media manager and much more.',
     icon: <Bot className="w-8 h-8 text-primary" />,
-    category: 'ai',
+    category: 'ai' as ServiceCategory,
     path: null,
   },
   {
@@ -58,7 +59,7 @@ export const services = [
     title: 'Automated Workflows',
     description: 'Leverage AI to automate workflows, reduce manual tasks, and improve business process efficiency, freeing up resources for growth.',
     icon: <Workflow className="w-8 h-8 text-primary" />,
-    category: 'ai',
+    category: 'ai' as ServiceCategory,
     path: null,
   },
   {
@@ -66,7 +67,7 @@ export const services = [
     title: 'Website Development',
     description: 'Powered with AI - High-performance, responsive websites designed to enhance your online presence, engage customers, and drive business growth.',
     icon: <Code className="w-8 h-8 text-primary" />,
-    category: 'tech',
+    category: 'tech' as ServiceCategory,
     path: '/web-development',
   },
   {
@@ -74,7 +75,7 @@ export const services = [
     title: 'Mobile App Development',
     description: 'Powered with AI - Custom mobile apps tailored to your business needs, ensuring efficiency, engagement, and seamless user experiences across platforms.',
     icon: <Smartphone className="w-8 h-8 text-primary" />,
-    category: 'tech',
+    category: 'tech' as ServiceCategory,
     path: null,
   },
   {
@@ -82,7 +83,7 @@ export const services = [
     title: 'Payments & Fintech Solutions',
     description: 'Secure, scalable payment systems and fintech solutions to streamline transactions, improve user experience, and foster financial innovation.',
     icon: <CreditCard className="w-8 h-8 text-primary" />,
-    category: 'tech',
+    category: 'tech' as ServiceCategory,
     path: null,
   },
   {
@@ -90,7 +91,7 @@ export const services = [
     title: 'Digital Marketing',
     description: 'Comprehensive digital marketing solutions including SEO, social media advertising, PPC campaigns, content marketing, and analytics to boost your online presence and drive conversions.',
     icon: <Globe className="w-8 h-8 text-primary" />,
-    category: 'marketing',
+    category: 'marketing' as ServiceCategory,
     path: null,
   },
   {
@@ -98,7 +99,7 @@ export const services = [
     title: 'Enterprise Agility',
     description: 'Agile methodologies and effective program management to drive faster decision-making and business adaptation in rapidly changing environments.',
     icon: <Briefcase className="w-8 h-8 text-primary" />,
-    category: 'transformation',
+    category: 'transformation' as ServiceCategory,
     path: null,
   },
   {
@@ -106,7 +107,7 @@ export const services = [
     title: 'Programme Governance & Management',
     description: 'Expert governance and management for complex programs, ensuring alignment with business objectives, risk mitigation, and successful delivery.',
     icon: <ClipboardList className="w-8 h-8 text-primary" />,
-    category: 'transformation',
+    category: 'transformation' as ServiceCategory,
     path: null,
   },
   {
@@ -114,7 +115,7 @@ export const services = [
     title: 'Training & Courses',
     description: 'Courses on Enterprise Agility, Programme Management and Governance, Software Engineering, Data Engineering, and Leveraging AI for Automation.',
     icon: <GraduationCap className="w-8 h-8 text-primary" />,
-    category: 'transformation',
+    category: 'transformation' as ServiceCategory,
     path: null,
   },
 ];
