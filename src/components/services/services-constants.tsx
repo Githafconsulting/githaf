@@ -4,11 +4,12 @@ import {
   Code, 
   CreditCard, 
   Bot, 
-  Workflow,
   Globe,
   Briefcase,
   ClipboardList,
-  GraduationCap
+  GraduationCap,
+  Rocket,
+  Database
 } from 'lucide-react';
 import React from 'react';
 import { ServiceCategory } from './services-types';
@@ -25,7 +26,6 @@ export const categoryColors = {
 // Service background colors
 export const serviceColors = {
   1: 'bg-[#E5DEFF]/80', // AI Agents
-  2: 'bg-[#E5DEFF]/60', // Automated Workflows
   3: 'bg-[#D3E4FD]/80', // Website Development
   4: 'bg-[#D3E4FD]/70', // Mobile App Development
   5: 'bg-[#D3E4FD]/50', // Payments & Fintech
@@ -33,6 +33,8 @@ export const serviceColors = {
   7: 'bg-[#FFDEE2]/40', // Enterprise Agility
   8: 'bg-[#FFDEE2]/30', // Programme Governance
   9: 'bg-[#FFDEE2]/20', // Training & Courses
+  10: 'bg-[#E5DEFF]/70', // AI SaaS Products
+  11: 'bg-[#E5DEFF]/50', // Tailor-made Solutions
 };
 
 // Category definitions
@@ -55,14 +57,6 @@ export const services = [
     path: null,
   },
   {
-    id: 2,
-    title: 'Automated Workflows',
-    description: 'Leverage AI to automate workflows, reduce manual tasks, and improve business process efficiency, freeing up resources for growth.',
-    icon: <Workflow className="w-8 h-8 text-primary" />,
-    category: 'ai' as ServiceCategory,
-    path: null,
-  },
-  {
     id: 3,
     title: 'Website Development',
     description: 'Powered with AI - High-performance, responsive websites designed to enhance your online presence, engage customers, and drive business growth.',
@@ -81,7 +75,7 @@ export const services = [
   {
     id: 5,
     title: 'Payments & Fintech Solutions',
-    description: 'Secure, scalable payment systems and fintech solutions to streamline transactions, improve user experience, and foster financial innovation.',
+    description: 'Strategic consulting for fintech innovation and digital transformation. We help financial institutions modernize systems, optimize customer journeys, and implement secure, scalable payment solutions.',
     icon: <CreditCard className="w-8 h-8 text-primary" />,
     category: 'tech' as ServiceCategory,
     path: null,
@@ -89,7 +83,7 @@ export const services = [
   {
     id: 6,
     title: 'Digital Marketing',
-    description: 'Comprehensive digital marketing solutions including SEO, social media advertising, PPC campaigns, content marketing, and analytics to boost your online presence and drive conversions.',
+    description: 'Comprehensive digital marketing services including Facebook & Google Ads, SEO optimization, email marketing campaigns, conversion-focused funnel building, and in-depth analytics to drive growth and maximize ROI.',
     icon: <Globe className="w-8 h-8 text-primary" />,
     category: 'marketing' as ServiceCategory,
     path: null,
@@ -116,6 +110,22 @@ export const services = [
     description: 'Courses on Enterprise Agility, Programme Management and Governance, Software Engineering, Data Engineering, and Leveraging AI for Automation.',
     icon: <GraduationCap className="w-8 h-8 text-primary" />,
     category: 'transformation' as ServiceCategory,
+    path: null,
+  },
+  {
+    id: 10,
+    title: 'AI SaaS Products',
+    description: 'Ready-to-deploy AI software solutions that help businesses scale operations, automate processes, and gain competitive advantages with minimal setup and implementation time.',
+    icon: <Rocket className="w-8 h-8 text-primary" />,
+    category: 'ai' as ServiceCategory,
+    path: null,
+  },
+  {
+    id: 11,
+    title: 'Tailor-made Solutions',
+    description: 'Custom-built AI and digital solutions designed specifically to address your unique business challenges and requirements, creating maximum impact for your organization.',
+    icon: <Database className="w-8 h-8 text-primary" />,
+    category: 'ai' as ServiceCategory,
     path: null,
   },
 ];
