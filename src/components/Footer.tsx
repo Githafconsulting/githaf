@@ -1,5 +1,7 @@
+
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
+import { services } from './services/services-constants';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -52,22 +54,16 @@ const Footer: React.FC = () => {
           {/* Services */}
           <div>
             <h4 className="text-lg font-semibold mb-4 text-white">Our Services</h4>
-            <ul className="space-y-3">
-              {[
-                'AI Agents', 
-                'Website Development', 
-                'Mobile App Development', 
-                'Payments & Fintech Solutions', 
-                'Automated Workflow'
-              ].map((item) => (
-                <li key={item}>
+            <ul className="space-y-3 max-h-64 overflow-y-auto pr-2 custom-scrollbar">
+              {services.map((service) => (
+                <li key={service.id}>
                   <a 
                     href="/#services"
                     onClick={(e) => scrollToSection('services', e)}
                     className="text-white/70 hover:text-white transition-colors flex items-center"
                   >
                     <ArrowRight size={14} className="mr-2" />
-                    {item}
+                    {service.title}
                   </a>
                 </li>
               ))}
@@ -104,6 +100,19 @@ const Footer: React.FC = () => {
           </div>
         </div>
       </div>
+      
+      <style jsx>{`
+        .custom-scrollbar::-webkit-scrollbar {
+          width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+          background-color: rgba(255, 255, 255, 0.2);
+          border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+          background-color: rgba(255, 255, 255, 0.05);
+        }
+      `}</style>
     </footer>
   );
 };
