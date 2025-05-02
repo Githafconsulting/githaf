@@ -101,18 +101,21 @@ const Footer: React.FC = () => {
         </div>
       </div>
       
-      <style jsx>{`
-        .custom-scrollbar::-webkit-scrollbar {
-          width: 4px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-          background-color: rgba(255, 255, 255, 0.2);
-          border-radius: 4px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-          background-color: rgba(255, 255, 255, 0.05);
-        }
-      `}</style>
+      {/* Adding the CSS styles directly using regular style tag */}
+      <style>
+        {`
+          .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+          }
+          .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+          }
+          .custom-scrollbar::-webkit-scrollbar-track {
+            background-color: rgba(255, 255, 255, 0.05);
+          }
+        `}
+      </style>
     </footer>
   );
 };
