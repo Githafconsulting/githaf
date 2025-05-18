@@ -4,10 +4,9 @@ import React from 'react';
 interface LogoProps {
   size?: 'sm' | 'md' | 'lg';
   className?: string;
-  showText?: boolean;
 }
 
-const Logo: React.FC<LogoProps> = ({ size = 'md', className = '', showText = true }) => {
+const Logo: React.FC<LogoProps> = ({ size = 'md', className = '' }) => {
   // Size mapping
   const sizeMap = {
     sm: 'h-6 w-6',
@@ -16,19 +15,39 @@ const Logo: React.FC<LogoProps> = ({ size = 'md', className = '', showText = tru
   };
 
   return (
-    <div className={`flex items-center gap-2 ${className}`}>
-      <div className={`${sizeMap[size]}`}>
-        <img 
-          src="/lovable-uploads/00193268-045d-4cdc-9111-0a727978cd49.png" 
-          alt="Githaf Consulting Logo" 
-          className="h-full w-full object-contain"
+    <div className={`${sizeMap[size]} ${className}`}>
+      <svg
+        viewBox="0 0 48 48"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="h-full w-full"
+      >
+        <circle cx="24" cy="24" r="20" fill="#ea33f7" />
+        <path 
+          d="M16 18L24 14L32 18L32 30L24 34L16 30L16 18Z" 
+          fill="white"
+          stroke="white"
+          strokeWidth="1.5"
         />
-      </div>
-      {showText && (
-        <span style={{ color: '#ea33f7' }} className="font-bold text-3xl">
-          Githaf Consulting
-        </span>
-      )}
+        <path 
+          d="M24 14V34" 
+          stroke="#ea33f7" 
+          strokeWidth="2" 
+          strokeLinecap="round"
+        />
+        <path 
+          d="M16 18L32 30" 
+          stroke="#ea33f7" 
+          strokeWidth="2" 
+          strokeLinecap="round"
+        />
+        <path 
+          d="M32 18L16 30" 
+          stroke="#ea33f7" 
+          strokeWidth="2" 
+          strokeLinecap="round"
+        />
+      </svg>
     </div>
   );
 };

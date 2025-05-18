@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Button from './Button';
@@ -77,9 +76,10 @@ const Navbar: React.FC = () => {
           {/* Logo with company name */}
           <Link 
             to="/" 
-            className="flex items-center"
+            className="flex items-center gap-2 font-bold text-3xl"
           >
-            <Logo size="md" showText={!isMobile} className="flex-shrink-0" />
+            <Logo size="md" className="flex-shrink-0" />
+            <span style={{ color: '#ea33f7' }}>Githaf Consulting</span>
           </Link>
           
           {/* Desktop Navigation */}
