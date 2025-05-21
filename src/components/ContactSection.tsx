@@ -52,9 +52,6 @@ const ContactSection: React.FC = () => {
   // Email address split into parts to prevent easy scraping
   const emailParts = ['info', 'githafconsulting.com'];
 
-  // Style for unscrappable phone numbers
-  const unscrappableStyle = "select-none user-select-none";
-
   return (
     <section id="contact" className="py-12 md:py-20 relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
@@ -87,12 +84,9 @@ const ContactSection: React.FC = () => {
                     <MessageSquare className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <h4 className="text-base font-semibold mb-1">Call Us</h4>
-                    <p className={`text-muted-foreground ${unscrappableStyle}`} aria-label="UAE phone number">
-                      UAE: <span>+971 562078508</span>
-                    </p>
-                    <p className={`text-muted-foreground ${unscrappableStyle}`} aria-label="UK phone number">
-                      UK: <span>+44 7530 551944</span>
+                    <h4 className="text-base font-semibold mb-1">Our Presence</h4>
+                    <p className="text-muted-foreground">
+                      UAE, UK
                     </p>
                   </div>
                 </div>
