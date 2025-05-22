@@ -1,11 +1,13 @@
 
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
-import { services } from './services/services-constants';
+import FooterCompanyInfo from './footer/FooterCompanyInfo';
+import FooterLinks from './footer/FooterLinks';
+import FooterServices from './footer/FooterServices';
+import FooterContactInfo from './footer/FooterContactInfo';
+import FooterCopyright from './footer/FooterCopyright';
+import FooterStyles from './footer/FooterStyles';
 
 const Footer: React.FC = () => {
-  const currentYear = new Date().getFullYear();
-  
   // Function to handle smooth scrolling to section
   const scrollToSection = (sectionId: string, event: React.MouseEvent) => {
     event.preventDefault();
@@ -15,100 +17,39 @@ const Footer: React.FC = () => {
     }
   };
   
+  const quickLinks = [
+    { name: 'Home', path: '/', id: null },
+    { name: 'About', path: '/#about', id: 'about' },
+    { name: 'Services', path: '/#services', id: 'services' },
+    { name: 'Contact', path: '/#contact', id: 'contact' }
+  ];
+  
   return (
     <footer className="bg-[#1A1F2C] pt-16 pb-8 text-white">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           {/* Company info */}
-          <div>
-            <h3 className="text-xl font-display font-bold mb-4 text-[#ea33f7]">Githaf Consulting</h3>
-            <p className="text-white/80 mb-6">
-              Preparing and transforming businesses through innovative AI and digital solutions.
-            </p>
-          </div>
+          <FooterCompanyInfo />
           
           {/* Quick links */}
-          <div>
-            <h4 className="text-lg font-semibold mb-4 text-white">Quick Links</h4>
-            <ul className="space-y-3">
-              {[
-                { name: 'Home', path: '/', id: null },
-                { name: 'About', path: '/#about', id: 'about' },
-                { name: 'Services', path: '/#services', id: 'services' },
-                { name: 'Contact', path: '/#contact', id: 'contact' }
-              ].map((item) => (
-                <li key={item.name}>
-                  <a 
-                    href={item.path}
-                    onClick={(e) => item.id && scrollToSection(item.id, e)}
-                    className="text-white/70 hover:text-white transition-colors flex items-center"
-                  >
-                    <ArrowRight size={14} className="mr-2" />
-                    {item.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <FooterLinks 
+            title="Quick Links" 
+            links={quickLinks} 
+            scrollToSection={scrollToSection} 
+          />
           
           {/* Services */}
-          <div>
-            <h4 className="text-lg font-semibold mb-4 text-white">Our Services</h4>
-            <ul className="space-y-3 max-h-64 overflow-y-auto pr-2 custom-scrollbar">
-              {services.map((service) => (
-                <li key={service.id}>
-                  <a 
-                    href="/#services"
-                    onClick={(e) => scrollToSection('services', e)}
-                    className="text-white/70 hover:text-white transition-colors flex items-center"
-                  >
-                    <ArrowRight size={14} className="mr-2" />
-                    {service.title}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <FooterServices scrollToSection={scrollToSection} />
           
           {/* Contact */}
-          <div>
-            <h4 className="text-lg font-semibold mb-4 text-white">Contact Us</h4>
-            <address className="not-italic text-white/80 space-y-3">
-              <p>Presence: UAE, UK</p>
-              <p>
-                <a href="mailto:info@githafconsulting.com" className="hover:text-white transition-colors">
-                  info@githafconsulting.com
-                </a>
-              </p>
-            </address>
-          </div>
+          <FooterContactInfo />
         </div>
         
-        <div className="pt-8 mt-8 border-t border-white/20 text-center text-white/70 text-sm">
-          <p>© {currentYear} Githaf Consulting. All rights reserved.</p>
-          <div className="mt-2 space-x-4">
-            <a href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</a>
-            <span>•</span>
-            <a href="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</a>
-          </div>
-        </div>
+        <FooterCopyright />
       </div>
       
-      {/* Adding the CSS styles directly using regular style tag */}
-      <style>
-        {`
-          .custom-scrollbar::-webkit-scrollbar {
-            width: 4px;
-          }
-          .custom-scrollbar::-webkit-scrollbar-thumb {
-            background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 4px;
-          }
-          .custom-scrollbar::-webkit-scrollbar-track {
-            background-color: rgba(255, 255, 255, 0.05);
-          }
-        `}
-      </style>
+      {/* Adding the CSS styles */}
+      <FooterStyles />
     </footer>
   );
 };
