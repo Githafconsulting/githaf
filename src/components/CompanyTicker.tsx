@@ -20,12 +20,12 @@ const companies = [
   {
     id: 4,
     name: 'RBS',
-    logo: '/lovable-uploads/RBS.png',
+    logo: '/lovable-uploads/d8034ade-7ea0-4adb-8185-69fb27ea73d7.png',
   },
   {
     id: 5,
     name: 'Moody\'s Analytics',
-    logo: '/lovable-uploads/Moodys .png', // Note: there's a space after Moodys
+    logo: '/lovable-uploads/541a3365-ab2c-4295-a94a-21668bf28641.png',
   },
   {
     id: 6,
