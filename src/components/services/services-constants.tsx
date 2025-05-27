@@ -1,4 +1,3 @@
-
 import { 
   Smartphone, 
   Code, 
@@ -25,7 +24,7 @@ export const categoryColors = {
 
 // Service background colors
 export const serviceColors = {
-  1: 'bg-[#E5DEFF]/50', // Tailor-made Solutions (AI Consulting)
+  1: 'bg-[#E5DEFF]/50', // AI Consulting
   2: 'bg-[#E5DEFF]/70', // AI SaaS Products
   3: 'bg-[#E5DEFF]/80', // AI Agents
   4: 'bg-[#D3E4FD]/80', // Website & Mobile Development
@@ -49,8 +48,8 @@ export const categories = [
 export const services = [
   {
     id: 1,
-    title: 'Tailor-made AI Solutions',
-    description: 'Custom-built AI and digital solutions designed specifically to address your unique business challenges and requirements, creating maximum impact for your organization.',
+    title: 'AI Consulting',
+    description: 'Strategic AI consulting services to help businesses identify opportunities, develop AI roadmaps, and implement intelligent solutions that drive growth and operational efficiency.',
     icon: <Database className="w-8 h-8 text-primary" />,
     category: 'ai' as ServiceCategory,
     path: null,
