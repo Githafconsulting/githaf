@@ -1,8 +1,9 @@
+
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Button from './Button';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { Menu, X, Calendar } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import Logo from './Logo';
 
 // Navbar links configuration
@@ -98,12 +99,6 @@ const Navbar: React.FC = () => {
                 {link.name}
               </a>
             ))}
-            
-            <Link to="/booking" className="ml-2">
-              <Button variant="primary" size="sm" icon={<Calendar className="h-4 w-4" />}>
-                Book a Consultation
-              </Button>
-            </Link>
           </div>
           
           {/* Mobile Menu Button */}
@@ -138,13 +133,6 @@ const Navbar: React.FC = () => {
                 {link.name}
               </a>
             ))}
-            <div className="pt-2 pb-1">
-              <Link to="/booking" onClick={closeMenu} className="block w-full">
-                <Button variant="primary" className="w-full" icon={<Calendar className="h-4 w-4" />}>
-                  Book a Consultation
-                </Button>
-              </Link>
-            </div>
           </div>
         </div>
       )}
