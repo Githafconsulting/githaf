@@ -1,3 +1,4 @@
+
 import { 
   Smartphone, 
   Code, 
@@ -24,16 +25,15 @@ export const categoryColors = {
 
 // Service background colors
 export const serviceColors = {
-  1: 'bg-[#E5DEFF]/80', // AI Agents
-  3: 'bg-[#D3E4FD]/80', // Website Development
-  4: 'bg-[#D3E4FD]/70', // Mobile App Development
+  1: 'bg-[#E5DEFF]/50', // Tailor-made Solutions (AI Consulting)
+  2: 'bg-[#E5DEFF]/70', // AI SaaS Products
+  3: 'bg-[#E5DEFF]/80', // AI Agents
+  4: 'bg-[#D3E4FD]/80', // Website & Mobile Development
   5: 'bg-[#D3E4FD]/50', // Payments & Fintech
   6: 'bg-[#F2FCE2]/70', // Digital Marketing
   7: 'bg-[#FFDEE2]/40', // Enterprise Agility
   8: 'bg-[#FFDEE2]/30', // Programme Governance
   9: 'bg-[#FFDEE2]/20', // Training & Courses
-  10: 'bg-[#E5DEFF]/70', // AI SaaS Products
-  11: 'bg-[#E5DEFF]/50', // Tailor-made Solutions
 };
 
 // Category definitions
@@ -45,10 +45,26 @@ export const categories = [
   { id: 'marketing' as ServiceCategory, name: 'Digital Marketing', color: 'bg-[#F2FCE2]/30' },
 ];
 
-// Service definitions with icons and descriptions
+// Service definitions with icons and descriptions - reordered as requested
 export const services = [
   {
     id: 1,
+    title: 'Tailor-made AI Solutions',
+    description: 'Custom-built AI and digital solutions designed specifically to address your unique business challenges and requirements, creating maximum impact for your organization.',
+    icon: <Database className="w-8 h-8 text-primary" />,
+    category: 'ai' as ServiceCategory,
+    path: null,
+  },
+  {
+    id: 2,
+    title: 'AI SaaS Products',
+    description: 'Ready-to-deploy AI software solutions that help businesses scale operations, automate processes, and gain competitive advantages with minimal setup and implementation time.',
+    icon: <Rocket className="w-8 h-8 text-primary" />,
+    category: 'ai' as ServiceCategory,
+    path: null,
+  },
+  {
+    id: 3,
     title: 'AI Agents',
     description: 'We Implement AI agents to automate repetitive tasks, streamline your business processes and keep your business running 247; such as chatbots, lead generation, customer service and voice AI agents, personal assistants, data analytics, social media manager and much more.',
     icon: <Bot className="w-8 h-8 text-primary" />,
@@ -56,20 +72,12 @@ export const services = [
     path: null,
   },
   {
-    id: 3,
-    title: 'Website Development',
-    description: 'Powered with AI - High-performance, responsive websites designed to enhance your online presence, engage customers, and drive business growth.',
+    id: 4,
+    title: 'Website & Mobile App Development',
+    description: 'Powered with AI - High-performance, responsive websites and custom mobile apps designed to enhance your online presence, engage customers, and drive business growth across all platforms.',
     icon: <Code className="w-8 h-8 text-primary" />,
     category: 'tech' as ServiceCategory,
     path: '/web-development',
-  },
-  {
-    id: 4,
-    title: 'Mobile App Development',
-    description: 'Powered with AI - Custom mobile apps tailored to your business needs, ensuring efficiency, engagement, and seamless user experiences across platforms.',
-    icon: <Smartphone className="w-8 h-8 text-primary" />,
-    category: 'tech' as ServiceCategory,
-    path: null,
   },
   {
     id: 5,
@@ -109,22 +117,6 @@ export const services = [
     description: 'Courses on Enterprise Agility, Programme Management and Governance, Software Engineering, Data Engineering, and Leveraging AI for Automation.',
     icon: <GraduationCap className="w-8 h-8 text-primary" />,
     category: 'transformation' as ServiceCategory,
-    path: null,
-  },
-  {
-    id: 10,
-    title: 'AI SaaS Products',
-    description: 'Ready-to-deploy AI software solutions that help businesses scale operations, automate processes, and gain competitive advantages with minimal setup and implementation time.',
-    icon: <Rocket className="w-8 h-8 text-primary" />,
-    category: 'ai' as ServiceCategory,
-    path: null,
-  },
-  {
-    id: 11,
-    title: 'Tailor-made Solutions',
-    description: 'Custom-built AI and digital solutions designed specifically to address your unique business challenges and requirements, creating maximum impact for your organization.',
-    icon: <Database className="w-8 h-8 text-primary" />,
-    category: 'ai' as ServiceCategory,
     path: null,
   },
 ];
