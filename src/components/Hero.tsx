@@ -31,7 +31,7 @@ const Hero: React.FC = () => {
             
             <h1 className={`mb-4 text-white opacity-0 transform translate-y-8 transition-all duration-700 delay-100 ease-out ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
               Transform Your Business 
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#ffffff] to-[#9b87f5] text-5xl font-bold"> Into the AI Age</span>
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#ffffff] to-[#9b87f5] font-bold text-6xl"> Into the AI Age</span>
             </h1>
             
             <p className={`text-base md:text-lg text-white/80 mb-2 max-w-xl opacity-0 transform translate-y-8 transition-all duration-700 delay-200 ease-out ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
