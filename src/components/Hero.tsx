@@ -38,7 +38,7 @@ const Hero: React.FC = () => {
               }`}
             >
               <span className="inline-block px-3 py-1 mb-3 text-xs sm:text-sm font-medium bg-white/10 text-white rounded-full">
-                AI Consulting. Custom Solutions. Scalable Products.
+                AI and Digital Transformation
               </span>
             </div>
             
@@ -47,8 +47,8 @@ const Hero: React.FC = () => {
                 isVisible ? 'opacity-100 translate-y-0' : ''
               }`}
             >
-              We help businesses 
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#ffffff] to-[#9b87f5]"> harness AI</span> — from strategy and implementation to fully built solutions.
+              Transform Your Business 
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#ffffff] to-[#9b87f5]"> Into the AI and Digital Age</span>
             </h1>
             
             <p 
@@ -56,27 +56,19 @@ const Hero: React.FC = () => {
                 isVisible ? 'opacity-100 translate-y-0' : ''
               }`}
             >
-              Our experts consult, design, and deploy tailored AI systems that automate and optimize operations.
+              We help businesses optimise processes and scale their growth and revenue with our AI-powered solutions.
             </p>
             
             <p 
-              className={`text-sm md:text-base text-white/70 mb-2 opacity-0 transform translate-y-8 transition-all duration-700 delay-250 ease-out ${
+              className={`text-sm md:text-base text-white/70 mb-6 opacity-0 transform translate-y-8 transition-all duration-700 delay-250 ease-out ${
                 isVisible ? 'opacity-100 translate-y-0' : ''
               }`}
             >
-              Access ready-to-use AI tools or partner with us to build bespoke solutions that scale.
-            </p>
-            
-            <p 
-              className={`text-sm md:text-base text-white/70 mb-6 opacity-0 transform translate-y-8 transition-all duration-700 delay-300 ease-out ${
-                isVisible ? 'opacity-100 translate-y-0' : ''
-              }`}
-            >
-              Whether you're exploring AI or ready to launch, we turn ideas into impact — fast and efficiently.
+              <strong>Strategic consulting</strong> - <strong>Digital transformation</strong> - <strong>AI solutions</strong>
             </p>
             
             <div 
-              className={`flex flex-col sm:flex-row gap-3 mb-8 opacity-0 transform translate-y-8 transition-all duration-700 delay-350 ease-out ${
+              className={`flex flex-col sm:flex-row gap-3 mb-8 opacity-0 transform translate-y-8 transition-all duration-700 delay-300 ease-out ${
                 isVisible ? 'opacity-100 translate-y-0' : ''
               }`}
             >
