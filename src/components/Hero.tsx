@@ -34,11 +34,7 @@ const Hero: React.FC = () => {
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#ffffff] to-[#9b87f5] font-bold text-6xl"> Into the AI Age</span>
             </h1>
             
-            <p className={`text-base md:text-lg text-white/80 mb-2 max-w-xl opacity-0 transform translate-y-8 transition-all duration-700 delay-200 ease-out ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
-              AI Solutions. Custom Solutions. Scalable Products.
-              We help businesses harness AI to scale their growth and revenue. From strategy and implementation to fully built solutions, we consult, design, and deploy tailored AI systems that automate and optimize operations.
-              Access ready-to-use AI tools or partner with us to build bespoke solutions that scale.
-            </p>
+            <p className={`text-base md:text-lg text-white/80 mb-2 max-w-xl opacity-0 transform translate-y-8 transition-all duration-700 delay-200 ease-out ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>We help businesses harness AI to scale and compete. From strategy and implementation to fully built solutions, we consult, design, and deploy tailored AI systems that automate and optimize operations. Access ready-to-use AI tools or partner with us to build bespoke solutions that scale.</p>
             
             <p className={`text-sm md:text-base text-white/70 mb-6 opacity-0 transform translate-y-8 transition-all duration-700 delay-250 ease-out ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
               <strong>Strategic consulting</strong> - <strong>Digital transformation</strong> - <strong>AI solutions</strong>
