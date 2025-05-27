@@ -56,7 +56,9 @@ const Hero: React.FC = () => {
                 isVisible ? 'opacity-100 translate-y-0' : ''
               }`}
             >
-              We help businesses optimise processes and scale their growth and revenue with our AI-powered solutions.
+              AI Solutions. Custom Solutions. Scalable Products.
+              We help businesses harness AI to scale their growth and revenue. From strategy and implementation to fully built solutions, we consult, design, and deploy tailored AI systems that automate and optimize operations.
+              Access ready-to-use AI tools or partner with us to build bespoke solutions that scale.
             </p>
             
             <p 
