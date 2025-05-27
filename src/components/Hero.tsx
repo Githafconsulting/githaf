@@ -38,7 +38,7 @@ const Hero: React.FC = () => {
               }`}
             >
               <span className="inline-block px-3 py-1 mb-3 text-xs sm:text-sm font-medium bg-white/10 text-white rounded-full">
-                AI and Digital Transformation
+                AI Consulting. Custom Solutions. Scalable Products.
               </span>
             </div>
             
@@ -47,8 +47,8 @@ const Hero: React.FC = () => {
                 isVisible ? 'opacity-100 translate-y-0' : ''
               }`}
             >
-              Transform Your Business 
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#ffffff] to-[#9b87f5]"> Into the AI and Digital Age</span>
+              We help businesses harness AI 
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#ffffff] to-[#9b87f5]"> to scale their growth and revenue</span>
             </h1>
             
             <p 
@@ -56,7 +56,7 @@ const Hero: React.FC = () => {
                 isVisible ? 'opacity-100 translate-y-0' : ''
               }`}
             >
-              We help businesses optimise processes and scale their growth and revenue with our AI-powered solutions.
+              From strategy and implementation to fully built solutions. Our experts consult, design, and deploy tailored AI systems that automate and optimize operations.
             </p>
             
             <p 
@@ -64,7 +64,7 @@ const Hero: React.FC = () => {
                 isVisible ? 'opacity-100 translate-y-0' : ''
               }`}
             >
-              <strong>Strategic consulting</strong> - <strong>Digital transformation</strong> - <strong>AI solutions</strong>
+              Access ready-to-use AI tools or partner with us to build bespoke solutions that scale. Whether you're exploring AI or ready to launch, we turn ideas into impact — fast and efficiently.
             </p>
             
             <div 
