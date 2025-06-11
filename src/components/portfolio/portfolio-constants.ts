@@ -34,7 +34,7 @@ export const projects: Project[] = [
     type: 'website',
     category: 'ecommerce',
     image: '/placeholder.svg',
-    technologies: ['React', 'Node.js', 'Stripe'],
+    technologies: [],
   },
   {
     id: 3,
@@ -43,7 +43,7 @@ export const projects: Project[] = [
     type: 'mobile',
     category: 'realestate',
     image: '/placeholder.svg',
-    technologies: ['React Native', 'Firebase'],
+    technologies: [],
   },
   {
     id: 4,
@@ -52,7 +52,7 @@ export const projects: Project[] = [
     type: 'website',
     category: 'education',
     image: '/placeholder.svg',
-    technologies: ['React', 'TypeScript', 'PostgreSQL'],
+    technologies: [],
   },
   {
     id: 5,
@@ -61,7 +61,7 @@ export const projects: Project[] = [
     type: 'website',
     category: 'media',
     image: '/placeholder.svg',
-    technologies: ['React', 'Video.js', 'AWS'],
+    technologies: [],
   },
   {
     id: 6,
@@ -70,6 +70,6 @@ export const projects: Project[] = [
     type: 'mobile',
     category: 'ecommerce',
     image: '/placeholder.svg',
-    technologies: ['React Native', 'Redux', 'PayPal'],
+    technologies: [],
   },
 ];
