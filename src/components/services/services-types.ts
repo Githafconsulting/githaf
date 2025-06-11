@@ -1,17 +1,17 @@
 
-export type ServiceCategory = 'all' | 'digital-transformation' | 'ai-solutions' | 'business-consulting';
+export type ServiceCategory = 'all' | 'ai' | 'tech' | 'transformation' | 'marketing';
 
 export interface ServiceItem {
-  id: string;
+  id: number;
   title: string;
   description: string;
   icon: React.ReactNode;
   category: ServiceCategory;
-  path?: string;
+  path: string | null;
 }
 
 export interface CategoryItem {
   id: ServiceCategory;
-  label: string;
+  name: string;
   color: string;
 }
