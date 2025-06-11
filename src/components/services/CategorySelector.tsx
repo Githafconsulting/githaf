@@ -27,7 +27,7 @@ const CategorySelector: React.FC<CategorySelectorProps> = ({
               backgroundColor: activeCategory === category.id ? 'white' : 'transparent'
             }}
           >
-            {category.name}
+            {category.label}
           </button>
         ))}
       </div>

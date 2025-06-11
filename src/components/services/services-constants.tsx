@@ -28,7 +28,7 @@ export const services: ServiceItem[] = [
     description: 'Custom websites and mobile applications built with modern technologies for optimal performance and user experience.',
     icon: <Code className="h-6 w-6" />,
     category: 'digital-transformation',
-    path: '/portfolio', // Add this path
+    path: '/portfolio',
   },
   {
     id: 'ux-design',
