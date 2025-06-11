@@ -19,13 +19,13 @@ export const categoryFilters: FilterOption[] = [
 export const projects: Project[] = [
   {
     id: 1,
-    title: 'SDLPKB Business Solutions',
-    description: 'Professional business consulting website with modern design and comprehensive service offerings.',
+    title: 'SDLPKB',
+    description: 'Bathrooms, Kitchens, Painting & Decorating Experts',
     type: 'website',
     category: 'business',
     image: '/lovable-uploads/0bcc5122-64f0-4d53-bd52-e65ad96598c9.png',
     url: 'https://sdlpkb.co.uk',
-    technologies: ['React', 'TypeScript', 'Tailwind CSS'],
+    technologies: [],
   },
   {
     id: 2,
