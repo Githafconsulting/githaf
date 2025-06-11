@@ -13,11 +13,26 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   return (
     <div className="bg-background rounded-lg shadow-sm border hover:shadow-md transition-shadow">
       <div className="aspect-video bg-muted rounded-t-lg overflow-hidden">
-        <img 
-          src={project.image} 
-          alt={project.title}
-          className="w-full h-full object-cover"
-        />
+        {project.url ? (
+          <a 
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block w-full h-full"
+          >
+            <img 
+              src={project.image} 
+              alt={project.title}
+              className="w-full h-full object-cover hover:scale-105 transition-transform cursor-pointer"
+            />
+          </a>
+        ) : (
+          <img 
+            src={project.image} 
+            alt={project.title}
+            className="w-full h-full object-cover"
+          />
+        )}
       </div>
       
       <div className="p-4">
