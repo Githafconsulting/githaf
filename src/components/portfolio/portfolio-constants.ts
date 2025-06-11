@@ -23,7 +23,7 @@ export const projects: Project[] = [
     description: 'Professional business consulting website with modern design and comprehensive service offerings.',
     type: 'website',
     category: 'business',
-    image: '/placeholder.svg',
+    image: '/lovable-uploads/0bcc5122-64f0-4d53-bd52-e65ad96598c9.png',
     url: 'https://sdlpkb.co.uk',
     technologies: ['React', 'TypeScript', 'Tailwind CSS'],
   },
