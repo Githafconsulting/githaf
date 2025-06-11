@@ -76,7 +76,7 @@ export const services = [
     description: 'Powered with AI - High-performance, responsive websites and custom mobile apps designed to enhance your online presence, engage customers, and drive business growth across all platforms.',
     icon: <Code className="w-8 h-8 text-primary" />,
     category: 'tech' as ServiceCategory,
-    path: '/web-development',
+    path: null,
   },
   {
     id: 5,
