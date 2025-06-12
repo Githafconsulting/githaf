@@ -37,6 +37,15 @@ export const projects: Project[] = [
   },
   {
     id: 3,
+    title: 'AgentGenesis',
+    description: 'Create & Deploy AI Agents for Your Business - Design, customize, and deploy AI agents for sales, support, marketing, and more with no coding required',
+    type: 'website',
+    category: 'business',
+    image: '/lovable-uploads/c776d86e-8d7b-401e-a57a-8b2e92ded1b0.png',
+    technologies: [],
+  },
+  {
+    id: 4,
     title: 'Future Village',
     description: 'Learning Management System for tech education and career development',
     type: 'website',
@@ -45,7 +54,7 @@ export const projects: Project[] = [
     technologies: [],
   },
   {
-    id: 4,
+    id: 5,
     title: 'Melody Tribe',
     description: 'Music streaming platform for discovering African beats and trending tracks',
     type: 'website',
@@ -54,7 +63,7 @@ export const projects: Project[] = [
     technologies: [],
   },
   {
-    id: 5,
+    id: 6,
     title: 'Africas Estate',
     description: 'Your Trusted Real Estate Marketplace in Africa - connecting verified buyers, sellers, and service providers',
     type: 'website',
@@ -63,7 +72,7 @@ export const projects: Project[] = [
     technologies: [],
   },
   {
-    id: 6,
+    id: 7,
     title: 'E-commerce Platform',
     description: 'Full-featured online store with payment integration and inventory management.',
     type: 'website',
@@ -72,7 +81,7 @@ export const projects: Project[] = [
     technologies: [],
   },
   {
-    id: 7,
+    id: 8,
     title: 'Property Management App',
     description: 'Mobile application for real estate agents to manage properties and client relationships.',
     type: 'mobile',
@@ -81,7 +90,7 @@ export const projects: Project[] = [
     technologies: [],
   },
   {
-    id: 8,
+    id: 9,
     title: 'Learning Management System',
     description: 'Educational platform with course management and student progress tracking.',
     type: 'website',
@@ -90,7 +99,7 @@ export const projects: Project[] = [
     technologies: [],
   },
   {
-    id: 9,
+    id: 10,
     title: 'Streaming Platform',
     description: 'Video streaming application with content management and user subscriptions.',
     type: 'website',
@@ -99,7 +108,7 @@ export const projects: Project[] = [
     technologies: [],
   },
   {
-    id: 10,
+    id: 11,
     title: 'Restaurant Ordering App',
     description: 'Mobile app for food ordering with real-time tracking and payment processing.',
     type: 'mobile',
