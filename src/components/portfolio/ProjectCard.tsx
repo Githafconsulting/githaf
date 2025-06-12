@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { ExternalLink, Smartphone, Globe } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { Project } from './portfolio-types';
 
 interface ProjectCardProps {
@@ -9,15 +10,14 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   const TypeIcon = project.type === 'mobile' ? Smartphone : Globe;
+  const hasViewableProject = project.lovableUrl || project.url;
 
   return (
     <div className="bg-background rounded-lg shadow-sm border hover:shadow-md transition-shadow">
       <div className="aspect-video bg-muted rounded-t-lg overflow-hidden">
-        {project.url ? (
-          <a 
-            href={project.url}
-            target="_blank"
-            rel="noopener noreferrer"
+        {hasViewableProject ? (
+          <Link 
+            to={`/project/${project.id}`}
             className="block w-full h-full"
           >
             <img 
@@ -25,7 +25,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
               alt={project.title}
               className="w-full h-full object-cover hover:scale-105 transition-transform cursor-pointer"
             />
-          </a>
+          </Link>
         ) : (
           <img 
             src={project.image} 
@@ -57,16 +57,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           ))}
         </div>
         
-        {project.url && (
-          <a 
-            href={project.url}
-            target="_blank"
-            rel="noopener noreferrer"
+        {hasViewableProject && (
+          <Link 
+            to={`/project/${project.id}`}
             className="inline-flex items-center gap-1 text-sm text-primary hover:underline"
           >
             <ExternalLink className="w-3 h-3" />
             View Project
-          </a>
+          </Link>
         )}
       </div>
     </div>
