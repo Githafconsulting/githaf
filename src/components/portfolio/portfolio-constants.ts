@@ -1,21 +1,4 @@
-import { Project, FilterOption } from './portfolio-types';
-
-export const projectTypeFilters: FilterOption[] = [
-  { value: 'all', label: 'All Types' },
-  { value: 'website', label: 'Websites' },
-  { value: 'mobile', label: 'Mobile Apps' }
-];
-
-export const categoryFilters: FilterOption[] = [
-  { value: 'all', label: 'All Categories' },
-  { value: 'business', label: 'Business' },
-  { value: 'ecommerce', label: 'E-commerce' },
-  { value: 'media', label: 'Media' },
-  { value: 'realestate', label: 'Real Estate' },
-  { value: 'education', label: 'Education' },
-  { value: 'healthcare', label: 'Healthcare' },
-  { value: 'sports', label: 'Sports' }
-];
+import { Project } from './portfolio-types';
 
 export const projects: Project[] = [
   {
