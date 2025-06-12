@@ -1,4 +1,3 @@
-
 import { Project, FilterOption } from './portfolio-types';
 
 export const projectTypeFilters: FilterOption[] = [
@@ -22,6 +21,15 @@ export const categoryFilters: FilterOption[] = [
 export const projects: Project[] = [
   {
     id: 1,
+    title: 'LuxeSkincare',
+    description: 'Luxury skincare e-commerce platform with scientifically-formulated products crafted from the world\'s finest ingredients',
+    type: 'website',
+    category: 'business',
+    image: '/lovable-uploads/04e6e7be-4e73-49f2-94b2-f8a6c1334616.png',
+    technologies: [],
+  },
+  {
+    id: 2,
     title: 'SDLPKB',
     description: 'Bathrooms, Kitchens, Painting & Decorating Experts',
     type: 'website',
@@ -31,7 +39,7 @@ export const projects: Project[] = [
     technologies: [],
   },
   {
-    id: 2,
+    id: 3,
     title: 'We Care',
     description: 'Property Maintenance and Renovation Specialists',
     type: 'website',
@@ -40,7 +48,7 @@ export const projects: Project[] = [
     technologies: [],
   },
   {
-    id: 3,
+    id: 4,
     title: 'AgentGenesis',
     description: 'Create & Deploy AI Agents for Your Business - Design, customize, and deploy AI agents for sales, support, marketing, and more with no coding required',
     type: 'webapp',
@@ -49,7 +57,7 @@ export const projects: Project[] = [
     technologies: [],
   },
   {
-    id: 4,
+    id: 5,
     title: 'PocketRx',
     description: 'Your Pharmacy in Your Pocket - Fast, secure, and convenient access to prescriptions and over-the-counter medications delivered right to your doorstep',
     type: 'webapp',
@@ -58,7 +66,7 @@ export const projects: Project[] = [
     technologies: [],
   },
   {
-    id: 5,
+    id: 6,
     title: 'DAMAC Academy',
     description: 'Professional football training programs for all ages in Damac Hills 2, Dubai. Learn from experienced coaches and take your game to the next level.',
     type: 'website',
@@ -67,7 +75,7 @@ export const projects: Project[] = [
     technologies: [],
   },
   {
-    id: 6,
+    id: 7,
     title: 'Elite Estates',
     description: 'AI-Powered Real Estate Platform - Find your dream home with advanced AI technology. Discover the perfect property tailored to your preferences.',
     type: 'webapp',
@@ -76,7 +84,7 @@ export const projects: Project[] = [
     technologies: [],
   },
   {
-    id: 7,
+    id: 8,
     title: 'Future Village',
     description: 'Learning Management System for tech education and career development',
     type: 'webapp',
@@ -85,7 +93,7 @@ export const projects: Project[] = [
     technologies: [],
   },
   {
-    id: 8,
+    id: 9,
     title: 'Melody Tribe',
     description: 'Music streaming platform for discovering African beats and trending tracks',
     type: 'webapp',
@@ -94,7 +102,7 @@ export const projects: Project[] = [
     technologies: [],
   },
   {
-    id: 9,
+    id: 10,
     title: 'Africas Estate',
     description: 'Your Trusted Real Estate Marketplace in Africa - connecting verified buyers, sellers, and service providers',
     type: 'website',
@@ -103,7 +111,7 @@ export const projects: Project[] = [
     technologies: [],
   },
   {
-    id: 10,
+    id: 11,
     title: 'E-commerce Platform',
     description: 'Full-featured online store with payment integration and inventory management.',
     type: 'website',
@@ -112,7 +120,7 @@ export const projects: Project[] = [
     technologies: [],
   },
   {
-    id: 11,
+    id: 12,
     title: 'Property Management App',
     description: 'Mobile application for real estate agents to manage properties and client relationships.',
     type: 'mobile',
@@ -121,7 +129,7 @@ export const projects: Project[] = [
     technologies: [],
   },
   {
-    id: 12,
+    id: 13,
     title: 'Learning Management System',
     description: 'Educational platform with course management and student progress tracking.',
     type: 'webapp',
@@ -130,7 +138,7 @@ export const projects: Project[] = [
     technologies: [],
   },
   {
-    id: 13,
+    id: 14,
     title: 'Streaming Platform',
     description: 'Video streaming application with content management and user subscriptions.',
     type: 'webapp',
@@ -139,7 +147,7 @@ export const projects: Project[] = [
     technologies: [],
   },
   {
-    id: 14,
+    id: 15,
     title: 'Restaurant Ordering App',
     description: 'Mobile app for food ordering with real-time tracking and payment processing.',
     type: 'mobile',
