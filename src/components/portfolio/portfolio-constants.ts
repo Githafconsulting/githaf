@@ -1,4 +1,3 @@
-
 import { Project, FilterOption } from './portfolio-types';
 
 export const projectTypeFilters: FilterOption[] = [
@@ -56,6 +55,15 @@ export const projects: Project[] = [
   },
   {
     id: 5,
+    title: 'Africas Estate',
+    description: 'Your Trusted Real Estate Marketplace in Africa - connecting verified buyers, sellers, and service providers',
+    type: 'website',
+    category: 'realestate',
+    image: '/lovable-uploads/fb9dc802-a6df-4e9d-8526-46abd52d5d37.png',
+    technologies: [],
+  },
+  {
+    id: 6,
     title: 'E-commerce Platform',
     description: 'Full-featured online store with payment integration and inventory management.',
     type: 'website',
@@ -64,7 +72,7 @@ export const projects: Project[] = [
     technologies: [],
   },
   {
-    id: 6,
+    id: 7,
     title: 'Property Management App',
     description: 'Mobile application for real estate agents to manage properties and client relationships.',
     type: 'mobile',
@@ -73,7 +81,7 @@ export const projects: Project[] = [
     technologies: [],
   },
   {
-    id: 7,
+    id: 8,
     title: 'Learning Management System',
     description: 'Educational platform with course management and student progress tracking.',
     type: 'website',
@@ -82,7 +90,7 @@ export const projects: Project[] = [
     technologies: [],
   },
   {
-    id: 8,
+    id: 9,
     title: 'Streaming Platform',
     description: 'Video streaming application with content management and user subscriptions.',
     type: 'website',
@@ -91,7 +99,7 @@ export const projects: Project[] = [
     technologies: [],
   },
   {
-    id: 9,
+    id: 10,
     title: 'Restaurant Ordering App',
     description: 'Mobile app for food ordering with real-time tracking and payment processing.',
     type: 'mobile',
