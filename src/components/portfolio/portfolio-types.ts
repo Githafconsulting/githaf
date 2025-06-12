@@ -10,7 +10,6 @@ export interface Project {
   category: ProjectCategory;
   image: string;
   url?: string;
-  lovableUrl?: string;
   technologies: string[];
 }
 
