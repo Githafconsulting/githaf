@@ -38,6 +38,15 @@ export const projects: Project[] = [
   },
   {
     id: 3,
+    title: 'Future Village',
+    description: 'Learning Management System for tech education and career development',
+    type: 'website',
+    category: 'education',
+    image: '/lovable-uploads/04920204-a50e-4d5c-86bb-db3f605cd8cb.png',
+    technologies: [],
+  },
+  {
+    id: 4,
     title: 'E-commerce Platform',
     description: 'Full-featured online store with payment integration and inventory management.',
     type: 'website',
@@ -46,7 +55,7 @@ export const projects: Project[] = [
     technologies: [],
   },
   {
-    id: 4,
+    id: 5,
     title: 'Property Management App',
     description: 'Mobile application for real estate agents to manage properties and client relationships.',
     type: 'mobile',
@@ -55,7 +64,7 @@ export const projects: Project[] = [
     technologies: [],
   },
   {
-    id: 5,
+    id: 6,
     title: 'Learning Management System',
     description: 'Educational platform with course management and student progress tracking.',
     type: 'website',
@@ -64,7 +73,7 @@ export const projects: Project[] = [
     technologies: [],
   },
   {
-    id: 6,
+    id: 7,
     title: 'Streaming Platform',
     description: 'Video streaming application with content management and user subscriptions.',
     type: 'website',
@@ -73,7 +82,7 @@ export const projects: Project[] = [
     technologies: [],
   },
   {
-    id: 7,
+    id: 8,
     title: 'Restaurant Ordering App',
     description: 'Mobile app for food ordering with real-time tracking and payment processing.',
     type: 'mobile',
