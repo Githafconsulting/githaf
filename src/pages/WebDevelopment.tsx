@@ -21,17 +21,17 @@ const WebDevelopment: React.FC = () => {
   return (
     <Layout 
       title="Website & Mobile App Development Portfolio - Githaf Consulting"
-      description="Explore our portfolio of custom websites and mobile applications across various industries including e-commerce, business, education, and more."
+      description="Explore our portfolio of custom websites, web apps, and mobile applications across various industries including e-commerce, business, education, and more."
     >
       <div className="min-h-screen bg-background pt-20">
         <div className="container mx-auto px-4 py-8">
           {/* Header */}
           <div className="text-center mb-8 reveal">
             <h1 className="text-3xl md:text-4xl font-bold mb-4">
-              Website & Mobile App Development Portfolio
+              Website, Web App & Mobile Development Portfolio
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Discover our collection of custom websites and mobile applications designed to drive business growth and enhance user experiences.
+              Discover our collection of custom websites, web applications, and mobile apps designed to drive business growth and enhance user experiences.
             </p>
           </div>
 

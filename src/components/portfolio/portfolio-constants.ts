@@ -1,9 +1,11 @@
+
 import { Project, FilterOption } from './portfolio-types';
 
 export const projectTypeFilters: FilterOption[] = [
   { value: 'all', label: 'All Projects' },
   { value: 'website', label: 'Websites' },
   { value: 'mobile', label: 'Mobile Apps' },
+  { value: 'webapp', label: 'Web Apps' },
 ];
 
 export const categoryFilters: FilterOption[] = [
@@ -41,7 +43,7 @@ export const projects: Project[] = [
     id: 3,
     title: 'AgentGenesis',
     description: 'Create & Deploy AI Agents for Your Business - Design, customize, and deploy AI agents for sales, support, marketing, and more with no coding required',
-    type: 'website',
+    type: 'webapp',
     category: 'business',
     image: '/lovable-uploads/c776d86e-8d7b-401e-a57a-8b2e92ded1b0.png',
     technologies: [],
@@ -50,7 +52,7 @@ export const projects: Project[] = [
     id: 4,
     title: 'PocketRx',
     description: 'Your Pharmacy in Your Pocket - Fast, secure, and convenient access to prescriptions and over-the-counter medications delivered right to your doorstep',
-    type: 'website',
+    type: 'webapp',
     category: 'healthcare',
     image: '/lovable-uploads/f03e6649-06cb-48ad-9a43-c1470f147991.png',
     technologies: [],
@@ -68,7 +70,7 @@ export const projects: Project[] = [
     id: 6,
     title: 'Elite Estates',
     description: 'AI-Powered Real Estate Platform - Find your dream home with advanced AI technology. Discover the perfect property tailored to your preferences.',
-    type: 'website',
+    type: 'webapp',
     category: 'realestate',
     image: '/lovable-uploads/607a85ac-5434-4124-99ce-c5d104d31821.png',
     technologies: [],
@@ -77,7 +79,7 @@ export const projects: Project[] = [
     id: 7,
     title: 'Future Village',
     description: 'Learning Management System for tech education and career development',
-    type: 'website',
+    type: 'webapp',
     category: 'education',
     image: '/lovable-uploads/04920204-a50e-4d5c-86bb-db3f605cd8cb.png',
     technologies: [],
@@ -86,7 +88,7 @@ export const projects: Project[] = [
     id: 8,
     title: 'Melody Tribe',
     description: 'Music streaming platform for discovering African beats and trending tracks',
-    type: 'website',
+    type: 'webapp',
     category: 'media',
     image: '/lovable-uploads/4140db43-1bf6-4494-9568-9aed7ebcf16d.png',
     technologies: [],
@@ -122,7 +124,7 @@ export const projects: Project[] = [
     id: 12,
     title: 'Learning Management System',
     description: 'Educational platform with course management and student progress tracking.',
-    type: 'website',
+    type: 'webapp',
     category: 'education',
     image: '/placeholder.svg',
     technologies: [],
@@ -131,7 +133,7 @@ export const projects: Project[] = [
     id: 13,
     title: 'Streaming Platform',
     description: 'Video streaming application with content management and user subscriptions.',
-    type: 'website',
+    type: 'webapp',
     category: 'media',
     image: '/placeholder.svg',
     technologies: [],

@@ -1,5 +1,5 @@
 
-export type ProjectType = 'all' | 'website' | 'mobile';
+export type ProjectType = 'all' | 'website' | 'mobile' | 'webapp';
 export type ProjectCategory = 'all' | 'ecommerce' | 'business' | 'media' | 'realestate' | 'education' | 'healthcare' | 'sports';
 
 export interface Project {
