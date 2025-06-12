@@ -13,6 +13,7 @@ export const categoryFilters: FilterOption[] = [
   { value: 'media', label: 'Media & Entertainment' },
   { value: 'realestate', label: 'Real Estate' },
   { value: 'education', label: 'Education' },
+  { value: 'healthcare', label: 'Healthcare' },
 ];
 
 export const projects: Project[] = [
@@ -46,6 +47,15 @@ export const projects: Project[] = [
   },
   {
     id: 4,
+    title: 'PocketRx',
+    description: 'Your Pharmacy in Your Pocket - Fast, secure, and convenient access to prescriptions and over-the-counter medications delivered right to your doorstep',
+    type: 'website',
+    category: 'healthcare',
+    image: '/lovable-uploads/f03e6649-06cb-48ad-9a43-c1470f147991.png',
+    technologies: [],
+  },
+  {
+    id: 5,
     title: 'Future Village',
     description: 'Learning Management System for tech education and career development',
     type: 'website',
@@ -54,7 +64,7 @@ export const projects: Project[] = [
     technologies: [],
   },
   {
-    id: 5,
+    id: 6,
     title: 'Melody Tribe',
     description: 'Music streaming platform for discovering African beats and trending tracks',
     type: 'website',
@@ -63,7 +73,7 @@ export const projects: Project[] = [
     technologies: [],
   },
   {
-    id: 6,
+    id: 7,
     title: 'Africas Estate',
     description: 'Your Trusted Real Estate Marketplace in Africa - connecting verified buyers, sellers, and service providers',
     type: 'website',
@@ -72,7 +82,7 @@ export const projects: Project[] = [
     technologies: [],
   },
   {
-    id: 7,
+    id: 8,
     title: 'E-commerce Platform',
     description: 'Full-featured online store with payment integration and inventory management.',
     type: 'website',
@@ -81,7 +91,7 @@ export const projects: Project[] = [
     technologies: [],
   },
   {
-    id: 8,
+    id: 9,
     title: 'Property Management App',
     description: 'Mobile application for real estate agents to manage properties and client relationships.',
     type: 'mobile',
@@ -90,7 +100,7 @@ export const projects: Project[] = [
     technologies: [],
   },
   {
-    id: 9,
+    id: 10,
     title: 'Learning Management System',
     description: 'Educational platform with course management and student progress tracking.',
     type: 'website',
@@ -99,7 +109,7 @@ export const projects: Project[] = [
     technologies: [],
   },
   {
-    id: 10,
+    id: 11,
     title: 'Streaming Platform',
     description: 'Video streaming application with content management and user subscriptions.',
     type: 'website',
@@ -108,7 +118,7 @@ export const projects: Project[] = [
     technologies: [],
   },
   {
-    id: 11,
+    id: 12,
     title: 'Restaurant Ordering App',
     description: 'Mobile app for food ordering with real-time tracking and payment processing.',
     type: 'mobile',
