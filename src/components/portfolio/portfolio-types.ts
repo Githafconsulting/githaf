@@ -1,6 +1,6 @@
 
 export type ProjectType = 'all' | 'website' | 'mobile';
-export type ProjectCategory = 'all' | 'ecommerce' | 'business' | 'media' | 'realestate' | 'education' | 'healthcare';
+export type ProjectCategory = 'all' | 'ecommerce' | 'business' | 'media' | 'realestate' | 'education' | 'healthcare' | 'sports';
 
 export interface Project {
   id: number;

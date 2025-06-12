@@ -14,6 +14,7 @@ export const categoryFilters: FilterOption[] = [
   { value: 'realestate', label: 'Real Estate' },
   { value: 'education', label: 'Education' },
   { value: 'healthcare', label: 'Healthcare' },
+  { value: 'sports', label: 'Sports & Fitness' },
 ];
 
 export const projects: Project[] = [
@@ -56,6 +57,15 @@ export const projects: Project[] = [
   },
   {
     id: 5,
+    title: 'DAMAC Academy',
+    description: 'Professional football training programs for all ages in Damac Hills 2, Dubai. Learn from experienced coaches and take your game to the next level.',
+    type: 'website',
+    category: 'sports',
+    image: '/lovable-uploads/3f7c100f-ba5d-46bf-bd28-d8dff9a07bce.png',
+    technologies: [],
+  },
+  {
+    id: 6,
     title: 'Future Village',
     description: 'Learning Management System for tech education and career development',
     type: 'website',
@@ -64,7 +74,7 @@ export const projects: Project[] = [
     technologies: [],
   },
   {
-    id: 6,
+    id: 7,
     title: 'Melody Tribe',
     description: 'Music streaming platform for discovering African beats and trending tracks',
     type: 'website',
@@ -73,7 +83,7 @@ export const projects: Project[] = [
     technologies: [],
   },
   {
-    id: 7,
+    id: 8,
     title: 'Africas Estate',
     description: 'Your Trusted Real Estate Marketplace in Africa - connecting verified buyers, sellers, and service providers',
     type: 'website',
@@ -82,7 +92,7 @@ export const projects: Project[] = [
     technologies: [],
   },
   {
-    id: 8,
+    id: 9,
     title: 'E-commerce Platform',
     description: 'Full-featured online store with payment integration and inventory management.',
     type: 'website',
@@ -91,7 +101,7 @@ export const projects: Project[] = [
     technologies: [],
   },
   {
-    id: 9,
+    id: 10,
     title: 'Property Management App',
     description: 'Mobile application for real estate agents to manage properties and client relationships.',
     type: 'mobile',
@@ -100,7 +110,7 @@ export const projects: Project[] = [
     technologies: [],
   },
   {
-    id: 10,
+    id: 11,
     title: 'Learning Management System',
     description: 'Educational platform with course management and student progress tracking.',
     type: 'website',
@@ -109,7 +119,7 @@ export const projects: Project[] = [
     technologies: [],
   },
   {
-    id: 11,
+    id: 12,
     title: 'Streaming Platform',
     description: 'Video streaming application with content management and user subscriptions.',
     type: 'website',
@@ -118,7 +128,7 @@ export const projects: Project[] = [
     technologies: [],
   },
   {
-    id: 12,
+    id: 13,
     title: 'Restaurant Ordering App',
     description: 'Mobile app for food ordering with real-time tracking and payment processing.',
     type: 'mobile',
