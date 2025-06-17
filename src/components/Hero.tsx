@@ -15,7 +15,7 @@ const Hero: React.FC = () => {
   }, [isMobile]);
 
   return (
-    <section id="home" className="relative pt-20 pb-12 md:pt-24 md:pb-20 overflow-hidden min-h-screen flex items-center">
+    <section id="home" className="relative pt-16 pb-8 md:pt-20 md:pb-12 overflow-hidden h-[70vh] md:h-[80vh] flex items-center">
       {/* Background Image */}
       <div className="absolute inset-0 -z-20">
         <img 
@@ -26,11 +26,11 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Dark Overlay */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-slate-900/90 via-slate-800/85 to-slate-900/90"></div>
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-slate-900/85 via-slate-800/80 to-slate-900/85"></div>
 
       {/* Subtle particle effect */}
       <div className="particles">
-        {[...Array(6)].map((_, i) => (
+        {[...Array(4)].map((_, i) => (
           <div
             key={i}
             className="particle"
@@ -44,24 +44,24 @@ const Hero: React.FC = () => {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-3xl mx-auto text-center">
           {/* Main heading */}
-          <h1 className={`mb-6 text-white opacity-0 transform translate-y-8 transition-all duration-1000 delay-200 ease-out ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
+          <h1 className={`mb-4 md:mb-6 text-white opacity-0 transform translate-y-8 transition-all duration-1000 delay-200 ease-out text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
             Transform Your Business
-            <span className="block mt-2 bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent font-bold">
+            <span className="block mt-1 md:mt-2 bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">
               with AI Solutions
             </span>
           </h1>
           
           {/* Subtitle */}
-          <p className={`text-lg md:text-xl text-slate-300 mb-8 max-w-2xl mx-auto leading-relaxed opacity-0 transform translate-y-8 transition-all duration-1000 delay-400 ease-out ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
-            Strategic AI consulting and digital transformation to help your business scale and compete in the modern marketplace.
+          <p className={`text-base md:text-lg text-slate-300 mb-6 md:mb-8 max-w-xl mx-auto leading-relaxed opacity-0 transform translate-y-8 transition-all duration-1000 delay-400 ease-out ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
+            Strategic AI consulting and digital transformation to help your business scale and compete.
           </p>
           
           {/* CTA Button */}
           <div className={`flex justify-center opacity-0 transform translate-y-8 transition-all duration-1000 delay-600 ease-out ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
             <a href="#services" className="group">
-              <Button variant="primary" size="lg" className="px-8 py-4 text-lg font-semibold">
+              <Button variant="primary" size="lg" className="px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold">
                 Explore Our Services
               </Button>
             </a>
