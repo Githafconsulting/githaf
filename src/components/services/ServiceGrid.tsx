@@ -10,13 +10,20 @@ interface ServiceGridProps {
 
 const ServiceGrid: React.FC<ServiceGridProps> = ({ services, onServiceClick }) => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 services-grid">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 services-grid">
       {services.map((service, index) => (
-        <ServiceCard 
-          key={service.id} 
-          service={service} 
-          onClick={onServiceClick} 
-        />
+        <div
+          key={service.id}
+          className="reveal"
+          style={{
+            animationDelay: `${index * 100}ms`
+          }}
+        >
+          <ServiceCard 
+            service={service} 
+            onClick={onServiceClick} 
+          />
+        </div>
       ))}
     </div>
   );

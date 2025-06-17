@@ -13,21 +13,24 @@ const CategorySelector: React.FC<CategorySelectorProps> = ({
   onCategoryChange
 }) => {
   return (
-    <div className="flex justify-center mb-6 overflow-x-auto pb-2">
-      <div className="inline-flex bg-secondary/50 p-1 rounded-full">
+    <div className="flex justify-center mb-8 overflow-x-auto pb-2">
+      <div className="inline-flex bg-black/30 backdrop-blur-md p-2 rounded-2xl border border-white/10 shadow-lg">
         {categories.map((category) => (
           <button
             key={category.id}
             onClick={() => onCategoryChange(category.id)}
-            className={`px-2 py-1 md:px-3 md:py-1.5 text-xs sm:text-sm font-medium rounded-full transition-all whitespace-nowrap
+            className={`px-4 py-3 md:px-6 md:py-3 text-sm md:text-base font-semibold rounded-xl transition-all duration-300 whitespace-nowrap relative overflow-hidden group
               ${activeCategory === category.id 
-                ? 'bg-white text-foreground shadow-sm' 
-                : 'text-foreground/80 hover:text-foreground'}`}
-            style={{
-              backgroundColor: activeCategory === category.id ? 'white' : 'transparent'
-            }}
+                ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg transform scale-105' 
+                : 'text-slate-300 hover:text-white hover:bg-white/10'}`}
           >
-            {category.name}
+            {activeCategory === category.id && (
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-xl blur-sm"></div>
+            )}
+            <span className="relative z-10">{category.name}</span>
+            {activeCategory !== category.id && (
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-600/0 to-pink-600/0 group-hover:from-purple-600/10 group-hover:to-pink-600/10 rounded-xl transition-all duration-300"></div>
+            )}
           </button>
         ))}
       </div>
