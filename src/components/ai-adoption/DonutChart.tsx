@@ -57,11 +57,6 @@ const DonutChart: React.FC<DonutChartProps> = ({
     }`}>
       {/* Donut Chart */}
       <div className="relative w-36 h-36 md:w-40 md:h-40">
-        {/* Inner circle background */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-24 h-24 md:w-28 md:h-28 rounded-full" style={{ backgroundColor: '#9b87f5' }}></div>
-        </div>
-        
         <ResponsiveContainer width="100%" height="100%">
           <PieChart>
             <Pie
@@ -77,7 +72,7 @@ const DonutChart: React.FC<DonutChartProps> = ({
               cornerRadius={8}
             >
               <Cell fill="#ea33f7" />
-              <Cell fill="transparent" />
+              <Cell fill="#9b87f5" />
             </Pie>
           </PieChart>
         </ResponsiveContainer>
