@@ -3,6 +3,7 @@ import React from 'react';
 import Layout from '@/components/Layout';
 import Hero from '@/components/Hero';
 import ServicesSection from '@/components/services/ServicesSection';
+import OurApproachSection from '@/components/OurApproachSection';
 import AboutSection from '@/components/AboutSection';
 import ContactSection from '@/components/ContactSection';
 import CompanyTicker from '@/components/CompanyTicker';
@@ -18,6 +19,7 @@ const Index = () => {
         <CompanyTicker />
         <div className="space-y-0">
           <ServicesSection />
+          <OurApproachSection />
           <AboutSection />
           <ContactSection />
         </div>
