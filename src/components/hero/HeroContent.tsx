@@ -13,12 +13,12 @@ const HeroContent: React.FC<HeroContentProps> = ({ isVisible }) => {
     <div className="text-center lg:text-left">
       {/* Main heading - single line */}
       <h1 className={`mb-4 md:mb-6 opacity-0 transform translate-y-8 transition-all duration-1000 delay-200 ease-out ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
-        Transform Your Business with AI Solutions
+        Transform Your Business Into the AI Age
       </h1>
       
       {/* Subtitle */}
       <p className={`mb-6 md:mb-8 max-w-xl mx-auto lg:mx-0 opacity-0 transform translate-y-8 transition-all duration-1000 delay-400 ease-out ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
-        Strategic AI consulting and digital transformation to help your business scale and compete in the modern market.
+        We help businesses harness AI to scale and compete. From strategy and implementation to fully built solutions, we consult, design, and deploy tailored AI systems that automate and optimize operations. Access ready-to-use AI tools or partner with us to build bespoke solutions that scale.
       </p>
       
       {/* CTA Button */}
