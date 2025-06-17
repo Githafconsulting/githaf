@@ -46,7 +46,11 @@ const DonutChart: React.FC<DonutChartProps> = ({
     return () => clearTimeout(timer);
   }, [percentage, delay, isVisible]);
 
-  const data = [
+  // Background ring data (complete circle)
+  const backgroundData = [{ value: 100, name: 'background' }];
+  
+  // Progress ring data
+  const progressData = [
     { value: animatedPercentage, name: 'filled' },
     { value: 100 - animatedPercentage, name: 'remaining' }
   ];
@@ -59,8 +63,24 @@ const DonutChart: React.FC<DonutChartProps> = ({
       <div className="relative w-36 h-36 md:w-40 md:h-40">
         <ResponsiveContainer width="100%" height="100%">
           <PieChart>
+            {/* Background ring */}
             <Pie
-              data={data}
+              data={backgroundData}
+              cx="50%"
+              cy="50%"
+              innerRadius={48}
+              outerRadius={60}
+              startAngle={0}
+              endAngle={360}
+              dataKey="value"
+              stroke="none"
+            >
+              <Cell fill="#9b87f5" />
+            </Pie>
+            
+            {/* Progress ring */}
+            <Pie
+              data={progressData}
               cx="50%"
               cy="50%"
               innerRadius={48}
@@ -72,7 +92,7 @@ const DonutChart: React.FC<DonutChartProps> = ({
               cornerRadius={8}
             >
               <Cell fill="#ea33f7" />
-              <Cell fill="#9b87f5" />
+              <Cell fill="transparent" />
             </Pie>
           </PieChart>
         </ResponsiveContainer>
