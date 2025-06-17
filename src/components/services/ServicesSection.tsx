@@ -20,15 +20,9 @@ const ServicesSection: React.FC = () => {
     }
   }, [activeCategory]);
 
-  const currentCategoryColor = useMemo(() => 
-    categories.find(cat => cat.id === activeCategory)?.color || 'bg-[#9b87f5]/30',
-    [activeCategory]
-  );
-
   const handleCategoryChange = (categoryId: ServiceCategory) => {
     setActiveCategory(categoryId);
     
-    // Immediately scroll to services grid when category is changed
     if (servicesGridRef.current) {
       servicesGridRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
@@ -41,77 +35,92 @@ const ServicesSection: React.FC = () => {
   };
 
   return (
-    <section id="services" className="relative py-8 md:py-16 overflow-hidden">
-      {/* Enhanced Background with Gradients */}
+    <section id="services" className="relative py-16 md:py-24 overflow-hidden">
+      {/* Background Design */}
       <div className="absolute inset-0 -z-10">
-        <div className="w-full h-full bg-gradient-to-br from-purple-900/20 via-slate-900/30 to-black/40"></div>
-        {/* Dot Pattern Overlay */}
+        {/* Primary gradient background */}
+        <div className="w-full h-full bg-gradient-to-br from-slate-900 via-purple-900/30 to-slate-800"></div>
+        
+        {/* Geometric pattern overlay */}
         <div 
-          className="absolute inset-0 opacity-20"
+          className="absolute inset-0 opacity-10"
           style={{
-            backgroundImage: `radial-gradient(circle, rgba(147,51,234,0.3) 1px, transparent 1px)`,
-            backgroundSize: '60px 60px'
+            backgroundImage: `
+              linear-gradient(45deg, rgba(147,51,234,0.1) 25%, transparent 25%), 
+              linear-gradient(-45deg, rgba(147,51,234,0.1) 25%, transparent 25%), 
+              linear-gradient(45deg, transparent 75%, rgba(147,51,234,0.1) 75%), 
+              linear-gradient(-45deg, transparent 75%, rgba(147,51,234,0.1) 75%)
+            `,
+            backgroundSize: '30px 30px',
+            backgroundPosition: '0 0, 0 15px, 15px -15px, -15px 0px'
           }}
         ></div>
-        {/* Gradient Orbs */}
-        <div className="absolute top-20 left-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-1/4 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl"></div>
+        
+        {/* Floating gradient orbs */}
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-gradient-to-r from-blue-600/15 to-purple-600/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        {/* Enhanced Header Section */}
-        <div className="text-center max-w-4xl mx-auto mb-12 reveal">
-          <div className="inline-flex items-center justify-center p-2 rounded-full bg-gradient-to-r from-purple-600/20 to-pink-600/20 border border-purple-500/30 mb-6">
-            <span className="px-4 py-2 text-sm font-semibold text-purple-300 bg-black/20 rounded-full">
-              Our Expertise
-            </span>
+        {/* Header */}
+        <div className="text-center max-w-4xl mx-auto mb-16 reveal">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-600/20 to-pink-600/20 border border-purple-500/30 mb-8">
+            <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
+            <span className="text-sm font-medium text-purple-300">Our Services</span>
           </div>
-          <h2 className="mb-6 text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-white via-purple-200 to-slate-300 bg-clip-text text-transparent leading-tight">
-            Transformative Services
+          
+          <h2 className="mb-6 text-5xl md:text-6xl lg:text-7xl font-bold">
+            <span className="bg-gradient-to-r from-white via-purple-200 to-white bg-clip-text text-transparent leading-tight">
+              What We
+            </span>
+            <br />
+            <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
+              Deliver
+            </span>
           </h2>
-          <p className="text-lg md:text-xl text-slate-300 leading-relaxed max-w-2xl mx-auto">
-            Cutting-edge solutions designed to elevate your business through AI innovation and digital transformation
+          
+          <p className="text-xl md:text-2xl text-slate-300 leading-relaxed max-w-3xl mx-auto">
+            Transformative solutions that drive innovation and accelerate your digital evolution
           </p>
         </div>
 
-        {/* Enhanced Category Selector */}
-        <div className="mb-12">
+        {/* Category Selector */}
+        <div className="mb-16">
           <CategorySelector 
             activeCategory={activeCategory} 
             onCategoryChange={handleCategoryChange} 
           />
         </div>
 
-        {/* Enhanced Services Grid Container */}
+        {/* Services Grid */}
         <div ref={servicesGridRef} className="relative">
-          {/* Background Glow Effect */}
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-purple-500/5 to-transparent rounded-3xl blur-xl"></div>
-          
-          <div className="relative bg-black/20 backdrop-blur-sm border border-white/10 rounded-3xl p-6 md:p-8">
-            <ServiceGrid 
-              services={filteredServices} 
-              onServiceClick={handleServiceClick} 
-            />
-          </div>
+          <ServiceGrid 
+            services={filteredServices} 
+            onServiceClick={handleServiceClick} 
+          />
         </div>
 
-        {/* Bottom CTA Section */}
-        <div className="text-center mt-16 reveal">
-          <div className="inline-flex flex-col sm:flex-row items-center gap-4 p-6 rounded-2xl bg-gradient-to-r from-purple-900/30 to-slate-900/30 backdrop-blur-sm border border-purple-500/20">
-            <div className="text-center sm:text-left">
-              <h3 className="text-xl md:text-2xl font-semibold text-white mb-2">
-                Ready to Transform Your Business?
+        {/* Call to Action */}
+        <div className="text-center mt-20 reveal">
+          <div className="relative inline-block">
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl blur-xl opacity-30"></div>
+            <div className="relative bg-gradient-to-r from-purple-900/50 to-slate-900/50 backdrop-blur-xl border border-white/10 rounded-2xl p-8">
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                Ready to Transform Your Vision?
               </h3>
-              <p className="text-slate-300">
-                Let's discuss how our services can drive your success
+              <p className="text-slate-300 mb-6 max-w-2xl mx-auto">
+                Let's collaborate to bring your ideas to life with cutting-edge technology and strategic innovation
               </p>
+              <a 
+                href="#contact" 
+                className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-xl hover:from-purple-700 hover:to-pink-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-purple-500/25"
+              >
+                Start Your Journey
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </a>
             </div>
-            <a 
-              href="#contact" 
-              className="px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-xl hover:from-purple-700 hover:to-pink-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-purple-500/25 whitespace-nowrap"
-            >
-              Get Started
-            </a>
           </div>
         </div>
       </div>

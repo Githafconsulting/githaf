@@ -2,10 +2,9 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
 import AnimatedCard from '../AnimatedCard';
-import { serviceColors } from './services-constants';
 import { ServiceItem } from './services-types';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { ArrowRight } from 'lucide-react';
+import { ArrowUpRight, Sparkles } from 'lucide-react';
 
 interface ServiceCardProps {
   service: ServiceItem;
@@ -14,62 +13,79 @@ interface ServiceCardProps {
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ service, onClick }) => {
   const isMobile = useIsMobile();
-  const serviceColor = serviceColors[service.id as keyof typeof serviceColors] || 'bg-background';
   
   return (
     <div 
       id={`service-${service.id}`}
-      className="group" 
+      className="group h-full" 
       onClick={() => onClick(service)}
     >
       <AnimatedCard 
         className={cn(
-          "h-full rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 p-6 border border-white/10 backdrop-blur-sm relative overflow-hidden group",
+          "h-full aspect-square rounded-3xl border border-white/10 backdrop-blur-xl relative overflow-hidden transition-all duration-500",
           "bg-gradient-to-br from-white/5 to-white/2 hover:from-white/10 hover:to-white/5",
-          service.path ? "cursor-pointer hover:scale-[1.02] hover:-translate-y-1" : ""
+          service.path ? "cursor-pointer hover:scale-[1.02] hover:-translate-y-2" : "",
+          "shadow-lg hover:shadow-2xl hover:shadow-purple-500/10"
         )}
-        intensity={isMobile ? 0 : 3}
-        animate={false}
+        intensity={isMobile ? 0 : 4}
+        animate={!isMobile}
       >
-        {/* Background Gradient Effect */}
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-600/5 via-transparent to-pink-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        {/* Background Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-600/10 via-transparent to-pink-600/10 opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
         
-        {/* Content */}
-        <div className="flex flex-col h-full relative z-10">
-          {/* Icon Container */}
-          <div className="mb-4 relative">
-            <div className={cn(
-              "p-3 rounded-xl w-fit relative overflow-hidden",
-              "bg-gradient-to-br from-purple-600/20 to-pink-600/20 border border-purple-500/30"
-            )}>
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-600/10 to-pink-600/10 group-hover:from-purple-600/20 group-hover:to-pink-600/20 transition-all duration-300"></div>
-              <div className="relative z-10">
-                {service.icon}
+        {/* Animated Border */}
+        <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-purple-500/20 to-pink-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ padding: '1px' }}>
+          <div className="w-full h-full rounded-3xl bg-gradient-to-br from-slate-900/90 to-slate-800/90"></div>
+        </div>
+
+        {/* Content Container */}
+        <div className="relative z-10 p-6 md:p-8 h-full flex flex-col">
+          {/* Icon Section */}
+          <div className="mb-6">
+            <div className="relative">
+              <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br from-purple-600/20 to-pink-600/20 border border-purple-500/30 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/10 to-pink-600/10 rounded-2xl group-hover:from-purple-600/20 group-hover:to-pink-600/20 transition-all duration-300"></div>
+                <div className="relative [&>svg]:text-white [&>svg]:w-8 [&>svg]:h-8 md:[&>svg]:w-10 md:[&>svg]:h-10">
+                  {service.icon}
+                </div>
+              </div>
+              
+              {/* Floating sparkle effect */}
+              <div className="absolute -top-1 -right-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <Sparkles className="w-4 h-4 text-purple-400 animate-pulse" />
               </div>
             </div>
           </div>
 
-          {/* Title */}
-          <h3 className="text-lg md:text-xl font-bold mb-3 text-white group-hover:text-purple-200 transition-colors duration-300">
-            {service.title}
-          </h3>
+          {/* Content */}
+          <div className="flex-grow flex flex-col">
+            <h3 className="text-xl md:text-2xl font-bold mb-4 text-white group-hover:text-purple-200 transition-colors duration-300 leading-tight">
+              {service.title}
+            </h3>
 
-          {/* Description */}
-          <p className="text-sm md:text-base text-slate-300 leading-relaxed flex-grow group-hover:text-slate-200 transition-colors duration-300">
-            {service.description}
-          </p>
+            <p className="text-sm md:text-base text-slate-300 leading-relaxed flex-grow group-hover:text-slate-200 transition-colors duration-300 line-clamp-4">
+              {service.description}
+            </p>
 
-          {/* CTA */}
-          {service.path && (
-            <div className="mt-4 flex items-center text-sm font-semibold text-purple-400 group-hover:text-purple-300 transition-all duration-300">
-              <span>Explore Service</span>
-              <ArrowRight className="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
-            </div>
-          )}
-
-          {/* Hover Glow Effect */}
-          <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-purple-600/0 via-transparent to-pink-600/0 group-hover:from-purple-600/5 group-hover:to-pink-600/5 transition-all duration-500 pointer-events-none"></div>
+            {/* Action Indicator */}
+            {service.path && (
+              <div className="mt-6 flex items-center justify-between">
+                <span className="text-sm font-medium text-purple-400 group-hover:text-purple-300 transition-colors duration-300">
+                  Explore
+                </span>
+                <div className="w-8 h-8 rounded-full bg-purple-600/20 border border-purple-500/30 flex items-center justify-center group-hover:bg-purple-600/30 group-hover:scale-110 transition-all duration-300">
+                  <ArrowUpRight className="w-4 h-4 text-white transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
+                </div>
+              </div>
+            )}
+          </div>
         </div>
+
+        {/* Hover Glow Effect */}
+        <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-purple-600/0 via-transparent to-pink-600/0 group-hover:from-purple-600/5 group-hover:to-pink-600/5 transition-all duration-700 pointer-events-none"></div>
+        
+        {/* Bottom Gradient Line */}
+        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
       </AnimatedCard>
     </div>
   );
