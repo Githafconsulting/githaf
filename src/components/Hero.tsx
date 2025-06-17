@@ -65,15 +65,12 @@ const Hero: React.FC = () => {
           {/* Left side - Main content */}
           <div className="text-center lg:text-left">
             {/* Main heading */}
-            <h1 className={`mb-4 md:mb-6 text-white opacity-0 transform translate-y-8 transition-all duration-1000 delay-200 ease-out text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
-              Transform Your Business
-              <span className="block mt-1 md:mt-2 bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">
-                with AI Solutions
-              </span>
+            <h1 className={`mb-4 md:mb-6 opacity-0 transform translate-y-8 transition-all duration-1000 delay-200 ease-out ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
+              Transform Your Business with AI Solutions
             </h1>
             
             {/* Subtitle */}
-            <p className={`text-sm sm:text-base md:text-lg text-slate-300 mb-6 md:mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed opacity-0 transform translate-y-8 transition-all duration-1000 delay-400 ease-out ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
+            <p className={`mb-6 md:mb-8 max-w-xl mx-auto lg:mx-0 opacity-0 transform translate-y-8 transition-all duration-1000 delay-400 ease-out ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
               Strategic AI consulting and digital transformation to help your business scale and compete in the modern market.
             </p>
             
@@ -90,7 +87,7 @@ const Hero: React.FC = () => {
           {/* Right side - Services grid */}
           <div className={`opacity-0 transform translate-y-8 transition-all duration-1000 delay-800 ease-out ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
             <div className="glass rounded-xl p-4 md:p-6">
-              <h3 className="text-lg md:text-xl lg:text-2xl font-semibold text-white mb-4 md:mb-6 text-center lg:text-left">Our Services</h3>
+              <h3 className="mb-4 md:mb-6 text-center lg:text-left">Our Services</h3>
               <div className="grid grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-3 md:gap-4">
                 {services.map((service, index) => (
                   <div 

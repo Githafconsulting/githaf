@@ -10,7 +10,7 @@ const ContactInfo: React.FC = () => {
   return (
     <div className="enhanced-card p-8">
       <h2 className="mb-6 gradient-text">Get In Touch</h2>
-      <p className="text-base text-gray-300 mb-8 leading-relaxed">
+      <p className="mb-8">
         Ready to start your AI and digital transformation journey? Contact us today to schedule a consultation and discover how we can help your business thrive in the digital age.
       </p>
       
@@ -21,7 +21,7 @@ const ContactInfo: React.FC = () => {
               <Mail className="w-6 h-6 text-white" />
             </div>
             <div>
-              <h4 className="text-base font-semibold mb-1 text-white">Email Us</h4>
+              <h4 className="mb-1">Email Us</h4>
               <p className="text-gray-300 select-none" aria-label="Email address">
                 <span>{emailParts[0]}</span>
                 <span>@</span>
@@ -37,7 +37,7 @@ const ContactInfo: React.FC = () => {
               <MapPin className="w-6 h-6 text-white" />
             </div>
             <div>
-              <h4 className="text-base font-semibold mb-1 text-white">Our Presence</h4>
+              <h4 className="mb-1">Our Presence</h4>
               <p className="text-gray-300">UAE, UK</p>
             </div>
           </div>
@@ -49,7 +49,7 @@ const ContactInfo: React.FC = () => {
               <Calendar className="w-6 h-6 text-white" />
             </div>
             <div>
-              <h4 className="text-base font-semibold mb-1 text-white">Book a Consultation</h4>
+              <h4 className="mb-1">Book a Consultation</h4>
               <p className="text-gray-300">
                 <Link to="/booking" className="text-white hover:underline">
                   Schedule a meeting with our experts
@@ -66,7 +66,7 @@ const ContactInfo: React.FC = () => {
             <Clock className="w-6 h-6 text-white" />
           </div>
           <div>
-            <h4 className="text-lg font-semibold mb-3 text-white">Office Hours</h4>
+            <h4 className="mb-3">Office Hours</h4>
             <div className="space-y-2 text-gray-300">
               <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
               <p>Saturday - Sunday: Closed</p>

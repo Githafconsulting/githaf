@@ -59,14 +59,8 @@ const AboutSection: React.FC = () => {
               <span className="text-sm font-medium text-purple-300">About Us</span>
             </div>
             
-            <h2 className="mb-6 text-5xl md:text-6xl lg:text-7xl font-bold">
-              <span className="bg-gradient-to-r from-white via-purple-200 to-white bg-clip-text text-transparent leading-tight">
-                About
-              </span>
-              <br />
-              <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
-                Githaf Consulting
-              </span>
+            <h2 className="mb-6">
+              About Githaf Consulting
             </h2>
           </div>
           
@@ -87,11 +81,11 @@ const AboutSection: React.FC = () => {
             {/* Content Section */}
             <div className="reveal order-1 lg:order-2 space-y-8">
               <div>
-                <p className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed">
+                <p className="mb-8">
                   We're a team of experienced Business Transformation and Technology consultants specializing in building AI-powered solutions for businesses looking to scale their operations and growth.
                 </p>
                 
-                <p className="text-xl md:text-2xl text-gray-300 mb-10 leading-relaxed">
+                <p className="mb-10">
                   By combining smart strategies with practical solutions, we ensure our clients not only plan for the future but also achieve real, measurable results in today's fast-paced market.
                 </p>
               </div>
@@ -112,7 +106,7 @@ const AboutSection: React.FC = () => {
               <div className="pt-8">
                 <div className="glass rounded-xl p-6 bg-gradient-to-r from-purple-600/10 to-pink-600/10 border border-purple-500/20">
                   <p className="text-white font-medium text-xl mb-2">Ready to transform your business?</p>
-                  <p className="text-gray-300 text-base">Our goal is to help you thrive and remain competitive in today's market.</p>
+                  <p className="text-gray-300">Our goal is to help you thrive and remain competitive in today's market.</p>
                 </div>
               </div>
             </div>

@@ -27,10 +27,10 @@ const ContactSection: React.FC = () => {
       
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center mb-12">
-          <h2 className="mb-4 text-white">
-            Let's <span className="gradient-text">Transform</span> Your Business
+          <h2 className="mb-4">
+            Let's Transform Your Business
           </h2>
-          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+          <p className="max-w-2xl mx-auto">
             Ready to harness the power of AI? Get in touch with our experts and start your digital transformation journey today.
           </p>
         </div>
