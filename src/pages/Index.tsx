@@ -8,6 +8,7 @@ import AIAdoptionSection from '@/components/AIAdoptionSection';
 import AboutSection from '@/components/AboutSection';
 import ContactSection from '@/components/ContactSection';
 import CompanyTicker from '@/components/CompanyTicker';
+import BlogSection from '@/components/BlogSection';
 
 const Index = () => {
   return (
@@ -23,6 +24,7 @@ const Index = () => {
           <ServicesSection />
           <OurApproachSection />
           <AboutSection />
+          <BlogSection />
           <ContactSection />
         </div>
       </article>

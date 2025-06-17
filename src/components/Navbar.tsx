@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Button from './Button';
@@ -10,7 +9,9 @@ import { Separator } from '@/components/ui/separator';
 const navLinks = [
   { name: 'Home', path: '/' },
   { name: 'Services', path: '/#services' },
+  { name: 'Our Approach', path: '/#our-approach' },
   { name: 'About', path: '/#about' },
+  { name: 'Blog', path: '/#blog' },
   { name: 'Contact', path: '/#contact' },
 ];
 
@@ -82,7 +83,13 @@ const Navbar: React.FC = () => {
                     href={link.path}
                     onClick={(e) => {
                       if (link.path.startsWith('/#')) {
-                        scrollToSection(link.path.substring(2), e);
+                        const sectionId = link.path.substring(2);
+                        const sectionMappings: { [key: string]: string } = {
+                          'our-approach': 'approach',
+                          'blog': 'blog'
+                        };
+                        const targetId = sectionMappings[sectionId] || sectionId;
+                        scrollToSection(targetId, e);
                       }
                     }}
                     className="px-4 py-2 text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-lg transition-all duration-300"
@@ -126,10 +133,10 @@ const Navbar: React.FC = () => {
 
               <Separator orientation="vertical" className="h-6 bg-slate-600" />
 
-              {/* Contact Button */}
+              {/* Contact Button - Updated text */}
               <a href="#contact">
                 <Button variant="primary" size="sm">
-                  Contact Us
+                  Get Free Consultation
                 </Button>
               </a>
             </div>
@@ -162,7 +169,13 @@ const Navbar: React.FC = () => {
                   href={link.path}
                   onClick={(e) => {
                     if (link.path.startsWith('/#')) {
-                      scrollToSection(link.path.substring(2), e);
+                      const sectionId = link.path.substring(2);
+                      const sectionMappings: { [key: string]: string } = {
+                        'our-approach': 'approach',
+                        'blog': 'blog'
+                      };
+                      const targetId = sectionMappings[sectionId] || sectionId;
+                      scrollToSection(targetId, e);
                     }
                     closeMenu();
                   }}
@@ -206,11 +219,11 @@ const Navbar: React.FC = () => {
               
               <Separator className="bg-slate-600" />
               
-              {/* Contact Button */}
+              {/* Contact Button - Updated text */}
               <div className="px-4">
                 <a href="#contact" onClick={closeMenu}>
                   <Button variant="primary" className="w-full">
-                    Contact Us
+                    Get Free Consultation
                   </Button>
                 </a>
               </div>
