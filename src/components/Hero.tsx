@@ -2,10 +2,11 @@
 import React, { useState, useEffect } from 'react';
 import Button from './Button';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { Check, Mouse } from 'lucide-react';
+import { Mouse, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const Hero: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [currentProject, setCurrentProject] = useState(0);
   const isMobile = useIsMobile();
 
   useEffect(() => {
@@ -15,14 +16,66 @@ const Hero: React.FC = () => {
     return () => clearTimeout(timer);
   }, [isMobile]);
 
-  const services = [
-    'AI Consulting',
-    'AI SaaS Products',
-    'AI Agents',
-    'Mobile App Development',
-    'Web Development',
-    'Digital Marketing'
+  const projects = [
+    {
+      id: 1,
+      image: '/lovable-uploads/95c0b58a-299d-4749-bf37-535f705baa55.png',
+      title: 'Sonique Entertainment',
+      category: 'Event Management Platform'
+    },
+    {
+      id: 2,
+      image: '/lovable-uploads/707b6497-f40c-4fdb-89b1-f97452893fd8.png',
+      title: 'PSK Services',
+      category: 'Event Solutions Website'
+    },
+    {
+      id: 3,
+      image: '/lovable-uploads/01ecc33f-6209-44b5-ba0d-96f196827673.png',
+      title: 'Crypto Dashboard',
+      category: 'Financial Analytics Platform'
+    },
+    {
+      id: 4,
+      image: '/lovable-uploads/3702ad0e-6b99-4327-966f-bdb71cad69e8.png',
+      title: 'Currency Circle',
+      category: 'Digital Currency Platform'
+    },
+    {
+      id: 5,
+      image: '/lovable-uploads/e7cfce29-ae85-4532-94e7-f12401eb962a.png',
+      title: 'Coihues Guide',
+      category: 'Travel & Tourism Platform'
+    },
+    {
+      id: 6,
+      image: '/lovable-uploads/e67c1669-69e5-4ef0-8182-12f0439e2e59.png',
+      title: 'AI Presentations',
+      category: 'AI-Powered Design Tool'
+    },
+    {
+      id: 7,
+      image: '/lovable-uploads/3cb4d59c-52f9-4794-a4d6-0e6b4a612bc8.png',
+      title: 'Banking Dashboard',
+      category: 'Financial Management System'
+    }
   ];
+
+  // Auto-advance carousel
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentProject((prev) => (prev + 1) % projects.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [projects.length]);
+
+  const nextProject = () => {
+    setCurrentProject((prev) => (prev + 1) % projects.length);
+  };
+
+  const prevProject = () => {
+    setCurrentProject((prev) => (prev - 1 + projects.length) % projects.length);
+  };
 
   return (
     <section id="home" className="relative pt-16 pb-12 md:pt-20 md:pb-16 overflow-hidden min-h-[85vh] md:min-h-[90vh] flex items-center">
@@ -61,7 +114,7 @@ const Hero: React.FC = () => {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left side - Main content */}
           <div className="text-center lg:text-left">
             {/* Main heading - kept on two lines */}
@@ -88,23 +141,77 @@ const Hero: React.FC = () => {
             </div>
           </div>
 
-          {/* Right side - Services grid */}
+          {/* Right side - Project Carousel */}
           <div className={`opacity-0 transform translate-y-8 transition-all duration-1000 delay-800 ease-out ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
-            <div className="glass rounded-xl p-4 md:p-6">
-              <h3 className="mb-4 md:mb-6 text-center lg:text-left">Our <span className="text-purple-400">Services</span></h3>
-              <div className="grid grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-3 md:gap-4">
-                {services.map((service, index) => (
-                  <div 
-                    key={index}
-                    className="flex items-center space-x-3 p-3 md:p-4 rounded-lg bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300 hover:transform hover:scale-105"
-                  >
-                    <div className="flex-shrink-0">
-                      <div className="w-5 h-5 md:w-6 md:h-6 bg-purple-600 rounded-full flex items-center justify-center">
-                        <Check className="h-3 w-3 md:h-4 md:w-4 text-white stroke-2" />
-                      </div>
-                    </div>
-                    <span className="text-white font-medium text-xs sm:text-sm md:text-base leading-tight">{service}</span>
+            <div className="glass rounded-xl p-4 md:p-6 relative">
+              <h3 className="mb-4 md:mb-6 text-center lg:text-left">Our <span className="text-purple-400">Projects</span></h3>
+              
+              {/* Carousel Container */}
+              <div className="relative">
+                {/* Main Project Display */}
+                <div className="relative h-64 md:h-80 rounded-lg overflow-hidden bg-black/20">
+                  <img 
+                    src={projects[currentProject].image} 
+                    alt={projects[currentProject].title}
+                    className="w-full h-full object-cover transition-all duration-500"
+                  />
+                  
+                  {/* Project Info Overlay */}
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+                    <h4 className="text-white font-semibold text-lg mb-1">{projects[currentProject].title}</h4>
+                    <p className="text-gray-300 text-sm">{projects[currentProject].category}</p>
                   </div>
+                </div>
+
+                {/* Navigation Arrows */}
+                <button 
+                  onClick={prevProject}
+                  className="absolute left-2 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center transition-all duration-200 backdrop-blur-sm"
+                >
+                  <ChevronLeft className="w-5 h-5 text-white" />
+                </button>
+                
+                <button 
+                  onClick={nextProject}
+                  className="absolute right-2 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center transition-all duration-200 backdrop-blur-sm"
+                >
+                  <ChevronRight className="w-5 h-5 text-white" />
+                </button>
+              </div>
+
+              {/* Project Dots Indicator */}
+              <div className="flex justify-center mt-4 space-x-2">
+                {projects.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentProject(index)}
+                    className={`w-2 h-2 rounded-full transition-all duration-200 ${
+                      index === currentProject 
+                        ? 'bg-purple-400 w-6' 
+                        : 'bg-white/30 hover:bg-white/50'
+                    }`}
+                  />
+                ))}
+              </div>
+
+              {/* Thumbnail Preview (hidden on mobile) */}
+              <div className="hidden md:flex mt-4 space-x-2 overflow-x-auto">
+                {projects.map((project, index) => (
+                  <button
+                    key={project.id}
+                    onClick={() => setCurrentProject(index)}
+                    className={`flex-shrink-0 w-16 h-12 rounded-md overflow-hidden border-2 transition-all duration-200 ${
+                      index === currentProject 
+                        ? 'border-purple-400' 
+                        : 'border-transparent opacity-60 hover:opacity-80'
+                    }`}
+                  >
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </button>
                 ))}
               </div>
             </div>
