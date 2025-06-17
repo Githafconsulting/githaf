@@ -45,9 +45,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, onClick, isLarge = f
           "relative z-10 h-full flex flex-col",
           isLarge ? "p-8 md:p-10" : "p-6 md:p-8"
         )}>
-          {/* Icon Section */}
-          <div className="mb-6">
-            <div className="relative">
+          {/* Icon and Title Section - Now in a row */}
+          <div className="mb-6 flex items-center gap-4">
+            <div className="relative flex-shrink-0">
               <div className={cn(
                 "rounded-2xl bg-gradient-to-br from-purple-600/20 to-pink-600/20 border border-purple-500/30 flex items-center justify-center group-hover:scale-110 transition-transform duration-300",
                 isLarge ? "w-20 h-20 md:w-24 md:h-24" : "w-16 h-16 md:w-20 md:h-20"
@@ -66,17 +66,18 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, onClick, isLarge = f
                 <Sparkles className="w-4 h-4 text-purple-400 animate-pulse" />
               </div>
             </div>
-          </div>
 
-          {/* Content */}
-          <div className="flex-grow flex flex-col">
+            {/* Title next to icon */}
             <h3 className={cn(
-              "font-bold mb-4 text-white group-hover:text-purple-200 transition-colors duration-300 leading-tight",
+              "font-bold text-white group-hover:text-purple-200 transition-colors duration-300 leading-tight flex-1",
               isLarge ? "text-2xl md:text-3xl lg:text-4xl" : "text-xl md:text-2xl"
             )}>
               {service.title}
             </h3>
+          </div>
 
+          {/* Content */}
+          <div className="flex-grow flex flex-col">
             <p className={cn(
               "text-slate-300 leading-relaxed flex-grow group-hover:text-slate-200 transition-colors duration-300",
               isLarge ? "text-base md:text-lg line-clamp-6" : "text-sm md:text-base line-clamp-4"
