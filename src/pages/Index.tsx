@@ -17,11 +17,11 @@ const Index = () => {
     >
       <article>
         <Hero />
+        <AIAdoptionSection />
         <CompanyTicker />
         <div className="space-y-0">
           <ServicesSection />
           <OurApproachSection />
-          <AIAdoptionSection />
           <AboutSection />
           <ContactSection />
         </div>

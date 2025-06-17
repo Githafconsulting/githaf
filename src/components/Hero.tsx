@@ -26,14 +26,14 @@ const Hero: React.FC = () => {
 
   return (
     <section id="home" className="relative pt-16 pb-12 md:pt-20 md:pb-16 overflow-hidden min-h-[85vh] md:min-h-[90vh] flex items-center">
-      {/* Purple-Black Gradient Background with Dots */}
+      {/* Enhanced Background with dark navy/charcoal color - matching AI adoption section */}
       <div className="absolute inset-0 -z-20">
-        <div className="w-full h-full bg-gradient-to-b from-purple-900 via-slate-900 to-black"></div>
-        {/* Dot Pattern Overlay */}
+        <div className="w-full h-full bg-gradient-to-b from-slate-900 via-gray-900 to-slate-800"></div>
+        <div className="absolute inset-0 bg-[#1a1a2e] opacity-80"></div>
         <div 
-          className="absolute inset-0 opacity-60"
+          className="absolute inset-0 opacity-20"
           style={{
-            backgroundImage: `radial-gradient(circle, rgba(255,255,255,0.2) 1px, transparent 1px)`,
+            backgroundImage: `radial-gradient(circle, rgba(139,92,246,0.1) 1.5px, transparent 1.5px)`,
             backgroundSize: '40px 40px'
           }}
         ></div>
@@ -74,12 +74,16 @@ const Hero: React.FC = () => {
               Strategic AI consulting and digital transformation to help your business scale and compete in the modern market.
             </p>
             
-            {/* CTA Button */}
+            {/* CTA Button with purple gradient */}
             <div className={`flex justify-center lg:justify-start opacity-0 transform translate-y-8 transition-all duration-1000 delay-600 ease-out ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
               <a href="#services" className="group">
-                <Button variant="primary" size={isMobile ? "default" : "lg"} className="px-6 md:px-8 py-3 md:py-4 text-sm md:text-base font-semibold">
+                <button className={`inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 text-sm md:text-base font-semibold text-white rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg ${isMobile ? "h-12" : "h-14"}`}
+                  style={{
+                    background: 'linear-gradient(135deg, #8b5cf6 0%, #a855f7 50%, #9333ea 100%)'
+                  }}
+                >
                   Explore Our Services
-                </Button>
+                </button>
               </a>
             </div>
           </div>

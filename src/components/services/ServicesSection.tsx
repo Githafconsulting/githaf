@@ -36,16 +36,14 @@ const ServicesSection: React.FC = () => {
 
   return (
     <section id="services" className="relative py-16 md:py-24 overflow-hidden">
-      {/* Base background - matching the black theme with dotted pattern */}
+      {/* Enhanced Background with dark navy/charcoal color - matching AI adoption section */}
       <div className="absolute inset-0 -z-10">
-        {/* Base black background */}
-        <div className="w-full h-full bg-black"></div>
-        
-        {/* White dotted pattern overlay with increased visibility */}
+        <div className="w-full h-full bg-gradient-to-b from-slate-900 via-gray-900 to-slate-800"></div>
+        <div className="absolute inset-0 bg-[#1a1a2e] opacity-80"></div>
         <div 
-          className="absolute inset-0 opacity-60"
+          className="absolute inset-0 opacity-20"
           style={{
-            backgroundImage: `radial-gradient(circle, rgba(255,255,255,0.25) 1.5px, transparent 1.5px)`,
+            backgroundImage: `radial-gradient(circle, rgba(139,92,246,0.1) 1.5px, transparent 1.5px)`,
             backgroundSize: '40px 40px'
           }}
         ></div>
@@ -104,7 +102,10 @@ const ServicesSection: React.FC = () => {
                   </p>
                   <a 
                     href="#contact" 
-                    className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-xl hover:from-purple-700 hover:to-pink-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-purple-500/25"
+                    className="inline-flex items-center gap-2 px-8 py-4 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-purple-500/25"
+                    style={{
+                      background: 'linear-gradient(135deg, #8b5cf6 0%, #a855f7 50%, #9333ea 100%)'
+                    }}
                   >
                     Start Your Journey
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
