@@ -14,7 +14,7 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        primary: "enhanced-button text-white shadow-lg hover:shadow-xl transform hover:-translate-y-1",
+        primary: "text-white shadow-lg hover:shadow-xl transform hover:-translate-y-1",
         secondary: "glass text-white hover:bg-white/10 border border-white/10",
         outline: "border-2 border-slate-400 bg-transparent text-slate-300 hover:bg-slate-700 hover:text-white",
         ghost: "text-white hover:bg-white/5 rounded-lg",
@@ -40,14 +40,12 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       <button
         className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
+        style={variant === "primary" ? { background: '#9b87f5' } : undefined}
         {...props}
       >
         {icon && iconPosition === "left" && <span className="inline-flex">{icon}</span>}
         <span className="relative z-10">{children}</span>
         {icon && iconPosition === "right" && <span className="inline-flex">{icon}</span>}
-        {variant === "primary" && (
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full transition-transform duration-500 group-hover:translate-x-full" />
-        )}
       </button>
     );
   }

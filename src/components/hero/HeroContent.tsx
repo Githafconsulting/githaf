@@ -26,10 +26,10 @@ const HeroContent: React.FC<HeroContentProps> = ({ isVisible }) => {
         <a href="#services" className="group">
           <button className={`inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 text-sm md:text-base font-semibold text-white rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg ${isMobile ? "h-12" : "h-14"}`}
             style={{
-              background: 'linear-gradient(135deg, #8b5cf6 0%, #a855f7 50%, #9333ea 100%)'
+              background: '#9b87f5'
             }}
           >
-            Explore Our Services
+            Get Free Consultation
           </button>
         </a>
       </div>
