@@ -141,41 +141,55 @@ const Hero: React.FC = () => {
             </div>
           </div>
 
-          {/* Right side - Clean Project Showcase */}
+          {/* Right side - Tilted Window Project Showcase */}
           <div className={`opacity-0 transform translate-y-8 transition-all duration-1000 delay-800 ease-out ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
-            <div className="relative">
-              {/* Main Project Display */}
-              <div className="relative w-full h-80 md:h-96 rounded-2xl overflow-hidden shadow-2xl">
-                <img 
-                  src={projects[currentProject].image} 
-                  alt={projects[currentProject].title}
-                  className="w-full h-full object-cover transition-all duration-700 ease-in-out"
-                />
-                
-                {/* Project Info Overlay */}
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6">
-                  <h4 className="text-white font-semibold text-xl mb-2">{projects[currentProject].title}</h4>
-                  <p className="text-gray-300 text-sm">{projects[currentProject].category}</p>
+            <div className="relative perspective-1000">
+              {/* Main Tilted Window Display */}
+              <div className="relative w-full h-80 md:h-96">
+                <div 
+                  className="absolute inset-0 rounded-2xl overflow-hidden shadow-2xl transform transition-all duration-700 ease-in-out"
+                  style={{
+                    transformStyle: 'preserve-3d',
+                    transform: 'rotateY(-15deg) rotateX(5deg)',
+                    clipPath: 'polygon(0 0, 85% 0, 70% 100%, 0 100%)',
+                    background: 'linear-gradient(135deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.1) 100%)'
+                  }}
+                >
+                  <img 
+                    src={projects[currentProject].image} 
+                    alt={projects[currentProject].title}
+                    className="w-full h-full object-cover"
+                    style={{
+                      transform: 'scale(1.2) translateX(-10%)',
+                      filter: 'brightness(0.9)'
+                    }}
+                  />
+                  
+                  {/* Project Info Overlay */}
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-6">
+                    <h4 className="text-white font-semibold text-xl mb-2">{projects[currentProject].title}</h4>
+                    <p className="text-gray-300 text-sm">{projects[currentProject].category}</p>
+                  </div>
                 </div>
                 
                 {/* Navigation Controls */}
                 <button 
                   onClick={prevProject}
-                  className="absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center transition-all duration-200 backdrop-blur-sm z-10"
+                  className="absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center transition-all duration-200 backdrop-blur-sm z-20"
                 >
                   <ChevronLeft className="w-6 h-6 text-white" />
                 </button>
                 
                 <button 
                   onClick={nextProject}
-                  className="absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center transition-all duration-200 backdrop-blur-sm z-10"
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center transition-all duration-200 backdrop-blur-sm z-20"
                 >
                   <ChevronRight className="w-6 h-6 text-white" />
                 </button>
               </div>
 
               {/* Project Thumbnails */}
-              <div className="flex justify-center mt-6 space-x-3 overflow-x-auto pb-2">
+              <div className="flex justify-center mt-8 space-x-3 overflow-x-auto pb-2">
                 {projects.map((project, index) => (
                   <button
                     key={project.id}
