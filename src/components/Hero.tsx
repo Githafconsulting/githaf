@@ -77,17 +77,6 @@ const Hero: React.FC = () => {
     setCurrentProject((prev) => (prev - 1 + projects.length) % projects.length);
   };
 
-  // Get visible cards for the stack effect
-  const getVisibleProjects = () => {
-    const visibleCount = isMobile ? 3 : 5;
-    const visible = [];
-    for (let i = 0; i < visibleCount; i++) {
-      const index = (currentProject + i) % projects.length;
-      visible.push({ ...projects[index], stackIndex: i });
-    }
-    return visible;
-  };
-
   return (
     <section id="home" className="relative pt-16 pb-12 md:pt-20 md:pb-16 overflow-hidden min-h-[85vh] md:min-h-[90vh] flex items-center">
       {/* Enhanced Background with dark navy/charcoal color - matching AI adoption section */}
@@ -128,7 +117,7 @@ const Hero: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left side - Main content */}
           <div className="text-center lg:text-left">
-            {/* Main heading - kept on two lines */}
+            {/* Main heading */}
             <h1 className={`mb-4 md:mb-6 opacity-0 transform translate-y-8 transition-all duration-1000 delay-200 ease-out ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
               Transform Your Business<br />with AI Solutions
             </h1>
@@ -138,7 +127,7 @@ const Hero: React.FC = () => {
               Strategic AI consulting and digital transformation to help your business scale and compete in the modern market.
             </p>
             
-            {/* CTA Button with purple gradient */}
+            {/* CTA Button */}
             <div className={`flex justify-center lg:justify-start opacity-0 transform translate-y-8 transition-all duration-1000 delay-600 ease-out ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
               <a href="#services" className="group">
                 <button className={`inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 text-sm md:text-base font-semibold text-white rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg ${isMobile ? "h-12" : "h-14"}`}
@@ -152,82 +141,62 @@ const Hero: React.FC = () => {
             </div>
           </div>
 
-          {/* Right side - Tilted Card Carousel */}
+          {/* Right side - Clean Project Showcase */}
           <div className={`opacity-0 transform translate-y-8 transition-all duration-1000 delay-800 ease-out ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
-            <div className="relative h-96 md:h-[28rem]">
-              
-              {/* Stack of project cards */}
-              <div className="relative w-full h-full flex items-center justify-center">
-                {getVisibleProjects().map((project, index) => {
-                  const isActive = index === 0;
-                  const zIndex = getVisibleProjects().length - index;
-                  const rotation = isActive ? 0 : (index % 2 === 0 ? -5 : 5) * (index + 1);
-                  const scale = 1 - (index * 0.05);
-                  const translateY = index * 8;
-                  const translateX = isActive ? 0 : (index % 2 === 0 ? -10 : 10) * index;
-                  const opacity = index < 3 ? 1 - (index * 0.2) : 0;
-
-                  return (
-                    <div
-                      key={`${project.id}-${currentProject}`}
-                      className="absolute transition-all duration-700 ease-in-out"
-                      style={{
-                        zIndex,
-                        transform: `
-                          translateX(${translateX}px) 
-                          translateY(${translateY}px) 
-                          rotate(${rotation}deg) 
-                          scale(${scale})
-                        `,
-                        opacity,
-                      }}
-                    >
-                      <div className="w-72 md:w-80 h-48 md:h-56 rounded-2xl overflow-hidden shadow-2xl bg-black/20 backdrop-blur-sm border border-white/10">
-                        <div className="relative w-full h-full">
-                          <img 
-                            src={project.image} 
-                            alt={project.title}
-                            className="w-full h-full object-cover"
-                          />
-                          
-                          {/* Project Info Overlay - only show on active card */}
-                          {isActive && (
-                            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4">
-                              <h4 className="text-white font-semibold text-lg mb-1">{project.title}</h4>
-                              <p className="text-gray-300 text-sm">{project.category}</p>
-                            </div>
-                          )}
-                          
-                          {/* Shine effect on active card */}
-                          {isActive && (
-                            <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-50"></div>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-
-              {/* Navigation Controls */}
-              <div className="absolute inset-0 flex items-center justify-between pointer-events-none">
+            <div className="relative">
+              {/* Main Project Display */}
+              <div className="relative w-full h-80 md:h-96 rounded-2xl overflow-hidden shadow-2xl">
+                <img 
+                  src={projects[currentProject].image} 
+                  alt={projects[currentProject].title}
+                  className="w-full h-full object-cover transition-all duration-700 ease-in-out"
+                />
+                
+                {/* Project Info Overlay */}
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6">
+                  <h4 className="text-white font-semibold text-xl mb-2">{projects[currentProject].title}</h4>
+                  <p className="text-gray-300 text-sm">{projects[currentProject].category}</p>
+                </div>
+                
+                {/* Navigation Controls */}
                 <button 
                   onClick={prevProject}
-                  className="pointer-events-auto ml-4 w-10 h-10 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center transition-all duration-200 backdrop-blur-sm z-50"
+                  className="absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center transition-all duration-200 backdrop-blur-sm z-10"
                 >
-                  <ChevronLeft className="w-5 h-5 text-white" />
+                  <ChevronLeft className="w-6 h-6 text-white" />
                 </button>
                 
                 <button 
                   onClick={nextProject}
-                  className="pointer-events-auto mr-4 w-10 h-10 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center transition-all duration-200 backdrop-blur-sm z-50"
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center transition-all duration-200 backdrop-blur-sm z-10"
                 >
-                  <ChevronRight className="w-5 h-5 text-white" />
+                  <ChevronRight className="w-6 h-6 text-white" />
                 </button>
               </div>
 
-              {/* Project Dots Indicator */}
-              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-50">
+              {/* Project Thumbnails */}
+              <div className="flex justify-center mt-6 space-x-3 overflow-x-auto pb-2">
+                {projects.map((project, index) => (
+                  <button
+                    key={project.id}
+                    onClick={() => setCurrentProject(index)}
+                    className={`flex-shrink-0 w-16 h-12 rounded-lg overflow-hidden transition-all duration-300 ${
+                      index === currentProject 
+                        ? 'ring-2 ring-purple-400 scale-110' 
+                        : 'opacity-60 hover:opacity-100'
+                    }`}
+                  >
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </button>
+                ))}
+              </div>
+
+              {/* Dot Indicators */}
+              <div className="flex justify-center mt-4 space-x-2">
                 {projects.map((_, index) => (
                   <button
                     key={index}
