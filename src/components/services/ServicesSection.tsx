@@ -38,29 +38,27 @@ const ServicesSection: React.FC = () => {
     <section id="services" className="relative py-16 md:py-24 overflow-hidden">
       {/* Background Design */}
       <div className="absolute inset-0 -z-10">
-        {/* Solid dark background instead of gradient */}
-        <div className="w-full h-full bg-slate-900"></div>
+        {/* Base black background */}
+        <div className="w-full h-full bg-black"></div>
         
-        {/* Geometric pattern overlay */}
+        {/* Dotted pattern overlay - 80% black dots, 20% purple dots */}
         <div 
-          className="absolute inset-0 opacity-5"
+          className="absolute inset-0 opacity-25"
           style={{
             backgroundImage: `
-              linear-gradient(45deg, rgba(147,51,234,0.3) 25%, transparent 25%), 
-              linear-gradient(-45deg, rgba(147,51,234,0.3) 25%, transparent 25%), 
-              linear-gradient(45deg, transparent 75%, rgba(147,51,234,0.3) 75%), 
-              linear-gradient(-45deg, transparent 75%, rgba(147,51,234,0.3) 75%)
+              radial-gradient(circle, rgba(0,0,0,0.8) 1px, transparent 1px),
+              radial-gradient(circle, rgba(147,51,234,0.4) 1px, transparent 1px)
             `,
-            backgroundSize: '60px 60px',
-            backgroundPosition: '0 0, 0 30px, 30px -30px, -30px 0px'
+            backgroundSize: '30px 30px, 150px 150px',
+            backgroundPosition: '0 0, 15px 15px'
           }}
         ></div>
         
         {/* Subtle accent elements */}
-        <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-purple-500 rounded-full opacity-40"></div>
-        <div className="absolute top-1/3 right-1/3 w-1 h-1 bg-pink-500 rounded-full opacity-60"></div>
-        <div className="absolute bottom-1/4 left-1/3 w-1.5 h-1.5 bg-purple-400 rounded-full opacity-50"></div>
-        <div className="absolute bottom-1/3 right-1/4 w-1 h-1 bg-pink-400 rounded-full opacity-40"></div>
+        <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-purple-500 rounded-full opacity-30"></div>
+        <div className="absolute top-1/3 right-1/3 w-1 h-1 bg-purple-400 rounded-full opacity-40"></div>
+        <div className="absolute bottom-1/4 left-1/3 w-1.5 h-1.5 bg-purple-300 rounded-full opacity-35"></div>
+        <div className="absolute bottom-1/3 right-1/4 w-1 h-1 bg-purple-400 rounded-full opacity-30"></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
