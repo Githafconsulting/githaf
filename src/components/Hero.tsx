@@ -16,7 +16,7 @@ const Hero: React.FC = () => {
   }, [isMobile]);
 
   return (
-    <section id="home" className="relative pt-20 pb-12 md:pt-32 md:pb-20 overflow-hidden min-h-screen flex items-center">
+    <section id="home" className="relative pt-24 pb-12 md:pt-32 md:pb-20 overflow-hidden min-h-screen flex items-center">
       {/* Subtle gradient background */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute top-0 right-0 -translate-y-[10%] translate-x-[30%] w-[50rem] h-[50rem] rounded-full bg-gradient-to-br from-slate-800/20 to-slate-700/10 blur-3xl animate-float"></div>
@@ -25,7 +25,7 @@ const Hero: React.FC = () => {
 
       {/* Subtle particle effect */}
       <div className="particles">
-        {[...Array(10)].map((_, i) => (
+        {[...Array(8)].map((_, i) => (
           <div
             key={i}
             className="particle"
@@ -39,54 +39,39 @@ const Hero: React.FC = () => {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Text content */}
-          <div>
-            <div className={`opacity-0 transform translate-y-8 transition-all duration-1000 ease-out ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
-              <span className="inline-block px-4 py-2 mb-6 text-sm font-medium glass text-gray-300 rounded-full border border-white/10">
-                ✨ AI and Digital Transformation
-              </span>
-            </div>
-            
+          <div className="text-center lg:text-left">
             <h1 className={`mb-6 text-white opacity-0 transform translate-y-8 transition-all duration-1000 delay-200 ease-out ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
               Transform Your Business 
-              <span className="gradient-text font-bold block mt-2">Into the AI Age</span>
+              <span className="gradient-text font-bold block mt-2">with AI Solutions</span>
             </h1>
             
-            <p className={`text-lg md:text-xl text-gray-300 mb-4 max-w-2xl leading-relaxed opacity-0 transform translate-y-8 transition-all duration-1000 delay-400 ease-out ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
-              We help businesses harness AI to scale and compete. From strategy and implementation to fully built solutions, we consult, design, and deploy tailored AI systems that automate and optimize operations.
+            <p className={`text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed opacity-0 transform translate-y-8 transition-all duration-1000 delay-400 ease-out ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
+              We help businesses harness AI to scale and compete through strategic consulting, digital transformation, and custom AI solutions.
             </p>
             
-            <p className={`text-base md:text-lg text-gray-400 mb-8 opacity-0 transform translate-y-8 transition-all duration-1000 delay-500 ease-out ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
-              <strong className="text-gray-200 font-semibold">Strategic consulting</strong> • <strong className="text-gray-200 font-semibold">Digital transformation</strong> • <strong className="text-gray-200 font-semibold">AI solutions</strong>
-            </p>
-            
-            <div className={`flex flex-col sm:flex-row gap-4 mb-8 opacity-0 transform translate-y-8 transition-all duration-1000 delay-600 ease-out ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
+            <div className={`flex justify-center lg:justify-start mb-8 opacity-0 transform translate-y-8 transition-all duration-1000 delay-600 ease-out ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
               <a href="#services" className="group">
-                <button className="enhanced-button w-full sm:w-auto">
-                  <span className="relative z-10">Explore Our Services</span>
-                </button>
-              </a>
-              <a href="#contact" className="group">
-                <button className="enhanced-button w-full sm:w-auto opacity-90 hover:opacity-100">
-                  <span className="relative z-10">Contact Us</span>
-                </button>
+                <Button variant="primary" size="lg" className="px-8 py-4 text-lg font-semibold">
+                  Explore Our Services
+                </Button>
               </a>
             </div>
 
             {/* Stats */}
-            <div className={`grid grid-cols-3 gap-4 opacity-0 transform translate-y-8 transition-all duration-1000 delay-700 ease-out ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
+            <div className={`grid grid-cols-3 gap-4 max-w-lg mx-auto lg:mx-0 opacity-0 transform translate-y-8 transition-all duration-1000 delay-700 ease-out ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
               <div className="text-center glass rounded-xl p-4">
-                <div className="text-2xl font-bold text-white mb-1">50+</div>
-                <div className="text-xs text-gray-400">Projects</div>
+                <div className="text-2xl md:text-3xl font-bold text-white mb-1">50+</div>
+                <div className="text-xs md:text-sm text-gray-400">Projects</div>
               </div>
               <div className="text-center glass rounded-xl p-4">
-                <div className="text-2xl font-bold text-white mb-1">5+</div>
-                <div className="text-xs text-gray-400">Years Experience</div>
+                <div className="text-2xl md:text-3xl font-bold text-white mb-1">5+</div>
+                <div className="text-xs md:text-sm text-gray-400">Years</div>
               </div>
               <div className="text-center glass rounded-xl p-4">
-                <div className="text-2xl font-bold text-white mb-1">100%</div>
-                <div className="text-xs text-gray-400">Client Satisfaction</div>
+                <div className="text-2xl md:text-3xl font-bold text-white mb-1">100%</div>
+                <div className="text-xs md:text-sm text-gray-400">Success</div>
               </div>
             </div>
           </div>
@@ -102,7 +87,7 @@ const Hero: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10"></div>
               <img 
                 src="/lovable-uploads/eb57cce0-361d-48a6-8739-b1206472d9cb.png" 
-                alt="Digital Transformation" 
+                alt="AI Digital Transformation" 
                 className="w-full h-full object-cover" 
               />
               
