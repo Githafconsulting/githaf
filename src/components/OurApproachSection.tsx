@@ -73,12 +73,12 @@ const OurApproachSection: React.FC = () => {
                   <React.Fragment key={approach.id}>
                     {/* Approach Item */}
                     <div className="flex flex-col items-center text-center max-w-xs">
-                      {/* Circular Icon */}
-                      <div className={`w-24 h-24 ${approach.bgColor} rounded-full flex items-center justify-center mb-6 shadow-lg`}>
+                      {/* Circular Icon - Made bigger */}
+                      <div className={`w-32 h-32 ${approach.bgColor} rounded-full flex items-center justify-center mb-6 shadow-lg`}>
                         <div className="relative">
-                          <approach.icon size={32} className="text-white" />
+                          <approach.icon size={48} className="text-white" />
                           {approach.secondaryIcon && (
-                            <approach.secondaryIcon size={16} className="text-white absolute -top-1 -right-1" />
+                            <approach.secondaryIcon size={20} className="text-white absolute -top-1 -right-1" />
                           )}
                         </div>
                       </div>
@@ -93,7 +93,7 @@ const OurApproachSection: React.FC = () => {
                     {/* Arrow (except after last item) */}
                     {index < approaches.length - 1 && (
                       <div className="flex items-center justify-center mx-4">
-                        <ArrowRight size={24} className="text-gray-400" />
+                        <ArrowRight size={28} className="text-gray-400" />
                       </div>
                     )}
                   </React.Fragment>
@@ -104,28 +104,32 @@ const OurApproachSection: React.FC = () => {
               <div className="lg:hidden space-y-8">
                 {approaches.map((approach, index) => (
                   <React.Fragment key={approach.id}>
-                    <div className="flex items-start space-x-4">
-                      {/* Circular Icon */}
-                      <div className={`w-16 h-16 ${approach.bgColor} rounded-full flex items-center justify-center flex-shrink-0 shadow-lg`}>
+                    <div className="flex items-start space-x-6">
+                      {/* Circular Icon - Made bigger for mobile too */}
+                      <div className={`w-24 h-24 md:w-28 md:h-28 ${approach.bgColor} rounded-full flex items-center justify-center flex-shrink-0 shadow-lg`}>
                         <div className="relative">
-                          <approach.icon size={24} className="text-white" />
+                          <approach.icon size={32} className="text-white md:hidden" />
+                          <approach.icon size={36} className="text-white hidden md:block" />
                           {approach.secondaryIcon && (
-                            <approach.secondaryIcon size={12} className="text-white absolute -top-1 -right-1" />
+                            <>
+                              <approach.secondaryIcon size={14} className="text-white absolute -top-1 -right-1 md:hidden" />
+                              <approach.secondaryIcon size={16} className="text-white absolute -top-1 -right-1 hidden md:block" />
+                            </>
                           )}
                         </div>
                       </div>
                       
                       {/* Content */}
                       <div className="flex-1">
-                        <h3 className="text-white font-semibold text-lg mb-2">{approach.title}</h3>
-                        <p className="text-gray-300 text-sm leading-relaxed">{approach.description}</p>
+                        <h3 className="text-white font-semibold text-lg md:text-xl mb-3">{approach.title}</h3>
+                        <p className="text-gray-300 text-sm md:text-base leading-relaxed">{approach.description}</p>
                       </div>
                     </div>
 
                     {/* Arrow (except after last item) */}
                     {index < approaches.length - 1 && (
                       <div className="flex justify-center">
-                        <ArrowRight size={20} className="text-gray-400 rotate-90" />
+                        <ArrowRight size={24} className="text-gray-400 rotate-90" />
                       </div>
                     )}
                   </React.Fragment>
