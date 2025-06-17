@@ -25,15 +25,15 @@ const Hero: React.FC = () => {
   ];
 
   return (
-    <section id="home" className="relative pt-16 pb-8 md:pt-20 md:pb-12 overflow-hidden min-h-[60vh] md:min-h-[70vh] flex items-center">
+    <section id="home" className="relative pt-16 pb-12 md:pt-20 md:pb-16 overflow-hidden min-h-[70vh] md:min-h-[80vh] flex items-center">
       {/* Purple-Black Gradient Background with Dots */}
       <div className="absolute inset-0 -z-20">
-        <div className="w-full h-full bg-gradient-to-br from-purple-900 via-slate-900 to-black"></div>
+        <div className="w-full h-full bg-gradient-to-b from-purple-900 via-slate-900 to-black"></div>
         {/* Dot Pattern Overlay */}
         <div 
-          className="absolute inset-0 opacity-30"
+          className="absolute inset-0 opacity-50"
           style={{
-            backgroundImage: `radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px)`,
+            backgroundImage: `radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px)`,
             backgroundSize: '40px 40px'
           }}
         ></div>
@@ -95,7 +95,7 @@ const Hero: React.FC = () => {
                     className="flex items-center space-x-3 p-3 md:p-4 rounded-lg bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300 hover:transform hover:scale-105"
                   >
                     <div className="flex-shrink-0">
-                      <div className="w-5 h-5 md:w-6 md:h-6 bg-pink-500 rounded-full flex items-center justify-center">
+                      <div className="w-5 h-5 md:w-6 md:h-6 bg-purple-600 rounded-full flex items-center justify-center">
                         <Check className="h-3 w-3 md:h-4 md:w-4 text-white stroke-2" />
                       </div>
                     </div>
