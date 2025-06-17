@@ -81,14 +81,14 @@ const CompanyTicker: React.FC = () => {
   };
 
   return (
-    <section className="py-10 bg-white overflow-hidden" aria-label="Clients">
+    <section className="py-10 bg-slate-50 overflow-hidden" aria-label="Clients">
       <div className="container mx-auto px-4">
-        <h2 className="text-center mb-8 text-3xl sm:text-4xl font-semibold" id="clients">Clients</h2>
+        <h2 className="text-center mb-8 text-3xl sm:text-4xl font-semibold text-slate-800" id="clients">Clients</h2>
         
         <div className="relative">
           {/* Gradient overlays for smooth edge fade */}
-          <div className="absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-white to-transparent z-10"></div>
-          <div className="absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-white to-transparent z-10"></div>
+          <div className="absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-slate-50 to-transparent z-10"></div>
+          <div className="absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-slate-50 to-transparent z-10"></div>
           
           {/* Only show the ticker once content is loaded to prevent flickering */}
           <div 
