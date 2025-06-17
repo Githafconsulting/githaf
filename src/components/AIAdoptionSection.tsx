@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { ChartContainer } from '@/components/ui/chart';
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 
@@ -10,6 +10,7 @@ interface DonutChartProps {
   source: string;
   delay?: number;
   specialText?: string;
+  isVisible?: boolean;
 }
 
 const DonutChart: React.FC<DonutChartProps> = ({ 
@@ -18,11 +19,17 @@ const DonutChart: React.FC<DonutChartProps> = ({
   subtitle, 
   source, 
   delay = 0,
-  specialText 
+  specialText,
+  isVisible = false
 }) => {
   const [animatedPercentage, setAnimatedPercentage] = useState(0);
 
   useEffect(() => {
+    if (!isVisible) {
+      setAnimatedPercentage(0);
+      return;
+    }
+
     const timer = setTimeout(() => {
       const interval = setInterval(() => {
         setAnimatedPercentage(prev => {
@@ -32,13 +39,13 @@ const DonutChart: React.FC<DonutChartProps> = ({
           }
           return prev + 1;
         });
-      }, 20);
+      }, 15);
       
       return () => clearInterval(interval);
     }, delay);
 
     return () => clearTimeout(timer);
-  }, [percentage, delay]);
+  }, [percentage, delay, isVisible]);
 
   const data = [
     { value: animatedPercentage, name: 'filled' },
@@ -46,60 +53,106 @@ const DonutChart: React.FC<DonutChartProps> = ({
   ];
 
   return (
-    <div className="flex flex-col items-center text-center space-y-4">
+    <div className={`flex flex-col items-center text-center space-y-4 transition-all duration-700 ${
+      isVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
+    }`}>
       {specialText && (
-        <p className="text-gray-400 text-sm mb-1">{specialText}</p>
+        <p className="text-gray-400 text-sm mb-1 animate-fade-in">{specialText}</p>
       )}
       
-      {/* Donut Chart */}
-      <div className="relative w-32 h-32">
+      {/* Enhanced Donut Chart */}
+      <div className="relative w-36 h-36 md:w-40 md:h-40">
         <ResponsiveContainer width="100%" height="100%">
           <PieChart>
             <Pie
               data={data}
               cx="50%"
               cy="50%"
-              innerRadius={45}
-              outerRadius={60}
+              innerRadius={50}
+              outerRadius={70}
               startAngle={90}
               endAngle={450}
               dataKey="value"
             >
               <Cell fill="url(#purpleGradient)" />
-              <Cell fill="rgba(255,255,255,0.1)" />
+              <Cell fill="rgba(255,255,255,0.08)" />
             </Pie>
           </PieChart>
         </ResponsiveContainer>
         
-        {/* Percentage Text in Center */}
+        {/* Enhanced Percentage Text in Center */}
         <div className="absolute inset-0 flex items-center justify-center">
-          <span className="text-white font-bold text-2xl">{animatedPercentage}%</span>
+          <div className="text-center">
+            <span className="text-white font-bold text-3xl md:text-4xl tracking-tight">
+              {animatedPercentage}%
+            </span>
+          </div>
         </div>
         
-        {/* SVG Gradients */}
+        {/* Enhanced SVG Gradients */}
         <svg width="0" height="0">
           <defs>
             <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#8b5cf6" />
+              <stop offset="50%" stopColor="#a855f7" />
               <stop offset="100%" stopColor="#ec4899" />
             </linearGradient>
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+              <feMerge> 
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
           </defs>
         </svg>
       </div>
       
-      {/* Description */}
-      <div className="max-w-xs">
-        <p className="text-white text-sm leading-relaxed mb-2">{title}</p>
+      {/* Enhanced Description */}
+      <div className="max-w-xs px-2">
+        <p className="text-white text-sm md:text-base leading-relaxed mb-3 font-medium">{title}</p>
         {subtitle && (
-          <p className="text-white text-sm leading-relaxed mb-2">{subtitle}</p>
+          <p className="text-gray-300 text-sm leading-relaxed mb-3">{subtitle}</p>
         )}
-        <p className="text-gray-400 text-xs">{source}</p>
+        <p className="text-gray-400 text-xs md:text-sm font-medium border-b border-purple-400/30 inline-block pb-1">
+          {source}
+        </p>
       </div>
     </div>
   );
 };
 
 const AIAdoptionSection: React.FC = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [showCharts, setShowCharts] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          // Delay chart animations slightly after section becomes visible
+          setTimeout(() => setShowCharts(true), 300);
+        }
+      },
+      {
+        threshold: 0.2,
+        rootMargin: '0px 0px -100px 0px'
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   const chartData = [
     {
       percentage: 78,
@@ -133,73 +186,99 @@ const AIAdoptionSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-12 md:py-20 relative overflow-hidden">
-      {/* Background */}
+    <section ref={sectionRef} className="py-16 md:py-24 relative overflow-hidden">
+      {/* Enhanced Background with animated particles */}
       <div className="absolute inset-0 -z-10">
-        <div className="w-full h-full bg-slate-900"></div>
+        <div className="w-full h-full bg-gradient-to-br from-slate-900 via-gray-900 to-slate-800"></div>
         <div 
-          className="absolute inset-0 opacity-40"
+          className="absolute inset-0 opacity-30"
           style={{
-            backgroundImage: `radial-gradient(circle, rgba(255,255,255,0.15) 1.5px, transparent 1.5px)`,
-            backgroundSize: '40px 40px'
+            backgroundImage: `radial-gradient(circle, rgba(139,92,246,0.15) 1px, transparent 1px)`,
+            backgroundSize: '60px 60px',
+            animation: 'float 20s ease-in-out infinite'
           }}
         ></div>
+        {/* Gradient overlay for depth */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-black/10"></div>
       </div>
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
-        {/* Title */}
-        <div className="text-center mb-16">
-          <h2 className="mb-8">
-            AI adoption - <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Explosive Growth Ahead</span>
+        {/* Enhanced Title with staggered animation */}
+        <div className={`text-center mb-16 md:mb-20 transition-all duration-1000 ${
+          isVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
+        }`}>
+          <h2 className="mb-8 text-4xl md:text-5xl lg:text-6xl">
+            AI adoption - <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-purple-500 bg-clip-text text-transparent">
+              Explosive Growth Ahead
+            </span>
           </h2>
         </div>
 
-        {/* Bullet Points Section */}
-        <div className="max-w-4xl mx-auto mb-16">
-          <div className="space-y-6">
-            <div className="flex items-start space-x-4">
-              <span className="text-purple-400 text-xl mt-1">▶</span>
-              <p className="text-white text-lg leading-relaxed">
-                9 out of 10 early adopters have seen more than 41% ROI in their Generative AI initiatives (ESG, 2025)
+        {/* Enhanced Bullet Points Section */}
+        <div className={`max-w-5xl mx-auto mb-16 md:mb-20 transition-all duration-1000 delay-200 ${
+          isVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
+        }`}>
+          <div className="space-y-6 md:space-y-8">
+            <div className="flex items-start space-x-4 md:space-x-6 group">
+              <span className="text-purple-400 text-2xl md:text-3xl mt-1 transition-transform duration-300 group-hover:scale-110">▶</span>
+              <p className="text-white text-lg md:text-xl leading-relaxed font-medium">
+                <span className="text-purple-300 font-semibold">9 out of 10</span> early adopters have seen more than <span className="text-pink-300 font-semibold">41% ROI</span> in their Generative AI initiatives <span className="text-gray-400">(ESG, 2025)</span>
               </p>
             </div>
-            <div className="flex items-start space-x-4">
-              <span className="text-purple-400 text-xl mt-1">▶</span>
-              <p className="text-white text-lg leading-relaxed">
-                BCG delivered 300+ AI Agents to 100+ clients - Saw 90% cost reduction, 75% faster execution, 40% productivity uplift (BCG, 2025)
+            <div className="flex items-start space-x-4 md:space-x-6 group">
+              <span className="text-purple-400 text-2xl md:text-3xl mt-1 transition-transform duration-300 group-hover:scale-110">▶</span>
+              <p className="text-white text-lg md:text-xl leading-relaxed font-medium">
+                <span className="text-purple-300 font-semibold">BCG</span> delivered <span className="text-pink-300 font-semibold">300+ AI Agents</span> to 100+ clients - Saw <span className="text-green-400 font-semibold">90% cost reduction, 75% faster execution, 40% productivity uplift</span> <span className="text-gray-400">(BCG, 2025)</span>
               </p>
             </div>
-            <div className="flex items-start space-x-4">
-              <span className="text-purple-400 text-xl mt-1">▶</span>
-              <p className="text-white text-lg leading-relaxed">
-                Agentic AI is enabling full task delegation and transforming business operations (IBM, 2025)
+            <div className="flex items-start space-x-4 md:space-x-6 group">
+              <span className="text-purple-400 text-2xl md:text-3xl mt-1 transition-transform duration-300 group-hover:scale-110">▶</span>
+              <p className="text-white text-lg md:text-xl leading-relaxed font-medium">
+                <span className="text-purple-300 font-semibold">Agentic AI</span> is enabling <span className="text-pink-300 font-semibold">full task delegation</span> and transforming business operations <span className="text-gray-400">(IBM, 2025)</span>
               </p>
             </div>
           </div>
         </div>
 
-        {/* Central Statistic */}
-        <div className="text-center mb-16">
-          <p className="text-gray-400 text-lg mb-4">AI is growing at 1% daily compounding</p>
-          <div className="mb-4">
-            <span className="text-white font-bold text-6xl md:text-8xl">$4.4 Trillion</span>
+        {/* Enhanced Central Statistic with glow effect */}
+        <div className={`text-center mb-20 md:mb-24 transition-all duration-1000 delay-400 ${
+          isVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
+        }`}>
+          <p className="text-gray-400 text-lg md:text-xl mb-6 font-medium">AI is growing at <span className="text-purple-300 font-semibold">1% daily compounding</span></p>
+          <div className="mb-6 relative">
+            <span className="text-white font-bold text-6xl md:text-8xl lg:text-9xl tracking-tight relative inline-block">
+              $4.4 Trillion
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-400/20 via-pink-400/20 to-purple-400/20 blur-3xl -z-10"></div>
+            </span>
           </div>
-          <p className="text-gray-300 text-xl mb-2">Long-term AI opportunity size</p>
-          <p className="text-purple-400 border-b border-purple-400 inline-block">Source: McKinsey, 2025</p>
+          <p className="text-gray-300 text-xl md:text-2xl mb-4 font-medium">Long-term AI opportunity size</p>
+          <div className="inline-block">
+            <p className="text-purple-400 border-b-2 border-purple-400 pb-1 font-semibold tracking-wide">
+              Source: McKinsey, 2025
+            </p>
+          </div>
         </div>
 
-        {/* Four Animated Donut Charts */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+        {/* Enhanced Four Animated Donut Charts */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 max-w-7xl mx-auto">
           {chartData.map((chart, index) => (
-            <DonutChart
+            <div
               key={index}
-              percentage={chart.percentage}
-              title={chart.title}
-              subtitle={chart.subtitle}
-              source={chart.source}
-              delay={chart.delay}
-              specialText={chart.specialText}
-            />
+              className="transform transition-all duration-700 hover:scale-105"
+              style={{ 
+                transitionDelay: showCharts ? `${index * 150}ms` : '0ms'
+              }}
+            >
+              <DonutChart
+                percentage={chart.percentage}
+                title={chart.title}
+                subtitle={chart.subtitle}
+                source={chart.source}
+                delay={chart.delay}
+                specialText={chart.specialText}
+                isVisible={showCharts}
+              />
+            </div>
           ))}
         </div>
       </div>
