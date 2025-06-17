@@ -57,21 +57,27 @@ const DonutChart: React.FC<DonutChartProps> = ({
     }`}>
       {/* Donut Chart */}
       <div className="relative w-36 h-36 md:w-40 md:h-40">
+        {/* Inner circle background */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-24 h-24 md:w-28 md:h-28 rounded-full" style={{ backgroundColor: '#9b87f5' }}></div>
+        </div>
+        
         <ResponsiveContainer width="100%" height="100%">
           <PieChart>
             <Pie
               data={data}
               cx="50%"
               cy="50%"
-              innerRadius={50}
+              innerRadius={48}
               outerRadius={70}
               startAngle={90}
               endAngle={450}
               dataKey="value"
               stroke="none"
+              cornerRadius={8}
             >
-              <Cell fill="url(#vibrantGradient)" />
-              <Cell fill="#4a4a5a" />
+              <Cell fill="#ea33f7" />
+              <Cell fill="transparent" />
             </Pie>
           </PieChart>
         </ResponsiveContainer>
@@ -84,18 +90,6 @@ const DonutChart: React.FC<DonutChartProps> = ({
             </span>
           </div>
         </div>
-        
-        {/* Enhanced SVG Gradients to match reference */}
-        <svg width="0" height="0">
-          <defs>
-            <linearGradient id="vibrantGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#a855f7" />
-              <stop offset="30%" stopColor="#c084fc" />
-              <stop offset="70%" stopColor="#e879f9" />
-              <stop offset="100%" stopColor="#f472b6" />
-            </linearGradient>
-          </defs>
-        </svg>
       </div>
       
       {/* Description */}
