@@ -6,7 +6,7 @@ import ContactForm from './contact/ContactForm';
 const ContactSection: React.FC = () => {
   return (
     <section id="contact" className="py-12 md:py-20 relative overflow-hidden">
-      {/* Blended background - seamless continuation from previous sections */}
+      {/* Base background - seamless continuation from previous sections */}
       <div className="absolute inset-0 -z-10">
         {/* Base black background */}
         <div className="w-full h-full bg-black"></div>
@@ -19,9 +19,6 @@ const ContactSection: React.FC = () => {
             backgroundSize: '40px 40px'
           }}
         ></div>
-        
-        {/* Subtle gradient overlay for visual variation */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/30"></div>
       </div>
       
       {/* Subtle floating particles */}
@@ -40,25 +37,34 @@ const ContactSection: React.FC = () => {
       </div>
       
       <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="text-center mb-12">
-          <h2 className="mb-4">
-            Let's Transform Your Business
-          </h2>
-          <p className="max-w-2xl mx-auto">
-            Ready to harness the power of AI? Get in touch with our experts and start your digital transformation journey today.
-          </p>
-        </div>
-        
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Contact info */}
-            <div className="reveal">
-              <ContactInfo />
+        {/* Section Container with Rounded Background */}
+        <div className="relative rounded-3xl overflow-hidden">
+          {/* Section Background with rounded corners */}
+          <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-white/2 backdrop-blur-sm border border-white/10 rounded-3xl"></div>
+          
+          {/* Content */}
+          <div className="relative z-10 p-8 md:p-12 lg:p-16">
+            <div className="text-center mb-12">
+              <h2 className="mb-4">
+                Let's Transform Your Business
+              </h2>
+              <p className="max-w-2xl mx-auto">
+                Ready to harness the power of AI? Get in touch with our experts and start your digital transformation journey today.
+              </p>
             </div>
             
-            {/* Contact form */}
-            <div className="reveal">
-              <ContactForm />
+            <div className="max-w-6xl mx-auto">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                {/* Contact info */}
+                <div className="reveal">
+                  <ContactInfo />
+                </div>
+                
+                {/* Contact form */}
+                <div className="reveal">
+                  <ContactForm />
+                </div>
+              </div>
             </div>
           </div>
         </div>
