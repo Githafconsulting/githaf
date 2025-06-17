@@ -12,8 +12,7 @@ export const chartData = [
     title: "of leaders say their companies are at full AI deployment maturity",
     subtitle: "",
     source: "McKinsey, 2025",
-    delay: 400,
-    specialText: "however....."
+    delay: 400
   },
   {
     percentage: 92,

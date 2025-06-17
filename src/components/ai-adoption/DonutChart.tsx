@@ -57,10 +57,6 @@ const DonutChart: React.FC<DonutChartProps> = ({
     <div className={`flex flex-col items-center text-center space-y-4 transition-all duration-700 relative ${
       isVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
     }`}>
-      {specialText && (
-        <p className="text-gray-400 text-sm mb-1 animate-fade-in">{specialText}</p>
-      )}
-      
       {/* Enhanced Donut Chart */}
       <div className="relative w-36 h-36 md:w-40 md:h-40">
         <ResponsiveContainer width="100%" height="100%">
@@ -74,6 +70,7 @@ const DonutChart: React.FC<DonutChartProps> = ({
               startAngle={90}
               endAngle={450}
               dataKey="value"
+              stroke="none"
             >
               <Cell fill="url(#purpleGradient)" />
               <Cell fill="rgba(255,255,255,0.08)" />

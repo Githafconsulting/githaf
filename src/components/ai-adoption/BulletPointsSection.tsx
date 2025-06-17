@@ -69,10 +69,10 @@ const BulletPointsSection: React.FC<BulletPointsSectionProps> = ({ isVisible }) 
   }, [isVisible, bulletPoints.length]);
 
   return (
-    <div className={`max-w-5xl mx-auto mb-12 md:mb-16 transition-all duration-1000 delay-200 ${
+    <div className={`max-w-5xl mx-auto mb-8 md:mb-12 transition-all duration-1000 delay-200 ${
       isVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
     }`}>
-      <div className="min-h-[80px] flex items-center justify-center">
+      <div className="min-h-[60px] flex items-center justify-center">
         <div
           className={`transition-all duration-500 ease-in-out ${
             showBullet && isVisible
