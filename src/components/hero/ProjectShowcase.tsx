@@ -1,7 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
 import ProjectNavigation from './ProjectNavigation';
-import ProjectThumbnails from './ProjectThumbnails';
 
 interface Project {
   id: number;
@@ -78,49 +77,44 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ isVisible }) => {
     setCurrentProject((prev) => (prev - 1 + projects.length) % projects.length);
   };
 
-  const handleProjectSelect = (index: number) => {
-    setCurrentProject(index);
-  };
-
   return (
     <div className={`opacity-0 transform translate-y-8 transition-all duration-1000 delay-800 ease-out ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
-      <div className="relative perspective-1000">
-        {/* Main Tilted Window Display */}
-        <div className="relative w-full h-80 md:h-96">
-          <div 
-            className="absolute inset-0 rounded-2xl overflow-hidden shadow-2xl transform transition-all duration-700 ease-in-out"
-            style={{
-              transformStyle: 'preserve-3d',
-              transform: 'rotateY(-15deg) rotateX(5deg)',
-              clipPath: 'polygon(0 0, 85% 0, 70% 100%, 0 100%)',
-              background: 'linear-gradient(135deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.1) 100%)'
-            }}
-          >
-            <img 
-              src={projects[currentProject].image} 
-              alt={projects[currentProject].title}
-              className="w-full h-full object-cover"
-              style={{
-                transform: 'scale(1.2) translateX(-10%)',
-                filter: 'brightness(0.9)'
-              }}
-            />
-            
-            {/* Project Info Overlay */}
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-6">
-              <h4 className="text-white font-semibold text-xl mb-2">{projects[currentProject].title}</h4>
-              <p className="text-gray-300 text-sm">{projects[currentProject].category}</p>
-            </div>
+      <div className="relative">
+        {/* Main Project Display */}
+        <div className="relative w-full h-80 md:h-96 rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-gray-900 to-gray-800">
+          <img 
+            src={projects[currentProject].image} 
+            alt={projects[currentProject].title}
+            className="w-full h-full object-cover transition-opacity duration-700"
+          />
+          
+          {/* Project Info Overlay */}
+          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-6">
+            <h4 className="text-white font-semibold text-xl mb-2 transform transition-all duration-300">
+              {projects[currentProject].title}
+            </h4>
+            <p className="text-gray-300 text-sm">
+              {projects[currentProject].category}
+            </p>
           </div>
           
           <ProjectNavigation onPrevious={prevProject} onNext={nextProject} />
         </div>
 
-        <ProjectThumbnails 
-          projects={projects}
-          currentProject={currentProject}
-          onProjectSelect={handleProjectSelect}
-        />
+        {/* Simple Dot Indicators */}
+        <div className="flex justify-center mt-6 space-x-2">
+          {projects.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentProject(index)}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                index === currentProject 
+                  ? 'bg-purple-400 w-8' 
+                  : 'bg-white/30 hover:bg-white/50'
+              }`}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
