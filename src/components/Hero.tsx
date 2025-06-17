@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Button from './Button';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { Check } from 'lucide-react';
+import { Check, Mouse } from 'lucide-react';
 
 const Hero: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -25,7 +25,7 @@ const Hero: React.FC = () => {
   ];
 
   return (
-    <section id="home" className="relative pt-16 pb-12 md:pt-20 md:pb-16 overflow-hidden min-h-[80vh] md:min-h-[85vh] flex items-center">
+    <section id="home" className="relative pt-16 pb-12 md:pt-20 md:pb-16 overflow-hidden min-h-[85vh] md:min-h-[90vh] flex items-center">
       {/* Purple-Black Gradient Background with Dots */}
       <div className="absolute inset-0 -z-20">
         <div className="w-full h-full bg-gradient-to-b from-purple-900 via-slate-900 to-black"></div>
@@ -104,6 +104,16 @@ const Hero: React.FC = () => {
                 ))}
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Mouse scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+        <div className={`opacity-0 transition-all duration-1000 delay-1000 ease-out ${isVisible ? 'opacity-100' : ''}`}>
+          <div className="flex flex-col items-center animate-bounce">
+            <Mouse className="w-6 h-6 text-white/70 mb-2" />
+            <div className="text-white/50 text-sm">Scroll down</div>
           </div>
         </div>
       </div>

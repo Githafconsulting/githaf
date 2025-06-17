@@ -41,24 +41,22 @@ const companies = [
 
 const CompanyTicker: React.FC = () => {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [imagesLoaded, setImagesLoaded] = useState(0);
   
-  // Only show the ticker once all images have loaded or errored
+  // Preload all images
   useEffect(() => {
-    if (imagesLoaded >= companies.length) {
+    const imagePromises = companies.map((company) => {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = () => resolve(company.name);
+        img.onerror = () => resolve(company.name); // Still resolve on error to prevent infinite loading
+        img.src = company.logo;
+      });
+    });
+
+    Promise.all(imagePromises).then(() => {
       setIsLoaded(true);
-    }
-  }, [imagesLoaded]);
-
-  const handleImageLoad = (companyName: string) => {
-    console.log(`Successfully loaded image for ${companyName}`);
-    setImagesLoaded(prev => prev + 1);
-  };
-
-  const handleImageError = (companyName: string, e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-    console.error(`Failed to load image for ${companyName}`);
-    setImagesLoaded(prev => prev + 1); // Still count errors as "loaded" for display purposes
-  };
+    });
+  }, []);
 
   // Create company logo/name display component
   const CompanyLogo = ({ company }: { company: typeof companies[0] }) => {
@@ -70,8 +68,7 @@ const CompanyTicker: React.FC = () => {
             alt={`${company.name} logo`}
             className="h-12 w-auto max-w-full object-contain filter brightness-75 contrast-125"
             loading="eager"
-            onLoad={() => handleImageLoad(company.name)}
-            onError={(e) => handleImageError(company.name, e)}
+            style={{ imageRendering: 'crisp-edges' }}
           />
         </div>
       </div>
@@ -90,7 +87,7 @@ const CompanyTicker: React.FC = () => {
           
           {/* Only show the ticker once content is loaded to prevent flickering */}
           <div 
-            className={`ticker-track flex items-center gap-8 ${isLoaded ? 'animate-marquee' : 'opacity-0'}`}
+            className={`ticker-track flex items-center gap-8 transition-opacity duration-500 ${isLoaded ? 'animate-marquee opacity-100' : 'opacity-0'}`}
             style={{ willChange: 'transform' }}
           >
             {/* First set of logos */}

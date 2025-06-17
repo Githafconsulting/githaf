@@ -17,7 +17,7 @@ const ContactInfo: React.FC = () => {
       <div className="space-y-6 mb-8">
         <div className="glass rounded-lg p-6 hover:bg-white/5 transition-all duration-300 group">
           <div className="flex items-start">
-            <div className="p-3 rounded-lg bg-gradient-to-r from-slate-700 to-slate-600 mr-4 group-hover:scale-110 transition-transform duration-300">
+            <div className="p-3 rounded-lg bg-gradient-to-r from-purple-600 to-purple-700 mr-4 group-hover:scale-110 transition-transform duration-300">
               <Mail className="w-6 h-6 text-white" />
             </div>
             <div>
@@ -33,7 +33,7 @@ const ContactInfo: React.FC = () => {
         
         <div className="glass rounded-lg p-6 hover:bg-white/5 transition-all duration-300 group">
           <div className="flex items-start">
-            <div className="p-3 rounded-lg bg-gradient-to-r from-slate-700 to-slate-600 mr-4 group-hover:scale-110 transition-transform duration-300">
+            <div className="p-3 rounded-lg bg-gradient-to-r from-purple-600 to-purple-700 mr-4 group-hover:scale-110 transition-transform duration-300">
               <MapPin className="w-6 h-6 text-white" />
             </div>
             <div>
@@ -45,7 +45,7 @@ const ContactInfo: React.FC = () => {
         
         <div className="glass rounded-lg p-6 hover:bg-white/5 transition-all duration-300 group">
           <div className="flex items-start">
-            <div className="p-3 rounded-lg bg-gradient-to-r from-slate-700 to-slate-600 mr-4 group-hover:scale-110 transition-transform duration-300">
+            <div className="p-3 rounded-lg bg-gradient-to-r from-purple-600 to-purple-700 mr-4 group-hover:scale-110 transition-transform duration-300">
               <Calendar className="w-6 h-6 text-white" />
             </div>
             <div>
@@ -62,7 +62,7 @@ const ContactInfo: React.FC = () => {
       
       <div className="enhanced-card p-6 bg-white/3">
         <div className="flex items-start">
-          <div className="p-3 rounded-lg bg-gradient-to-r from-slate-700 to-slate-600 mr-4">
+          <div className="p-3 rounded-lg bg-gradient-to-r from-purple-600 to-purple-700 mr-4">
             <Clock className="w-6 h-6 text-white" />
           </div>
           <div>
