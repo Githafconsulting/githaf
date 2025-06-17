@@ -50,12 +50,12 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="bg-background border rounded-xl p-6 shadow-sm">
-      <h3 className="text-xl font-semibold mb-6">Send us a message</h3>
+    <div className="enhanced-card p-8">
+      <h3 className="text-xl font-semibold mb-6 text-white">Send us a message</h3>
       
-      <div className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-6">
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-foreground mb-1">
+          <label htmlFor="name" className="block text-sm font-medium text-white mb-2">
             Your Name
           </label>
           <input 
@@ -65,13 +65,13 @@ const ContactForm: React.FC = () => {
             value={formData.name}
             onChange={handleChange}
             required
-            className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
+            className="w-full px-4 py-3 glass rounded-lg text-white placeholder-white/50 focus:ring-2 focus:ring-[#6b2c91] focus:border-transparent transition-all duration-300 border border-white/20"
             placeholder="John Doe"
           />
         </div>
         
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-foreground mb-1">
+          <label htmlFor="email" className="block text-sm font-medium text-white mb-2">
             Email Address
           </label>
           <input 
@@ -81,13 +81,13 @@ const ContactForm: React.FC = () => {
             value={formData.email}
             onChange={handleChange}
             required
-            className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
+            className="w-full px-4 py-3 glass rounded-lg text-white placeholder-white/50 focus:ring-2 focus:ring-[#6b2c91] focus:border-transparent transition-all duration-300 border border-white/20"
             placeholder="john@example.com"
           />
         </div>
         
         <div>
-          <label htmlFor="company" className="block text-sm font-medium text-foreground mb-1">
+          <label htmlFor="company" className="block text-sm font-medium text-white mb-2">
             Company Name
           </label>
           <input 
@@ -96,13 +96,13 @@ const ContactForm: React.FC = () => {
             name="company"
             value={formData.company}
             onChange={handleChange}
-            className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
+            className="w-full px-4 py-3 glass rounded-lg text-white placeholder-white/50 focus:ring-2 focus:ring-[#6b2c91] focus:border-transparent transition-all duration-300 border border-white/20"
             placeholder="ABC Corporation"
           />
         </div>
         
         <div>
-          <label htmlFor="message" className="block text-sm font-medium text-foreground mb-1">
+          <label htmlFor="message" className="block text-sm font-medium text-white mb-2">
             Your Message
           </label>
           <textarea 
@@ -112,15 +112,15 @@ const ContactForm: React.FC = () => {
             onChange={handleChange}
             required
             rows={4}
-            className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
-            placeholder="How can we help you?"
+            className="w-full px-4 py-3 glass rounded-lg text-white placeholder-white/50 focus:ring-2 focus:ring-[#6b2c91] focus:border-transparent transition-all duration-300 border border-white/20 resize-none"
+            placeholder="How can we help you transform your business?"
           />
         </div>
         
         <Button 
           type="submit"
           variant="primary"
-          className="w-full mt-2"
+          className="w-full mt-6"
           disabled={isSubmitting}
           icon={isSubmitting ? <div className="animate-spin">⚪</div> : <Send size={16} />}
           iconPosition="right"
@@ -128,16 +128,18 @@ const ContactForm: React.FC = () => {
           {isSubmitting ? 'Sending...' : 'Send Message'}
         </Button>
         
-        <div className="text-center pt-2">
-          <p className="text-sm text-muted-foreground">
-            Need a scheduled consultation?{' '}
-            <Link to="/booking" className="text-primary hover:underline">
-              Book a time slot
-            </Link>
-          </p>
+        <div className="text-center pt-4">
+          <div className="glass rounded-lg p-4">
+            <p className="text-sm text-white/70">
+              Need a scheduled consultation?{' '}
+              <Link to="/booking" className="text-white hover:underline font-medium">
+                Book a time slot
+              </Link>
+            </p>
+          </div>
         </div>
-      </div>
-    </form>
+      </form>
+    </div>
   );
 };
 

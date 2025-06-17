@@ -25,24 +25,38 @@ const Footer: React.FC = () => {
   ];
   
   return (
-    <footer className="bg-[#1A1F2C] pt-16 pb-8 text-white">
-      <div className="container mx-auto px-4 md:px-6">
+    <footer className="relative py-16 overflow-hidden">
+      {/* Enhanced gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#000000] via-[#16213e] to-[#6b2c91]/30"></div>
+      
+      {/* Glassmorphism overlay */}
+      <div className="absolute inset-0 glass-dark"></div>
+      
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           {/* Company info */}
-          <FooterCompanyInfo />
+          <div className="reveal">
+            <FooterCompanyInfo />
+          </div>
           
           {/* Quick links */}
-          <FooterLinks 
-            title="Quick Links" 
-            links={quickLinks} 
-            scrollToSection={scrollToSection} 
-          />
+          <div className="reveal">
+            <FooterLinks 
+              title="Quick Links" 
+              links={quickLinks} 
+              scrollToSection={scrollToSection} 
+            />
+          </div>
           
           {/* Services */}
-          <FooterServices scrollToSection={scrollToSection} />
+          <div className="reveal">
+            <FooterServices scrollToSection={scrollToSection} />
+          </div>
           
           {/* Contact */}
-          <FooterContactInfo />
+          <div className="reveal">
+            <FooterContactInfo />
+          </div>
         </div>
         
         <FooterCopyright />
