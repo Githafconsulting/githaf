@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
 import { services } from '../services/services-constants';
 
 interface FooterServicesProps {
@@ -17,13 +16,12 @@ const FooterServices: React.FC<FooterServicesProps> = ({ scrollToSection }) => {
             key={service.id}
             href="/#services"
             onClick={(e) => scrollToSection('services', e)}
-            className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors duration-300 group"
+            className="block text-gray-300 hover:text-white transition-colors duration-300"
           >
-            <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
             <span className="text-sm">{service.title}</span>
           </a>
         ))}
-        <div className="flex items-center gap-3 text-purple-300 mt-4">
+        <div className="text-purple-300 mt-4">
           <span className="text-sm">+{services.length - 4} more services</span>
         </div>
       </div>

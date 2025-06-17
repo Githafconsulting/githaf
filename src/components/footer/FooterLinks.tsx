@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
 
 interface LinkItem {
   name: string;
@@ -24,9 +23,8 @@ const FooterLinks: React.FC<FooterLinksProps> = ({ title, links, scrollToSection
             key={item.name}
             href={item.path}
             onClick={(e) => item.id && scrollToSection(item.id, e)}
-            className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors duration-300 group"
+            className="block text-gray-300 hover:text-white transition-colors duration-300"
           >
-            <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
             <span className="font-medium">{item.name}</span>
           </a>
         ))}
