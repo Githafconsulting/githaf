@@ -9,6 +9,7 @@ interface DonutChartProps {
   source: string;
   delay?: number;
   specialText?: string;
+  bottomText?: string;
   isVisible?: boolean;
 }
 
@@ -19,6 +20,7 @@ const DonutChart: React.FC<DonutChartProps> = ({
   source, 
   delay = 0,
   specialText,
+  bottomText,
   isVisible = false
 }) => {
   const [animatedPercentage, setAnimatedPercentage] = useState(0);
@@ -52,7 +54,7 @@ const DonutChart: React.FC<DonutChartProps> = ({
   ];
 
   return (
-    <div className={`flex flex-col items-center text-center space-y-4 transition-all duration-700 ${
+    <div className={`flex flex-col items-center text-center space-y-4 transition-all duration-700 relative ${
       isVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
     }`}>
       {specialText && (
@@ -117,6 +119,13 @@ const DonutChart: React.FC<DonutChartProps> = ({
           {source}
         </p>
       </div>
+      
+      {/* Bottom text positioned in bottom right */}
+      {bottomText && (
+        <div className="absolute bottom-0 right-0 text-gray-400 text-xs">
+          {bottomText}
+        </div>
+      )}
     </div>
   );
 };

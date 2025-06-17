@@ -13,10 +13,13 @@ const BulletPointsSection: React.FC<BulletPointsSectionProps> = ({ isVisible }) 
     }`}>
       <div className="space-y-6 md:space-y-8">
         <BulletPoint>
-          <span className="text-purple-300 font-semibold">9 out of 10</span> early adopters have seen more than <span className="text-pink-300 font-semibold">41% ROI</span> in their Generative AI initiatives <span className="text-gray-400">(ESG, 2025)</span>
+          <span className="text-purple-300 font-semibold">AI adoption</span> reached <span className="text-pink-300 font-semibold">39%</span> in 2 years compared to <span className="text-purple-300 font-semibold">20%</span> internet adoption
         </BulletPoint>
         <BulletPoint>
-          <span className="text-purple-300 font-semibold">BCG</span> delivered <span className="text-pink-300 font-semibold">300+ AI Agents</span> to 100+ clients - Saw <span className="text-green-400 font-semibold">90% cost reduction, 75% faster execution, 40% productivity uplift</span> <span className="text-gray-400">(BCG, 2025)</span>
+          <span className="text-purple-300 font-semibold">AI is growing</span> at <span className="text-pink-300 font-semibold">1% daily compounding</span>
+        </BulletPoint>
+        <BulletPoint>
+          <span className="text-purple-300 font-semibold">9 out of 10</span> early AI adopters have seen more than <span className="text-pink-500 font-bold text-xl">41% ROI</span> in their Generative AI initiatives <span className="text-gray-400">(ESG, 2025)</span>
         </BulletPoint>
         <BulletPoint>
           <span className="text-purple-300 font-semibold">Agentic AI</span> is enabling <span className="text-pink-300 font-semibold">full task delegation</span> and transforming business operations <span className="text-gray-400">(IBM, 2025)</span>

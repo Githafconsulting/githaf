@@ -17,16 +17,17 @@ export const chartData = [
   },
   {
     percentage: 92,
-    title: "of companies plan to increase their AI investments over the next 3 years.",
+    title: "of companies plan to increase their AI investments over the next 3 years",
     subtitle: "",
     source: "McKinsey, 2025",
     delay: 600
   },
   {
     percentage: 73,
-    title: "of Middle East CEOs believe Generative AI will transform how value is created and delivered over the next 3 years.",
+    title: "of Middle East CEOs believe Generative AI will transform how value is created and delivered over the next 3 years",
     subtitle: "",
     source: "PWC, 2025",
-    delay: 800
+    delay: 800,
+    bottomText: "jhvjhvb"
   }
 ];
