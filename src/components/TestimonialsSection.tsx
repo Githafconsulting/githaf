@@ -77,22 +77,17 @@ const TestimonialsSection: React.FC = () => {
 
   return (
     <section id="testimonials" className="py-12 md:py-16 relative overflow-hidden">
-      {/* Blended background - seamless continuation */}
+      {/* Enhanced Background with dark navy/charcoal color - matching AI adoption section */}
       <div className="absolute inset-0 -z-10">
-        {/* Base black background */}
-        <div className="w-full h-full bg-black"></div>
-        
-        {/* White dotted pattern overlay - matching other sections */}
+        <div className="w-full h-full bg-gradient-to-b from-slate-900 via-gray-900 to-slate-800"></div>
+        <div className="absolute inset-0 bg-[#1a1a2e] opacity-80"></div>
         <div 
-          className="absolute inset-0 opacity-40"
+          className="absolute inset-0 opacity-20"
           style={{
-            backgroundImage: `radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px)`,
+            backgroundImage: `radial-gradient(circle, rgba(139,92,246,0.1) 1.5px, transparent 1.5px)`,
             backgroundSize: '40px 40px'
           }}
         ></div>
-        
-        {/* Subtle gradient overlay for visual variation */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/10"></div>
       </div>
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">

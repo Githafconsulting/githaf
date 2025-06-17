@@ -39,13 +39,14 @@ const OurApproachSection: React.FC = () => {
 
   return (
     <section className="py-12 md:py-20 relative overflow-hidden">
-      {/* Background with white dots pattern */}
+      {/* Enhanced Background with dark navy/charcoal color - matching AI adoption section */}
       <div className="absolute inset-0 -z-10">
-        <div className="w-full h-full bg-black"></div>
+        <div className="w-full h-full bg-gradient-to-b from-slate-900 via-gray-900 to-slate-800"></div>
+        <div className="absolute inset-0 bg-[#1a1a2e] opacity-80"></div>
         <div 
-          className="absolute inset-0 opacity-60"
+          className="absolute inset-0 opacity-20"
           style={{
-            backgroundImage: `radial-gradient(circle, rgba(255,255,255,0.25) 1.5px, transparent 1.5px)`,
+            backgroundImage: `radial-gradient(circle, rgba(139,92,246,0.1) 1.5px, transparent 1.5px)`,
             backgroundSize: '40px 40px'
           }}
         ></div>

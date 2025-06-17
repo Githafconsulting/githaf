@@ -26,14 +26,15 @@ const Footer: React.FC = () => {
   
   return (
     <footer className="relative py-20 overflow-hidden rounded-t-3xl">
-      {/* Clean background with subtle pattern */}
+      {/* Enhanced Background with dark navy/charcoal color - matching AI adoption section */}
       <div className="absolute inset-0 -z-10 rounded-t-3xl">
-        <div className="w-full h-full bg-gradient-to-b from-gray-900 to-black rounded-t-3xl"></div>
+        <div className="w-full h-full bg-gradient-to-b from-slate-900 via-gray-900 to-slate-800 rounded-t-3xl"></div>
+        <div className="absolute inset-0 bg-[#1a1a2e] opacity-80 rounded-t-3xl"></div>
         <div 
           className="absolute inset-0 opacity-20 rounded-t-3xl"
           style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.1) 1px, transparent 0)`,
-            backgroundSize: '30px 30px'
+            backgroundImage: `radial-gradient(circle, rgba(139,92,246,0.1) 1.5px, transparent 1.5px)`,
+            backgroundSize: '40px 40px'
           }}
         ></div>
       </div>
