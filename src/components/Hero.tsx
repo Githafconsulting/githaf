@@ -64,9 +64,9 @@ const Hero: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-center">
           {/* Left side - Main content */}
           <div className="text-center lg:text-left">
-            {/* Main heading */}
+            {/* Main heading - kept on two lines */}
             <h1 className={`mb-4 md:mb-6 opacity-0 transform translate-y-8 transition-all duration-1000 delay-200 ease-out ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
-              Transform Your Business with AI Solutions
+              Transform Your Business<br />with AI Solutions
             </h1>
             
             {/* Subtitle */}
@@ -87,7 +87,7 @@ const Hero: React.FC = () => {
           {/* Right side - Services grid */}
           <div className={`opacity-0 transform translate-y-8 transition-all duration-1000 delay-800 ease-out ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
             <div className="glass rounded-xl p-4 md:p-6">
-              <h3 className="mb-4 md:mb-6 text-center lg:text-left">Our Services</h3>
+              <h3 className="mb-4 md:mb-6 text-center lg:text-left">Our <span className="text-purple-400">Services</span></h3>
               <div className="grid grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-3 md:gap-4">
                 {services.map((service, index) => (
                   <div 

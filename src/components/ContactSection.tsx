@@ -13,9 +13,9 @@ const ContactSection: React.FC = () => {
         
         {/* White dotted pattern overlay - matching other sections */}
         <div 
-          className="absolute inset-0 opacity-40"
+          className="absolute inset-0 opacity-60"
           style={{
-            backgroundImage: `radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px)`,
+            backgroundImage: `radial-gradient(circle, rgba(255,255,255,0.25) 1.5px, transparent 1.5px)`,
             backgroundSize: '40px 40px'
           }}
         ></div>
@@ -46,7 +46,7 @@ const ContactSection: React.FC = () => {
           <div className="relative z-10 p-8 md:p-12 lg:p-16">
             <div className="text-center mb-12">
               <h2 className="mb-4">
-                Let's Transform Your Business
+                Let's Transform Your <span className="text-purple-400">Business</span>
               </h2>
               <p className="max-w-2xl mx-auto">
                 Ready to harness the power of AI? Get in touch with our experts and start your digital transformation journey today.

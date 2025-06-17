@@ -61,16 +61,14 @@ const CompanyTicker: React.FC = () => {
   };
 
   // Create company logo/name display component
-  const CompanyLogo = ({ company, isDuplicate = false }: { company: typeof companies[0], isDuplicate?: boolean }) => {
-    const key = isDuplicate ? `dup-${company.id}` : `${company.id}`;
-    
+  const CompanyLogo = ({ company }: { company: typeof companies[0] }) => {
     return (
-      <div key={key} className="ticker-item flex-shrink-0">
-        <div className="h-16 w-32 flex items-center justify-center">
+      <div className="ticker-item flex-shrink-0">
+        <div className="h-20 w-40 flex items-center justify-center px-4">
           <img 
             src={company.logo} 
             alt={`${company.name} logo`}
-            className="h-12 w-auto max-w-full object-contain"
+            className="h-12 w-auto max-w-full object-contain filter brightness-75 contrast-125"
             loading="eager"
             onLoad={() => handleImageLoad(company.name)}
             onError={(e) => handleImageError(company.name, e)}
@@ -81,27 +79,28 @@ const CompanyTicker: React.FC = () => {
   };
 
   return (
-    <section className="py-10 bg-slate-50 overflow-hidden" aria-label="Clients">
+    <section className="py-12 bg-slate-50 overflow-hidden" aria-label="Clients">
       <div className="container mx-auto px-4">
-        <h2 className="text-center mb-8 text-3xl sm:text-4xl font-semibold text-slate-800" id="clients">Clients</h2>
+        <h2 className="text-center mb-8 text-slate-800">Our <span className="text-purple-600">Clients</span></h2>
         
         <div className="relative">
           {/* Gradient overlays for smooth edge fade */}
-          <div className="absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-slate-50 to-transparent z-10"></div>
-          <div className="absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-slate-50 to-transparent z-10"></div>
+          <div className="absolute left-0 top-0 h-full w-32 bg-gradient-to-r from-slate-50 to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute right-0 top-0 h-full w-32 bg-gradient-to-l from-slate-50 to-transparent z-10 pointer-events-none"></div>
           
           {/* Only show the ticker once content is loaded to prevent flickering */}
           <div 
-            className={`ticker-track flex items-center space-x-16 ${isLoaded ? 'animate-marquee' : 'opacity-0'}`}
+            className={`ticker-track flex items-center gap-8 ${isLoaded ? 'animate-marquee' : 'opacity-0'}`}
             style={{ willChange: 'transform' }}
           >
+            {/* First set of logos */}
             {companies.map((company) => (
-              <CompanyLogo key={company.id} company={company} />
+              <CompanyLogo key={`first-${company.id}`} company={company} />
             ))}
             
             {/* Duplicate companies for seamless looping */}
             {companies.map((company) => (
-              <CompanyLogo key={`dup-${company.id}`} company={company} isDuplicate={true} />
+              <CompanyLogo key={`second-${company.id}`} company={company} />
             ))}
           </div>
         </div>

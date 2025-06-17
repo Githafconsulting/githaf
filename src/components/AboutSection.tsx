@@ -39,9 +39,9 @@ const AboutSection: React.FC = () => {
         
         {/* White dotted pattern overlay - matching services section */}
         <div 
-          className="absolute inset-0 opacity-40"
+          className="absolute inset-0 opacity-60"
           style={{
-            backgroundImage: `radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px)`,
+            backgroundImage: `radial-gradient(circle, rgba(255,255,255,0.25) 1.5px, transparent 1.5px)`,
             backgroundSize: '40px 40px'
           }}
         ></div>
@@ -64,26 +64,13 @@ const AboutSection: React.FC = () => {
                 </div>
                 
                 <h2 className="mb-6">
-                  About Githaf Consulting
+                  About Githaf <span className="text-purple-400">Consulting</span>
                 </h2>
               </div>
               
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center">
-                {/* Image Section */}
-                <div className="reveal order-2 lg:order-1">
-                  <div className="relative rounded-2xl overflow-hidden shadow-2xl group">
-                    <img 
-                      src="/lovable-uploads/e4d86e3b-a5ee-45a1-95fa-b2999ae75a73.png"
-                      alt="Githaf Consulting Team - Professional consultants and specialists"
-                      className="w-full h-[400px] md:h-[500px] object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-tr from-purple-600/20 via-transparent to-pink-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <div className="absolute inset-0 ring-1 ring-white/10 rounded-2xl"></div>
-                  </div>
-                </div>
-
-                {/* Content Section */}
-                <div className="reveal order-1 lg:order-2 space-y-8">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-start">
+                {/* Content Section - moved to left */}
+                <div className="reveal order-1 lg:order-1 space-y-8">
                   <div>
                     <p className="mb-8">
                       We're a team of experienced Business Transformation and Technology consultants specializing in building AI-powered solutions for businesses looking to scale their operations and growth.
@@ -105,13 +92,18 @@ const AboutSection: React.FC = () => {
                       </div>
                     ))}
                   </div>
+                </div>
 
-                  {/* Call to Action */}
-                  <div className="pt-8">
-                    <div className="glass rounded-xl p-6 bg-gradient-to-r from-purple-600/10 to-pink-600/10 border border-purple-500/20">
-                      <p className="text-white font-medium text-xl mb-2">Ready to transform your business?</p>
-                      <p className="text-gray-300">Our goal is to help you thrive and remain competitive in today's market.</p>
-                    </div>
+                {/* Image Section - moved to right */}
+                <div className="reveal order-2 lg:order-2">
+                  <div className="relative rounded-2xl overflow-hidden shadow-2xl group">
+                    <img 
+                      src="/lovable-uploads/e4d86e3b-a5ee-45a1-95fa-b2999ae75a73.png"
+                      alt="Githaf Consulting Team - Professional consultants and specialists"
+                      className="w-full h-[400px] md:h-[500px] object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-tr from-purple-600/20 via-transparent to-pink-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div className="absolute inset-0 ring-1 ring-white/10 rounded-2xl"></div>
                   </div>
                 </div>
               </div>
