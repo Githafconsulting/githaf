@@ -65,7 +65,7 @@ const ContactForm: React.FC = () => {
             value={formData.name}
             onChange={handleChange}
             required
-            className="w-full px-4 py-3 glass rounded-lg text-white placeholder-white/50 focus:ring-2 focus:ring-[#6b2c91] focus:border-transparent transition-all duration-300 border border-white/20"
+            className="w-full px-4 py-3 glass rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-slate-400 focus:border-transparent transition-all duration-300 border border-white/10"
             placeholder="John Doe"
           />
         </div>
@@ -81,7 +81,7 @@ const ContactForm: React.FC = () => {
             value={formData.email}
             onChange={handleChange}
             required
-            className="w-full px-4 py-3 glass rounded-lg text-white placeholder-white/50 focus:ring-2 focus:ring-[#6b2c91] focus:border-transparent transition-all duration-300 border border-white/20"
+            className="w-full px-4 py-3 glass rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-slate-400 focus:border-transparent transition-all duration-300 border border-white/10"
             placeholder="john@example.com"
           />
         </div>
@@ -96,7 +96,7 @@ const ContactForm: React.FC = () => {
             name="company"
             value={formData.company}
             onChange={handleChange}
-            className="w-full px-4 py-3 glass rounded-lg text-white placeholder-white/50 focus:ring-2 focus:ring-[#6b2c91] focus:border-transparent transition-all duration-300 border border-white/20"
+            className="w-full px-4 py-3 glass rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-slate-400 focus:border-transparent transition-all duration-300 border border-white/10"
             placeholder="ABC Corporation"
           />
         </div>
@@ -112,7 +112,7 @@ const ContactForm: React.FC = () => {
             onChange={handleChange}
             required
             rows={4}
-            className="w-full px-4 py-3 glass rounded-lg text-white placeholder-white/50 focus:ring-2 focus:ring-[#6b2c91] focus:border-transparent transition-all duration-300 border border-white/20 resize-none"
+            className="w-full px-4 py-3 glass rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-slate-400 focus:border-transparent transition-all duration-300 border border-white/10 resize-none"
             placeholder="How can we help you transform your business?"
           />
         </div>
@@ -130,7 +130,7 @@ const ContactForm: React.FC = () => {
         
         <div className="text-center pt-4">
           <div className="glass rounded-lg p-4">
-            <p className="text-sm text-white/70">
+            <p className="text-sm text-gray-300">
               Need a scheduled consultation?{' '}
               <Link to="/booking" className="text-white hover:underline font-medium">
                 Book a time slot

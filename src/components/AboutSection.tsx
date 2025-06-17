@@ -11,19 +11,19 @@ import { useIsMobile } from '@/hooks/use-mobile';
 const keyPoints = [
   {
     text: 'Team of consultants and specialists',
-    icon: <Users size={16} className="text-[#6b2c91]" />
+    icon: <Users size={16} className="text-slate-300" />
   },
   {
     text: 'Proven track record of successful transformations',
-    icon: <CheckSquare size={16} className="text-[#16213e]" />
+    icon: <CheckSquare size={16} className="text-slate-300" />
   },
   {
     text: 'Tailored solutions for businesses of all sizes',
-    icon: <AlignJustify size={16} className="text-[#6b2c91]" />
+    icon: <AlignJustify size={16} className="text-slate-300" />
   },
   {
     text: 'Ongoing support and optimization services',
-    icon: <Headphones size={16} className="text-[#16213e]" />
+    icon: <Headphones size={16} className="text-slate-300" />
   },
 ];
 
@@ -39,21 +39,21 @@ const AboutSection: React.FC = () => {
               About <span className="gradient-text">Githaf Consulting</span>
             </h2>
             
-            <p className="text-lg text-white/90 mb-6 leading-relaxed">
+            <p className="text-lg text-gray-300 mb-6 leading-relaxed">
               We're a team of experienced Business Transformation and Technology consultants specializing in building AI-powered solutions for businesses looking to scale their operations and growth. Our goal is to help them thrive and remain competitive.
             </p>
             
-            <p className="text-lg text-white/80 mb-8 leading-relaxed">
+            <p className="text-lg text-gray-300 mb-8 leading-relaxed">
               By combining smart strategies with practical solutions, we ensure our clients not only plan for the future but also achieve real, measurable results in today's fast-paced market.
             </p>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {keyPoints.map((point, index) => (
-                <div key={index} className="flex items-start glass rounded-lg p-4 hover:bg-white/10 transition-all duration-300 group">
+                <div key={index} className="flex items-start glass rounded-lg p-4 hover:bg-white/5 transition-all duration-300 group">
                   <div className="mr-4 mt-1 flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                     {point.icon}
                   </div>
-                  <p className="text-white/90 leading-relaxed">{point.text}</p>
+                  <p className="text-gray-300 leading-relaxed">{point.text}</p>
                 </div>
               ))}
             </div>

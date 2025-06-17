@@ -26,11 +26,9 @@ const Footer: React.FC = () => {
   
   return (
     <footer className="relative py-16 overflow-hidden">
-      {/* Enhanced gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#000000] via-[#16213e] to-[#6b2c91]/30"></div>
-      
-      {/* Glassmorphism overlay */}
-      <div className="absolute inset-0 glass-dark"></div>
+      {/* Subtle gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-800/80 to-slate-700/50"></div>
+      <div className="absolute inset-0 glass"></div>
       
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
@@ -62,7 +60,6 @@ const Footer: React.FC = () => {
         <FooterCopyright />
       </div>
       
-      {/* Adding the CSS styles */}
       <FooterStyles />
     </footer>
   );

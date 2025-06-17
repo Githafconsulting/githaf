@@ -18,7 +18,7 @@ const FooterServices: React.FC<FooterServicesProps> = ({ scrollToSection }) => {
               <a 
                 href="/#services"
                 onClick={(e) => scrollToSection('services', e)}
-                className="glass rounded-lg p-3 text-white/70 hover:text-white hover:bg-white/10 transition-all duration-300 flex items-center group text-sm"
+                className="glass rounded-lg p-3 text-gray-300 hover:text-white hover:bg-white/5 transition-all duration-300 flex items-center group text-sm"
               >
                 <ArrowRight size={12} className="mr-2 group-hover:translate-x-1 transition-transform duration-300" />
                 <span>{service.title}</span>

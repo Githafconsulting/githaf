@@ -24,7 +24,7 @@ const FooterLinks: React.FC<FooterLinksProps> = ({ title, links, scrollToSection
             <a 
               href={item.path}
               onClick={(e) => item.id && scrollToSection(item.id, e)}
-              className="glass rounded-lg p-3 text-white/70 hover:text-white hover:bg-white/10 transition-all duration-300 flex items-center group"
+              className="glass rounded-lg p-3 text-gray-300 hover:text-white hover:bg-white/5 transition-all duration-300 flex items-center group"
             >
               <ArrowRight size={14} className="mr-3 group-hover:translate-x-1 transition-transform duration-300" />
               <span className="font-medium">{item.name}</span>

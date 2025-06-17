@@ -10,15 +10,15 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, Var
 }
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 rounded-xl text-sm font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none relative overflow-hidden",
+  "inline-flex items-center justify-center gap-2 rounded-lg text-sm font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none relative overflow-hidden",
   {
     variants: {
       variant: {
         primary: "enhanced-button text-white shadow-lg hover:shadow-xl transform hover:-translate-y-1",
-        secondary: "glass text-white hover:bg-white/20 border border-white/20",
-        outline: "border-2 border-[#6b2c91] bg-transparent text-[#6b2c91] hover:bg-[#6b2c91] hover:text-white",
-        ghost: "text-white hover:bg-white/10 rounded-lg",
-        link: "underline-offset-4 hover:underline text-[#6b2c91] font-medium",
+        secondary: "glass text-white hover:bg-white/10 border border-white/10",
+        outline: "border-2 border-slate-400 bg-transparent text-slate-300 hover:bg-slate-700 hover:text-white",
+        ghost: "text-white hover:bg-white/5 rounded-lg",
+        link: "underline-offset-4 hover:underline text-slate-300 font-medium",
       },
       size: {
         default: "h-12 py-3 px-6",
@@ -46,7 +46,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         <span className="relative z-10">{children}</span>
         {icon && iconPosition === "right" && <span className="inline-flex">{icon}</span>}
         {variant === "primary" && (
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full transition-transform duration-500 group-hover:translate-x-full" />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full transition-transform duration-500 group-hover:translate-x-full" />
         )}
       </button>
     );

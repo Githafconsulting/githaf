@@ -6,22 +6,20 @@ import ContactForm from './contact/ContactForm';
 const ContactSection: React.FC = () => {
   return (
     <section id="contact" className="py-12 md:py-20 relative overflow-hidden">
-      {/* Enhanced gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#000000]/80 via-[#16213e]/60 to-[#6b2c91]/40"></div>
+      {/* Subtle background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-900/50 via-slate-800/30 to-slate-700/20"></div>
+      <div className="absolute inset-0 glass"></div>
       
-      {/* Glassmorphism overlay */}
-      <div className="absolute inset-0 glass-dark"></div>
-      
-      {/* Floating particles */}
+      {/* Subtle floating particles */}
       <div className="particles">
-        {[...Array(15)].map((_, i) => (
+        {[...Array(8)].map((_, i) => (
           <div
             key={i}
             className="particle"
             style={{
               left: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 10}s`,
-              animationDuration: `${15 + Math.random() * 10}s`
+              animationDelay: `${Math.random() * 15}s`,
+              animationDuration: `${20 + Math.random() * 10}s`
             }}
           />
         ))}
@@ -32,7 +30,7 @@ const ContactSection: React.FC = () => {
           <h2 className="mb-4 text-white">
             Let's <span className="gradient-text">Transform</span> Your Business
           </h2>
-          <p className="text-lg text-white/80 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
             Ready to harness the power of AI? Get in touch with our experts and start your digital transformation journey today.
           </p>
         </div>
