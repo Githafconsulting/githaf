@@ -8,7 +8,6 @@ interface DonutChartProps {
   subtitle: string;
   source: string;
   delay?: number;
-  specialText?: string;
   bottomText?: string;
   isVisible?: boolean;
 }
@@ -19,7 +18,6 @@ const DonutChart: React.FC<DonutChartProps> = ({
   subtitle, 
   source, 
   delay = 0,
-  specialText,
   bottomText,
   isVisible = false
 }) => {
@@ -57,7 +55,7 @@ const DonutChart: React.FC<DonutChartProps> = ({
     <div className={`flex flex-col items-center text-center space-y-4 transition-all duration-700 relative ${
       isVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
     }`}>
-      {/* Enhanced Donut Chart */}
+      {/* Donut Chart */}
       <div className="relative w-36 h-36 md:w-40 md:h-40">
         <ResponsiveContainer width="100%" height="100%">
           <PieChart>
@@ -72,13 +70,13 @@ const DonutChart: React.FC<DonutChartProps> = ({
               dataKey="value"
               stroke="none"
             >
-              <Cell fill="url(#purpleGradient)" />
-              <Cell fill="rgba(255,255,255,0.08)" />
+              <Cell fill="url(#vibrantGradient)" />
+              <Cell fill="#4a4a5a" />
             </Pie>
           </PieChart>
         </ResponsiveContainer>
         
-        {/* Enhanced Percentage Text in Center */}
+        {/* Percentage Text in Center */}
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center">
             <span className="text-white font-bold text-3xl md:text-4xl tracking-tight">
@@ -87,26 +85,20 @@ const DonutChart: React.FC<DonutChartProps> = ({
           </div>
         </div>
         
-        {/* Enhanced SVG Gradients */}
+        {/* Enhanced SVG Gradients to match reference */}
         <svg width="0" height="0">
           <defs>
-            <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#8b5cf6" />
-              <stop offset="50%" stopColor="#a855f7" />
-              <stop offset="100%" stopColor="#ec4899" />
+            <linearGradient id="vibrantGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#a855f7" />
+              <stop offset="30%" stopColor="#c084fc" />
+              <stop offset="70%" stopColor="#e879f9" />
+              <stop offset="100%" stopColor="#f472b6" />
             </linearGradient>
-            <filter id="glow">
-              <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-              <feMerge> 
-                <feMergeNode in="coloredBlur"/>
-                <feMergeNode in="SourceGraphic"/>
-              </feMerge>
-            </filter>
           </defs>
         </svg>
       </div>
       
-      {/* Enhanced Description */}
+      {/* Description */}
       <div className="max-w-xs px-2">
         <p className="text-white text-sm md:text-base leading-relaxed mb-3 font-medium">{title}</p>
         {subtitle && (
