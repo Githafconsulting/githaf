@@ -6,9 +6,23 @@ import ContactForm from './contact/ContactForm';
 const ContactSection: React.FC = () => {
   return (
     <section id="contact" className="py-12 md:py-20 relative overflow-hidden">
-      {/* Subtle background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900/50 via-slate-800/30 to-slate-700/20"></div>
-      <div className="absolute inset-0 glass"></div>
+      {/* Blended background - seamless continuation from previous sections */}
+      <div className="absolute inset-0 -z-10">
+        {/* Base black background */}
+        <div className="w-full h-full bg-black"></div>
+        
+        {/* White dotted pattern overlay - matching other sections */}
+        <div 
+          className="absolute inset-0 opacity-40"
+          style={{
+            backgroundImage: `radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px)`,
+            backgroundSize: '40px 40px'
+          }}
+        ></div>
+        
+        {/* Subtle gradient overlay for visual variation */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/30"></div>
+      </div>
       
       {/* Subtle floating particles */}
       <div className="particles">

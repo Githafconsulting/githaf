@@ -328,27 +328,6 @@ section {
   }
 }
 
-/* Subtle section backgrounds */
-#testimonials {
-  background: rgba(255, 255, 255, 0.02);
-  backdrop-filter: blur(10px);
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-#contact {
-  background: rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(10px);
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-#services {
-  background: rgba(255, 255, 255, 0.01);
-  backdrop-filter: blur(10px);
-  border-top: 1px solid rgba(255, 255, 255, 0.03);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-}
-
 /* Subtle animations */
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
@@ -383,7 +362,7 @@ section {
   position: absolute;
   width: 1px;
   height: 1px;
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255,255,255, 0.3);
   border-radius: 50%;
   animation: particle-float 15s infinite linear;
 }

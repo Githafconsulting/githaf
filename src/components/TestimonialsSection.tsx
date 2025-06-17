@@ -76,11 +76,29 @@ const TestimonialsSection: React.FC = () => {
   };
 
   return (
-    <section id="testimonials" className="py-12 md:py-16">
-      <div className="container mx-auto px-4 md:px-6">
+    <section id="testimonials" className="py-12 md:py-16 relative overflow-hidden">
+      {/* Blended background - seamless continuation */}
+      <div className="absolute inset-0 -z-10">
+        {/* Base black background */}
+        <div className="w-full h-full bg-black"></div>
+        
+        {/* White dotted pattern overlay - matching other sections */}
+        <div 
+          className="absolute inset-0 opacity-40"
+          style={{
+            backgroundImage: `radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px)`,
+            backgroundSize: '40px 40px'
+          }}
+        ></div>
+        
+        {/* Subtle gradient overlay for visual variation */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/10"></div>
+      </div>
+
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-10 reveal">
           <h2 className="mb-4">What Our Clients Say</h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-lg">
             Real results from industry leaders that have partnered with us
           </p>
         </div>
@@ -90,7 +108,7 @@ const TestimonialsSection: React.FC = () => {
           <div className="absolute -left-4 top-1/2 transform -translate-y-1/2 z-10">
             <button 
               onClick={handlePrev}
-              className="w-10 h-10 rounded-full bg-background shadow-md flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
+              className="w-10 h-10 rounded-full glass flex items-center justify-center text-white hover:bg-white/10 transition-colors"
               aria-label="Previous testimonial"
             >
               <ChevronLeft size={20} />
@@ -100,7 +118,7 @@ const TestimonialsSection: React.FC = () => {
           <div className="absolute -right-4 top-1/2 transform -translate-y-1/2 z-10">
             <button 
               onClick={handleNext}
-              className="w-10 h-10 rounded-full bg-background shadow-md flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
+              className="w-10 h-10 rounded-full glass flex items-center justify-center text-white hover:bg-white/10 transition-colors"
               aria-label="Next testimonial"
             >
               <ChevronRight size={20} />
@@ -122,22 +140,22 @@ const TestimonialsSection: React.FC = () => {
                 {getVisibleTestimonials().map((testimonial) => (
                   <div key={testimonial.id} className="reveal">
                     <AnimatedCard 
-                      className="h-full bg-background border rounded-xl shadow-sm p-6"
+                      className="h-full glass rounded-xl shadow-sm p-6"
                       intensity={5}
                       animate={false}
                     >
                       {/* Stars */}
                       <div className="flex mb-4">
                         {[...Array(testimonial.rating)].map((_, i) => (
-                          <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                          <Star key={i} className="w-4 h-4 fill-purple-400 text-purple-400" />
                         ))}
                       </div>
                       
                       {/* Content */}
-                      <p className="mb-6 text-foreground italic">"{testimonial.content}"</p>
+                      <p className="mb-6 text-gray-300 italic">"{testimonial.content}"</p>
                       
                       {/* Author */}
-                      <div className="flex items-center mt-auto pt-4 border-t border-border">
+                      <div className="flex items-center mt-auto pt-4 border-t border-white/10">
                         <div className="w-10 h-10 rounded-full overflow-hidden mr-3">
                           <img 
                             src={testimonial.image} 
@@ -146,8 +164,8 @@ const TestimonialsSection: React.FC = () => {
                           />
                         </div>
                         <div>
-                          <p className="font-medium text-foreground">{testimonial.name}</p>
-                          <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                          <p className="font-medium text-white">{testimonial.name}</p>
+                          <p className="text-sm text-gray-400">{testimonial.role}</p>
                         </div>
                       </div>
                     </AnimatedCard>
@@ -167,7 +185,7 @@ const TestimonialsSection: React.FC = () => {
                   setCurrentIndex(index);
                 }}
                 className={`w-2 h-2 rounded-full transition-all ${
-                  index === currentIndex ? 'w-6 bg-primary' : 'bg-muted-foreground/30'
+                  index === currentIndex ? 'w-6 bg-purple-500' : 'bg-gray-500'
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />

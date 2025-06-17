@@ -36,25 +36,19 @@ const ServicesSection: React.FC = () => {
 
   return (
     <section id="services" className="relative py-16 md:py-24 overflow-hidden">
-      {/* Background Design */}
+      {/* Blended background - matching the black theme with dotted pattern */}
       <div className="absolute inset-0 -z-10">
         {/* Base black background */}
         <div className="w-full h-full bg-black"></div>
         
-        {/* White dotted pattern overlay - same visibility as hero */}
+        {/* White dotted pattern overlay - matching hero section */}
         <div 
-          className="absolute inset-0 opacity-60"
+          className="absolute inset-0 opacity-40"
           style={{
-            backgroundImage: `radial-gradient(circle, rgba(255,255,255,0.2) 1px, transparent 1px)`,
+            backgroundImage: `radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px)`,
             backgroundSize: '40px 40px'
           }}
         ></div>
-        
-        {/* Subtle accent elements */}
-        <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-purple-500 rounded-full opacity-30"></div>
-        <div className="absolute top-1/3 right-1/3 w-1 h-1 bg-purple-400 rounded-full opacity-40"></div>
-        <div className="absolute bottom-1/4 left-1/3 w-1.5 h-1.5 bg-purple-300 rounded-full opacity-35"></div>
-        <div className="absolute bottom-1/3 right-1/4 w-1 h-1 bg-purple-400 rounded-full opacity-30"></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -65,14 +59,8 @@ const ServicesSection: React.FC = () => {
             <span className="text-sm font-medium text-purple-300">Our Services</span>
           </div>
           
-          <h2 className="mb-6 text-5xl md:text-6xl lg:text-7xl font-bold">
-            <span className="bg-gradient-to-r from-white via-purple-200 to-white bg-clip-text text-transparent leading-tight">
-              What We
-            </span>
-            <br />
-            <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
-              Deliver
-            </span>
+          <h2 className="mb-6">
+            What We Deliver
           </h2>
           
           <p className="text-xl md:text-2xl text-slate-300 leading-relaxed max-w-3xl mx-auto">
