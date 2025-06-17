@@ -87,7 +87,6 @@ const AIAdoptionSection: React.FC = () => {
                   subtitle={chart.subtitle}
                   source={chart.source}
                   delay={chart.delay}
-                  specialText={chart.specialText}
                   bottomText={chart.bottomText}
                   isVisible={showCharts}
                 />
