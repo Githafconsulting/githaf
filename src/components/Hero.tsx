@@ -25,15 +25,15 @@ const Hero: React.FC = () => {
   ];
 
   return (
-    <section id="home" className="relative pt-16 pb-12 md:pt-20 md:pb-16 overflow-hidden min-h-[70vh] md:min-h-[80vh] flex items-center">
+    <section id="home" className="relative pt-16 pb-12 md:pt-20 md:pb-16 overflow-hidden min-h-[80vh] md:min-h-[85vh] flex items-center">
       {/* Purple-Black Gradient Background with Dots */}
       <div className="absolute inset-0 -z-20">
         <div className="w-full h-full bg-gradient-to-b from-purple-900 via-slate-900 to-black"></div>
         {/* Dot Pattern Overlay */}
         <div 
-          className="absolute inset-0 opacity-50"
+          className="absolute inset-0 opacity-60"
           style={{
-            backgroundImage: `radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px)`,
+            backgroundImage: `radial-gradient(circle, rgba(255,255,255,0.2) 1px, transparent 1px)`,
             backgroundSize: '40px 40px'
           }}
         ></div>
@@ -41,6 +41,9 @@ const Hero: React.FC = () => {
 
       {/* Enhanced Overlay */}
       <div className="absolute inset-0 -z-10 bg-black/20"></div>
+
+      {/* Gradient Flare */}
+      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-96 h-96 bg-gradient-to-r from-purple-600/30 to-pink-600/30 rounded-full blur-3xl"></div>
 
       {/* Subtle particle effect */}
       <div className="particles">
@@ -88,7 +91,7 @@ const Hero: React.FC = () => {
           <div className={`opacity-0 transform translate-y-8 transition-all duration-1000 delay-800 ease-out ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
             <div className="glass rounded-xl p-4 md:p-6">
               <h3 className="text-lg md:text-xl lg:text-2xl font-semibold text-white mb-4 md:mb-6 text-center lg:text-left">Our Services</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
+              <div className="grid grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-3 md:gap-4">
                 {services.map((service, index) => (
                   <div 
                     key={index}

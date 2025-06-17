@@ -38,33 +38,35 @@ const ServicesSection: React.FC = () => {
     <section id="services" className="relative py-16 md:py-24 overflow-hidden">
       {/* Background Design */}
       <div className="absolute inset-0 -z-10">
-        {/* Primary gradient background */}
-        <div className="w-full h-full bg-gradient-to-br from-slate-900 via-purple-900/30 to-slate-800"></div>
+        {/* Solid dark background instead of gradient */}
+        <div className="w-full h-full bg-slate-900"></div>
         
         {/* Geometric pattern overlay */}
         <div 
-          className="absolute inset-0 opacity-10"
+          className="absolute inset-0 opacity-5"
           style={{
             backgroundImage: `
-              linear-gradient(45deg, rgba(147,51,234,0.1) 25%, transparent 25%), 
-              linear-gradient(-45deg, rgba(147,51,234,0.1) 25%, transparent 25%), 
-              linear-gradient(45deg, transparent 75%, rgba(147,51,234,0.1) 75%), 
-              linear-gradient(-45deg, transparent 75%, rgba(147,51,234,0.1) 75%)
+              linear-gradient(45deg, rgba(147,51,234,0.3) 25%, transparent 25%), 
+              linear-gradient(-45deg, rgba(147,51,234,0.3) 25%, transparent 25%), 
+              linear-gradient(45deg, transparent 75%, rgba(147,51,234,0.3) 75%), 
+              linear-gradient(-45deg, transparent 75%, rgba(147,51,234,0.3) 75%)
             `,
-            backgroundSize: '30px 30px',
-            backgroundPosition: '0 0, 0 15px, 15px -15px, -15px 0px'
+            backgroundSize: '60px 60px',
+            backgroundPosition: '0 0, 0 30px, 30px -30px, -30px 0px'
           }}
         ></div>
         
-        {/* Floating gradient orbs */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-gradient-to-r from-blue-600/15 to-purple-600/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+        {/* Subtle accent elements */}
+        <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-purple-500 rounded-full opacity-40"></div>
+        <div className="absolute top-1/3 right-1/3 w-1 h-1 bg-pink-500 rounded-full opacity-60"></div>
+        <div className="absolute bottom-1/4 left-1/3 w-1.5 h-1.5 bg-purple-400 rounded-full opacity-50"></div>
+        <div className="absolute bottom-1/3 right-1/4 w-1 h-1 bg-pink-400 rounded-full opacity-40"></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
         <div className="text-center max-w-4xl mx-auto mb-16 reveal">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-600/20 to-pink-600/20 border border-purple-500/30 mb-8">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-600/20 border border-purple-500/30 mb-8">
             <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
             <span className="text-sm font-medium text-purple-300">Our Services</span>
           </div>
@@ -104,7 +106,7 @@ const ServicesSection: React.FC = () => {
         <div className="text-center mt-20 reveal">
           <div className="relative inline-block">
             <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl blur-xl opacity-30"></div>
-            <div className="relative bg-gradient-to-r from-purple-900/50 to-slate-900/50 backdrop-blur-xl border border-white/10 rounded-2xl p-8">
+            <div className="relative bg-slate-800/50 backdrop-blur-xl border border-white/10 rounded-2xl p-8">
               <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
                 Ready to Transform Your Vision?
               </h3>
