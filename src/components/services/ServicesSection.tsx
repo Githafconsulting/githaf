@@ -41,16 +41,12 @@ const ServicesSection: React.FC = () => {
         {/* Base black background */}
         <div className="w-full h-full bg-black"></div>
         
-        {/* Dotted pattern overlay - 80% black dots, 20% purple dots */}
+        {/* White dotted pattern overlay */}
         <div 
-          className="absolute inset-0 opacity-25"
+          className="absolute inset-0 opacity-20"
           style={{
-            backgroundImage: `
-              radial-gradient(circle, rgba(0,0,0,0.8) 1px, transparent 1px),
-              radial-gradient(circle, rgba(147,51,234,0.4) 1px, transparent 1px)
-            `,
-            backgroundSize: '30px 30px, 150px 150px',
-            backgroundPosition: '0 0, 15px 15px'
+            backgroundImage: `radial-gradient(circle, rgba(255,255,255,0.2) 1px, transparent 1px)`,
+            backgroundSize: '40px 40px'
           }}
         ></div>
         
