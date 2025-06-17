@@ -16,22 +16,21 @@ interface FooterLinksProps {
 
 const FooterLinks: React.FC<FooterLinksProps> = ({ title, links, scrollToSection }) => {
   return (
-    <div className="enhanced-card p-6">
-      <h4 className="text-lg font-semibold mb-4 text-white">{title}</h4>
-      <ul className="space-y-3">
+    <div className="text-center lg:text-left">
+      <h4 className="text-xl font-semibold mb-6 text-white">{title}</h4>
+      <div className="flex flex-wrap justify-center lg:justify-start gap-4">
         {links.map((item) => (
-          <li key={item.name}>
-            <a 
-              href={item.path}
-              onClick={(e) => item.id && scrollToSection(item.id, e)}
-              className="glass rounded-lg p-3 text-gray-300 hover:text-white hover:bg-white/5 transition-all duration-300 flex items-center group"
-            >
-              <ArrowRight size={14} className="mr-3 group-hover:translate-x-1 transition-transform duration-300" />
-              <span className="font-medium">{item.name}</span>
-            </a>
-          </li>
+          <a 
+            key={item.name}
+            href={item.path}
+            onClick={(e) => item.id && scrollToSection(item.id, e)}
+            className="inline-flex items-center gap-2 bg-white/5 backdrop-blur-sm rounded-full px-4 py-2 text-gray-300 hover:text-white hover:bg-white/10 transition-all duration-300 border border-white/10 group"
+          >
+            <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform duration-300" />
+            <span className="font-medium">{item.name}</span>
+          </a>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

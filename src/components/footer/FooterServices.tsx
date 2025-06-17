@@ -9,23 +9,23 @@ interface FooterServicesProps {
 
 const FooterServices: React.FC<FooterServicesProps> = ({ scrollToSection }) => {
   return (
-    <div className="enhanced-card p-6">
-      <h4 className="text-lg font-semibold mb-4 text-white">Our Services</h4>
-      <div className="max-h-64 overflow-y-auto pr-2 custom-scrollbar">
-        <ul className="space-y-2">
-          {services.map((service) => (
-            <li key={service.id}>
-              <a 
-                href="/#services"
-                onClick={(e) => scrollToSection('services', e)}
-                className="glass rounded-lg p-3 text-gray-300 hover:text-white hover:bg-white/5 transition-all duration-300 flex items-center group text-sm"
-              >
-                <ArrowRight size={12} className="mr-2 group-hover:translate-x-1 transition-transform duration-300" />
-                <span>{service.title}</span>
-              </a>
-            </li>
-          ))}
-        </ul>
+    <div className="text-center lg:text-left">
+      <h4 className="text-xl font-semibold mb-6 text-white">Our Services</h4>
+      <div className="flex flex-wrap justify-center lg:justify-start gap-3">
+        {services.slice(0, 6).map((service) => (
+          <a 
+            key={service.id}
+            href="/#services"
+            onClick={(e) => scrollToSection('services', e)}
+            className="inline-flex items-center gap-2 bg-white/5 backdrop-blur-sm rounded-full px-3 py-2 text-gray-300 hover:text-white hover:bg-white/10 transition-all duration-300 border border-white/10 group text-sm"
+          >
+            <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform duration-300" />
+            <span>{service.title}</span>
+          </a>
+        ))}
+        <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-sm rounded-full px-3 py-2 text-purple-300 border border-purple-400/30 text-sm">
+          <span>+{services.length - 6} more</span>
+        </div>
       </div>
     </div>
   );
