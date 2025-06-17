@@ -80,20 +80,27 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ isVisible }) => {
   return (
     <div className={`opacity-0 transform translate-y-8 transition-all duration-1000 delay-800 ease-out ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
       <div className="relative">
-        {/* Main Project Display */}
-        <div className="relative w-full h-80 md:h-96 rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-gray-900 to-gray-800">
+        {/* Main Project Display - Increased Height */}
+        <div className="relative w-full h-96 md:h-[28rem] rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-gray-900 to-gray-800">
           <img 
             src={projects[currentProject].image} 
             alt={projects[currentProject].title}
             className="w-full h-full object-cover transition-opacity duration-700"
           />
           
-          {/* Project Info Overlay */}
-          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-6">
-            <h4 className="text-white font-semibold text-xl mb-2 transform transition-all duration-300">
-              {projects[currentProject].title}
+          {/* Project Info Overlay - Enhanced for better text visibility */}
+          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/95 via-black/75 to-transparent p-6 md:p-8">
+            <h4 className="text-white font-semibold text-lg md:text-xl mb-2 transform transition-all duration-300 leading-tight">
+              {projects[currentProject].title.split(' ').length > 1 ? (
+                <>
+                  {projects[currentProject].title.split(' ')[0]}<br />
+                  {projects[currentProject].title.split(' ').slice(1).join(' ')}
+                </>
+              ) : (
+                projects[currentProject].title
+              )}
             </h4>
-            <p className="text-gray-300 text-sm">
+            <p className="text-gray-300 text-sm md:text-base">
               {projects[currentProject].category}
             </p>
           </div>
