@@ -26,17 +26,21 @@ const Hero: React.FC = () => {
 
   return (
     <section id="home" className="relative pt-16 pb-8 md:pt-20 md:pb-12 overflow-hidden min-h-[60vh] md:min-h-[70vh] flex items-center">
-      {/* Background Image */}
+      {/* Purple-Black Gradient Background with Dots */}
       <div className="absolute inset-0 -z-20">
-        <img 
-          src="/lovable-uploads/eb57cce0-361d-48a6-8739-b1206472d9cb.png" 
-          alt="AI Digital Transformation Background" 
-          className="w-full h-full object-cover"
-        />
+        <div className="w-full h-full bg-gradient-to-br from-purple-900 via-slate-900 to-black"></div>
+        {/* Dot Pattern Overlay */}
+        <div 
+          className="absolute inset-0 opacity-30"
+          style={{
+            backgroundImage: `radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px)`,
+            backgroundSize: '40px 40px'
+          }}
+        ></div>
       </div>
 
-      {/* Enhanced Darker Overlay */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-slate-900/95 via-slate-800/90 to-slate-900/95"></div>
+      {/* Enhanced Overlay */}
+      <div className="absolute inset-0 -z-10 bg-black/20"></div>
 
       {/* Subtle particle effect */}
       <div className="particles">
@@ -91,7 +95,9 @@ const Hero: React.FC = () => {
                     className="flex items-center space-x-3 p-3 md:p-4 rounded-lg bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300 hover:transform hover:scale-105"
                   >
                     <div className="flex-shrink-0">
-                      <Check className="h-4 w-4 md:h-5 md:w-5 text-green-400 stroke-2" />
+                      <div className="w-5 h-5 md:w-6 md:h-6 bg-pink-500 rounded-full flex items-center justify-center">
+                        <Check className="h-3 w-3 md:h-4 md:w-4 text-white stroke-2" />
+                      </div>
                     </div>
                     <span className="text-white font-medium text-xs sm:text-sm md:text-base leading-tight">{service}</span>
                   </div>
