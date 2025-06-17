@@ -110,18 +110,18 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ isVisible }) => {
             <ProjectNavigation onPrevious={prevProject} onNext={nextProject} />
           </div>
           
-          {/* Reflection Effect */}
-          <div className="relative w-full h-32 md:h-40 mt-2 rounded-b-2xl overflow-hidden">
+          {/* Enhanced Reflection Effect */}
+          <div className="relative w-full h-40 md:h-48 mt-1 rounded-b-2xl overflow-hidden">
             <img 
               src={projects[currentProject].image} 
               alt=""
-              className="w-full h-full object-cover transition-opacity duration-700 transform scale-y-[-1] origin-top"
+              className="w-full h-full object-cover transition-opacity duration-700 transform scale-y-[-1] origin-top opacity-60"
               style={{
-                maskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 50%, transparent 100%)',
-                WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 50%, transparent 100%)'
+                maskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.1) 70%, transparent 100%)',
+                WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.1) 70%, transparent 100%)'
               }}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-800/40 to-transparent"></div>
           </div>
         </div>
 

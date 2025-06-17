@@ -19,17 +19,21 @@ const Hero: React.FC = () => {
   }, [isMobile]);
 
   return (
-    <section id="home" className="relative pt-16 pb-12 md:pt-20 md:pb-16 overflow-hidden min-h-[85vh] md:min-h-[90vh] flex items-center">
+    <section id="home" className="relative pt-16 pb-12 md:pt-20 md:pb-16 overflow-hidden min-h-[100vh] md:min-h-[100vh] flex items-center">
       <HeroBackground />
       <ParticleEffect />
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start lg:items-center">
           {/* Left side - Main content */}
-          <HeroContent isVisible={isVisible} />
+          <div className="order-1 lg:order-1">
+            <HeroContent isVisible={isVisible} />
+          </div>
 
           {/* Right side - Tilted Window Project Showcase */}
-          <ProjectShowcase isVisible={isVisible} />
+          <div className="order-2 lg:order-2">
+            <ProjectShowcase isVisible={isVisible} />
+          </div>
         </div>
       </div>
 
