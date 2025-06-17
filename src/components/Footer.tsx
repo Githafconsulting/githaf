@@ -25,34 +25,28 @@ const Footer: React.FC = () => {
   ];
   
   return (
-    <footer className="relative py-16 overflow-hidden">
-      {/* Blended background - seamless continuation */}
+    <footer className="relative py-20 overflow-hidden">
+      {/* Clean background with subtle pattern */}
       <div className="absolute inset-0 -z-10">
-        {/* Base black background */}
-        <div className="w-full h-full bg-black"></div>
-        
-        {/* White dotted pattern overlay - matching other sections */}
+        <div className="w-full h-full bg-gradient-to-b from-gray-900 to-black"></div>
         <div 
-          className="absolute inset-0 opacity-40"
+          className="absolute inset-0 opacity-20"
           style={{
-            backgroundImage: `radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px)`,
-            backgroundSize: '40px 40px'
+            backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.1) 1px, transparent 0)`,
+            backgroundSize: '30px 30px'
           }}
         ></div>
-        
-        {/* Subtle gradient overlay for footer distinction */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
       </div>
       
       <div className="container mx-auto px-4 md:px-6 relative z-10">
-        {/* Company info section - full width */}
+        {/* Company Section */}
         <div className="reveal mb-16">
           <FooterCompanyInfo />
         </div>
         
-        {/* Links and Services in horizontal layout */}
-        <div className="flex flex-col lg:flex-row gap-12 mb-16">
-          <div className="reveal flex-1">
+        {/* Three Column Layout for Links, Services, and Contact */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+          <div className="reveal">
             <FooterLinks 
               title="Quick Links" 
               links={quickLinks} 
@@ -60,14 +54,13 @@ const Footer: React.FC = () => {
             />
           </div>
           
-          <div className="reveal flex-1">
+          <div className="reveal">
             <FooterServices scrollToSection={scrollToSection} />
           </div>
-        </div>
-        
-        {/* Contact section - full width */}
-        <div className="reveal mb-12">
-          <FooterContactInfo />
+          
+          <div className="reveal">
+            <FooterContactInfo />
+          </div>
         </div>
         
         <FooterCopyright />
