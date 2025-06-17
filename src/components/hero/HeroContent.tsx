@@ -11,9 +11,11 @@ const HeroContent: React.FC<HeroContentProps> = ({ isVisible }) => {
 
   return (
     <div className="text-center lg:text-left">
-      {/* Main heading */}
+      {/* Main heading - broken into 3 lines */}
       <h1 className={`mb-4 md:mb-6 opacity-0 transform translate-y-8 transition-all duration-1000 delay-200 ease-out ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
-        Transform Your Business<br />with AI Solutions
+        Transform Your Business<br />
+        with AI<br />
+        Solutions
       </h1>
       
       {/* Subtitle */}

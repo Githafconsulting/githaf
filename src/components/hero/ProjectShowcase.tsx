@@ -80,32 +80,49 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ isVisible }) => {
   return (
     <div className={`opacity-0 transform translate-y-8 transition-all duration-1000 delay-800 ease-out ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
       <div className="relative">
-        {/* Main Project Display - Increased Height */}
-        <div className="relative w-full h-96 md:h-[28rem] rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-gray-900 to-gray-800">
-          <img 
-            src={projects[currentProject].image} 
-            alt={projects[currentProject].title}
-            className="w-full h-full object-cover transition-opacity duration-700"
-          />
-          
-          {/* Project Info Overlay - Enhanced for better text visibility */}
-          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/95 via-black/75 to-transparent p-6 md:p-8">
-            <h4 className="text-white font-semibold text-lg md:text-xl mb-2 transform transition-all duration-300 leading-tight">
-              {projects[currentProject].title.split(' ').length > 1 ? (
-                <>
-                  {projects[currentProject].title.split(' ')[0]}<br />
-                  {projects[currentProject].title.split(' ').slice(1).join(' ')}
-                </>
-              ) : (
-                projects[currentProject].title
-              )}
-            </h4>
-            <p className="text-gray-300 text-sm md:text-base">
-              {projects[currentProject].category}
-            </p>
+        {/* Main Project Display with Reflection Effect */}
+        <div className="relative">
+          {/* Main Image Container */}
+          <div className="relative w-full h-96 md:h-[28rem] rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-gray-900 to-gray-800">
+            <img 
+              src={projects[currentProject].image} 
+              alt={projects[currentProject].title}
+              className="w-full h-full object-cover transition-opacity duration-700"
+            />
+            
+            {/* Project Info Overlay - Enhanced for better text visibility */}
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/95 via-black/75 to-transparent p-6 md:p-8">
+              <h4 className="text-white font-semibold text-lg md:text-xl mb-2 transform transition-all duration-300 leading-tight">
+                {projects[currentProject].title.split(' ').length > 1 ? (
+                  <>
+                    {projects[currentProject].title.split(' ')[0]}<br />
+                    {projects[currentProject].title.split(' ').slice(1).join(' ')}
+                  </>
+                ) : (
+                  projects[currentProject].title
+                )}
+              </h4>
+              <p className="text-gray-300 text-sm md:text-base">
+                {projects[currentProject].category}
+              </p>
+            </div>
+            
+            <ProjectNavigation onPrevious={prevProject} onNext={nextProject} />
           </div>
           
-          <ProjectNavigation onPrevious={prevProject} onNext={nextProject} />
+          {/* Reflection Effect */}
+          <div className="relative w-full h-32 md:h-40 mt-2 rounded-b-2xl overflow-hidden">
+            <img 
+              src={projects[currentProject].image} 
+              alt=""
+              className="w-full h-full object-cover transition-opacity duration-700 transform scale-y-[-1] origin-top"
+              style={{
+                maskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 50%, transparent 100%)',
+                WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 50%, transparent 100%)'
+              }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent"></div>
+          </div>
         </div>
 
         {/* Simple Dot Indicators */}
