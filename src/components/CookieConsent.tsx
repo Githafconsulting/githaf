@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Button from './Button';
 import { toast } from 'sonner';
+import { Cookie, X } from 'lucide-react';
 
 const CookieConsent: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -46,6 +47,10 @@ const CookieConsent: React.FC = () => {
     });
   };
   
+  const handleClose = () => {
+    setIsVisible(false);
+  };
+  
   // Function to enable analytics cookies
   const enableAnalyticsCookies = () => {
     // This is where you would initialize analytics services
@@ -62,31 +67,60 @@ const CookieConsent: React.FC = () => {
   if (!isVisible) return null;
   
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 p-4 bg-white border-t shadow-lg animate-slide-up">
-      <div className="container mx-auto">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="text-sm text-gray-700">
-            <p>
-              We use cookies to enhance your experience on our website. By continuing to browse, you agree to our use of cookies.
-            </p>
+    <div className="fixed bottom-6 left-6 right-6 z-50 animate-slide-up">
+      <div className="max-w-4xl mx-auto">
+        <div className="bg-slate-900/95 backdrop-blur-xl border border-slate-700/50 rounded-2xl shadow-2xl overflow-hidden">
+          {/* Header with gradient */}
+          <div className="bg-gradient-to-r from-purple-600/20 to-blue-600/20 p-1">
+            <div className="bg-slate-900/80 rounded-xl">
+              <div className="flex items-start gap-4 p-6">
+                {/* Cookie Icon */}
+                <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-purple-500 to-blue-500 rounded-xl flex items-center justify-center">
+                  <Cookie className="w-6 h-6 text-white" />
+                </div>
+                
+                {/* Content */}
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-white font-semibold text-lg mb-2">
+                    We value your privacy
+                  </h3>
+                  <p className="text-slate-300 text-sm leading-relaxed mb-4">
+                    We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. 
+                    By clicking "Accept All", you consent to our use of cookies.
+                  </p>
+                  
+                  {/* Action Buttons */}
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <Button
+                      onClick={handleAccept}
+                      className="flex-1 sm:flex-none"
+                      size="sm"
+                    >
+                      Accept All
+                    </Button>
+                    <Button
+                      onClick={handleReject}
+                      variant="outline"
+                      className="flex-1 sm:flex-none border-slate-600 text-slate-300 hover:bg-slate-800 hover:border-slate-500"
+                      size="sm"
+                    >
+                      Reject All
+                    </Button>
+                    <button
+                      onClick={handleClose}
+                      className="text-slate-400 hover:text-white transition-colors duration-200 p-2 hover:bg-slate-800 rounded-lg"
+                      aria-label="Close"
+                    >
+                      <X className="w-4 h-4" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="flex gap-2">
-            <Button
-              onClick={handleReject}
-              variant="outline"
-              className="whitespace-nowrap"
-              size="sm"
-            >
-              Reject
-            </Button>
-            <Button
-              onClick={handleAccept}
-              className="whitespace-nowrap"
-              size="sm"
-            >
-              Accept
-            </Button>
-          </div>
+          
+          {/* Bottom accent */}
+          <div className="h-1 bg-gradient-to-r from-purple-500 via-blue-500 to-purple-500"></div>
         </div>
       </div>
     </div>

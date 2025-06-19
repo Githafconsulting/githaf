@@ -62,11 +62,11 @@ const CompanyTicker: React.FC = () => {
   const CompanyLogo = ({ company }: { company: typeof companies[0] }) => {
     return (
       <div className="ticker-item flex-shrink-0">
-        <div className="h-20 w-40 flex items-center justify-center px-4">
+        <div className="h-20 w-32 bg-white rounded-lg shadow-sm border border-gray-200 flex items-center justify-center mx-2">
           <img 
             src={company.logo} 
             alt={`${company.name} logo`}
-            className="h-12 w-auto max-w-full object-contain filter brightness-75 contrast-125"
+            className="h-12 w-auto max-w-[120px] object-contain"
             loading="eager"
             style={{ imageRendering: 'crisp-edges' }}
           />
@@ -87,7 +87,7 @@ const CompanyTicker: React.FC = () => {
           
           {/* Only show the ticker once content is loaded to prevent flickering */}
           <div 
-            className={`ticker-track flex items-center gap-8 transition-opacity duration-500 ${isLoaded ? 'animate-marquee opacity-100' : 'opacity-0'}`}
+            className={`ticker-track flex items-center gap-4 transition-opacity duration-500 ${isLoaded ? 'animate-marquee opacity-100' : 'opacity-0'}`}
             style={{ willChange: 'transform' }}
           >
             {/* First set of logos */}

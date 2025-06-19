@@ -8,7 +8,7 @@ const OurApproachSection: React.FC = () => {
       id: 1,
       title: 'Align',
       icon: Handshake,
-      bgColor: 'bg-[#9b87f5]',
+      bgColor: 'bg-purple-600',
       description: "Goal: Align on scope of engagement, AI opportunities for Aventus' Goals & Strategy, GitHat overall approach."
     },
     {
@@ -16,7 +16,7 @@ const OurApproachSection: React.FC = () => {
       title: 'Assess',
       icon: FileText,
       secondaryIcon: Settings,
-      bgColor: 'bg-[#9b87f5]',
+      bgColor: 'bg-pink-600',
       description: "Goal: Understand Aventus' landscape: Business, Industry, State across people, processes, data, Tech & Pain points."
     },
     {
@@ -24,7 +24,7 @@ const OurApproachSection: React.FC = () => {
       title: 'Recommend',
       icon: Lightbulb,
       secondaryIcon: Zap,
-      bgColor: 'bg-[#9b87f5]',
+      bgColor: 'bg-blue-700',
       description: "Goal: Identify and recommend opportunities where AI can drive measurable business outcomes"
     },
     {
@@ -32,13 +32,13 @@ const OurApproachSection: React.FC = () => {
       title: 'Implement',
       icon: BarChart3,
       secondaryIcon: ArrowRight,
-      bgColor: 'bg-[#9b87f5]',
+      bgColor: 'bg-green-700',
       description: "Goal: Deliver scalable, ethical and business strategy-aligned AI solutions & measure impact"
     }
   ];
 
   return (
-    <section className="py-16 md:py-24 relative overflow-hidden">
+    <section id="approach" className="py-16 md:py-24 relative overflow-hidden">
       {/* Enhanced Background with dark navy/charcoal color - matching AI adoption section */}
       <div className="absolute inset-0 -z-10 rounded-t-3xl">
         <div className="w-full h-full bg-gradient-to-b from-slate-900 via-gray-900 to-slate-800 rounded-t-3xl"></div>
