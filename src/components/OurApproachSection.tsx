@@ -9,7 +9,7 @@ const OurApproachSection: React.FC = () => {
       title: 'Align',
       icon: Handshake,
       bgColor: 'bg-purple-600',
-      description: "Goal: Align on scope of engagement, AI opportunities for Aventus' Goals & Strategy, GitHat overall approach."
+      description: "Goal: Align on scope of engagement, AI opportunities for your organization."
     },
     {
       id: 2,
@@ -17,7 +17,7 @@ const OurApproachSection: React.FC = () => {
       icon: FileText,
       secondaryIcon: Settings,
       bgColor: 'bg-pink-600',
-      description: "Goal: Understand Aventus' landscape: Business, Industry, State across people, processes, data, Tech & Pain points."
+      description: "Goal: Understand your organization landscape: Business, Industry, State across people, processes, data, tech & pain points."
     },
     {
       id: 3,
