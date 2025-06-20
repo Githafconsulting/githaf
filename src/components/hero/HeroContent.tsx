@@ -11,9 +11,9 @@ const HeroContent: React.FC<HeroContentProps> = ({ isVisible }) => {
 
   return (
     <div className="text-center lg:text-left">
-      {/* Main heading - with line break */}
+      {/* Main heading - with line break and colored text */}
       <h1 className={`mb-4 md:mb-6 opacity-0 transform translate-y-8 transition-all duration-1000 delay-200 ease-out ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
-        Transform your <br />business in the AI Age
+        Transform your <br />business into <span className="text-purple-400">the AI Age</span>
       </h1>
       
       {/* Subtitle */}
