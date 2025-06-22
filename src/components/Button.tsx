@@ -40,7 +40,9 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       <button
         className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
-        style={variant === "primary" ? { background: '#9b87f5' } : undefined}
+        style={variant === "primary" ? { 
+          background: 'linear-gradient(135deg, #9b87f5 0%, #8b5cf6 100%)'
+        } : undefined}
         {...props}
       >
         {icon && iconPosition === "left" && <span className="inline-flex">{icon}</span>}
