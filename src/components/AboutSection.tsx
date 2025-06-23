@@ -93,8 +93,8 @@ const AboutSection: React.FC = () => {
               <div className="reveal order-2 lg:order-2">
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl group">
                   <img 
-                    src="/lovable-uploads/e4d86e3b-a5ee-45a1-95fa-b2999ae75a73.png"
-                    alt="Githaf Consulting Team - Professional consultants and specialists"
+                    src="/lovable-uploads/1d318012-f45a-4293-b5b4-5b767800971c.png"
+                    alt="Githaf Consulting - Business professionals in modern cityscape representing digital transformation and AI consulting services"
                     className="w-full h-[400px] md:h-[500px] object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-tr from-purple-600/20 via-transparent to-pink-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
