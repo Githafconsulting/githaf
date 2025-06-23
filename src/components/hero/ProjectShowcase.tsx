@@ -19,45 +19,69 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ isVisible }) => {
   const projects: Project[] = [
     {
       id: 1,
-      image: '/lovable-uploads/95c0b58a-299d-4749-bf37-535f705baa55.png',
-      title: 'Sonique Entertainment',
-      category: 'Event Management Platform'
+      image: '/project-screenshots/trading-strategy.jpg',
+      title: 'Trading Strategy Platform',
+      category: 'Financial Analytics & Trading'
     },
     {
       id: 2,
-      image: '/lovable-uploads/707b6497-f40c-4fdb-89b1-f97452893fd8.png',
-      title: 'PSK Services',
-      category: 'Event Solutions Website'
+      image: '/project-screenshots/bank-ops.jpg',
+      title: 'Bank Operations Dashboard',
+      category: 'Banking & Financial Services'
     },
     {
       id: 3,
-      image: '/lovable-uploads/01ecc33f-6209-44b5-ba0d-96f196827673.png',
-      title: 'Crypto Dashboard',
-      category: 'Financial Analytics Platform'
+      image: '/project-screenshots/pocket-pharmacy.jpg',
+      title: 'Pocket Pharmacy',
+      category: 'Healthcare & E-commerce'
     },
     {
       id: 4,
-      image: '/lovable-uploads/3702ad0e-6b99-4327-966f-bdb71cad69e8.png',
-      title: 'Currency Circle',
-      category: 'Digital Currency Platform'
+      image: '/project-screenshots/lead-beacon.jpg',
+      title: 'Lead Beacon',
+      category: 'Marketing & Analytics Platform'
     },
     {
       id: 5,
-      image: '/lovable-uploads/e7cfce29-ae85-4532-94e7-f12401eb962a.png',
-      title: 'Coihues Guide',
-      category: 'Travel & Tourism Platform'
+      image: '/project-screenshots/agent-genesis.jpg',
+      title: 'Agent Genesis',
+      category: 'AI Agent Creation Platform'
     },
     {
       id: 6,
-      image: '/lovable-uploads/e67c1669-69e5-4ef0-8182-12f0439e2e59.png',
-      title: 'AI Presentations',
-      category: 'AI-Powered Design Tool'
+      image: '/project-screenshots/africas-estate-hub.jpg',
+      title: 'Africas Estate Hub',
+      category: 'Real Estate Marketplace'
     },
     {
       id: 7,
-      image: '/lovable-uploads/3cb4d59c-52f9-4794-a4d6-0e6b4a612bc8.png',
-      title: 'Banking Dashboard',
-      category: 'Financial Management System'
+      image: '/project-screenshots/digital-roadmap-studio.jpg',
+      title: 'Digital Roadmap Studio',
+      category: 'Business Strategy & Planning'
+    },
+    {
+      id: 8,
+      image: '/project-screenshots/streaming-platform-africa.jpg',
+      title: 'Streaming Platform Africa',
+      category: 'Media & Entertainment'
+    },
+    {
+      id: 9,
+      image: '/lovable-uploads/bef70640-914a-4488-b5e4-11fb224be0d4.png',
+      title: 'WeCare',
+      category: 'Property Maintenance Services'
+    },
+    {
+      id: 10,
+      image: '/lovable-uploads/0bcc5122-64f0-4d53-bd52-e65ad96598c9.png',
+      title: 'SDLPKB',
+      category: 'Home Improvement Services'
+    },
+    {
+      id: 11,
+      image: '/project-screenshots/demain-ai.jpg',
+      title: 'Demain AI',
+      category: 'AI-Powered Business Solutions'
     }
   ];
 
