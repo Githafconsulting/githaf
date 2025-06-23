@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import ProjectNavigation from './ProjectNavigation';
 
@@ -18,63 +19,63 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ isVisible }) => {
   const projects: Project[] = [
     {
       id: 1,
-      image: '/lovable-uploads/c776d86e-8d7b-401e-a57a-8b2e92ded1b0.png',
-      title: 'Agent Genesis',
-      category: 'AI Agent Creation Platform'
+      image: '/lovable-uploads/8d538f19-921b-41a0-8e7c-412f51aa2116.png',
+      title: 'DemainAI',
+      category: 'AI Innovation Leaders'
     },
     {
       id: 2,
-      image: '/lovable-uploads/f03e6649-06cb-48ad-9a43-c1470f147991.png',
-      title: 'Pocket Pharmacy',
-      category: 'Healthcare & E-commerce'
+      image: '/lovable-uploads/2d4633c8-cede-4d1d-a288-5661c9282565.png',
+      title: 'Bank Operations Dashboard',
+      category: 'Banking & Financial Services'
     },
     {
       id: 3,
-      image: '/lovable-uploads/bef70640-914a-4488-b5e4-11fb224be0d4.png',
-      title: 'WeCare',
-      category: 'Property Maintenance Services'
-    },
-    {
-      id: 4,
-      image: '/lovable-uploads/0bcc5122-64f0-4d53-bd52-e65ad96598c9.png',
+      image: '/lovable-uploads/293dd8c8-9546-4df6-a6e2-3fac172508e6.png',
       title: 'SDLPKB',
       category: 'Home Improvement Services'
     },
     {
-      id: 5,
-      image: '/lovable-uploads/fb9dc802-a6df-4e9d-8526-46abd52d5d37.png',
-      title: 'Africas Estate Hub',
-      category: 'Real Estate Marketplace'
-    },
-    {
-      id: 6,
-      image: '/lovable-uploads/607a85ac-5434-4124-99ce-c5d104d31821.png',
-      title: 'Elite Estates',
-      category: 'AI-Powered Real Estate Platform'
-    },
-    {
-      id: 7,
-      image: '/lovable-uploads/4140db43-1bf6-4494-9568-9aed7ebcf16d.png',
+      id: 4,
+      image: '/lovable-uploads/0d42a799-2285-4ee6-b20e-d701a3fe86ce.png',
       title: 'Melody Tribe',
       category: 'Music Streaming Platform'
     },
     {
+      id: 5,
+      image: '/lovable-uploads/4d47ee1d-8f3a-405d-abc5-d9dc546a29dc.png',
+      title: 'AI Consulting Dashboard',
+      category: 'Lean AI Consulting Platform'
+    },
+    {
+      id: 6,
+      image: '/lovable-uploads/a53d1cc7-2a21-4072-a3d4-e51319ade912.png',
+      title: 'Africas Estate Hub',
+      category: 'Real Estate Marketplace'
+    },
+    {
+      id: 7,
+      image: '/lovable-uploads/39580bc9-d2fd-46ed-b121-96cb157ea2bc.png',
+      title: 'Agent Genesis',
+      category: 'AI Agent Creation Platform'
+    },
+    {
       id: 8,
-      image: '/lovable-uploads/04920204-a50e-4d5c-86bb-db3f605cd8cb.png',
-      title: 'Future Village',
-      category: 'Learning Management System'
+      image: '/lovable-uploads/9499e01e-2e99-4f5f-ade3-a595c762b516.png',
+      title: 'Lead Beacon',
+      category: 'Marketing & Analytics Platform'
     },
     {
       id: 9,
-      image: '/lovable-uploads/3f7c100f-ba5d-46bf-bd28-d8dff9a07bce.png',
-      title: 'DAMAC Academy',
-      category: 'Sports & Fitness Training'
+      image: '/lovable-uploads/3f82ba5e-b98c-46ae-97de-68dcd84707f7.png',
+      title: 'Pocket Pharmacy',
+      category: 'Healthcare & E-commerce'
     },
     {
       id: 10,
-      image: '/lovable-uploads/04e6e7be-4e73-49f2-94b2-f8a6c1334616.png',
-      title: 'LuxeSkincare',
-      category: 'Luxury E-commerce Platform'
+      image: '/lovable-uploads/d14a6097-0ac8-49e7-b11c-893b01d39d11.png',
+      title: 'Tradewin',
+      category: 'Trading Strategy Platform'
     }
   ];
 
