@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { navLinks } from './types';
 import Button from '../Button';
 import { Separator } from '@/components/ui/separator';
@@ -24,26 +25,42 @@ const MobileNavigation: React.FC<MobileNavigationProps> = ({
       <div className="fixed top-16 left-0 right-0 bg-slate-900/95 backdrop-blur-lg border-b border-slate-700/50">
         <div className="container mx-auto px-4 py-6 space-y-4">
           {/* Menu Links */}
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.path}
-              onClick={(e) => {
-                if (link.path.startsWith('/#')) {
-                  const sectionId = link.path.substring(2);
-                  const sectionMappings: { [key: string]: string } = {
-                    'our-approach': 'approach'
-                  };
-                  const targetId = sectionMappings[sectionId] || sectionId;
-                  scrollToSection(targetId, e);
-                }
-                closeMenu();
-              }}
-              className="block px-4 py-3 font-medium text-white hover:bg-white/10 rounded-lg transition-all duration-300"
-            >
-              {link.name}
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            // Handle blog link separately as it goes to a different page
+            if (link.name === 'Blog') {
+              return (
+                <Link
+                  key={link.name}
+                  to={link.path}
+                  onClick={closeMenu}
+                  className="block px-4 py-3 font-medium text-white hover:bg-white/10 rounded-lg transition-all duration-300"
+                >
+                  {link.name}
+                </Link>
+              );
+            }
+            
+            return (
+              <a
+                key={link.name}
+                href={link.path}
+                onClick={(e) => {
+                  if (link.path.startsWith('/#')) {
+                    const sectionId = link.path.substring(2);
+                    const sectionMappings: { [key: string]: string } = {
+                      'our-approach': 'approach'
+                    };
+                    const targetId = sectionMappings[sectionId] || sectionId;
+                    scrollToSection(targetId, e);
+                  }
+                  closeMenu();
+                }}
+                className="block px-4 py-3 font-medium text-white hover:bg-white/10 rounded-lg transition-all duration-300"
+              >
+                {link.name}
+              </a>
+            );
+          })}
           
           <Separator className="bg-slate-600" />
           
