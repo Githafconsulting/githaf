@@ -105,7 +105,7 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ isVisible }) => {
             <img 
               src={projects[currentProject].image} 
               alt={projects[currentProject].title}
-              className="w-full h-full object-cover transition-opacity duration-700"
+              className="w-full h-full object-contain bg-gray-900 transition-opacity duration-700"
             />
             
             {/* Project Info Overlay */}
