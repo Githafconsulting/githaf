@@ -16,9 +16,9 @@ const navLinks = [
 ];
 
 const socialLinks = [
-  { name: 'LinkedIn', icon: 'linkedin', url: '#' },
-  { name: 'Twitter', icon: 'twitter', url: '#' },
-  { name: 'Instagram', icon: 'instagram', url: '#' },
+  { name: 'LinkedIn', icon: 'linkedin', url: 'https://linkedin.com/company/githaf-consulting' },
+  { name: 'Twitter', icon: 'twitter', url: 'https://twitter.com/githafconsulting' },
+  { name: 'Instagram', icon: 'instagram', url: 'https://instagram.com/githafconsulting' },
 ];
 
 const Navbar: React.FC = () => {
@@ -85,8 +85,7 @@ const Navbar: React.FC = () => {
                       if (link.path.startsWith('/#')) {
                         const sectionId = link.path.substring(2);
                         const sectionMappings: { [key: string]: string } = {
-                          'our-approach': 'approach',
-                          'blog': 'blog'
+                          'our-approach': 'approach'
                         };
                         const targetId = sectionMappings[sectionId] || sectionId;
                         scrollToSection(targetId, e);
@@ -107,9 +106,12 @@ const Navbar: React.FC = () => {
                   <a
                     key={social.name}
                     href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="p-2 text-slate-400 hover:text-white hover:bg-white/5 rounded-lg transition-all duration-300"
                     aria-label={social.name}
                   >
+                    
                     <div className="w-4 h-4">
                       {social.icon === 'linkedin' && (
                         <svg viewBox="0 0 24 24" fill="currentColor">
@@ -133,7 +135,7 @@ const Navbar: React.FC = () => {
 
               <Separator orientation="vertical" className="h-6 bg-slate-600" />
 
-              {/* Contact Button - Updated text */}
+              {/* Contact Button */}
               <a href="#contact">
                 <Button variant="primary" size="sm">
                   Get Free Consultation
@@ -171,8 +173,7 @@ const Navbar: React.FC = () => {
                     if (link.path.startsWith('/#')) {
                       const sectionId = link.path.substring(2);
                       const sectionMappings: { [key: string]: string } = {
-                        'our-approach': 'approach',
-                        'blog': 'blog'
+                        'our-approach': 'approach'
                       };
                       const targetId = sectionMappings[sectionId] || sectionId;
                       scrollToSection(targetId, e);
@@ -193,9 +194,12 @@ const Navbar: React.FC = () => {
                   <a
                     key={social.name}
                     href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="p-3 text-slate-400 hover:text-white hover:bg-white/5 rounded-lg transition-all duration-300"
                     aria-label={social.name}
                   >
+                    
                     <div className="w-5 h-5">
                       {social.icon === 'linkedin' && (
                         <svg viewBox="0 0 24 24" fill="currentColor">
@@ -219,7 +223,7 @@ const Navbar: React.FC = () => {
               
               <Separator className="bg-slate-600" />
               
-              {/* Contact Button - Updated text */}
+              {/* Contact Button */}
               <div className="px-4">
                 <a href="#contact" onClick={closeMenu}>
                   <Button variant="primary" className="w-full">

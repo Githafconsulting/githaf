@@ -9,7 +9,7 @@ const blogPosts = [
     excerpt: "Discover how artificial intelligence is revolutionizing business processes and driving unprecedented efficiency gains across industries.",
     author: "Githaf Team",
     date: "December 15, 2024",
-    image: "/lovable-uploads/agi.png",
+    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=300&fit=crop&q=80",
     category: "AI Strategy"
   },
   {
@@ -18,7 +18,7 @@ const blogPosts = [
     excerpt: "Explore the latest trends and technologies that will shape digital transformation strategies in the coming year.",
     author: "Githaf Team",
     date: "December 10, 2024",
-    image: "/lovable-uploads/3f7c100f-ba5d-46bf-bd28-d8dff9a07bce.png",
+    image: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=400&h=300&fit=crop&q=80",
     category: "Digital Innovation"
   },
   {
@@ -27,14 +27,14 @@ const blogPosts = [
     excerpt: "Learn the essential steps and best practices for implementing AI solutions that grow with your business needs.",
     author: "Githaf Team",
     date: "December 5, 2024",
-    image: "/lovable-uploads/4140db43-1bf6-4494-9568-9aed7ebcf16d.png",
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=300&fit=crop&q=80",
     category: "Implementation"
   }
 ];
 
 const BlogSection: React.FC = () => {
   return (
-    <section className="py-16 md:py-24 relative overflow-hidden">
+    <section id="blog" className="py-16 md:py-24 relative overflow-hidden">
       {/* Background matching AI adoption section */}
       <div className="absolute inset-0 -z-10">
         <div className="w-full h-full bg-gradient-to-b from-slate-900 via-gray-900 to-slate-800"></div>
@@ -77,6 +77,7 @@ const BlogSection: React.FC = () => {
                   key={post.id}
                   className="reveal group cursor-pointer"
                   style={{ animationDelay: `${index * 150}ms` }}
+                  onClick={() => window.open('#', '_blank')}
                 >
                   <div className="bg-slate-800/50 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden hover:border-purple-500/30 transition-all duration-300 hover:transform hover:scale-105 h-full flex flex-col">
                     {/* Image */}
@@ -130,13 +131,15 @@ const BlogSection: React.FC = () => {
 
             {/* View All Button */}
             <div className="text-center reveal">
-              <button 
-                className="inline-flex items-center gap-2 px-8 py-4 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-purple-500/25"
-                style={{ backgroundColor: '#9b87f5' }}
-              >
-                View All Articles
-                <ArrowRight size={20} />
-              </button>
+              <a href="#contact">
+                <button 
+                  className="inline-flex items-center gap-2 px-8 py-4 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-purple-500/25"
+                  style={{ backgroundColor: '#9b87f5' }}
+                >
+                  Contact Us for More Insights
+                  <ArrowRight size={20} />
+                </button>
+              </a>
             </div>
           </div>
         </div>
