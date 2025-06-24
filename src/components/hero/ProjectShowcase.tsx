@@ -100,20 +100,20 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ isVisible }) => {
       <div className="relative">
         {/* Main Project Display */}
         <div className="relative">
-          {/* Main Image Container */}
-          <div className="relative w-full h-96 md:h-[28rem] rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-gray-900 to-gray-800">
+          {/* Main Image Container - Redesigned for better screenshot visibility */}
+          <div className="relative w-full h-[32rem] md:h-[36rem] lg:h-[40rem] rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-gray-900 to-gray-800">
             <img 
               src={projects[currentProject].image} 
               alt={projects[currentProject].title}
-              className="w-full h-full object-cover transition-opacity duration-700"
+              className="w-full h-full object-contain bg-white transition-opacity duration-700"
             />
             
-            {/* Project Info Overlay */}
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/95 via-black/75 to-transparent p-6 md:p-8">
-              <h4 className="text-white font-semibold text-lg md:text-xl mb-2 transform transition-all duration-300 leading-tight">
+            {/* Project Info Overlay - Repositioned to bottom with better spacing */}
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/95 via-black/80 to-transparent p-4 md:p-6">
+              <h4 className="text-white font-semibold text-base md:text-lg lg:text-xl mb-1 md:mb-2 transform transition-all duration-300 leading-tight">
                 {projects[currentProject].title}
               </h4>
-              <p className="text-gray-300 text-sm md:text-base">
+              <p className="text-gray-300 text-xs md:text-sm lg:text-base">
                 {projects[currentProject].category}
               </p>
             </div>
@@ -122,15 +122,15 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ isVisible }) => {
           </div>
         </div>
 
-        {/* Simple Dot Indicators */}
-        <div className="flex justify-center mt-6 space-x-2">
+        {/* Dot Indicators - Reduced spacing for better mobile view */}
+        <div className="flex justify-center mt-4 md:mt-6 space-x-2">
           {projects.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentProject(index)}
               className={`w-2 h-2 rounded-full transition-all duration-300 ${
                 index === currentProject 
-                  ? 'bg-purple-400 w-8' 
+                  ? 'bg-purple-400 w-6 md:w-8' 
                   : 'bg-white/30 hover:bg-white/50'
               }`}
             />
