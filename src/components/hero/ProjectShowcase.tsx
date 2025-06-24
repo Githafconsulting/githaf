@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import ProjectNavigation from './ProjectNavigation';
 
@@ -100,8 +99,8 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ isVisible }) => {
       <div className="relative">
         {/* Main Project Display */}
         <div className="relative">
-          {/* Main Image Container - Reduced height while maintaining square ratio */}
-          <div className="relative w-full h-[20rem] md:h-[24rem] lg:h-[28rem] rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-gray-900 to-gray-800">
+          {/* Main Image Container - Further reduced height */}
+          <div className="relative w-full h-[16rem] md:h-[18rem] lg:h-[20rem] rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-gray-900 to-gray-800">
             <img 
               src={projects[currentProject].image} 
               alt={projects[currentProject].title}
