@@ -100,12 +100,12 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ isVisible }) => {
       <div className="relative">
         {/* Main Project Display */}
         <div className="relative">
-          {/* Main Image Container - Increased height and changed to cover */}
-          <div className="relative w-full h-[18rem] md:h-[22rem] lg:h-[24rem] rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-gray-900 to-gray-800">
+          {/* Main Image Container - Optimized for full image display */}
+          <div className="relative w-full h-[20rem] md:h-[24rem] lg:h-[28rem] rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-gray-900 to-gray-800">
             <img 
               src={projects[currentProject].image} 
               alt={projects[currentProject].title}
-              className="w-full h-full object-cover transition-opacity duration-700"
+              className="w-full h-full object-cover object-top transition-opacity duration-700"
             />
             
             {/* Project Info Overlay - Repositioned to bottom with better spacing */}

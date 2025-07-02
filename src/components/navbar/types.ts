@@ -1,3 +1,4 @@
+
 export const navLinks = [
   { name: 'Home', path: '/' },
   { name: 'Services', path: '/#services' },
@@ -9,8 +10,6 @@ export const navLinks = [
 
 export const socialLinks = [
   { name: 'LinkedIn', icon: 'linkedin', url: 'https://linkedin.com/company/githaf-consulting' },
-  { name: 'Twitter', icon: 'twitter', url: 'https://twitter.com/githafconsulting' },
-  { name: 'Instagram', icon: 'instagram', url: 'https://instagram.com/githafconsulting' },
 ];
 
 export interface NavLink {

@@ -9,7 +9,7 @@ import { generateResponse } from './responseGenerator';
 
 const ChatBotDialog: React.FC<ChatBotDialogProps> = ({ open, onOpenChange }) => {
   const [messages, setMessages] = useState<Message[]>([
-    { id: 1, content: "Hi there! 👋 I'm your Githaf AI assistant. Would you like to explore how AI can transform your business operations, enhance customer experiences, or optimize your processes?", isBot: true }
+    { id: 1, content: "Hi there! 👋 I'm Githaf Chat, your AI assistant. Would you like to explore how AI can transform your business operations, enhance customer experiences, or optimize your processes?", isBot: true }
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -67,7 +67,7 @@ const ChatBotDialog: React.FC<ChatBotDialogProps> = ({ open, onOpenChange }) => 
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>Githaf AI Assistant</DialogTitle>
+          <DialogTitle>Githaf Chat</DialogTitle>
           <DialogDescription>
             How can we help transform your business with artificial intelligence?
           </DialogDescription>

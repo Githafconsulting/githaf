@@ -73,11 +73,15 @@ const MobileNavigation: React.FC<MobileNavigationProps> = ({
           
           {/* Contact Button */}
           <div className="px-4">
-            <a href="#contact" onClick={closeMenu}>
-              <Button variant="primary" className="w-full">
-                Get Free Consultation
-              </Button>
-            </a>
+            <button 
+              onClick={(e) => {
+                scrollToSection('contact', e);
+                closeMenu();
+              }}
+              className="w-full px-4 py-2 text-sm font-medium bg-purple-600 text-white hover:bg-purple-700 rounded-lg transition-all duration-300"
+            >
+              Get Free Consultation
+            </button>
           </div>
         </div>
       </div>

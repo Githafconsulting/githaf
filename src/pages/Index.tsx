@@ -5,6 +5,7 @@ import Hero from '@/components/Hero';
 import ServicesSection from '@/components/services/ServicesSection';
 import OurApproachSection from '@/components/OurApproachSection';
 import AIAdoptionSection from '@/components/AIAdoptionSection';
+import AIPillarsSection from '@/components/AIPillarsSection';
 import AboutSection from '@/components/AboutSection';
 import ContactSection from '@/components/ContactSection';
 import CompanyTicker from '@/components/CompanyTicker';
@@ -19,6 +20,7 @@ const Index = () => {
       <article>
         <Hero />
         <AIAdoptionSection />
+        <AIPillarsSection />
         <CompanyTicker />
         <div className="space-y-0">
           <ServicesSection />
