@@ -106,17 +106,23 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ isVisible }) => {
               src={projects[currentProject].image} 
               alt={projects[currentProject].title}
               className="w-full h-full object-contain object-center bg-white transition-opacity duration-700"
-              style={{ objectPosition: 'center top' }}
+              style={{ objectPosition: 'center center' }}
             />
             
-            {/* Project Info Overlay - Repositioned to bottom with better spacing */}
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/95 via-black/80 to-transparent p-4 md:p-6">
-              <h4 className="text-white font-semibold text-base md:text-lg lg:text-xl mb-1 md:mb-2 transform transition-all duration-300 leading-tight">
-                {projects[currentProject].title}
-              </h4>
-              <p className="text-gray-300 text-xs md:text-sm lg:text-base">
-                {projects[currentProject].category}
-              </p>
+            {/* Enhanced Project Info Overlay with larger gradient matching website background */}
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900 via-slate-900/95 to-slate-900/80 p-4 md:p-6" 
+                 style={{
+                   background: 'linear-gradient(to top, #0f172a 0%, #0f172a 40%, #1e293b 70%, rgba(30, 41, 59, 0.8) 90%, transparent 100%)',
+                   height: '40%'
+                 }}>
+              <div className="absolute bottom-4 md:bottom-6 left-4 md:left-6 right-4 md:right-6">
+                <h4 className="text-white font-semibold text-base md:text-lg lg:text-xl mb-1 md:mb-2 transform transition-all duration-300 leading-tight">
+                  {projects[currentProject].title}
+                </h4>
+                <p className="text-gray-300 text-xs md:text-sm lg:text-base">
+                  {projects[currentProject].category}
+                </p>
+              </div>
             </div>
             
             <ProjectNavigation onPrevious={prevProject} onNext={nextProject} />
