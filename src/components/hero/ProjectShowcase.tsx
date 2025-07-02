@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import ProjectNavigation from './ProjectNavigation';
 
@@ -99,28 +100,23 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ isVisible }) => {
       <div className="relative">
         {/* Main Project Display */}
         <div className="relative">
-          {/* Main Image Container - Using object-cover to reduce white space */}
+          {/* Main Image Container - Better positioning to reduce top white space */}
           <div className="relative w-full h-[22rem] md:h-[26rem] lg:h-[30rem] rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-gray-900 to-gray-800">
             <img 
               src={projects[currentProject].image} 
               alt={projects[currentProject].title}
-              className="w-full h-full object-cover object-top bg-white transition-opacity duration-700"
+              className="w-full h-full object-contain object-center bg-white transition-opacity duration-700"
+              style={{ objectPosition: 'center top' }}
             />
             
-            {/* Enhanced Project Info Overlay with larger gradient matching website background */}
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900 via-slate-900/95 to-slate-900/80 p-4 md:p-6" 
-                 style={{
-                   background: 'linear-gradient(to top, #0f172a 0%, #0f172a 40%, #1e293b 70%, rgba(30, 41, 59, 0.8) 90%, transparent 100%)',
-                   height: '40%'
-                 }}>
-              <div className="absolute bottom-4 md:bottom-6 left-4 md:left-6 right-4 md:right-6">
-                <h4 className="text-white font-semibold text-base md:text-lg lg:text-xl mb-1 md:mb-2 transform transition-all duration-300 leading-tight">
-                  {projects[currentProject].title}
-                </h4>
-                <p className="text-gray-300 text-xs md:text-sm lg:text-base">
-                  {projects[currentProject].category}
-                </p>
-              </div>
+            {/* Project Info Overlay - Repositioned to bottom with better spacing */}
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/95 via-black/80 to-transparent p-4 md:p-6">
+              <h4 className="text-white font-semibold text-base md:text-lg lg:text-xl mb-1 md:mb-2 transform transition-all duration-300 leading-tight">
+                {projects[currentProject].title}
+              </h4>
+              <p className="text-gray-300 text-xs md:text-sm lg:text-base">
+                {projects[currentProject].category}
+              </p>
             </div>
             
             <ProjectNavigation onPrevious={prevProject} onNext={nextProject} />
