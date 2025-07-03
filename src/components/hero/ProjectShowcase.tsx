@@ -19,63 +19,63 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ isVisible }) => {
   const projects: Project[] = [
     {
       id: 1,
-      image: '/lovable-uploads/8d538f19-921b-41a0-8e7c-412f51aa2116.png',
-      title: 'DemainAI',
-      category: 'AI Innovation Leaders'
+      image: '/lovable-uploads/ffd11f5f-f408-47e0-9730-d74217cf46f3.png',
+      title: 'Tradewin',
+      category: 'Trading Strategy Platform'
     },
     {
       id: 2,
-      image: '/lovable-uploads/2d4633c8-cede-4d1d-a288-5661c9282565.png',
+      image: '/lovable-uploads/7a9c3c84-f7ef-474c-8dc0-81846fd3398c.png',
       title: 'Bank Operations Dashboard',
       category: 'Banking & Financial Services'
     },
     {
       id: 3,
-      image: '/lovable-uploads/293dd8c8-9546-4df6-a6e2-3fac172508e6.png',
+      image: '/lovable-uploads/eb10794a-36a4-4458-bf89-641fa04be4a7.png',
       title: 'SDLPKB',
       category: 'Home Improvement Services'
     },
     {
       id: 4,
-      image: '/lovable-uploads/0d42a799-2285-4ee6-b20e-d701a3fe86ce.png',
-      title: 'Melody Tribe',
-      category: 'Music Streaming Platform'
+      image: '/lovable-uploads/a4bf1f91-4fca-47d9-b8b2-ffdef7fbaa65.png',
+      title: 'DemainAI',
+      category: 'AI Innovation Leaders'
     },
     {
       id: 5,
-      image: '/lovable-uploads/4d47ee1d-8f3a-405d-abc5-d9dc546a29dc.png',
-      title: 'AI Consulting Dashboard',
-      category: 'Lean AI Consulting Platform'
+      image: '/lovable-uploads/d8d102f7-5b7f-44b6-a92e-ed0bcac18041.png',
+      title: 'Currency Circle',
+      category: 'Financial Technology Platform'
     },
     {
       id: 6,
-      image: '/lovable-uploads/a53d1cc7-2a21-4072-a3d4-e51319ade912.png',
-      title: 'Africas Estate Hub',
-      category: 'Real Estate Marketplace'
+      image: '/lovable-uploads/ac112eca-3268-45b0-8567-9b3fa6b973b1.png',
+      title: 'Developer Village Academy',
+      category: 'Education & Learning Platform'
     },
     {
       id: 7,
-      image: '/lovable-uploads/39580bc9-d2fd-46ed-b121-96cb157ea2bc.png',
-      title: 'Agent Genesis',
-      category: 'AI Agent Creation Platform'
+      image: '/lovable-uploads/7176a88e-1757-4e34-bce1-f9ccc7f9aaee.png',
+      title: 'LuxeSkincare',
+      category: 'Beauty & E-commerce'
     },
     {
       id: 8,
-      image: '/lovable-uploads/9499e01e-2e99-4f5f-ade3-a595c762b516.png',
-      title: 'Lead Beacon',
-      category: 'Marketing & Analytics Platform'
+      image: '/lovable-uploads/23f9a4ef-e7c8-4ad4-bf9e-72f9091b4fdb.png',
+      title: 'Elite Estates',
+      category: 'Real Estate Marketplace'
     },
     {
       id: 9,
-      image: '/lovable-uploads/3f82ba5e-b98c-46ae-97de-68dcd84707f7.png',
-      title: 'Pocket Pharmacy',
-      category: 'Healthcare & E-commerce'
+      image: '/lovable-uploads/4c97491c-993f-4aa6-8254-dca718b74d3e.png',
+      title: 'SDLPKB Home Services',
+      category: 'Professional Home Services'
     },
     {
       id: 10,
-      image: '/lovable-uploads/d14a6097-0ac8-49e7-b11c-893b01d39d11.png',
-      title: 'Tradewin',
-      category: 'Trading Strategy Platform'
+      image: '/lovable-uploads/83185f2a-43fa-4005-84f3-804d59379219.png',
+      title: 'Lead Beacon',
+      category: 'Marketing & Analytics Platform'
     }
   ];
 
@@ -106,11 +106,11 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ isVisible }) => {
               src={projects[currentProject].image} 
               alt={projects[currentProject].title}
               className="w-full h-full object-contain object-center bg-white transition-opacity duration-700"
-              style={{ objectPosition: 'center top' }}
+              style={{ objectPosition: 'center center' }}
             />
             
-            {/* Project Info Overlay - Repositioned to bottom with better spacing */}
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/95 via-black/80 to-transparent p-4 md:p-6">
+            {/* Project Info Overlay - Enhanced gradient with website background colors */}
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900 via-slate-800/90 to-transparent h-2/5 p-4 md:p-6 flex flex-col justify-end">
               <h4 className="text-white font-semibold text-base md:text-lg lg:text-xl mb-1 md:mb-2 transform transition-all duration-300 leading-tight">
                 {projects[currentProject].title}
               </h4>
