@@ -10,6 +10,7 @@ import AboutSection from '@/components/AboutSection';
 import ContactSection from '@/components/ContactSection';
 import CompanyTicker from '@/components/CompanyTicker';
 import BlogSection from '@/components/BlogSection';
+import FAQ from '@/components/FAQ';
 
 const Index = () => {
   return (
@@ -27,6 +28,7 @@ const Index = () => {
           <OurApproachSection />
           <AboutSection />
           <BlogSection />
+          <FAQ />
           <ContactSection />
         </div>
       </article>

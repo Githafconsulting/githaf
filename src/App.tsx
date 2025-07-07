@@ -12,6 +12,10 @@ import BlogDetail from "./pages/BlogDetail";
 import NotFound from "./pages/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
+import Pricing from "./pages/Pricing";
+import AIConsulting from "./pages/services/AIConsulting";
+import AISaaSProducts from "./pages/services/AISaaSProducts";
+import AIAgents from "./pages/services/AIAgents";
 import Favicon from "./components/Favicon";
 
 const queryClient = new QueryClient();
@@ -27,6 +31,10 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/booking" element={<Booking />} />
           <Route path="/web-development" element={<WebDevelopment />} />
+          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/services/ai-consulting" element={<AIConsulting />} />
+          <Route path="/services/ai-saas-products" element={<AISaaSProducts />} />
+          <Route path="/services/ai-agents" element={<AIAgents />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:id" element={<BlogDetail />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />

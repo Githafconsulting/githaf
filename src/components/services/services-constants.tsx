@@ -52,7 +52,7 @@ export const services = [
     description: 'Strategic AI consulting services to help businesses identify opportunities, develop AI roadmaps, and implement intelligent solutions that drive growth and operational efficiency.',
     icon: <Database className="w-8 h-8 text-primary" />,
     category: 'ai' as ServiceCategory,
-    path: null,
+    path: '/services/ai-consulting',
   },
   {
     id: 2,
@@ -60,7 +60,7 @@ export const services = [
     description: 'Ready-to-deploy AI software solutions that help businesses scale operations, automate processes, and gain competitive advantages with minimal setup and implementation time.',
     icon: <Rocket className="w-8 h-8 text-primary" />,
     category: 'ai' as ServiceCategory,
-    path: null,
+    path: '/services/ai-saas-products',
   },
   {
     id: 3,
@@ -68,7 +68,7 @@ export const services = [
     description: 'We Implement AI agents to automate repetitive tasks, streamline your business processes and keep your business running 247; such as chatbots, lead generation, customer service and voice AI agents, personal assistants, data analytics, social media manager and much more.',
     icon: <Bot className="w-8 h-8 text-primary" />,
     category: 'ai' as ServiceCategory,
-    path: null,
+    path: '/services/ai-agents',
   },
   {
     id: 4,

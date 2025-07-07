@@ -26,8 +26,8 @@ const MobileNavigation: React.FC<MobileNavigationProps> = ({
         <div className="container mx-auto px-4 py-6 space-y-4">
           {/* Menu Links */}
           {navLinks.map((link) => {
-            // Handle blog link separately as it goes to a different page
-            if (link.name === 'Blog') {
+            // Handle external page links separately
+            if (link.name === 'Blog' || link.name === 'Pricing') {
               return (
                 <Link
                   key={link.name}
