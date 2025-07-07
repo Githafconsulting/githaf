@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import Layout from '@/components/Layout';
 import { MessageSquare, TrendingUp, Cog, FileSearch, Users, BarChart3, Shield, Clock, Brain, Zap } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import IndustryFilter from '@/components/use-cases/IndustryFilter';
 
 const UseCases = () => {
+  const [selectedIndustry, setSelectedIndustry] = useState<string>('all');
   const useCases = [
     {
       icon: <MessageSquare className="w-8 h-8 text-blue-400" />,
@@ -99,6 +101,25 @@ const UseCases = () => {
     }
   ];
 
+  // Get unique industries from all use cases
+  const availableIndustries = useMemo(() => {
+    const industries = new Set<string>();
+    useCases.forEach(useCase => {
+      useCase.industries.forEach(industry => industries.add(industry));
+    });
+    return Array.from(industries).sort();
+  }, []);
+
+  // Filter use cases by selected industry
+  const filteredUseCases = useMemo(() => {
+    if (selectedIndustry === 'all') {
+      return useCases;
+    }
+    return useCases.filter(useCase => 
+      useCase.industries.includes(selectedIndustry)
+    );
+  }, [selectedIndustry]);
+
   const getComplexityColor = (complexity: string) => {
     switch (complexity) {
       case 'Low': return 'bg-green-600/20 text-green-300 border-green-500/30';
@@ -146,9 +167,24 @@ const UseCases = () => {
                   Real-world applications with proven ROI and measurable impact
                 </p>
               </div>
+
+              {/* Industry Filter */}
+              <IndustryFilter
+                selectedIndustry={selectedIndustry}
+                onIndustryChange={setSelectedIndustry}
+                availableIndustries={availableIndustries}
+              />
+
+              {/* Results Count */}
+              <div className="mb-6">
+                <p className="text-sm text-slate-400">
+                  Showing {filteredUseCases.length} use case{filteredUseCases.length !== 1 ? 's' : ''}
+                  {selectedIndustry !== 'all' && ` for ${selectedIndustry}`}
+                </p>
+              </div>
               
               <div className="grid lg:grid-cols-2 gap-8">
-                {useCases.map((useCase, index) => (
+                {filteredUseCases.map((useCase, index) => (
                   <Card key={index} className="bg-white/5 border-white/10 hover:bg-white/10 transition-all duration-300">
                     <CardHeader>
                       <div className="flex items-start justify-between mb-4">
