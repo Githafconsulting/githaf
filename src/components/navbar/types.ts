@@ -2,6 +2,8 @@
 export const navLinks = [
   { name: 'Home', path: '/' },
   { name: 'Services', path: '/#services' },
+  { name: 'Industries', path: '/industries' },
+  { name: 'Use Cases', path: '/use-cases' },
   { name: 'Our Approach', path: '/#our-approach' },
   { name: 'About', path: '/#about' },
   { name: 'Pricing', path: '/pricing' },

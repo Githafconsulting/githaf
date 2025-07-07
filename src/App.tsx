@@ -19,6 +19,8 @@ import AIAgents from "./pages/services/AIAgents";
 import AIForStartups from "./pages/services/AIForStartups";
 import AIConsultingLondon from "./pages/services/AIConsultingLondon";
 import AIROICalculator from "./pages/tools/AIROICalculator";
+import Industries from "./pages/Industries";
+import UseCases from "./pages/UseCases";
 import Favicon from "./components/Favicon";
 
 const queryClient = new QueryClient();
@@ -41,6 +43,8 @@ const App = () => (
           <Route path="/services/ai-for-startups" element={<AIForStartups />} />
           <Route path="/services/ai-consulting-london" element={<AIConsultingLondon />} />
           <Route path="/tools/ai-roi-calculator" element={<AIROICalculator />} />
+          <Route path="/industries" element={<Industries />} />
+          <Route path="/use-cases" element={<UseCases />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:id" element={<BlogDetail />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />

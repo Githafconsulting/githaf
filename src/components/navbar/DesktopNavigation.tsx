@@ -17,7 +17,7 @@ const DesktopNavigation: React.FC<DesktopNavigationProps> = ({ scrollToSection }
       <div className="flex items-center gap-1">
         {navLinks.map((link) => {
           // Handle external page links separately
-          if (link.name === 'Blog' || link.name === 'Pricing') {
+          if (link.name === 'Blog' || link.name === 'Pricing' || link.name === 'Industries' || link.name === 'Use Cases') {
             return (
               <Link
                 key={link.name}
