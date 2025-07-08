@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import { Link } from 'react-router-dom';
 import Layout from '@/components/Layout';
 import { MessageSquare, TrendingUp, Cog, FileSearch, Users, BarChart3, Shield, Clock, Brain, Zap } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -148,8 +149,8 @@ const UseCases = () => {
                 Discover 10 real-world AI applications that are transforming businesses today. From automation to intelligence, find the perfect AI solution for your needs.
               </p>
               
-              <Button size="lg" className="bg-purple-600 hover:bg-purple-700">
-                Explore Use Cases
+              <Button size="lg" className="bg-purple-600 hover:bg-purple-700" asChild>
+                <a href="#use-cases">Explore Use Cases</a>
               </Button>
             </div>
           </div>
@@ -250,11 +251,11 @@ const UseCases = () => {
                   Schedule a consultation to discuss which AI use cases are perfect for your organization
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button size="lg" className="bg-purple-600 hover:bg-purple-700">
-                    Book Strategy Session
+                  <Button size="lg" className="bg-purple-600 hover:bg-purple-700" asChild>
+                    <Link to="/booking">Book Strategy Session</Link>
                   </Button>
-                  <Button variant="outline" size="lg" className="border-purple-500 text-purple-300 hover:bg-purple-600/10">
-                    View Industries
+                  <Button variant="outline" size="lg" className="border-purple-500 text-purple-300 hover:bg-purple-600/10" asChild>
+                    <Link to="/industries">View Industries</Link>
                   </Button>
                 </div>
               </div>

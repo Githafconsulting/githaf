@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Layout from '@/components/Layout';
 import { Building2, Heart, Banknote, ShoppingCart, Factory, GraduationCap, Plane, Home, Truck, Gamepad2, Briefcase, Users, FileText, Shield, Zap } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -179,11 +180,11 @@ const Industries = () => {
                   Get a customized AI strategy consultation for your specific industry needs
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
-                    Book Industry Consultation
+                  <Button size="lg" className="bg-blue-600 hover:bg-blue-700" asChild>
+                    <Link to="/booking">Book Industry Consultation</Link>
                   </Button>
-                  <Button variant="outline" size="lg" className="border-blue-500 text-blue-300 hover:bg-blue-600/10">
-                    View Use Cases
+                  <Button variant="outline" size="lg" className="border-blue-500 text-blue-300 hover:bg-blue-600/10" asChild>
+                    <Link to="/use-cases">View Use Cases</Link>
                   </Button>
                 </div>
               </div>
