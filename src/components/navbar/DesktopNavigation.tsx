@@ -12,9 +12,9 @@ interface DesktopNavigationProps {
 
 const DesktopNavigation: React.FC<DesktopNavigationProps> = ({ scrollToSection }) => {
   return (
-    <div className="hidden lg:flex lg:items-center lg:gap-8">
+    <div className="hidden lg:flex lg:items-center lg:gap-6 xl:gap-8">
       {/* Menu Links */}
-      <div className="flex items-center gap-1">
+      <div className="flex items-center gap-0.5 xl:gap-1 whitespace-nowrap">
         {navLinks.map((link) => {
           // Handle external page links separately
           if (link.name === 'Blog' || link.name === 'Pricing' || link.name === 'Industries' || link.name === 'Use Cases') {
@@ -22,7 +22,7 @@ const DesktopNavigation: React.FC<DesktopNavigationProps> = ({ scrollToSection }
               <Link
                 key={link.name}
                 to={link.path}
-                className="px-4 py-2 text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-lg transition-all duration-300"
+                className="px-3 xl:px-4 py-2 text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-lg transition-all duration-300 whitespace-nowrap"
               >
                 {link.name}
               </Link>
@@ -43,7 +43,7 @@ const DesktopNavigation: React.FC<DesktopNavigationProps> = ({ scrollToSection }
                   scrollToSection(targetId, e);
                 }
               }}
-              className="px-4 py-2 text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-lg transition-all duration-300"
+              className="px-3 xl:px-4 py-2 text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-lg transition-all duration-300 whitespace-nowrap"
             >
               {link.name}
             </a>
