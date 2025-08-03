@@ -4,6 +4,7 @@ import Layout from '@/components/Layout';
 import Hero from '@/components/Hero';
 import ServicesSection from '@/components/services/ServicesSection';
 import OurApproachSection from '@/components/OurApproachSection';
+import IndustriesSection from '@/components/IndustriesSection';
 import AIAdoptionSection from '@/components/AIAdoptionSection';
 import AIPillarsSection from '@/components/AIPillarsSection';
 import AboutSection from '@/components/AboutSection';
@@ -26,6 +27,7 @@ const Index = () => {
         <div className="space-y-0">
           <ServicesSection />
           <OurApproachSection />
+          <IndustriesSection />
           <AboutSection />
           <BlogSection />
           <FAQ />
