@@ -1,5 +1,6 @@
 import React from 'react';
 import Layout from '@/components/Layout';
+import ConsultationForm from '@/components/ConsultationForm';
 import { Database, CheckCircle, ArrowRight, Bot, Brain, BarChart3 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -56,14 +57,15 @@ const AIConsulting = () => {
                 Transform your business with expert AI consulting. We help you identify opportunities, develop strategic roadmaps, and implement intelligent solutions that drive measurable results.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" className="bg-purple-600 hover:bg-purple-700">
-                  Get AI Consultation
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </Button>
-                <Button variant="outline" size="lg" className="border-purple-500 text-purple-300 hover:bg-purple-600/10">
-                  View Case Studies
-                </Button>
+              <div className="flex justify-center">
+                <ConsultationForm 
+                  triggerClassName="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 text-lg"
+                >
+                  <Button size="lg" className="bg-purple-600 hover:bg-purple-700">
+                    Get AI Consultation
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </Button>
+                </ConsultationForm>
               </div>
             </div>
           </div>
@@ -137,10 +139,12 @@ const AIConsulting = () => {
                 <p className="text-xl text-slate-300 mb-8">
                   Get a free AI assessment and discover how artificial intelligence can accelerate your growth
                 </p>
-                <Button size="lg" className="bg-purple-600 hover:bg-purple-700">
-                  Schedule Free Consultation
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </Button>
+                <ConsultationForm>
+                  <Button size="lg" className="bg-purple-600 hover:bg-purple-700">
+                    Schedule Free Consultation
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </Button>
+                </ConsultationForm>
               </div>
             </div>
           </div>
