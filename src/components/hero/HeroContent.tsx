@@ -23,7 +23,7 @@ const HeroContent: React.FC<HeroContentProps> = ({ isVisible }) => {
       
       {/* CTA Button */}
       <div className={`flex justify-center lg:justify-start opacity-0 transform translate-y-8 transition-all duration-1000 delay-600 ease-out ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
-        <a href="#services" className="group">
+        <a href="#contact" className="group">
           <button className={`inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 text-sm md:text-base font-semibold text-white rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg ${isMobile ? "h-12" : "h-14"}`}
             style={{
               background: '#9b87f5'

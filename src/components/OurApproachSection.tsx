@@ -69,7 +69,7 @@ const OurApproachSection: React.FC = () => {
             {/* Desktop Layout */}
             <div className="hidden lg:flex items-center justify-between">
               {approaches.map((approach, index) => (
-                <React.Fragment key={approach.id}>
+                <div key={approach.id} className="flex items-center">
                   {/* Approach Item */}
                   <div className="flex flex-col items-center text-center max-w-xs">
                     {/* Circular Icon - Made bigger */}
@@ -95,14 +95,14 @@ const OurApproachSection: React.FC = () => {
                       <ArrowRight size={28} className="text-gray-400" />
                     </div>
                   )}
-                </React.Fragment>
+                </div>
               ))}
             </div>
 
             {/* Mobile/Tablet Layout */}
             <div className="lg:hidden space-y-8">
               {approaches.map((approach, index) => (
-                <React.Fragment key={approach.id}>
+                <div key={approach.id}>
                   <div className="flex items-start space-x-6">
                     {/* Circular Icon - Made bigger for mobile too */}
                     <div className={`w-24 h-24 md:w-28 md:h-28 ${approach.bgColor} rounded-full flex items-center justify-center flex-shrink-0 shadow-lg`}>
@@ -131,7 +131,7 @@ const OurApproachSection: React.FC = () => {
                       <ArrowRight size={24} className="text-gray-400 rotate-90" />
                     </div>
                   )}
-                </React.Fragment>
+                </div>
               ))}
             </div>
           </div>
