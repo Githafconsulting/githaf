@@ -12,8 +12,16 @@ import ContactSection from '@/components/ContactSection';
 import CompanyTicker from '@/components/CompanyTicker';
 import BlogSection from '@/components/BlogSection';
 import FAQ from '@/components/FAQ';
+import ExitIntentPopup from '@/components/ExitIntentPopup';
+import { useExitIntent } from '@/hooks/useExitIntent';
 
 const Index = () => {
+  const { shouldShow, dismiss } = useExitIntent({
+    enabled: true,
+    delay: 5000, // Wait 5 seconds before exit intent can trigger
+    threshold: 10
+  });
+
   return (
     <Layout
       title="Githaf Consulting - AI and Digital Transformation Experts | Custom Business Solutions"
@@ -34,6 +42,11 @@ const Index = () => {
           <ContactSection />
         </div>
       </article>
+      
+      <ExitIntentPopup 
+        isOpen={shouldShow} 
+        onClose={dismiss} 
+      />
     </Layout>
   );
 };
