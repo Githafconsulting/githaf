@@ -69,12 +69,6 @@ const ExitIntentPopup: React.FC<ExitIntentPopupProps> = ({ isOpen, onClose }) =>
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-md bg-slate-900 border-slate-700 text-white">
         <DialogHeader className="relative">
-          <button
-            onClick={onClose}
-            className="absolute -top-2 -right-2 p-2 rounded-full bg-slate-800 hover:bg-slate-700 transition-colors"
-          >
-            <X className="w-4 h-4" />
-          </button>
           <div className="text-center mb-4">
             <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
               <Calendar className="w-8 h-8 text-white" />
@@ -165,19 +159,11 @@ const ExitIntentPopup: React.FC<ExitIntentPopupProps> = ({ isOpen, onClose }) =>
             />
           </div>
 
-          <div className="flex gap-3 pt-4">
-            <Button
-              type="button"
-              variant="outline"
-              onClick={onClose}
-              className="flex-1 border-slate-600 text-slate-300 hover:bg-slate-800"
-            >
-              Maybe Later
-            </Button>
+          <div className="flex pt-4">
             <Button
               type="submit"
               disabled={isSubmitting || !formData.name || !formData.email}
-              className="flex-1 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white"
+              className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white"
             >
               {isSubmitting ? (
                 "Sending..."

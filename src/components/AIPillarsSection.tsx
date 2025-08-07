@@ -40,13 +40,13 @@ const AIPillarsSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-slate-50">
+    <section className="py-16 md:py-24 relative">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
             The 3 Pillars of AI at Githaf
           </h2>
-          <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
             Our proven framework for delivering successful AI transformations that drive real business value
           </p>
         </div>
@@ -57,18 +57,18 @@ const AIPillarsSection: React.FC = () => {
             return (
               <div 
                 key={index}
-                className="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border border-slate-100 group hover:-translate-y-2"
+                className="enhanced-card p-8 transition-all duration-300 group hover:-translate-y-2 hover:bg-white/10"
               >
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-16 h-16 bg-gradient-to-br from-slate-700 to-slate-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                     <IconComponent className="w-8 h-8 text-white" />
                   </div>
                   
-                  <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-4">
+                  <h3 className="text-xl md:text-2xl font-bold text-white mb-4">
                     {pillar.title}
                   </h3>
                   
-                  <p className="text-slate-600 mb-6 leading-relaxed">
+                  <p className="text-gray-300 mb-6 leading-relaxed">
                     {pillar.description}
                   </p>
                   
@@ -76,9 +76,9 @@ const AIPillarsSection: React.FC = () => {
                     {pillar.features.map((feature, featureIndex) => (
                       <li 
                         key={featureIndex}
-                        className="flex items-center text-sm text-slate-700"
+                        className="flex items-center text-sm text-gray-400"
                       >
-                        <div className="w-2 h-2 bg-purple-500 rounded-full mr-3 flex-shrink-0"></div>
+                        <div className="w-2 h-2 bg-slate-500 rounded-full mr-3 flex-shrink-0"></div>
                         {feature}
                       </li>
                     ))}
