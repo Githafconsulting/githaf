@@ -98,12 +98,33 @@ ${formData.message || 'None provided'}
         start: eventStartTime,
         end: eventEndTime,
         location: 'Online Meeting',
-        attendees: [formData.email, 'gravitasitconsulting@gmail.com']
+        attendees: [formData.email, 'info@githafconsulting.com']
       });
       
-      // Send booking information directly via email API
+      // Send booking information via mailto
+      const subject = encodeURIComponent(`Consultation Booking from ${formData.name}`);
+      const body = encodeURIComponent(`
+New Booking Request
+
+Name: ${formData.name}
+Email: ${formData.email}
+Company: ${formData.company || 'N/A'}
+Phone: ${formData.phone || 'N/A'}
+Date: ${formattedDate}
+Time: ${formattedStartTime} - ${formattedEndTime}
+Consultation Type: ${consultationType?.name} (${consultationType?.duration} minutes)
+
+Additional Information:
+${formData.message || 'None provided'}
+
+Google Calendar Link: ${calendarLink}
+      `);
+      
+      // Open mailto link
+      window.open(`mailto:info@githafconsulting.com?subject=${subject}&body=${body}`);
+      
       const emailData = {
-        to: 'gravitasitconsulting@gmail.com',
+        to: 'info@githafconsulting.com',
         subject: `Consultation Booking from ${formData.name}`,
         body: `
           <h2>New Booking Request</h2>

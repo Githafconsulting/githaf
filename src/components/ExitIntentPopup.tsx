@@ -36,8 +36,14 @@ const ExitIntentPopup: React.FC<ExitIntentPopupProps> = ({ isOpen, onClose }) =>
     setIsSubmitting(true);
 
     try {
-      // Simulate form submission
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Send email using the mailto URI scheme
+      const subject = encodeURIComponent(`Free Consultation Request from ${formData.name}`);
+      const body = encodeURIComponent(
+        `Name: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company || 'N/A'}\nPhone: ${formData.phone || 'N/A'}\n\nProject Description:\n${formData.message || 'No details provided'}`
+      );
+      
+      // Open the mailto link
+      window.open(`mailto:info@githafconsulting.com?subject=${subject}&body=${body}`);
       
       toast({
         title: "Consultation Request Sent!",

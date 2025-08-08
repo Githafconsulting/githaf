@@ -43,9 +43,14 @@ const ConsultationForm: React.FC<ConsultationFormProps> = ({
     setIsSubmitting(true);
 
     try {
-      // Here you would typically send to your backend or email service
-      // For now, we'll simulate the email sending
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Send email using the mailto URI scheme
+      const subject = encodeURIComponent(`Consultation Request from ${formData.name}`);
+      const body = encodeURIComponent(
+        `Name: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company || 'N/A'}\nPhone: ${formData.phone || 'N/A'}\n\nProject Details:\n${formData.message}`
+      );
+      
+      // Open the mailto link
+      window.open(`mailto:info@githafconsulting.com?subject=${subject}&body=${body}`);
       
       toast({
         title: "Consultation Request Sent!",
