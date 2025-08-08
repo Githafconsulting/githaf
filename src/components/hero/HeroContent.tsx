@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
+import HeroFeatures from './HeroFeatures';
 
 interface HeroContentProps {
   isVisible: boolean;
@@ -33,6 +34,9 @@ const HeroContent: React.FC<HeroContentProps> = ({ isVisible }) => {
           </button>
         </a>
       </div>
+      
+      {/* Feature Cards */}
+      <HeroFeatures isVisible={isVisible} />
     </div>
   );
 };
