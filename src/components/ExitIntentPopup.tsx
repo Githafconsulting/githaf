@@ -159,7 +159,7 @@ const ExitIntentPopup: React.FC<ExitIntentPopupProps> = ({ isOpen, onClose }) =>
               name="message"
               value={formData.message}
               onChange={handleInputChange}
-              rows={3}
+              rows={5}
               className="bg-slate-800 border-slate-600 text-white placeholder:text-slate-400 resize-none"
               placeholder="Tell us about your AI needs..."
             />
