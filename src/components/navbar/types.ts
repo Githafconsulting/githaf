@@ -7,6 +7,7 @@ export const navLinks = [
   { name: 'Our Approach', path: '/#our-approach' },
   { name: 'About', path: '/#about' },
   { name: 'Blog', path: '/blog' },
+  { name: 'Pricing', path: '/pricing' },
   { name: 'Contact', path: '/#contact' },
 ];
 

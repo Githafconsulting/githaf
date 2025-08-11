@@ -16,8 +16,8 @@ const DesktopNavigation: React.FC<DesktopNavigationProps> = ({ scrollToSection }
       {/* Menu Links */}
       <div className="flex items-center gap-0.5 xl:gap-1 whitespace-nowrap">
         {navLinks.map((link) => {
-          // Handle external page links separately
-          if (link.name === 'Blog' || link.name === 'Pricing' || link.name === 'Industries' || link.name === 'Use Cases') {
+          // Handle all external page links (actual routes)
+          if (link.path.startsWith('/')) {
             return (
               <Link
                 key={link.name}
@@ -29,6 +29,7 @@ const DesktopNavigation: React.FC<DesktopNavigationProps> = ({ scrollToSection }
             );
           }
           
+          // Handle anchor links for same page sections
           return (
             <a
               key={link.name}
