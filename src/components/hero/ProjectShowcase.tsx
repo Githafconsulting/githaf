@@ -14,6 +14,7 @@ interface ProjectShowcaseProps {
 }
 
 const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ isVisible }) => {
+  console.log('ProjectShowcase rendering with isVisible:', isVisible);
   const [currentProject, setCurrentProject] = useState(0);
 
   const projects: Project[] = [
