@@ -25,8 +25,8 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ isVisible }) => {
     },
     {
       id: 2,
-      image: '/lovable-uploads/7a9c3c84-f7ef-474c-8dc0-81846fd3398c.png',
-      title: 'Bank Operations Dashboard',
+      image: '/lovable-uploads/d06adf3b-725e-400c-add4-5ceea41cd819.png',
+      title: 'AI Agent Banking Platform',
       category: 'Banking & Financial Services'
     },
     {
