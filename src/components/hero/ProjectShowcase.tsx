@@ -37,7 +37,7 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ isVisible }) => {
     },
     {
       id: 4,
-      image: '/lovable-uploads/a4bf1f91-4fca-47d9-b8b2-ffdef7fbaa65.png',
+      image: '/lovable-uploads/e58aca5c-abe4-45e0-9cc0-cbefd5db9229.png',
       title: 'DemainAI',
       category: 'AI Innovation Leaders'
     },
