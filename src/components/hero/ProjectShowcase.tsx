@@ -54,12 +54,6 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ isVisible }) => {
       category: 'Education & Learning Platform'
     },
     {
-      id: 7,
-      image: '/lovable-uploads/7176a88e-1757-4e34-bce1-f9ccc7f9aaee.png',
-      title: 'LuxeSkincare',
-      category: 'Beauty & E-commerce'
-    },
-    {
       id: 8,
       image: '/lovable-uploads/23f9a4ef-e7c8-4ad4-bf9e-72f9091b4fdb.png',
       title: 'Elite Estates',

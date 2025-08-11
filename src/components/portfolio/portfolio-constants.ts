@@ -20,15 +20,6 @@ export const categoryFilters: FilterOption[] = [
 
 export const projects: Project[] = [
   {
-    id: 1,
-    title: 'LuxeSkincare',
-    description: 'Luxury skincare e-commerce platform with scientifically-formulated products crafted from the world\'s finest ingredients',
-    type: 'website',
-    category: 'business',
-    image: '/lovable-uploads/04e6e7be-4e73-49f2-94b2-f8a6c1334616.png',
-    technologies: [],
-  },
-  {
     id: 2,
     title: 'SDLPKB',
     description: 'Bathrooms, Kitchens, Painting & Decorating Experts',
