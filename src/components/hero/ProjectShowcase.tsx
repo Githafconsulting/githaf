@@ -54,6 +54,12 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ isVisible }) => {
       category: 'Education & Learning Platform'
     },
     {
+      id: 7,
+      image: '/lovable-uploads/d2d0727b-5064-4e4b-b61b-8c90e076d55d.png',
+      title: 'AI Chatbots for Customer Service',
+      category: 'AI & Automation'
+    },
+    {
       id: 8,
       image: '/lovable-uploads/23f9a4ef-e7c8-4ad4-bf9e-72f9091b4fdb.png',
       title: 'Elite Estates',
