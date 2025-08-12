@@ -146,4 +146,13 @@ export const projects: Project[] = [
     image: '/placeholder.svg',
     technologies: [],
   },
+  {
+    id: 16,
+    title: 'MAAN Research Dashboard',
+    description: 'Comprehensive market research analytics platform with real-time insights and data visualization.',
+    type: 'webapp',
+    category: 'business',
+    image: '/lovable-uploads/5a71eb82-df23-41d7-8c26-4cbc2c50045b.png',
+    technologies: [],
+  },
 ];

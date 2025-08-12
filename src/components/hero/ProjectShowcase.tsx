@@ -77,6 +77,12 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ isVisible }) => {
       image: '/lovable-uploads/83185f2a-43fa-4005-84f3-804d59379219.png',
       title: 'Lead Beacon',
       category: 'Marketing & Analytics Platform'
+    },
+    {
+      id: 11,
+      image: '/lovable-uploads/5a71eb82-df23-41d7-8c26-4cbc2c50045b.png',
+      title: 'MAAN Research Dashboard',
+      category: 'Business Intelligence'
     }
   ];
 
