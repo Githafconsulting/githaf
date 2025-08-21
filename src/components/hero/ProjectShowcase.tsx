@@ -83,6 +83,24 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ isVisible }) => {
       image: '/lovable-uploads/5a71eb82-df23-41d7-8c26-4cbc2c50045b.png',
       title: 'MAAN Research Dashboard',
       category: 'Business Intelligence'
+    },
+    {
+      id: 12,
+      image: '/lovable-uploads/3b43fbea-a842-4400-a4eb-209ce82c4879.png',
+      title: 'Mortgage Broker AI-Powered Platform',
+      category: 'Financial Technology'
+    },
+    {
+      id: 13,
+      image: '/lovable-uploads/3b51b47c-2743-4e61-9e95-686a27b5f38d.png',
+      title: 'Digital Marketing AI Powered Platform',
+      category: 'Marketing & Analytics'
+    },
+    {
+      id: 14,
+      image: '/lovable-uploads/385bc127-eb82-46b4-a899-91a9ebd65d08.png',
+      title: 'Recruitment Admin Platform',
+      category: 'HR & Workflow Management'
     }
   ];
 
