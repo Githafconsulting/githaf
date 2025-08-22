@@ -58,7 +58,7 @@ const AIPillarsSection: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-            Key Offerings
+            Key Services
           </h2>
         </div>
 
@@ -79,20 +79,9 @@ const AIPillarsSection: React.FC = () => {
                     {pillar.title}
                   </h3>
                   
-                  <p className="text-gray-300 mb-6 leading-relaxed">
+                  <p className="text-gray-300 leading-relaxed">
                     {pillar.description}
                   </p>
-                  
-                  <ul className="space-y-2 w-full">
-                    {pillar.features.map((feature, featureIndex) => (
-                      <li 
-                        key={featureIndex}
-                        className="text-sm text-gray-400 text-center"
-                      >
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
                 </div>
               </div>
             );

@@ -81,7 +81,7 @@ const MobileNavigation: React.FC<MobileNavigationProps> = ({
               }}
               className="w-full px-4 py-2 text-sm font-medium bg-purple-600 text-white hover:bg-purple-700 rounded-lg transition-all duration-300"
             >
-              Get Free Consultation
+              Get a Free Consultation
             </button>
           </div>
         </div>

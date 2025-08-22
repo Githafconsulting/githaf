@@ -5,16 +5,28 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 const IndustriesSection = () => {
   const industries = [
     {
-      icon: <Heart className="w-8 h-8 text-red-400" />,
-      title: "Healthcare",
-      description: "AI-powered diagnostics, patient management, and medical automation",
-      applications: ["Medical imaging analysis", "Patient data management", "Drug discovery automation"]
+      icon: <Briefcase className="w-8 h-8 text-teal-400" />,
+      title: "Professional Services",
+      description: "Document automation, client management, and process optimization",
+      applications: ["Document processing", "Client relationship management", "Service optimization"]
+    },
+    {
+      icon: <FileText className="w-8 h-8 text-amber-400" />,
+      title: "Legal",
+      description: "Contract analysis, legal research, and compliance monitoring",
+      applications: ["Contract review", "Legal document analysis", "Compliance tracking"]
     },
     {
       icon: <Banknote className="w-8 h-8 text-green-400" />,
       title: "Banking & Finance",
       description: "Fraud detection, risk assessment, and automated trading solutions",
       applications: ["Fraud detection systems", "Credit risk assessment", "Algorithmic trading"]
+    },
+    {
+      icon: <Heart className="w-8 h-8 text-red-400" />,
+      title: "Healthcare",
+      description: "AI-powered diagnostics, patient management, and medical automation",
+      applications: ["Medical imaging analysis", "Patient data management", "Drug discovery automation"]
     },
     {
       icon: <ShoppingCart className="w-8 h-8 text-blue-400" />,
@@ -59,22 +71,10 @@ const IndustriesSection = () => {
       applications: ["Predictive analysis", "Anomaly detection", "OCR and AI Parsing"]
     },
     {
-      icon: <Briefcase className="w-8 h-8 text-teal-400" />,
-      title: "Professional Services",
-      description: "Document automation, client management, and process optimization",
-      applications: ["Document processing", "Client relationship management", "Service optimization"]
-    },
-    {
       icon: <Users className="w-8 h-8 text-lime-400" />,
       title: "Human Resources",
       description: "Talent acquisition, performance analysis, and workforce planning",
       applications: ["Resume screening", "Performance evaluation", "Workforce analytics"]
-    },
-    {
-      icon: <FileText className="w-8 h-8 text-amber-400" />,
-      title: "Legal",
-      description: "Contract analysis, legal research, and compliance monitoring",
-      applications: ["Contract review", "Legal document analysis", "Compliance tracking"]
     }
   ];
 
