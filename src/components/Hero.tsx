@@ -18,7 +18,7 @@ const Hero: React.FC = () => {
   }, [isMobile]);
 
   return (
-    <section id="home" className="relative pt-16 pb-6 md:pt-20 md:pb-8 overflow-hidden min-h-screen flex items-center">
+    <section id="home" className="relative pt-16 pb-2 md:pt-20 md:pb-4 overflow-hidden min-h-screen flex items-center">
       <HeroBackground />
       <ParticleEffect />
 
