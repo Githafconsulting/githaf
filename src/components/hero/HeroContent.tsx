@@ -21,7 +21,7 @@ const HeroContent: React.FC<HeroContentProps> = ({
       <div className={`flex justify-center lg:justify-start mb-12 lg:mb-16 opacity-0 transform translate-y-8 transition-all duration-1000 delay-600 ease-out ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
         <a href="#contact" className="group">
           <button className="px-4 py-2 text-sm font-medium bg-purple-600 text-white hover:bg-purple-700 rounded-lg transition-all duration-300">
-            Get Free Consultation
+            Get a Free Consultation
           </button>
         </a>
       </div>

@@ -1,40 +1,50 @@
 
-import React from 'react';
-import { Brain, Zap, Shield } from 'lucide-react';
+import { Brain, Zap, Shield, Users } from 'lucide-react';
 
 const AIPillarsSection: React.FC = () => {
   const pillars = [
     {
       icon: Brain,
-      title: 'Intelligent Automation',
-      description: 'Transform your business processes with smart AI systems that learn and adapt to your unique workflows, reducing manual work by up to 80%.',
+      title: 'Digital Transformation & AI',
+      description: 'Helping organisations embrace digital innovation and harness AI to create smarter, scalable, and future-proof operations.',
       features: [
-        'Custom AI Agents',
-        'Process Optimization',
-        'Predictive Analytics',
-        'Smart Decision Making'
+        'AI Strategy Development',
+        'Digital Innovation',
+        'Scalable Operations',
+        'Future-proof Solutions'
       ]
     },
     {
       icon: Zap,
-      title: 'Rapid Implementation',
-      description: 'Get AI solutions deployed quickly with our proven methodologies, delivering measurable results in weeks, not months.',
+      title: 'Strategy & Change Management',
+      description: 'Designing actionable strategies and guiding businesses through change with clarity, alignment, and measurable impact.',
       features: [
-        'Fast Deployment',
-        'Agile Development',
-        'Quick ROI',
-        'Scalable Solutions'
+        'Strategic Planning',
+        'Change Leadership',
+        'Process Alignment',
+        'Impact Measurement'
       ]
     },
     {
       icon: Shield,
-      title: 'Secure & Reliable',
-      description: 'Enterprise-grade security and reliability ensure your AI systems are protected and perform consistently at scale.',
+      title: 'Technology Implementation',
+      description: 'Deploying the right tools and systems to streamline operations, boost efficiency, and drive sustainable growth.',
       features: [
-        'Data Protection',
-        'Compliance Ready',
-        'High Availability',
-        'Continuous Monitoring'
+        'System Integration',
+        'Efficiency Optimization',
+        'Sustainable Growth',
+        'Performance Monitoring'
+      ]
+    },
+    {
+      icon: Users,
+      title: 'Executive Coaching & Training',
+      description: 'Empowering leaders and teams with the skills, mindset, and confidence to lead transformation and deliver results.',
+      features: [
+        'Leadership Development',
+        'Team Training',
+        'Change Mindset',
+        'Results Delivery'
       ]
     }
   ];
@@ -44,14 +54,14 @@ const AIPillarsSection: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-            The 3 Pillars of AI at Githaf
+            The 4 Pillars of AI at Githaf
           </h2>
           <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
             Our proven framework for delivering successful AI transformations that drive real business value
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {pillars.map((pillar, index) => {
             const IconComponent = pillar.icon;
             return (

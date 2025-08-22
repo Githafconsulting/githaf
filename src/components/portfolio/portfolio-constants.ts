@@ -182,4 +182,13 @@ export const projects: Project[] = [
     image: '/lovable-uploads/385bc127-eb82-46b4-a899-91a9ebd65d08.png',
     technologies: [],
   },
+  {
+    id: 20,
+    title: 'GrowViral AI',
+    description: 'Comprehensive digital marketing platform with AI-powered content creation and social media management.',
+    type: 'webapp',
+    category: 'business',
+    image: '/lovable-uploads/1e191617-d6f2-4abd-891f-c315cb671443.png',
+    technologies: [],
+  },
 ];

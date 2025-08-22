@@ -101,6 +101,12 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ isVisible }) => {
       image: '/lovable-uploads/385bc127-eb82-46b4-a899-91a9ebd65d08.png',
       title: 'Recruitment Admin Platform',
       category: 'HR & Workflow Management'
+    },
+    {
+      id: 15,
+      image: '/lovable-uploads/1e191617-d6f2-4abd-891f-c315cb671443.png',
+      title: 'GrowViral AI',
+      category: 'Digital Marketing Platform'
     }
   ];
 
