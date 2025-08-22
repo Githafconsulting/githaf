@@ -74,7 +74,7 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ isVisible }) => {
     },
     {
       id: 10,
-      image: '/lovable-uploads/83185f2a-43fa-4005-84f3-804d59379219.png',
+      image: '/lovable-uploads/0efb9e37-ba7e-4598-8832-82589837fc32.png',
       title: 'Lead Beacon',
       category: 'Marketing & Analytics Platform'
     },
