@@ -11,7 +11,7 @@ const HeroContent: React.FC<HeroContentProps> = ({
   return <div className="text-center lg:text-left">
       {/* Main heading - with line break and colored text */}
       <h1 className={`text-white mb-6 md:mb-8 opacity-0 transform translate-y-8 transition-all duration-1000 delay-200 ease-out ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
-        Transform your <br />business into <span className="text-purple-400">the AI Age</span>
+        Digitally Transform your <br />Business with <span className="text-purple-400">AI</span>
       </h1>
       
       {/* Subtitle */}
@@ -20,7 +20,7 @@ const HeroContent: React.FC<HeroContentProps> = ({
       {/* CTA Button */}
       <div className={`flex justify-center lg:justify-start mb-12 lg:mb-16 opacity-0 transform translate-y-8 transition-all duration-1000 delay-600 ease-out ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
         <a href="#contact" className="group">
-          <button className={`enhanced-button ${isMobile ? "h-12 px-6 py-3 text-sm" : "h-14 px-8 py-4 text-base"} font-semibold`}>
+          <button className="px-4 py-2 text-sm font-medium bg-purple-600 text-white hover:bg-purple-700 rounded-lg transition-all duration-300">
             Get Free Consultation
           </button>
         </a>

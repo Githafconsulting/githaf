@@ -126,7 +126,7 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ isVisible }) => {
         {/* Main Project Display */}
         <div className="relative">
           {/* Main Image Container - Reduced height to minimize white space */}
-          <div className="relative w-full h-[18rem] md:h-[22rem] lg:h-[25rem] rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-gray-100 to-gray-200">
+          <div className="relative w-full h-[24rem] md:h-[28rem] lg:h-[32rem] rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-gray-100 to-gray-200">
             <img 
               src={projects[currentProject].image} 
               alt={projects[currentProject].title}
