@@ -38,8 +38,8 @@ const Index = () => {
           <IndustriesSection />
           <AboutSection />
           <ContactSection />
-          <BlogSection />
           <FAQ />
+          <BlogSection />
         </div>
       </article>
       

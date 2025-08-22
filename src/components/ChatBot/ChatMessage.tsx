@@ -17,6 +17,7 @@ const ChatMessage: React.FC<ChatMessageProps> = ({ message }) => {
             ? 'bg-purple-100 text-black border border-purple-200' 
             : 'bg-primary text-primary-foreground'
         }`}
+        style={{ color: message.isBot ? '#000' as const : undefined }}
       >
         {message.content}
       </div>
