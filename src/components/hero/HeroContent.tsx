@@ -10,7 +10,7 @@ const HeroContent: React.FC<HeroContentProps> = ({
   return <div className="text-center lg:text-left">
       {/* Main heading - with line break and colored text */}
       <h1 className={`text-white mb-6 md:mb-8 opacity-0 transform translate-y-8 transition-all duration-1000 delay-200 ease-out ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
-        Digitally Transform your <br />Business with <span className="text-purple-400">AI</span>
+        Transform your <br />Business with <span className="text-purple-400">AI</span>
       </h1>
       
       {/* Subtitle */}

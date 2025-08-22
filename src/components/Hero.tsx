@@ -18,7 +18,7 @@ const Hero: React.FC = () => {
   }, [isMobile]);
 
   return (
-    <section id="home" className="relative pt-16 pb-2 md:pt-16 md:pb-2 lg:pt-12 lg:pb-12 overflow-hidden min-h-screen flex items-center">
+    <section id="home" className="relative pt-16 pb-2 md:pt-16 md:pb-2 lg:pt-0 lg:pb-0 overflow-hidden min-h-screen flex items-center">
       <HeroBackground />
       <ParticleEffect />
 
@@ -40,7 +40,7 @@ const Hero: React.FC = () => {
         <div className="lg:hidden flex flex-col items-center text-center space-y-8">
           {/* Main heading - with line break and colored text */}
           <h1 className={`text-white mb-6 md:mb-8 opacity-0 transform translate-y-8 transition-all duration-1000 delay-200 ease-out ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
-            Digitally Transform your <br />Business with <span className="text-purple-400">AI</span>
+            Transform your <br />Business with <span className="text-purple-400">AI</span>
           </h1>
           
           {/* Subtitle */}
