@@ -62,7 +62,7 @@ const CompanyTicker: React.FC = () => {
   const CompanyLogo = ({ company }: { company: typeof companies[0] }) => {
     return (
       <div className="ticker-item flex-shrink-0">
-        <div className="h-20 w-32 bg-white rounded-lg shadow-sm border border-gray-200 flex items-center justify-center mx-2">
+        <div className="h-20 w-32 flex items-center justify-center mx-2">
           <img 
             src={company.logo} 
             alt={`${company.name} logo`}
