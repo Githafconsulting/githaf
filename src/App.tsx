@@ -20,6 +20,7 @@ import AIConsultingLondon from "./pages/services/AIConsultingLondon";
 import AIROICalculator from "./pages/tools/AIROICalculator";
 import UseCases from "./pages/UseCases";
 import Favicon from "./components/Favicon";
+import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -30,6 +31,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/booking" element={<Booking />} />
