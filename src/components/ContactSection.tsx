@@ -46,9 +46,6 @@ const ContactSection: React.FC = () => {
               <h2 className="mb-4">
                 Let's Transform Your <span className="text-purple-400">Business</span>
               </h2>
-              <p className="max-w-2xl mx-auto">
-                Ready to harness the power of AI? Get in touch with our experts and start your digital transformation journey today.
-              </p>
             </div>
             
             <div className="max-w-6xl mx-auto">
