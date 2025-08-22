@@ -1,5 +1,5 @@
 import React from 'react';
-import { Building2, Heart, Banknote, ShoppingCart, Factory, GraduationCap, Plane, Home, Truck, Gamepad2, Briefcase, Users, FileText, Shield, Zap } from 'lucide-react';
+import { Building2, Heart, Banknote, ShoppingCart, Factory, GraduationCap, Plane, Home, Truck, Search, Briefcase, Users, FileText, Shield, Zap } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
 const IndustriesSection = () => {
@@ -53,10 +53,10 @@ const IndustriesSection = () => {
       applications: ["Supply chain optimization", "Warehouse automation", "Delivery route planning"]
     },
     {
-      icon: <Gamepad2 className="w-8 h-8 text-pink-400" />,
-      title: "Entertainment",
-      description: "Content recommendation, game AI, and audience analytics",
-      applications: ["Content personalization", "Game AI development", "Audience engagement analytics"]
+      icon: <Search className="w-8 h-8 text-pink-400" />,
+      title: "Recruitment AI Solutions",
+      description: "Advanced AI-powered recruitment and candidate assessment tools",
+      applications: ["Predictive analysis", "Anomaly detection", "OCR and AI Parsing"]
     },
     {
       icon: <Briefcase className="w-8 h-8 text-teal-400" />,
