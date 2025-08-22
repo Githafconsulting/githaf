@@ -17,7 +17,7 @@ const UseCases = () => {
       benefits: ["24/7 availability", "Instant responses", "Cost reduction", "Scalable support"],
       industries: ["Retail", "Banking", "SaaS", "E-commerce"],
       complexity: "Medium",
-      roi: "300-500%"
+      roi: "200-300%"
     },
     {
       icon: <TrendingUp className="w-8 h-8 text-green-400" />,
@@ -35,7 +35,7 @@ const UseCases = () => {
       benefits: ["Efficiency gains", "Error reduction", "Cost savings", "Employee satisfaction"],
       industries: ["Manufacturing", "Finance", "HR", "Legal"],
       complexity: "Low",
-      roi: "150-300%"
+      roi: "150-250%"
     },
     {
       icon: <FileSearch className="w-8 h-8 text-purple-400" />,
@@ -44,7 +44,7 @@ const UseCases = () => {
       benefits: ["Faster processing", "Accuracy improvement", "Compliance automation", "Data extraction"],
       industries: ["Legal", "Healthcare", "Finance", "Insurance"],
       complexity: "Medium",
-      roi: "250-450%"
+      roi: "250-350%"
     },
     {
       icon: <Users className="w-8 h-8 text-cyan-400" />,
@@ -53,7 +53,7 @@ const UseCases = () => {
       benefits: ["Higher engagement", "Increased sales", "Customer loyalty", "Better targeting"],
       industries: ["E-commerce", "Media", "Education", "Marketing"],
       complexity: "High",
-      roi: "200-600%"
+      roi: "200-400%"
     },
     {
       icon: <BarChart3 className="w-8 h-8 text-yellow-400" />,
@@ -62,7 +62,7 @@ const UseCases = () => {
       benefits: ["Data-driven decisions", "Performance insights", "Trend identification", "Strategic planning"],
       industries: ["All Industries", "Consulting", "Retail", "Finance"],
       complexity: "Medium",
-      roi: "180-350%"
+      roi: "180-300%"
     },
     {
       icon: <Shield className="w-8 h-8 text-red-400" />,
@@ -71,7 +71,7 @@ const UseCases = () => {
       benefits: ["Risk reduction", "Real-time detection", "Cost prevention", "Compliance"],
       industries: ["Banking", "Insurance", "E-commerce", "Finance"],
       complexity: "High",
-      roi: "400-800%"
+      roi: "300-400%"
     },
     {
       icon: <Clock className="w-8 h-8 text-indigo-400" />,
@@ -80,7 +80,7 @@ const UseCases = () => {
       benefits: ["Reduced downtime", "Cost savings", "Extended equipment life", "Safety improvement"],
       industries: ["Manufacturing", "Energy", "Transportation", "Construction"],
       complexity: "High",
-      roi: "300-700%"
+      roi: "250-400%"
     },
     {
       icon: <Brain className="w-8 h-8 text-pink-400" />,
@@ -89,7 +89,7 @@ const UseCases = () => {
       benefits: ["Content at scale", "Consistency", "Time savings", "Creative assistance"],
       industries: ["Marketing", "Media", "Education", "Publishing"],
       complexity: "Medium",
-      roi: "200-400%"
+      roi: "200-350%"
     },
     {
       icon: <Zap className="w-8 h-8 text-teal-400" />,
@@ -98,7 +98,7 @@ const UseCases = () => {
       benefits: ["Efficiency improvement", "Resource optimization", "Bottleneck identification", "Performance boost"],
       industries: ["Operations", "Logistics", "HR", "Project Management"],
       complexity: "Medium",
-      roi: "150-350%"
+      roi: "150-300%"
     }
   ];
 
@@ -239,29 +239,6 @@ const UseCases = () => {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="py-16 relative">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
-              <div className="bg-gradient-to-r from-purple-600/20 to-pink-600/20 border border-purple-500/30 rounded-2xl p-8">
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                  Ready to Implement AI in Your Business?
-                </h2>
-                <p className="text-xl text-slate-300 mb-8">
-                  Schedule a consultation to discuss which AI use cases are perfect for your organization
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button size="lg" className="bg-purple-600 hover:bg-purple-700" asChild>
-                    <Link to="/booking">Book Strategy Session</Link>
-                  </Button>
-                  <Button variant="outline" size="lg" className="border-purple-500 text-purple-300 hover:bg-purple-600/10" asChild>
-                    <Link to="/">View Industries</Link>
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
       </div>
     </Layout>
   );

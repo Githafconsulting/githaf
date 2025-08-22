@@ -48,7 +48,7 @@ const AIAgents = () => {
                 <span className="text-sm font-medium text-green-300">AI Agents</span>
               </div>
               
-              <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+              <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 text-center">
                 Intelligent <span className="text-green-400">AI Agents</span> for Business Automation
               </h1>
               
@@ -59,7 +59,6 @@ const AIAgents = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button size="lg" className="bg-green-600 hover:bg-green-700">
                   Deploy AI Agents
-                  <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
                 <Button variant="outline" size="lg" className="border-green-500 text-green-300 hover:bg-green-600/10">
                   See Demos
@@ -167,9 +166,8 @@ const AIAgents = () => {
                 <p className="text-xl text-slate-300 mb-8">
                   Get your first AI agent deployed in just 7 days and start seeing results immediately
                 </p>
-                <Button size="lg" className="bg-green-600 hover:bg-green-700">
-                  Get Started Today
-                  <ArrowRight className="w-5 h-5 ml-2" />
+                <Button size="lg" className="bg-green-600 hover:bg-green-700" asChild>
+                  <a href="#contact">Get Started Today</a>
                 </Button>
               </div>
             </div>

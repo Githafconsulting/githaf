@@ -8,6 +8,25 @@ import EmailCapture from './EmailCapture';
 export const generateResponse = (query: string, setMessages: React.Dispatch<React.SetStateAction<any[]>>, email: string, setEmail: React.Dispatch<React.SetStateAction<string>>, setLeadCapture: React.Dispatch<React.SetStateAction<boolean>>) => {
   const lowerQuery = query.toLowerCase();
   
+  // Handle greetings first
+  if (lowerQuery.includes('hello') || lowerQuery.includes('hi') || lowerQuery.includes('hey') || 
+      lowerQuery.includes('good morning') || lowerQuery.includes('good afternoon') || 
+      lowerQuery.includes('good evening') || lowerQuery === 'hey there' || lowerQuery === 'hi there') {
+    return (
+      <div className="space-y-2">
+        <p>Hello! Great to see you here! 👋 I'm your AI assistant from Githaf Consulting. I'm here to help you discover how AI can transform your business operations and drive growth.</p>
+        <p>What would you like to know about our AI solutions? I can help you with:</p>
+        <ul className="list-disc pl-5 space-y-1">
+          <li>AI strategy and implementation</li>
+          <li>Custom AI agents and automation</li>
+          <li>Business process optimization</li>
+          <li>ROI calculations and case studies</li>
+        </ul>
+        <p className="mt-2">What's on your mind today?</p>
+      </div>
+    );
+  }
+  
   // Check for intent to provide contact information
   if (lowerQuery.includes('email') && lowerQuery.includes('my') || 
       lowerQuery.includes('contact me') || 

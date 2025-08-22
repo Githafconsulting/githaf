@@ -14,7 +14,7 @@ const ChatMessage: React.FC<ChatMessageProps> = ({ message }) => {
       <div 
         className={`max-w-[80%] p-3 rounded-lg ${
           message.isBot 
-            ? 'bg-purple-100 text-purple-900 border border-purple-200' 
+            ? 'bg-purple-100 text-black border border-purple-200' 
             : 'bg-primary text-primary-foreground'
         }`}
       >

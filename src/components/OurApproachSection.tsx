@@ -73,7 +73,7 @@ const OurApproachSection: React.FC = () => {
                   {/* Approach Item */}
                   <div className="flex flex-col items-center text-center max-w-xs">
                     {/* Circular Icon - Made bigger */}
-                    <div className={`w-32 h-32 ${approach.bgColor} rounded-full flex items-center justify-center mb-6 shadow-lg -mt-1.5`}>
+                    <div className={`w-32 h-32 ${approach.bgColor} rounded-full flex items-center justify-center mb-6 shadow-lg ${approach.id === 1 ? '-mt-2' : '-mt-1.5'}`}>
                       <div className="relative">
                         <approach.icon size={48} className="text-white" />
                         {approach.secondaryIcon && (
