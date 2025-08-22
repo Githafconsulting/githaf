@@ -89,32 +89,6 @@ const ServicesSection: React.FC = () => {
               />
             </div>
 
-            {/* Call to Action */}
-            <div className="text-center mt-20 reveal">
-              <div className="relative inline-block">
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl blur-xl opacity-30"></div>
-                <div className="relative bg-slate-800/50 backdrop-blur-xl border border-white/10 rounded-2xl p-8">
-                   <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                     <span className="text-purple-400">Let's Get Started</span>
-                   </h3>
-                  <p className="text-slate-300 mb-6 max-w-2xl mx-auto">
-                    Let's collaborate to bring your ideas to life with cutting-edge technology and strategic innovation
-                  </p>
-                  <a 
-                    href="#contact" 
-                    className="inline-flex items-center gap-2 px-8 py-4 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-purple-500/25"
-                    style={{
-                      background: 'linear-gradient(135deg, #8b5cf6 0%, #a855f7 50%, #9333ea 100%)'
-                    }}
-                  >
-                    Start Your Journey
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
