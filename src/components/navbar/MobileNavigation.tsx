@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { navLinks } from './types';
 import Button from '../Button';
 import { Separator } from '@/components/ui/separator';
@@ -17,6 +17,9 @@ const MobileNavigation: React.FC<MobileNavigationProps> = ({
   closeMenu, 
   scrollToSection 
 }) => {
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
+
   if (!isMenuOpen) return null;
 
   return (
@@ -26,6 +29,28 @@ const MobileNavigation: React.FC<MobileNavigationProps> = ({
         <div className="container mx-auto px-4 py-6 space-y-4">
           {/* Menu Links */}
           {navLinks.map((link) => {
+            // Handle section links when on home page
+            if (isHomePage && link.path.startsWith('/#')) {
+              const sectionId = link.path.substring(2);
+              const sectionMappings: { [key: string]: string } = {
+                'our-approach': 'approach'
+              };
+              const targetId = sectionMappings[sectionId] || sectionId;
+              return (
+                <a
+                  key={link.name}
+                  href={link.path}
+                  onClick={(e) => {
+                    scrollToSection(targetId, e);
+                    closeMenu();
+                  }}
+                  className="block px-4 py-3 font-medium text-white hover:bg-white/10 rounded-lg transition-all duration-300"
+                >
+                  {link.name}
+                </a>
+              );
+            }
+            
             // Handle all external page links (actual routes)
             if (link.path.startsWith('/')) {
               return (
