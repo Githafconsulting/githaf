@@ -7,6 +7,7 @@ const AIPillarsSection: React.FC = () => {
       icon: Brain,
       title: 'Digital Transformation & AI',
       description: 'Helping organisations embrace digital innovation and harness AI to create smarter, scalable, and future-proof operations.',
+      bgColor: 'bg-purple-600',
       features: [
         'AI Strategy Development',
         'Digital Innovation',
@@ -18,6 +19,7 @@ const AIPillarsSection: React.FC = () => {
       icon: Zap,
       title: 'Strategy & Change Management',
       description: 'Designing actionable strategies and guiding businesses through change with clarity, alignment, and measurable impact.',
+      bgColor: 'bg-pink-600',
       features: [
         'Strategic Planning',
         'Change Leadership',
@@ -29,6 +31,7 @@ const AIPillarsSection: React.FC = () => {
       icon: Shield,
       title: 'Technology Implementation',
       description: 'Deploying the right tools and systems to streamline operations, boost efficiency, and drive sustainable growth.',
+      bgColor: 'bg-blue-700',
       features: [
         'System Integration',
         'Efficiency Optimization',
@@ -40,6 +43,7 @@ const AIPillarsSection: React.FC = () => {
       icon: Users,
       title: 'Executive Coaching & Training',
       description: 'Empowering leaders and teams with the skills, mindset, and confidence to lead transformation and deliver results.',
+      bgColor: 'bg-green-700',
       features: [
         'Leadership Development',
         'Team Training',
@@ -70,7 +74,7 @@ const AIPillarsSection: React.FC = () => {
                 className="enhanced-card p-8 transition-all duration-300 group hover:-translate-y-2 hover:bg-white/10"
               >
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-slate-700 to-slate-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <div className={`w-16 h-16 ${pillar.bgColor} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
                     <IconComponent className="w-8 h-8 text-white" />
                   </div>
                   
@@ -86,9 +90,8 @@ const AIPillarsSection: React.FC = () => {
                     {pillar.features.map((feature, featureIndex) => (
                       <li 
                         key={featureIndex}
-                        className="flex items-center text-sm text-gray-400"
+                        className="text-sm text-gray-400 text-center"
                       >
-                        <div className="w-2 h-2 bg-slate-500 rounded-full mr-3 flex-shrink-0"></div>
                         {feature}
                       </li>
                     ))}
