@@ -94,9 +94,9 @@ const ServicesSection: React.FC = () => {
               <div className="relative inline-block">
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl blur-xl opacity-30"></div>
                 <div className="relative bg-slate-800/50 backdrop-blur-xl border border-white/10 rounded-2xl p-8">
-                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                    Ready to Transform Your <span className="text-purple-400">Vision?</span>
-                  </h3>
+                   <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                     <span className="text-purple-400">Let's Get Started</span>
+                   </h3>
                   <p className="text-slate-300 mb-6 max-w-2xl mx-auto">
                     Let's collaborate to bring your ideas to life with cutting-edge technology and strategic innovation
                   </p>
