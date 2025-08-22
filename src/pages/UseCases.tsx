@@ -135,7 +135,7 @@ const UseCases = () => {
       title="AI Use Cases | Real-World AI Applications | Githaf Consulting"
       description="Explore 10 proven AI use cases across industries. From customer support to predictive analytics, discover how AI can transform your business operations."
     >
-      <div className="min-h-screen bg-slate-900">
+      <div className="min-h-screen bg-slate-900 pt-20">
         {/* Hero Section */}
         <section className="relative py-20 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-900/20 to-slate-800"></div>
@@ -255,7 +255,7 @@ const UseCases = () => {
                     <Link to="/booking">Book Strategy Session</Link>
                   </Button>
                   <Button variant="outline" size="lg" className="border-purple-500 text-purple-300 hover:bg-purple-600/10" asChild>
-                    <Link to="/industries">View Industries</Link>
+                    <Link to="/">View Industries</Link>
                   </Button>
                 </div>
               </div>

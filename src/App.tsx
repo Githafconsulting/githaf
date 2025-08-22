@@ -12,14 +12,12 @@ import BlogDetail from "./pages/BlogDetail";
 import NotFound from "./pages/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
-import Pricing from "./pages/Pricing";
 import AIConsulting from "./pages/services/AIConsulting";
 import AISaaSProducts from "./pages/services/AISaaSProducts";
 import AIAgents from "./pages/services/AIAgents";
 import AIForStartups from "./pages/services/AIForStartups";
 import AIConsultingLondon from "./pages/services/AIConsultingLondon";
 import AIROICalculator from "./pages/tools/AIROICalculator";
-import Industries from "./pages/Industries";
 import UseCases from "./pages/UseCases";
 import Favicon from "./components/Favicon";
 
@@ -36,14 +34,12 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/booking" element={<Booking />} />
           <Route path="/web-development" element={<WebDevelopment />} />
-          <Route path="/pricing" element={<Pricing />} />
           <Route path="/services/ai-consulting" element={<AIConsulting />} />
           <Route path="/services/ai-saas-products" element={<AISaaSProducts />} />
           <Route path="/services/ai-agents" element={<AIAgents />} />
           <Route path="/services/ai-for-startups" element={<AIForStartups />} />
           <Route path="/services/ai-consulting-london" element={<AIConsultingLondon />} />
           <Route path="/tools/ai-roi-calculator" element={<AIROICalculator />} />
-          <Route path="/industries" element={<Industries />} />
           <Route path="/use-cases" element={<UseCases />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:id" element={<BlogDetail />} />

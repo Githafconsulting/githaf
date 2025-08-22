@@ -2,12 +2,10 @@
 export const navLinks = [
   { name: 'Home', path: '/' },
   { name: 'Services', path: '/#services' },
-  { name: 'Industries', path: '/industries' },
   { name: 'Use Cases', path: '/use-cases' },
-  { name: 'Our Approach', path: '/#our-approach' },
+  { name: 'Our Approach', path: '/#approach' },
   { name: 'About', path: '/#about' },
   { name: 'Blog', path: '/blog' },
-  { name: 'Pricing', path: '/pricing' },
   { name: 'Contact', path: '/#contact' },
 ];
 

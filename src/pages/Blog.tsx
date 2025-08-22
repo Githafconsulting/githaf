@@ -12,7 +12,7 @@ const Blog: React.FC = () => {
       title="Blog - Githaf Consulting | AI and Digital Transformation Insights"
       description="Explore our latest insights on AI implementation, digital transformation, and business innovation strategies."
     >
-      <div className="min-h-screen bg-gradient-to-b from-slate-900 to-slate-800 pt-24 pb-16">
+      <div className="min-h-screen bg-gradient-to-b from-slate-900 to-slate-800 pt-20 pb-16">
         <div className="container mx-auto px-4 md:px-6">
           {/* Back Button */}
           <div className="mb-8">
