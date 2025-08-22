@@ -303,18 +303,9 @@ const BlogSection: React.FC = () => {
           <div className="relative z-10 p-8 md:p-12 lg:p-16">
             {/* Header */}
             <div className="text-center max-w-4xl mx-auto mb-16 reveal">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-600/20 border border-purple-500/30 mb-8">
-                <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
-                <span className="text-sm font-medium text-purple-300">Latest Insights</span>
-              </div>
-              
               <h2 className="mb-6">
                 From Our <span className="text-purple-400">Blog</span>
               </h2>
-              
-              <p className="text-xl md:text-2xl text-slate-300 leading-relaxed max-w-3xl mx-auto">
-                Stay ahead with expert insights on AI, digital transformation, and business innovation
-              </p>
             </div>
 
             {/* Blog Posts Grid */}
