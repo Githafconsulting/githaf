@@ -64,26 +64,36 @@ const ChatBotDialog: React.FC<ChatBotDialogProps> = ({ open, onOpenChange }) => 
   };
 
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[425px]">
-        <DialogHeader>
-          <DialogTitle>Githaf Chat</DialogTitle>
-          <DialogDescription>
-            How can we help transform your business with artificial intelligence?
-          </DialogDescription>
-        </DialogHeader>
-        
-        <div className="flex flex-col h-[400px]">
-          <ChatMessageList messages={messages} isLoading={isLoading} />
-          <MessageInput 
-            input={input} 
-            setInput={setInput} 
-            handleSend={handleSend} 
-            handleKeyDown={handleKeyDown} 
-          />
+    <>
+      {open && (
+        <div className="fixed bottom-20 right-6 w-96 max-w-[calc(100vw-2rem)] bg-background border border-border rounded-lg shadow-xl z-50">
+          <div className="p-4 border-b border-border">
+            <div className="flex items-center justify-between">
+              <h3 className="font-semibold text-foreground">Githaf Chat</h3>
+              <button 
+                onClick={() => onOpenChange(false)}
+                className="text-muted-foreground hover:text-foreground"
+              >
+                ×
+              </button>
+            </div>
+            <p className="text-sm text-muted-foreground mt-1">
+              How can we help transform your business with AI?
+            </p>
+          </div>
+          
+          <div className="flex flex-col h-[400px]">
+            <ChatMessageList messages={messages} isLoading={isLoading} />
+            <MessageInput 
+              input={input} 
+              setInput={setInput} 
+              handleSend={handleSend} 
+              handleKeyDown={handleKeyDown} 
+            />
+          </div>
         </div>
-      </DialogContent>
-    </Dialog>
+      )}
+    </>
   );
 };
 
