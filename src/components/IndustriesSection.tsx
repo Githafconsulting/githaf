@@ -84,11 +84,8 @@ const IndustriesSection = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Industries We Serve
+              Industries We <span className="text-purple-400">Serve</span>
             </h2>
-            <p className="text-xl text-slate-300">
-              Specialized AI implementations for your industry's unique challenges
-            </p>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

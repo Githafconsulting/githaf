@@ -51,11 +51,6 @@ const FAQ = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-600/20 border border-purple-500/30 mb-8">
-              <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
-              <span className="text-sm font-medium text-purple-300">Frequently Asked Questions</span>
-            </div>
-            
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Everything You Need to Know About <span className="text-purple-400">AI Consulting</span>
             </h2>

@@ -53,11 +53,6 @@ const AboutSection: React.FC = () => {
           <div className="max-w-7xl mx-auto">
             {/* Header */}
             <div className="text-center mb-16 reveal">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-600/20 border border-purple-500/30 mb-8">
-                <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
-                <span className="text-sm font-medium text-purple-300">About Us</span>
-              </div>
-              
               <h2 className="mb-6">
                 About Githaf <span className="text-purple-400">Consulting</span>
               </h2>
