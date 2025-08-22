@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { Send } from 'lucide-react';
 import Button from '../Button';
 import { toast } from "sonner";
-import { Link } from 'react-router-dom';
 
 const ContactForm: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -128,16 +127,6 @@ const ContactForm: React.FC = () => {
           {isSubmitting ? 'Sending...' : 'Send Message'}
         </Button>
         
-        <div className="text-center pt-4">
-          <div className="glass rounded-lg p-4">
-            <p className="text-sm text-gray-300">
-              Need a scheduled consultation?{' '}
-              <Link to="/booking" className="text-white hover:underline font-medium">
-                Book a time slot
-              </Link>
-            </p>
-          </div>
-        </div>
       </form>
     </div>
   );

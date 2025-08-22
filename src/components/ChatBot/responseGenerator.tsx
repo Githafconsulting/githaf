@@ -45,7 +45,7 @@ export const generateResponse = (query: string, setMessages: React.Dispatch<Reac
             setLeadCapture(true);
             setMessages(prev => [...prev, { 
               id: prev.length + 1, 
-              content: <p>Thanks for your interest! One of our AI specialists will reach out to you at <strong>{emailValue}</strong> within 24 hours. In the meantime, you might want to <Link to="/booking" className="text-primary font-medium hover:underline">book a consultation</Link> to discuss your specific business needs.</p>, 
+              content: <p>Thanks for your interest! One of our AI specialists will reach out to you at <strong>{emailValue}</strong> within 24 hours. We look forward to discussing your specific business needs.</p>, 
               isBot: true 
             }]);
           }}
@@ -84,14 +84,8 @@ export const generateResponse = (query: string, setMessages: React.Dispatch<Reac
           <li>Mid-size AI integrations ($10,000-$30,000)</li>
           <li>Enterprise-scale transformations ($30,000+)</li>
         </ul>
-        <p className="mt-2">The best way to get an accurate quote is to:</p>
+        <p className="mt-2">The best way to get an accurate quote is to contact us directly:</p>
         <div className="flex flex-col gap-2 mt-1">
-          <Button variant="outline" size="sm" asChild>
-            <Link to="/booking" className="flex items-center">
-              <Calendar className="mr-2 h-4 w-4" />
-              Book a free consultation
-            </Link>
-          </Button>
           <Button variant="outline" size="sm" onClick={() => {
             setMessages(prev => [...prev, { 
               id: prev.length + 1, 
@@ -151,7 +145,7 @@ export const generateResponse = (query: string, setMessages: React.Dispatch<Reac
       lowerQuery.includes('consultation') || lowerQuery.includes('meeting')) {
     return (
       <div className="space-y-2">
-        <p>I'd be happy to help you schedule a consultation with our AI transformation experts!</p>
+        <p>I'd be happy to help you get in touch with our AI transformation experts!</p>
         <p>Our consultations typically cover:</p>
         <ul className="list-disc pl-5 space-y-1">
           <li>Assessment of your current business processes</li>
@@ -159,14 +153,7 @@ export const generateResponse = (query: string, setMessages: React.Dispatch<Reac
           <li>Discussion of potential solutions and approaches</li>
           <li>Preliminary timeline and investment estimates</li>
         </ul>
-        <div className="flex justify-center mt-3">
-          <Button asChild>
-            <Link to="/booking" className="flex items-center">
-              <Calendar className="mr-2 h-4 w-4" />
-              Book Your Free Consultation
-            </Link>
-          </Button>
-        </div>
+        <p className="mt-2">Would you like me to have someone contact you directly?</p>
       </div>
     );
   }
@@ -239,38 +226,32 @@ export const generateResponse = (query: string, setMessages: React.Dispatch<Reac
   
   // Fallback response with lead generation intent
   return (
-    <div className="space-y-2">
-      <p>That's an interesting question about {query.length > 30 ? query.substring(0, 30) + "..." : query}. To provide you with the most accurate and helpful information tailored to your business needs, our AI specialists would love to learn more about your specific situation and objectives.</p>
-      <p>We specialize in crafting custom AI solutions that address your unique challenges and opportunities. Would you like to:</p>
-      <div className="flex flex-col gap-2 mt-2">
-        <Button variant="outline" size="sm" asChild>
-          <Link to="/booking" className="flex items-center">
-            <Calendar className="mr-2 h-4 w-4" />
-            Schedule a free AI consultation
-          </Link>
-        </Button>
-        <Button variant="outline" size="sm" onClick={() => {
-          setMessages(prev => [...prev, { 
-            id: prev.length + 1, 
-            content: "I'd be happy to have one of our AI specialists reach out to you with more information. Could you share your email address?", 
-            isBot: true 
-          }]);
-        }}>
-          <Mail className="mr-2 h-4 w-4" />
-          Request more information
-        </Button>
-        <Button variant="outline" size="sm" onClick={() => {
-          setMessages(prev => [...prev, { 
-            id: prev.length + 1, 
-            content: "Is there something specific about our AI solutions you'd like to know more about?", 
-            isBot: true 
-          }]);
-        }}>
-          <Bot className="mr-2 h-4 w-4" />
-          Ask another question
-        </Button>
+      <div className="space-y-2">
+        <p>That's an interesting question about {query.length > 30 ? query.substring(0, 30) + "..." : query}. To provide you with the most accurate and helpful information tailored to your business needs, our AI specialists would love to learn more about your specific situation and objectives.</p>
+        <p>We specialize in crafting custom AI solutions that address your unique challenges and opportunities. Would you like to:</p>
+        <div className="flex flex-col gap-2 mt-2">
+          <Button variant="outline" size="sm" onClick={() => {
+            setMessages(prev => [...prev, { 
+              id: prev.length + 1, 
+              content: "I'd be happy to have one of our AI specialists reach out to you with more information. Could you share your email address?", 
+              isBot: true 
+            }]);
+          }}>
+            <Mail className="mr-2 h-4 w-4" />
+            Request more information
+          </Button>
+          <Button variant="outline" size="sm" onClick={() => {
+            setMessages(prev => [...prev, { 
+              id: prev.length + 1, 
+              content: "Is there something specific about our AI solutions you'd like to know more about?", 
+              isBot: true 
+            }]);
+          }}>
+            <Bot className="mr-2 h-4 w-4" />
+            Ask another question
+          </Button>
+        </div>
       </div>
-    </div>
   );
 };
 

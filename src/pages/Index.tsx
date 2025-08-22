@@ -37,9 +37,9 @@ const Index = () => {
           <OurApproachSection />
           <IndustriesSection />
           <AboutSection />
+          <ContactSection />
           <BlogSection />
           <FAQ />
-          <ContactSection />
         </div>
       </article>
       
