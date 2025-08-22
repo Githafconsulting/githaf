@@ -23,9 +23,16 @@ const FooterContactInfo: React.FC = () => {
           </div>
           <div>
             <p className="text-white font-medium text-sm">Email</p>
-            <a href="mailto:info@githafconsulting.com" className="text-gray-300 text-sm hover:text-white transition-colors">
-              info@githafconsulting.com
-            </a>
+            <div 
+              className="text-gray-300 text-sm hover:text-white transition-colors cursor-pointer select-none"
+              onClick={() => {
+                const email = "info" + "@" + "githafconsulting" + "." + "com";
+                window.location.href = "mailto:" + email;
+              }}
+              style={{ userSelect: 'none' }}
+            >
+              info[at]githafconsulting[dot]com
+            </div>
           </div>
         </div>
       </div>

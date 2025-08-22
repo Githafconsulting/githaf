@@ -87,7 +87,7 @@ const TermsOfService = () => {
                 If you have any questions about these Terms of Service, please contact us at:
               </p>
               <p className="mt-2">
-                <strong>Email:</strong> <a href="mailto:gravitasitconsulting@gmail.com" className="text-primary">gravitasitconsulting@gmail.com</a>
+                <strong>Email:</strong> <a href="mailto:info@githafconsulting.com" className="text-primary">info@githafconsulting.com</a>
               </p>
             </section>
           </div>
