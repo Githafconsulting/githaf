@@ -67,11 +67,11 @@ const OurApproachSection: React.FC = () => {
           {/* Approach Flow */}
           <div className="max-w-7xl mx-auto">
             {/* Desktop Layout */}
-            <div className="hidden lg:flex items-center justify-between">
+            <div className="hidden lg:flex items-start justify-between">
               {approaches.map((approach, index) => (
                 <div key={approach.id} className="flex items-center">
                   {/* Approach Item */}
-                  <div className="flex flex-col items-center text-center max-w-xs">
+                  <div className="flex flex-col items-center text-center max-w-xs justify-start">
                     {/* Circular Icon - Made bigger */}
                     <div className={`w-32 h-32 ${approach.bgColor} rounded-full flex items-center justify-center mb-6 shadow-lg`}>
                       <div className="relative">
