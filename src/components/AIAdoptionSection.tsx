@@ -60,7 +60,7 @@ const AIAdoptionSection: React.FC = () => {
           <div className={`text-center mb-16 md:mb-20 transition-all duration-1000 ${
             isVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
           }`}>
-            <h2 className="mb-8 text-4xl md:text-5xl lg:text-6xl font-sans">
+            <h2 className="mb-8 text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-sans leading-tight">
               <span className="text-white">AI adoption - </span>
               <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-purple-500 bg-clip-text text-transparent font-bold">
                 Explosive Growth Ahead
