@@ -27,14 +27,8 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ isVisible }) => {
     {
       id: 2,
       image: '/lovable-uploads/d06adf3b-725e-400c-add4-5ceea41cd819.png',
-      title: 'AI Agent Banking Platform',
-      category: 'Banking & Financial Services'
-    },
-    {
-      id: 3,
-      image: '/lovable-uploads/eb10794a-36a4-4458-bf89-641fa04be4a7.png',
-      title: 'SDLPKB',
-      category: 'Home Improvement Services'
+      title: 'AI Agent Platform',
+      category: 'AI & Automation'
     },
     {
       id: 4,
@@ -65,12 +59,6 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ isVisible }) => {
       image: '/lovable-uploads/23f9a4ef-e7c8-4ad4-bf9e-72f9091b4fdb.png',
       title: 'Elite Estates',
       category: 'Real Estate Marketplace'
-    },
-    {
-      id: 9,
-      image: '/lovable-uploads/4c97491c-993f-4aa6-8254-dca718b74d3e.png',
-      title: 'SDLPKB Home Services',
-      category: 'Professional Home Services'
     },
     {
       id: 10,
