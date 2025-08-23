@@ -2,13 +2,28 @@ import React from 'react';
 import { User, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+// Import relevant AI/business consulting images
+import aiBusinessOperationsImg from '@/assets/blog-ai-business-operations.jpg';
+import digitalTransformation2025Img from '@/assets/blog-digital-transformation-2025.jpg';
+import scalableAiSolutionsImg from '@/assets/blog-scalable-ai-solutions.jpg';
+import aiConsultingSmallBusinessImg from '@/assets/blog-ai-consulting-small-business.jpg';
+import machineLearningEnterpriseImg from '@/assets/blog-machine-learning-enterprise.jpg';
+import aiAutomationImg from '@/assets/blog-ai-automation.jpg';
+import nlpCustomerExperienceImg from '@/assets/blog-nlp-customer-experience.jpg';
+import computerVisionImg from '@/assets/blog-computer-vision.jpg';
+import aiStrategyImg from '@/assets/blog-ai-strategy.jpg';
+import dataScienceImg from '@/assets/blog-data-science.jpg';
+import digitalMarketingAiImg from '@/assets/blog-digital-marketing-ai.jpg';
+import cloudAiImg from '@/assets/blog-cloud-ai.jpg';
+import aiEthicsImg from '@/assets/blog-ai-ethics.jpg';
+
 const blogPosts = [
   {
     id: 1,
     title: "5 Ways AI Can Transform Your Business Operations",
     excerpt: "Discover how artificial intelligence is revolutionizing business processes and driving unprecedented efficiency gains across industries.",
     author: "Githaf Team",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=300&fit=crop&q=80",
+    image: aiBusinessOperationsImg,
     category: "AI Strategy",
     content: `
       <h2>Introduction</h2>
@@ -38,7 +53,7 @@ const blogPosts = [
     title: "The Future of Digital Transformation in 2025",
     excerpt: "Explore the latest trends and technologies that will shape digital transformation strategies in the coming year.",
     author: "Githaf Team",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=300&fit=crop&q=80",
+    image: digitalTransformation2025Img,
     category: "Digital Innovation",
     content: `
       <h2>The Digital Transformation Landscape</h2>
@@ -66,7 +81,7 @@ const blogPosts = [
     title: "Building Scalable AI Solutions: A Complete Guide",
     excerpt: "Learn the essential steps and best practices for implementing AI solutions that grow with your business needs.",
     author: "Githaf Team",
-    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400&h=300&fit=crop&q=80",
+    image: scalableAiSolutionsImg,
     category: "Implementation",
     content: `
       <h2>Understanding Scalable AI</h2>
@@ -102,7 +117,7 @@ const blogPosts = [
     title: "AI Consulting for Small Business: ROI-Driven Implementation Strategies",
     excerpt: "Discover cost-effective AI consulting approaches that deliver measurable ROI for small businesses and startups in competitive markets.",
     author: "Githaf Team",
-    image: "https://images.unsplash.com/photo-1664475450578-5ac8f833f8c8?w=400&h=300&fit=crop&q=80",
+    image: aiConsultingSmallBusinessImg,
     category: "AI Consulting",
     content: `
       <h2>AI for Small Business Success</h2>
@@ -120,7 +135,7 @@ const blogPosts = [
     title: "Machine Learning Implementation: Enterprise-Grade AI Solutions",
     excerpt: "Master enterprise machine learning deployment with proven frameworks, scalable architectures, and production-ready AI systems.",
     author: "Githaf Team",
-    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=400&h=300&fit=crop&q=80",
+    image: machineLearningEnterpriseImg,
     category: "Machine Learning",
     content: `
       <h2>Enterprise ML Architecture</h2>
@@ -138,7 +153,7 @@ const blogPosts = [
     title: "AI-Powered Automation: Streamlining Business Process Management",
     excerpt: "Transform your business operations with intelligent automation solutions that reduce costs, improve accuracy, and accelerate growth.",
     author: "Githaf Team",
-    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=300&fit=crop&q=80",
+    image: aiAutomationImg,
     category: "Automation",
     content: `
       <h2>Intelligent Process Automation</h2>
@@ -156,7 +171,7 @@ const blogPosts = [
     title: "Natural Language Processing for Customer Experience Enhancement",
     excerpt: "Leverage NLP technologies to revolutionize customer interactions, sentiment analysis, and automated support systems.",
     author: "Githaf Team",
-    image: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=400&h=300&fit=crop&q=80",
+    image: nlpCustomerExperienceImg,
     category: "NLP",
     content: `
       <h2>NLP in Customer Service</h2>
@@ -174,7 +189,7 @@ const blogPosts = [
     title: "Computer Vision Applications: Visual AI for Modern Businesses",
     excerpt: "Explore computer vision solutions for quality control, security, retail analytics, and automated visual inspection systems.",
     author: "Githaf Team",
-    image: "https://images.unsplash.com/photo-1507146426996-ef05306b995a?w=400&h=300&fit=crop&q=80",
+    image: computerVisionImg,
     category: "Computer Vision",
     content: `
       <h2>Computer Vision in Industry</h2>
@@ -192,7 +207,7 @@ const blogPosts = [
     title: "AI Strategy Development: Creating Competitive Advantage Through Technology",
     excerpt: "Develop comprehensive AI strategies that align with business objectives and create sustainable competitive advantages in digital markets.",
     author: "Githaf Team",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop&q=80",
+    image: aiStrategyImg,
     category: "AI Strategy",
     content: `
       <h2>Strategic AI Planning</h2>
@@ -210,7 +225,7 @@ const blogPosts = [
     title: "Data Science Consulting: Turning Data Into Actionable Business Intelligence",
     excerpt: "Unlock the power of your data with advanced analytics, predictive modeling, and AI-driven insights for strategic decision-making.",
     author: "Githaf Team",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop&q=80",
+    image: dataScienceImg,
     category: "Data Science",
     content: `
       <h2>Data-Driven Decision Making</h2>
@@ -228,7 +243,7 @@ const blogPosts = [
     title: "Digital Marketing AI: Personalization and Customer Acquisition Strategies",
     excerpt: "Revolutionize your digital marketing with AI-powered personalization, predictive analytics, and automated customer acquisition systems.",
     author: "Githaf Team",
-    image: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=400&h=300&fit=crop&q=80",
+    image: digitalMarketingAiImg,
     category: "Digital Marketing",
     content: `
       <h2>AI-Powered Marketing</h2>
@@ -246,7 +261,7 @@ const blogPosts = [
     title: "Cloud AI Solutions: Scalable Infrastructure for AI Deployment",
     excerpt: "Build robust cloud-based AI infrastructure that scales with your business needs while optimizing costs and performance.",
     author: "Githaf Team",
-    image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=400&h=300&fit=crop&q=80",
+    image: cloudAiImg,
     category: "Cloud AI",
     content: `
       <h2>Cloud AI Architecture</h2>
@@ -264,7 +279,7 @@ const blogPosts = [
     title: "AI Ethics and Governance: Responsible AI Implementation Framework",
     excerpt: "Establish ethical AI practices and governance frameworks that ensure responsible AI development and deployment in your organization.",
     author: "Githaf Team",
-    image: "https://images.unsplash.com/photo-1589254065878-42c9da997008?w=400&h=300&fit=crop&q=80",
+    image: aiEthicsImg,
     category: "AI Ethics",
     content: `
       <h2>Responsible AI Development</h2>
