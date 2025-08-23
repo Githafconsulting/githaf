@@ -5,62 +5,50 @@ const AIPillarsSection: React.FC = () => {
   const pillars = [
     {
       icon: Brain,
-      title: 'Intelligent Automation',
-      description: 'Streamline operations with AI-powered workflows that adapt and learn',
+      title: 'Digital Transformation & AI',
+      description: 'Helping organisations embrace digital innovation and harness AI to create smarter, scalable, and future-proof operations.',
       bgColor: 'bg-blue-600',
-      examples: [
-        {
-          title: 'Invoice Processing',
-          description: 'Automatically extract, validate, and process invoices with 99% accuracy'
-        },
-        {
-          title: 'Document Classification',
-          description: 'Intelligently categorize and route documents based on content and context'
-        },
-        {
-          title: 'Quality Control Systems',
-          description: 'Real-time defect detection and quality assurance in manufacturing'
-        }
-      ]
-    },
-    {
-      icon: Users,
-      title: 'Agentic AI',
-      description: 'Autonomous AI agents that take actions and make decisions independently',
-      bgColor: 'bg-purple-600',
-      examples: [
-        {
-          title: 'Customer Service Agents',
-          description: 'Handle complex inquiries, escalate when needed, and learn from interactions'
-        },
-        {
-          title: 'Sales Qualification Bots',
-          description: 'Engage prospects, qualify leads, and schedule meetings autonomously'
-        },
-        {
-          title: 'IT Support Agents',
-          description: 'Diagnose issues, execute fixes, and manage system maintenance tasks'
-        }
+      features: [
+        'AI Strategy Development',
+        'Digital Innovation',
+        'Scalable Operations',
+        'Future-proof Solutions'
       ]
     },
     {
       icon: Zap,
-      title: 'Generative AI',
-      description: 'Create original content, designs, and solutions tailored to your needs',
+      title: 'Strategy & Change Management',
+      description: 'Designing actionable strategies and guiding businesses through change with clarity, alignment, and measurable impact.',
+      bgColor: 'bg-purple-600',
+      features: [
+        'Strategic Planning',
+        'Change Leadership',
+        'Process Alignment',
+        'Impact Measurement'
+      ]
+    },
+    {
+      icon: Shield,
+      title: 'Technology Implementation',
+      description: 'Deploying the right tools and systems to streamline operations, boost efficiency, and drive sustainable growth.',
       bgColor: 'bg-orange-600',
-      examples: [
-        {
-          title: 'Content Creation',
-          description: 'Generate marketing copy, blogs, and social media content at scale'
-        },
-        {
-          title: 'Code Generation',
-          description: 'Automatically write, test, and optimize code for faster development'
-        },
-        {
-          title: 'Design Automation',
-          description: 'Create custom graphics, layouts, and visual assets on demand'
-        }
+      features: [
+        'System Integration',
+        'Efficiency Optimization',
+        'Sustainable Growth',
+        'Performance Monitoring'
+      ]
+    },
+    {
+      icon: Users,
+      title: 'Executive Coaching & Training',
+      description: 'Empowering leaders and teams with the skills, mindset, and confidence to lead transformation and deliver results.',
+      bgColor: 'bg-green-700',
+      features: [
+        'Leadership Development',
+        'Team Training',
+        'Change Mindset',
+        'Results Delivery'
       ]
     }
   ];
@@ -74,7 +62,7 @@ const AIPillarsSection: React.FC = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {pillars.map((pillar, index) => {
             const IconComponent = pillar.icon;
             return (
@@ -82,7 +70,7 @@ const AIPillarsSection: React.FC = () => {
                 key={index}
                 className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-2xl p-8 transition-all duration-300 hover:border-gray-700"
               >
-                <div className="flex flex-col">
+                <div className="flex flex-col h-full">
                   <div className={`w-16 h-16 ${pillar.bgColor} rounded-2xl flex items-center justify-center mb-6 shadow-lg`}>
                     <IconComponent className="w-8 h-8 text-white" />
                   </div>
@@ -101,9 +89,9 @@ const AIPillarsSection: React.FC = () => {
                     </div>
                     
                     <div className="space-y-4">
-                      {pillar.examples.map((example, exampleIndex) => (
+                      {pillar.features.map((feature, featureIndex) => (
                         <div 
-                          key={exampleIndex}
+                          key={featureIndex}
                           className="bg-gray-800/50 rounded-xl p-4 border border-gray-700/50"
                         >
                           <div className="flex items-start gap-3">
@@ -111,12 +99,9 @@ const AIPillarsSection: React.FC = () => {
                               <div className="w-2 h-2 rounded-full bg-green-400"></div>
                             </div>
                             <div>
-                              <h4 className="text-white font-semibold mb-2">
-                                {example.title}
+                              <h4 className="text-white font-semibold text-sm">
+                                {feature}
                               </h4>
-                              <p className="text-gray-400 text-sm leading-relaxed">
-                                {example.description}
-                              </p>
                             </div>
                           </div>
                         </div>
