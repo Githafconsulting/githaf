@@ -26,6 +26,9 @@ const Index = () => {
     <Layout
       title="Githaf Consulting - AI and Digital Transformation Experts | Custom Business Solutions"
       description="Githaf Consulting provides strategic AI implementation, digital transformation, and business consulting services to help companies increase revenue and gain competitive advantage."
+      canonical="https://www.githafconsulting.com"
+      keywords="AI consulting services, digital transformation consulting, business AI implementation, AI strategy consulting, AI agents development, machine learning consulting, business automation, AI SaaS products"
+      ogType="website"
     >
       <article>
         <Hero />

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import StructuredData from './SEO/StructuredData';
 
 const FAQ = () => {
   const faqs = [
@@ -47,7 +48,9 @@ const FAQ = () => {
   ];
 
   return (
-    <section className="py-16 bg-slate-900 relative">
+    <>
+      <StructuredData type="faq" data={faqs} />
+      <section className="py-16 bg-slate-900 relative">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
@@ -107,6 +110,7 @@ const FAQ = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 
