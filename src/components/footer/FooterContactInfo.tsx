@@ -13,7 +13,7 @@ const FooterContactInfo: React.FC = () => {
           </div>
           <div>
             <p className="text-white font-medium text-sm">Presence</p>
-            <p className="text-gray-300 text-sm">UAE, UK</p>
+            <p className="text-gray-300 text-sm">Global</p>
           </div>
         </div>
         
