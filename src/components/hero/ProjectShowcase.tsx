@@ -131,17 +131,18 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ isVisible }) => {
       <div className="relative">
         {/* Main Project Display */}
         <div className="relative">
-          {/* Main Image Container - Reduced height to minimize white space */}
-          <div className="relative w-full h-[24rem] md:h-[28rem] lg:h-[32rem] rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-gray-100 to-gray-200">
+          {/* Main Image - No container, slides in from right */}
+          <div className="relative w-full h-[24rem] md:h-[28rem] lg:h-[32rem] overflow-hidden">
             <img 
+              key={projects[currentProject].id}
               src={projects[currentProject].image} 
               alt={projects[currentProject].title}
-              className="w-full h-full object-contain transition-opacity duration-700"
+              className="w-full h-full object-contain animate-slide-in-right transition-all duration-700"
             />
             
-            {/* Project Info Overlay - Enhanced gradient with website background colors */}
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900 via-slate-800/90 to-transparent h-2/5 p-4 md:p-6 flex flex-col justify-end">
-              <h4 className="text-white font-semibold text-base md:text-lg lg:text-xl mb-1 md:mb-2 transform transition-all duration-300 leading-tight">
+            {/* Project Info Overlay - Floating at bottom */}
+            <div className="absolute bottom-4 left-4 right-4 bg-black/60 backdrop-blur-sm rounded-lg p-4 md:p-6">
+              <h4 className="text-white font-semibold text-base md:text-lg lg:text-xl mb-1 md:mb-2 leading-tight">
                 {projects[currentProject].title}
               </h4>
               <p className="text-gray-300 text-xs md:text-sm lg:text-base">
