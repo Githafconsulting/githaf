@@ -37,8 +37,7 @@ const ContactInfo: React.FC = () => {
             </div>
             <div>
               <h4 className="mb-1">Our Presence</h4>
-              <p className="text-gray-300">United Kingdom & United Arab Emirates</p>
-              <p className="text-sm text-gray-400 mt-1">Global service delivery available</p>
+              <p className="text-gray-300">Global</p>
             </div>
           </div>
         </div>
