@@ -2,11 +2,11 @@
 export const navLinks = [
   { name: 'Home', path: '/' },
   { name: 'Services', path: '/#services' },
-  { name: 'Use Cases', path: '/use-cases' },
   { name: 'Our Approach', path: '/#approach' },
+  { name: 'Use Cases', path: '/use-cases' },
   { name: 'About', path: '/#about' },
-  { name: 'Blog', path: '/blog' },
   { name: 'Contact', path: '/#contact' },
+  { name: 'Blog', path: '/blog' },
 ];
 
 export const socialLinks = [
