@@ -49,7 +49,7 @@ const AIConsulting = () => {
                 <span className="text-sm font-medium text-purple-300">AI Consulting Services</span>
               </div>
               
-              <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 text-center mx-auto max-w-4xl">
+              <h1 className="w-full max-w-5xl mx-auto text-center text-4xl md:text-6xl font-bold text-white mb-6">
                 Strategic <span className="text-purple-400">AI Consulting</span> for Business Growth
               </h1>
               
