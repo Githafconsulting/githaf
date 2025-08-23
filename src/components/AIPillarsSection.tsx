@@ -41,7 +41,7 @@ const AIPillarsSection: React.FC = () => {
     },
     {
       icon: Users,
-      title: 'Executive Coaching & Training',
+      title: 'Coaching and Training',
       description: 'Empowering leaders and teams with the skills, mindset, and confidence to lead transformation and deliver results.',
       bgColor: 'bg-green-700',
       features: [
@@ -58,7 +58,7 @@ const AIPillarsSection: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-            Key Services
+            Our Services
           </h2>
         </div>
 
