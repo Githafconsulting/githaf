@@ -90,12 +90,6 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ isVisible }) => {
       title: 'Recruitment Admin Platform',
       category: 'HR & Workflow Management'
     },
-    {
-      id: 15,
-      image: '/lovable-uploads/1e191617-d6f2-4abd-891f-c315cb671443.png',
-      title: 'GrowViral AI',
-      category: 'Digital Marketing Platform'
-    }
   ];
 
   // Auto-advance carousel
@@ -120,7 +114,7 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ isVisible }) => {
         {/* Main Project Display */}
         <div className="relative">
           {/* Main Image - No container, slides in from right */}
-          <div className="relative w-full h-[24rem] md:h-[28rem] lg:h-[32rem] overflow-hidden">
+          <div className="relative w-full h-[32rem] md:h-[40rem] lg:h-[48rem] overflow-hidden">
             <img 
               key={projects[currentProject].id}
               src={projects[currentProject].image} 
