@@ -63,11 +63,15 @@ const AboutSection: React.FC = () => {
               <div className="reveal order-1 lg:order-1 space-y-8">
                 <div>
                   <p className="mb-8">
-                    We're a team of experienced Business Transformation and Technology consultants specializing in building AI-powered solutions for businesses looking to scale their operations and growth.
+                    <strong>Founded in 2020</strong>, Githaf Consulting is a team of experienced Business Transformation and Technology consultants specializing in building AI-powered solutions for businesses looking to scale their operations and growth.
                   </p>
                   
+                  <p className="mb-6">
+                    With operations in the <strong>UK and UAE</strong>, our team of <strong>10-25 specialists</strong> serves clients globally across Finance, Healthcare, Retail, Manufacturing, and Technology sectors.
+                  </p>
+
                   <p className="mb-10">
-                    By combining smart strategies with practical solutions, we ensure our clients not only plan for the future but also achieve real, measurable results in today's fast-paced market.
+                    By combining smart strategies with practical solutions, we ensure our clients not only plan for the future but also achieve real, measurable results in today's fast-paced market. We provide <strong>24-48 hour response times</strong> for consultation requests and offer ongoing support with monthly retainers starting from £2,000.
                   </p>
                 </div>
 

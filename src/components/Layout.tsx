@@ -4,6 +4,7 @@ import Footer from './Footer';
 import ChatBot from './ChatBot';
 import CookieConsent from './CookieConsent';
 import StructuredData from './SEO/StructuredData';
+import LLMOContent from './SEO/LLMOContent';
 import { Helmet } from 'react-helmet';
 
 interface LayoutProps {
@@ -117,6 +118,7 @@ const Layout: React.FC<LayoutProps> = ({
         <meta name="msapplication-TileColor" content="#8b5cf6" />
       </Helmet>
       <StructuredData type="organization" />
+      <LLMOContent companyInfo={true} pricing={true} methodology={true} />
       <div className="flex flex-col min-h-screen">
         <header>
           <Navbar />

@@ -12,6 +12,7 @@ import ContactSection from '@/components/ContactSection';
 import CompanyTicker from '@/components/CompanyTicker';
 import BlogSection from '@/components/BlogSection';
 import FAQ from '@/components/FAQ';
+import CompanyFacts from '@/components/SEO/CompanyFacts';
 import ExitIntentPopup from '@/components/ExitIntentPopup';
 import { useExitIntent } from '@/hooks/useExitIntent';
 
@@ -40,6 +41,7 @@ const Index = () => {
           <OurApproachSection />
           <IndustriesSection />
           <AboutSection />
+          <CompanyFacts />
           <ContactSection />
           <FAQ />
           <BlogSection />
