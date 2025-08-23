@@ -43,13 +43,13 @@ const AIConsulting = () => {
         <section className="relative py-20 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-900/20 to-slate-800"></div>
           <div className="container mx-auto px-4 relative z-10">
-            <div className="max-w-4xl mx-auto text-center">
+            <div className="max-w-6xl mx-auto text-center">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-600/20 border border-purple-500/30 mb-8">
                 <Database className="w-5 h-5 text-purple-400" />
                 <span className="text-sm font-medium text-purple-300">AI Consulting Services</span>
               </div>
               
-              <h1 className="w-full max-w-5xl mx-auto text-center text-4xl md:text-6xl font-bold text-white mb-6">
+              <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 text-center">
                 Strategic <span className="text-purple-400">AI Consulting</span> for Business Growth
               </h1>
               
