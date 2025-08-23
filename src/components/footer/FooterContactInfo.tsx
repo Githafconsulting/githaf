@@ -12,9 +12,8 @@ const FooterContactInfo: React.FC = () => {
             <MapPin size={16} className="text-gray-300" />
           </div>
           <div>
-            <p className="text-white font-medium text-sm">Global</p>
-            <p className="text-gray-300 text-sm">United Kingdom & United Arab Emirates</p>
-            <p className="text-gray-300 text-sm">Global service delivery available</p>
+            <p className="text-white font-medium text-sm">Presence</p>
+            <p className="text-gray-300 text-sm">Global</p>
           </div>
         </div>
         
