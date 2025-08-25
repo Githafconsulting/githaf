@@ -63,15 +63,15 @@ const AboutSection: React.FC = () => {
               <div className="reveal order-1 lg:order-1 space-y-8">
                 <div>
                   <p className="mb-8">
-                    <strong>Founded in 2020</strong>, Githaf Consulting is a team of experienced Business Transformation and Technology consultants specializing in building AI-powered solutions for businesses looking to scale their operations and growth.
+                    <strong>Founded in 2020</strong>, Githaf Consulting bridges the gap between AI innovation and business transformation. We don't just implement technology – we architect intelligent solutions that fundamentally change how businesses operate, compete, and grow.
                   </p>
                   
                   <p className="mb-6">
-                    With operations in the <strong>UK and UAE</strong>, our team of <strong>10-25 specialists</strong> serves clients globally across Finance, Healthcare, Retail, Manufacturing, and Technology sectors.
+                    With operations spanning the <strong>UK and UAE</strong>, our <strong>10-25 AI specialists</strong> have delivered transformative solutions across Finance, Healthcare, Retail, Manufacturing, and Technology sectors. From AI agent platforms to automated trading systems, we've helped businesses achieve <strong>40-60% operational efficiency gains</strong>.
                   </p>
 
                   <p className="mb-10">
-                    By combining smart strategies with practical solutions, we ensure our clients not only plan for the future but also achieve real, measurable results in today's fast-paced market. We provide <strong>24-48 hour response times</strong> for consultation requests and offer ongoing support with monthly retainers starting from £2,000.
+                    Our approach combines strategic AI consulting with hands-on implementation. We identify where AI can create the most impact, design custom solutions that integrate seamlessly with existing workflows, and provide ongoing optimization to ensure sustained growth. Every project starts with understanding your unique challenges and ends with measurable results.
                   </p>
                 </div>
 
