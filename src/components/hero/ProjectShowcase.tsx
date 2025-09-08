@@ -113,8 +113,8 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ isVisible }) => {
       <div className="relative">
         {/* Main Project Display */}
         <div className="relative">
-          {/* Main Image - Consistent sizing */}
-          <div className="relative w-full h-[28rem] md:h-[36rem] lg:h-[44rem] overflow-hidden rounded-lg bg-background/5">
+          {/* Main Image - Landscape orientation */}
+          <div className="relative w-full h-[20rem] md:h-[24rem] lg:h-[28rem] overflow-hidden rounded-lg bg-background/5">
             <img 
               key={projects[currentProject].id}
               src={projects[currentProject].image} 
