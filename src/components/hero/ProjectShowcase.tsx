@@ -113,13 +113,13 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ isVisible }) => {
       <div className="relative">
         {/* Main Project Display */}
         <div className="relative">
-          {/* Main Image - No container, slides in from right */}
-          <div className="relative w-full h-[32rem] md:h-[40rem] lg:h-[48rem] overflow-hidden">
+          {/* Main Image - Consistent sizing */}
+          <div className="relative w-full h-[28rem] md:h-[36rem] lg:h-[44rem] overflow-hidden rounded-lg bg-background/5">
             <img 
               key={projects[currentProject].id}
               src={projects[currentProject].image} 
               alt={projects[currentProject].title}
-              className="w-full h-full object-contain animate-slide-in-right transition-all duration-700"
+              className="w-full h-full object-cover animate-slide-in-right transition-all duration-700"
             />
             
             {/* Project Info Overlay - Floating at bottom */}
