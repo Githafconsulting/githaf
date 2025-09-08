@@ -119,7 +119,7 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ isVisible }) => {
               key={projects[currentProject].id}
               src={projects[currentProject].image} 
               alt={projects[currentProject].title}
-              className="w-full h-full object-cover animate-slide-in-right transition-all duration-700"
+              className="w-full h-full object-contain animate-slide-in-right transition-all duration-700"
             />
             
             {/* Project Info Overlay - Floating at bottom */}
