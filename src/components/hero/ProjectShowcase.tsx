@@ -38,7 +38,7 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ isVisible }) => {
     },
     {
       id: 5,
-      image: '/lovable-uploads/dc6d9177-e37f-4035-adb1-1aceaadfc17d.png',
+      image: '/lovable-uploads/03d25102-d3cb-4222-a4c7-3a59f1c5caaf.png',
       title: 'P2P Fintech App',
       category: 'Financial Technology Platform'
     },
