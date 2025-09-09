@@ -35,7 +35,7 @@ const Index = () => {
         <Hero />
         <AIAdoptionSection />
         <AIPillarsSection />
-        <CompanyTicker />
+        {/* <CompanyTicker /> */}
         <div className="space-y-0">
           <ServicesSection />
           <OurApproachSection />
