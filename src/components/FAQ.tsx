@@ -11,7 +11,7 @@ const FAQ = () => {
     },
     {
       question: "How long does it take to implement AI solutions?",
-      answer: "Implementation timelines vary based on complexity. Simple AI agents can be deployed in 1-2 weeks, while comprehensive AI transformations typically take 3-6 months. We start with quick wins and gradually implement more complex solutions. Our phased approach ensures you see benefits early while building toward larger transformation goals."
+      answer: "Implementation timelines vary based on complexity. Simple AI agents can be deployed in 1-2 weeks, while comprehensive AI transformations typically take 3-12 months depending on the size of the organsation. We start with quick wins and gradually implement more complex solutions alongside change management across people, systems and processes. Our phased approach ensures you see benefits early while building toward larger transformation goals."
     },
     {
       question: "What's the typical ROI of AI implementation?",
