@@ -12,7 +12,7 @@ const ContactInfo: React.FC = () => {
     <div className="enhanced-card p-8">
       <h2 className="mb-6 gradient-text">Get In Touch</h2>
       <p className="mb-8">
-        Ready to start your AI and digital transformation journey? We offer <strong>free initial consultations</strong> with 24-48 hour response times. Contact us today to discover how we can help your business thrive in the digital age.
+        Ready to start your AI and digital transformation journey? We offer free 30 min initial consultations. Contact us today to discover how we can help your business thrive in the digital age.
       </p>
       
       <div className="space-y-6 mb-8">
