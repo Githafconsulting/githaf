@@ -39,7 +39,7 @@ const FAQ = () => {
     },
     {
       question: "How much does AI consulting cost?",
-      answer: "Our pricing is transparent and project-based. Starter consultations begin at £2,500, professional implementations at £7,500, and enterprise solutions are custom quoted. We offer flexible payment plans and our pricing includes strategy development, implementation, training, and initial support. Contact us for a detailed quote based on your specific needs."
+      answer: "Our pricing is transparent and project-based. Starter consultations for AI agents begin at £2,500 and enterprise Digital transformation and AI solutions are custom quoted. Our pricing includes strategy development, implementation, training, and initial support. Contact us for a detailed quote based on your specific needs."
     },
     {
       question: "What industries do you work with?",
