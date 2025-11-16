@@ -1,48 +1,30 @@
-
 import React from 'react';
-import { 
-  Users, 
-  CheckSquare, 
-  AlignJustify, 
-  Headphones 
-} from 'lucide-react';
+import { Users, CheckSquare, AlignJustify, Headphones } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
-
-const keyPoints = [
-  {
-    text: 'Team of consultants and specialists',
-    icon: <Users size={16} className="text-slate-300" />
-  },
-  {
-    text: 'Proven track record of successful transformations',
-    icon: <CheckSquare size={16} className="text-slate-300" />
-  },
-  {
-    text: 'Tailored solutions for businesses of all sizes',
-    icon: <AlignJustify size={16} className="text-slate-300" />
-  },
-  {
-    text: 'Ongoing support and optimization services',
-    icon: <Headphones size={16} className="text-slate-300" />
-  },
-];
-
+const keyPoints = [{
+  text: 'Team of consultants and specialists',
+  icon: <Users size={16} className="text-slate-300" />
+}, {
+  text: 'Proven track record of successful transformations',
+  icon: <CheckSquare size={16} className="text-slate-300" />
+}, {
+  text: 'Tailored solutions for businesses of all sizes',
+  icon: <AlignJustify size={16} className="text-slate-300" />
+}, {
+  text: 'Ongoing support and optimization services',
+  icon: <Headphones size={16} className="text-slate-300" />
+}];
 const AboutSection: React.FC = () => {
   const isMobile = useIsMobile();
-  
-  return (
-    <section id="about" className="py-16 md:py-24 relative overflow-hidden">
+  return <section id="about" className="py-16 md:py-24 relative overflow-hidden">
       {/* Enhanced Background with dark navy/charcoal color - matching AI adoption section */}
       <div className="absolute inset-0 -z-10 rounded-t-3xl">
         <div className="w-full h-full bg-gradient-to-b from-slate-900 via-gray-900 to-slate-800 rounded-t-3xl"></div>
         <div className="absolute inset-0 bg-[#1a1a2e] opacity-80 rounded-t-3xl"></div>
-        <div 
-          className="absolute inset-0 opacity-20 rounded-t-3xl"
-          style={{
-            backgroundImage: `radial-gradient(circle, rgba(139,92,246,0.1) 1.5px, transparent 1.5px)`,
-            backgroundSize: '40px 40px'
-          }}
-        ></div>
+        <div className="absolute inset-0 opacity-20 rounded-t-3xl" style={{
+        backgroundImage: `radial-gradient(circle, rgba(139,92,246,0.1) 1.5px, transparent 1.5px)`,
+        backgroundSize: '40px 40px'
+      }}></div>
       </div>
 
       {/* Content wrapper with rounded background layer */}
@@ -67,35 +49,29 @@ const AboutSection: React.FC = () => {
                   </p>
                   
                   <p className="mb-6">
-                    With operations spanning the <strong>UK and UAE</strong>, our <strong>10-25 AI specialists</strong> have delivered transformative solutions across Finance, Healthcare, Retail, Manufacturing, and Technology sectors. From AI agent platforms to automated trading systems, we've helped businesses achieve <strong>40-60% operational efficiency gains</strong>.
+                    With operations spanning the UK and UAE, our AI specialists have delivered transformative solutions across Finance, Healthcare, Retail, Manufacturing, and Technology sectors.We've helped businesses achieve 40-60% operational efficiency gains. <strong>AI specialists</strong>, our <strong>10-25 AI specialists</strong> have delivered transformative solutions across Finance, Healthcare, Retail, Manufacturing, and Technology sectors. From AI agent platforms to automated trading systems, we've helped businesses achieve <strong>40-60% operational efficiency gains</strong>.
                   </p>
 
                   <p className="mb-10">
-                    Our approach combines strategic AI consulting with hands-on implementation. We identify where AI can create the most impact, design custom solutions that integrate seamlessly with existing workflows, and provide ongoing optimization to ensure sustained growth. Every project starts with understanding your unique challenges and ends with measurable results.
+                    Our approach combines strategic Digital and AI consulting with hands-on implementation. We identify where AI can create the most impact, design custom solutions that integrate seamlessly with existing workflows, and provide ongoing optimization to ensure sustained growth. Every project starts with understanding your unique challenges and ends with measurable results.
                   </p>
                 </div>
 
                 {/* Key Points Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {keyPoints.map((point, index) => (
-                    <div key={index} className="flex items-start glass rounded-xl p-4 hover:bg-white/5 transition-all duration-300 group">
+                  {keyPoints.map((point, index) => <div key={index} className="flex items-start glass rounded-xl p-4 hover:bg-white/5 transition-all duration-300 group">
                       <div className="mr-4 mt-1 flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                         {point.icon}
                       </div>
                       <p className="text-gray-300 leading-relaxed text-sm md:text-base">{point.text}</p>
-                    </div>
-                  ))}
+                    </div>)}
                 </div>
               </div>
 
               {/* Image Section - moved to right */}
               <div className="reveal order-2 lg:order-2">
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl group">
-                  <img 
-                    src="/lovable-uploads/1d318012-f45a-4293-b5b4-5b767800971c.png"
-                    alt="Githaf Consulting - Business professionals in modern cityscape representing digital transformation and AI consulting services"
-                    className="w-full h-[400px] md:h-[500px] object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
+                  <img src="/lovable-uploads/1d318012-f45a-4293-b5b4-5b767800971c.png" alt="Githaf Consulting - Business professionals in modern cityscape representing digital transformation and AI consulting services" className="w-full h-[400px] md:h-[500px] object-cover transition-transform duration-700 group-hover:scale-105" />
                   <div className="absolute inset-0 bg-gradient-to-tr from-purple-600/20 via-transparent to-pink-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   <div className="absolute inset-0 ring-1 ring-white/10 rounded-2xl"></div>
                 </div>
@@ -104,8 +80,6 @@ const AboutSection: React.FC = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default AboutSection;
