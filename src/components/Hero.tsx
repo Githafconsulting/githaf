@@ -31,9 +31,9 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Right side - Tilted Window Project Showcase - Takes up 5 columns */}
-          <div className="col-span-5">
+          {/* <div className="col-span-5">
             <ProjectShowcase isVisible={isVisible} />
-          </div>
+          </div> */}
         </div>
 
         {/* Mobile Layout */}
@@ -58,9 +58,9 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Project Showcase - After button on mobile */}
-          <div>
+          {/* <div>
             <ProjectShowcase isVisible={isVisible} />
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
