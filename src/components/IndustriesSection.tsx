@@ -99,7 +99,7 @@ const IndustriesSection = () => {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="space-y-2">
+                  <div className="space-y-2 hidden">
                     <h4 className="text-sm font-semibold text-slate-400 uppercase tracking-wide">Key Applications:</h4>
                     <ul className="space-y-1">
                       {industry.applications.map((app, appIndex) => (
