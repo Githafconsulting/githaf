@@ -2,27 +2,7 @@ import React from 'react';
 
 const CompanyFacts: React.FC = () => {
   return (
-    <section className="py-8 bg-white/5 border-t border-white/10">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-          <div>
-            <div className="text-2xl font-bold text-purple-400 mb-2">2020</div>
-            <div className="text-sm text-gray-300">Founded</div>
-          </div>
-          <div>
-            <div className="text-2xl font-bold text-purple-400 mb-2">25+</div>
-            <div className="text-sm text-gray-300">Team Members</div>
-          </div>
-          <div>
-            <div className="text-2xl font-bold text-purple-400 mb-2">100+</div>
-            <div className="text-sm text-gray-300">Projects Delivered</div>
-          </div>
-          <div>
-            <div className="text-2xl font-bold text-purple-400 mb-2">24h</div>
-            <div className="text-sm text-gray-300">Response Time</div>
-          </div>
-        </div>
-      </div>
+    <section className="py-8 bg-white/5 border-t border-white/10 hidden">
       
       {/* Hidden structured content for LLMs */}
       <div className="sr-only">

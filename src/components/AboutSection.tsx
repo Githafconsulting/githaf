@@ -49,7 +49,7 @@ const AboutSection: React.FC = () => {
                   </p>
                   
                   <p className="mb-6">
-                    With operations spanning the UK and UAE, our AI specialists have delivered transformative solutions across Finance, Healthcare, Retail, Manufacturing, and Technology sectors.We've helped businesses achieve 40-60% operational efficiency gains. <strong>AI specialists</strong>, our <strong>10-25 AI specialists</strong> have delivered transformative solutions across Finance, Healthcare, Retail, Manufacturing, and Technology sectors. From AI agent platforms to automated trading systems, we've helped businesses achieve <strong>40-60% operational efficiency gains</strong>.
+                    With operations spanning the UK and UAE, our AI specialists have delivered transformative solutions across Finance, Healthcare, Retail, Manufacturing, and Technology sectors. From AI agent platforms to automated trading systems, we've helped businesses achieve measurable operational efficiency gains.
                   </p>
 
                   <p className="mb-10">
