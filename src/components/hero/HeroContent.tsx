@@ -7,7 +7,7 @@ interface HeroContentProps {
 
 const HeroContent: React.FC<HeroContentProps> = ({ isVisible }) => {
   return (
-    <div className="text-center max-w-4xl mx-auto">
+    <div className="text-center max-w-5xl mx-auto">
 
       {/* Main heading */}
       <h1 className={`text-white mb-6 md:mb-8 opacity-0 transform translate-y-8 transition-all duration-1000 delay-200 ease-out ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
