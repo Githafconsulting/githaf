@@ -22,6 +22,11 @@ const ContactButtons = () => (
         <Mail className="mr-2 h-4 w-4" />Email us
       </a>
     </Button>
+    <Button variant="outline" size="sm" className="text-slate-800 border-slate-300 hover:bg-slate-50 justify-start" asChild>
+      <a href="tel:+971562078508">
+        <Phone className="mr-2 h-4 w-4" />Call us
+      </a>
+    </Button>
   </div>
 );
 
