@@ -2,7 +2,13 @@ import React from 'react';
 
 const WhatsAppButton: React.FC = () => {
   const handleClick = () => {
-    window.open('https://api.whatsapp.com/send?phone=971562078508&text=Hi%20Githaf%20Consulting%2C%20I%27d%20like%20to%20learn%20more%20about%20your%20services.', '_blank', 'noopener,noreferrer');
+    const link = document.createElement('a');
+    link.href = 'https://wa.me/971562078508?text=Hi%20Githaf%20Consulting%2C%20I%27d%20like%20to%20learn%20more%20about%20your%20services.';
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
