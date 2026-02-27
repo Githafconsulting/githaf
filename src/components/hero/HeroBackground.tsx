@@ -12,10 +12,10 @@ const HeroBackground: React.FC = () => {
           className="w-full h-full object-cover"
           loading="eager"
         />
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-black/60" />
+        {/* Dark overlay matching site branding */}
+        <div className="absolute inset-0 bg-[#0f172a]/70" />
         {/* Gradient overlay for depth */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0f172a]/50 via-transparent to-[#1a202c]/90" />
       </div>
 
       {/* Accent glow */}
