@@ -10,7 +10,7 @@ import { generateResponse } from './responseGenerator';
 
 const ChatBotDialog: React.FC<ChatBotDialogProps> = ({ open, onOpenChange }) => {
   const [messages, setMessages] = useState<Message[]>([
-    { id: 1, content: "Hi there! 👋 I'm Githaf Chat, your AI assistant. Would you like to explore how AI can transform your business operations, enhance customer experiences, or optimize your processes?", isBot: true }
+    { id: 1, content: "Hi there! 👋 I'm the Githaf Assistant — here to help you learn about our services, understand how AI can benefit your business, or get in touch with our team. How can I help you today?", isBot: true }
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -71,7 +71,7 @@ const ChatBotDialog: React.FC<ChatBotDialogProps> = ({ open, onOpenChange }) => 
         <div className={`fixed bottom-20 right-6 ${isExpanded ? 'w-[640px]' : 'w-96'} max-w-[calc(100vw-2rem)] bg-background border border-border rounded-lg shadow-xl z-50`}>
           <div className="p-4 border-b border-border">
             <div className="flex items-center justify-between">
-              <h3 className="font-semibold text-foreground">Githaf Chat</h3>
+              <h3 className="font-semibold text-foreground">Githaf Assistant</h3>
               <div className="flex items-center gap-2">
                 <button
                   onClick={() => setIsExpanded((v) => !v)}
@@ -89,8 +89,8 @@ const ChatBotDialog: React.FC<ChatBotDialogProps> = ({ open, onOpenChange }) => 
                 </button>
               </div>
             </div>
-            <p className="text-sm text-foreground mt-1">
-              How can we help transform your business with AI?
+            <p className="text-sm text-muted-foreground mt-1">
+              Your friendly guide to Githaf Consulting
             </p>
           </div>
           
