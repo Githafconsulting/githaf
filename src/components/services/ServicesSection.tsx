@@ -35,7 +35,7 @@ const ServicesSection: React.FC = () => {
   };
 
   return (
-    <section id="services" className="relative py-16 md:py-24 overflow-hidden">
+    <section id="what-we-deliver" className="relative py-16 md:py-24 overflow-hidden">
       {/* Enhanced Background with dark navy/charcoal color - matching AI adoption section */}
       <div className="absolute inset-0 -z-10">
         <div className="w-full h-full bg-gradient-to-b from-slate-900 via-gray-900 to-slate-800"></div>
@@ -60,7 +60,7 @@ const ServicesSection: React.FC = () => {
             {/* Header */}
             <div className="text-center max-w-4xl mx-auto mb-16 reveal">
               <h2 className="mb-6">
-                Our <span className="text-purple-400">Services</span>
+                What We <span className="text-purple-400">Deliver</span>
               </h2>
             </div>
 

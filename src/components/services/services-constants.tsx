@@ -104,8 +104,8 @@ export const services = [
   },
   {
     id: 8,
-    title: 'Programme Governance & Management',
-    description: 'Expert governance and management for complex programs, ensuring alignment with business objectives, risk mitigation, and successful delivery.',
+    title: 'Governance',
+    description: 'Expert governance for complex programmes — ensuring regulatory compliance, adherence to industry standards, robust execution frameworks, and alignment with business objectives for successful delivery and risk mitigation.',
     icon: <ClipboardList className="w-8 h-8 text-primary" />,
     category: 'transformation' as ServiceCategory,
     path: null,
