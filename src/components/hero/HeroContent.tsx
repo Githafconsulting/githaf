@@ -8,11 +8,6 @@ interface HeroContentProps {
 const HeroContent: React.FC<HeroContentProps> = ({ isVisible }) => {
   return (
     <div className="text-center max-w-4xl mx-auto">
-      {/* Trust badge */}
-      <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm mb-8 opacity-0 transform translate-y-6 transition-all duration-700 delay-100 ease-out ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
-        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-        <span className="text-sm text-slate-300 tracking-wide">Trusted by enterprises across Finance, Healthcare & Technology</span>
-      </div>
 
       {/* Main heading */}
       <h1 className={`text-white mb-6 md:mb-8 opacity-0 transform translate-y-8 transition-all duration-1000 delay-200 ease-out ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
