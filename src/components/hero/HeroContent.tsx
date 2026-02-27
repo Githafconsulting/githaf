@@ -16,9 +16,9 @@ const HeroContent: React.FC<HeroContentProps> = ({ isVisible }) => {
 
       {/* Main heading */}
       <h1 className={`text-white mb-6 md:mb-8 opacity-0 transform translate-y-8 transition-all duration-1000 delay-200 ease-out ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
-        <span className="block">AI Solutions That</span>
+        <span className="block">Digital Transformation &</span>
         <span className="block bg-gradient-to-r from-cyan-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
-          Drive Real Results
+          AI Solutions That Drive Real Results
         </span>
       </h1>
 
