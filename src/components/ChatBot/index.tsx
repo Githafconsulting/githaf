@@ -6,7 +6,7 @@ import WhatsAppButton from './WhatsAppButton';
 
 const ChatBot: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [showButton, setShowButton] = useState(false);
+  const [showButton, setShowButton] = useState(true);
   
   useEffect(() => {
     const timer = setTimeout(() => {
