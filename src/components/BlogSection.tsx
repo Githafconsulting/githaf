@@ -325,7 +325,7 @@ const BlogSection: React.FC = () => {
 
             {/* Blog Posts Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-              {blogPosts.map((post, index) => (
+              {blogPosts.slice(0, 6).map((post, index) => (
                 <article 
                   key={post.id}
                   className="reveal group cursor-pointer"
@@ -384,7 +384,7 @@ const BlogSection: React.FC = () => {
                   className="inline-flex items-center gap-2 px-8 py-4 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-purple-500/25"
                   style={{ backgroundColor: '#9b87f5' }}
                 >
-                  See More
+                  View All Blog Posts
                   <ArrowRight size={20} />
                 </button>
               </Link>
