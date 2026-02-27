@@ -60,7 +60,7 @@ const ServicesSection: React.FC = () => {
             {/* Header */}
             <div className="text-center max-w-4xl mx-auto mb-16 reveal">
               <h2 className="mb-6">
-                What We <span className="text-purple-400">Deliver</span>
+                Our <span className="text-purple-400">Services</span>
               </h2>
             </div>
 
