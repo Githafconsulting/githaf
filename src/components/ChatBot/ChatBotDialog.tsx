@@ -1,12 +1,74 @@
 
-import React, { useState, useEffect } from 'react';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
+import React, { useState, useRef } from 'react';
 import { Maximize2, Minimize2 } from 'lucide-react';
 import { toast } from 'sonner';
 import ChatMessageList from './ChatMessageList';
 import MessageInput from './MessageInput';
 import { ChatBotDialogProps, Message } from './types';
-import { generateResponse } from './responseGenerator';
+
+const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/chat`;
+
+async function streamChat({
+  messages,
+  onDelta,
+  onDone,
+  onError,
+}: {
+  messages: { role: string; content: string }[];
+  onDelta: (text: string) => void;
+  onDone: () => void;
+  onError: (err: string) => void;
+}) {
+  const resp = await fetch(CHAT_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
+    },
+    body: JSON.stringify({ messages }),
+  });
+
+  if (!resp.ok) {
+    const data = await resp.json().catch(() => ({}));
+    onError(data.error || "Failed to get response");
+    return;
+  }
+
+  if (!resp.body) {
+    onError("No response body");
+    return;
+  }
+
+  const reader = resp.body.getReader();
+  const decoder = new TextDecoder();
+  let buffer = "";
+
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    buffer += decoder.decode(value, { stream: true });
+
+    let newlineIndex: number;
+    while ((newlineIndex = buffer.indexOf("\n")) !== -1) {
+      let line = buffer.slice(0, newlineIndex);
+      buffer = buffer.slice(newlineIndex + 1);
+      if (line.endsWith("\r")) line = line.slice(0, -1);
+      if (line.startsWith(":") || line.trim() === "") continue;
+      if (!line.startsWith("data: ")) continue;
+      const jsonStr = line.slice(6).trim();
+      if (jsonStr === "[DONE]") break;
+      try {
+        const parsed = JSON.parse(jsonStr);
+        const content = parsed.choices?.[0]?.delta?.content;
+        if (content) onDelta(content);
+      } catch {
+        buffer = line + "\n" + buffer;
+        break;
+      }
+    }
+  }
+  onDone();
+}
 
 const ChatBotDialog: React.FC<ChatBotDialogProps> = ({ open, onOpenChange }) => {
   const [messages, setMessages] = useState<Message[]>([
@@ -14,48 +76,51 @@ const ChatBotDialog: React.FC<ChatBotDialogProps> = ({ open, onOpenChange }) => 
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [leadCapture, setLeadCapture] = useState(false);
-  const [email, setEmail] = useState('');
-  const [previousQueries, setPreviousQueries] = useState<Set<string>>(new Set());
   const [isExpanded, setIsExpanded] = useState(false);
+  const assistantBufferRef = useRef("");
 
-  // Auto-open the chat if this is triggered by the timer
-  useEffect(() => {
-    if (open) {
-      // If user hasn't interacted yet, show a proactive message after a short delay
-      const timer = setTimeout(() => {
-        if (messages.length === 1) {
-          setMessages(prev => [...prev, { 
-            id: prev.length + 1, 
-            content: "I noticed you're exploring our site. Can I help you find information about our AI solutions or answer any questions about digital transformation?", 
-            isBot: true 
-          }]);
-        }
-      }, 5000);
-      return () => clearTimeout(timer);
-    }
-  }, [open, messages.length]);
+  const handleSend = async () => {
+    if (!input.trim() || isLoading) return;
 
-  const handleSend = () => {
-    if (!input.trim()) return;
-    
-    // Add user message
-    const userMessageId = messages.length + 1;
-    setMessages(prev => [...prev, { id: userMessageId, content: input, isBot: false }]);
-    
-    // Store this query to avoid repetitive answers
-    setPreviousQueries(prev => new Set(prev).add(input.toLowerCase()));
-    
-    const userQuery = input;
+    const userMsg: Message = { id: messages.length + 1, content: input, isBot: false };
+    setMessages(prev => [...prev, userMsg]);
     setInput('');
-    
-    // Simulate bot response
     setIsLoading(true);
-    setTimeout(() => {
+    assistantBufferRef.current = "";
+
+    // Build conversation history for the API
+    const apiMessages = [...messages, userMsg]
+      .filter(m => m.content)
+      .map(m => ({
+        role: m.isBot ? "assistant" : "user",
+        content: m.content,
+      }));
+
+    try {
+      await streamChat({
+        messages: apiMessages,
+        onDelta: (chunk) => {
+          assistantBufferRef.current += chunk;
+          const currentText = assistantBufferRef.current;
+          setMessages(prev => {
+            const last = prev[prev.length - 1];
+            if (last?.isBot && last.id === userMsg.id + 1) {
+              return prev.map((m, i) => i === prev.length - 1 ? { ...m, content: currentText } : m);
+            }
+            return [...prev, { id: userMsg.id + 1, content: currentText, isBot: true }];
+          });
+        },
+        onDone: () => setIsLoading(false),
+        onError: (err) => {
+          setIsLoading(false);
+          toast.error(err);
+          setMessages(prev => [...prev, { id: userMsg.id + 1, content: "Sorry, I'm having trouble connecting right now. Please try again or reach us at info@githafconsulting.com.", isBot: true }]);
+        },
+      });
+    } catch {
       setIsLoading(false);
-      const response = generateResponse(userQuery, setMessages, email, setEmail, setLeadCapture, messages);
-      setMessages(prev => [...prev, { id: userMessageId + 1, content: response, isBot: true }]);
-    }, 1000);
+      toast.error("Connection error");
+    }
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
