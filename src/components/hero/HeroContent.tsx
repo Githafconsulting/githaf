@@ -43,19 +43,6 @@ const HeroContent: React.FC<HeroContentProps> = ({ isVisible }) => {
         </a>
       </div>
 
-      {/* Social proof metrics */}
-      <div className={`grid grid-cols-3 gap-6 md:gap-12 max-w-lg mx-auto opacity-0 transform translate-y-8 transition-all duration-1000 delay-800 ease-out ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
-        {[
-          { value: '100+', label: 'Projects Delivered' },
-          { value: '95%', label: 'Client Retention' },
-          { value: '24h', label: 'Response Time' },
-        ].map((stat, i) => (
-          <div key={i} className="text-center">
-            <div className="text-2xl md:text-3xl font-bold text-white mb-1">{stat.value}</div>
-            <div className="text-xs md:text-sm text-slate-400">{stat.label}</div>
-          </div>
-        ))}
-      </div>
     </div>
   );
 };

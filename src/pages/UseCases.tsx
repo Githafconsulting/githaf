@@ -1,7 +1,6 @@
 import React, { useState, useMemo } from 'react';
-import { Link } from 'react-router-dom';
 import Layout from '@/components/Layout';
-import { MessageSquare, TrendingUp, Cog, FileSearch, Users, BarChart3, Shield, Clock, Brain, Zap } from 'lucide-react';
+import { MessageSquare, TrendingUp, Cog, FileSearch, Users, BarChart3, Shield, Clock, Brain, Zap, Bot, Workflow, Eye, Mic, Sparkles, Globe } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -11,13 +10,48 @@ const UseCases = () => {
   const [selectedIndustry, setSelectedIndustry] = useState<string>('all');
   const useCases = [
     {
+      icon: <Bot className="w-8 h-8 text-cyan-400" />,
+      title: "Autonomous AI Agents",
+      description: "Deploy intelligent agents that autonomously handle complex multi-step tasks — from research and data gathering to decision-making and execution",
+      benefits: ["End-to-end task automation", "Multi-tool orchestration", "Adaptive decision-making", "Human-in-the-loop oversight"],
+      industries: ["Finance", "Legal", "Operations", "Consulting"],
+      complexity: "High",
+      tag: "Agentic AI"
+    },
+    {
+      icon: <Workflow className="w-8 h-8 text-violet-400" />,
+      title: "Agentic Workflow Automation",
+      description: "Build AI-driven workflows where agents collaborate, delegate tasks, and adapt in real-time to accomplish business objectives",
+      benefits: ["Cross-system orchestration", "Self-healing workflows", "Dynamic task routing", "Scalable operations"],
+      industries: ["Manufacturing", "Logistics", "HR", "SaaS"],
+      complexity: "High",
+      tag: "Agentic AI"
+    },
+    {
+      icon: <Sparkles className="w-8 h-8 text-amber-400" />,
+      title: "Generative Content & Copywriting",
+      description: "Produce high-quality marketing copy, blog posts, product descriptions, and brand content at scale using generative AI models",
+      benefits: ["Content at scale", "Brand consistency", "Multilingual output", "Rapid iteration"],
+      industries: ["Marketing", "Media", "E-commerce", "Publishing"],
+      complexity: "Medium",
+      tag: "Gen AI"
+    },
+    {
+      icon: <Eye className="w-8 h-8 text-emerald-400" />,
+      title: "AI-Powered Visual Generation",
+      description: "Generate product images, design mockups, marketing visuals, and creative assets using state-of-the-art image generation models",
+      benefits: ["Rapid prototyping", "Cost-effective design", "Personalised visuals", "A/B creative testing"],
+      industries: ["Retail", "E-commerce", "Marketing", "Media"],
+      complexity: "Medium",
+      tag: "Gen AI"
+    },
+    {
       icon: <MessageSquare className="w-8 h-8 text-blue-400" />,
       title: "Intelligent Customer Support",
       description: "AI-powered chatbots and support systems that provide 24/7 customer assistance with human-like interactions",
       benefits: ["24/7 availability", "Instant responses", "Cost reduction", "Scalable support"],
       industries: ["Retail", "Banking", "SaaS", "E-commerce"],
-      complexity: "Medium",
-      roi: "200-300%"
+      complexity: "Medium"
     },
     {
       icon: <TrendingUp className="w-8 h-8 text-green-400" />,
@@ -25,8 +59,7 @@ const UseCases = () => {
       description: "Forecast business trends, customer behavior, and market demands using advanced machine learning algorithms",
       benefits: ["Better forecasting", "Risk reduction", "Informed decisions", "Competitive advantage"],
       industries: ["Finance", "Retail", "Manufacturing", "Healthcare"],
-      complexity: "High",
-      roi: "200-400%"
+      complexity: "High"
     },
     {
       icon: <Cog className="w-8 h-8 text-orange-400" />,
@@ -34,8 +67,7 @@ const UseCases = () => {
       description: "Automate repetitive tasks and workflows to increase efficiency and reduce human error",
       benefits: ["Efficiency gains", "Error reduction", "Cost savings", "Employee satisfaction"],
       industries: ["Manufacturing", "Finance", "HR", "Legal"],
-      complexity: "Low",
-      roi: "150-250%"
+      complexity: "Low"
     },
     {
       icon: <FileSearch className="w-8 h-8 text-purple-400" />,
@@ -43,8 +75,25 @@ const UseCases = () => {
       description: "Extract, analyze, and process information from documents automatically using AI-powered OCR and NLP",
       benefits: ["Faster processing", "Accuracy improvement", "Compliance automation", "Data extraction"],
       industries: ["Legal", "Healthcare", "Finance", "Insurance"],
+      complexity: "Medium"
+    },
+    {
+      icon: <Mic className="w-8 h-8 text-rose-400" />,
+      title: "Conversational AI & Voice Agents",
+      description: "Build natural-language voice and chat agents that handle sales calls, bookings, and customer queries autonomously",
+      benefits: ["Natural conversations", "Reduced call centre load", "24/7 voice support", "Lead qualification"],
+      industries: ["Healthcare", "Banking", "Retail", "Insurance"],
+      complexity: "High",
+      tag: "Agentic AI"
+    },
+    {
+      icon: <Globe className="w-8 h-8 text-sky-400" />,
+      title: "RAG & Knowledge Assistants",
+      description: "Deploy retrieval-augmented generation systems that answer questions from your proprietary data with source-grounded accuracy",
+      benefits: ["Enterprise knowledge search", "Source-cited answers", "Reduced hallucination", "Secure data access"],
+      industries: ["Legal", "Consulting", "Education", "Finance"],
       complexity: "Medium",
-      roi: "250-350%"
+      tag: "Gen AI"
     },
     {
       icon: <Users className="w-8 h-8 text-cyan-400" />,
@@ -52,17 +101,7 @@ const UseCases = () => {
       description: "Deliver personalized experiences to customers through AI-driven recommendation systems",
       benefits: ["Higher engagement", "Increased sales", "Customer loyalty", "Better targeting"],
       industries: ["E-commerce", "Media", "Education", "Marketing"],
-      complexity: "High",
-      roi: "200-400%"
-    },
-    {
-      icon: <BarChart3 className="w-8 h-8 text-yellow-400" />,
-      title: "Business Intelligence",
-      description: "Transform raw data into actionable insights with AI-powered analytics and reporting",
-      benefits: ["Data-driven decisions", "Performance insights", "Trend identification", "Strategic planning"],
-      industries: ["All Industries", "Consulting", "Retail", "Finance"],
-      complexity: "Medium",
-      roi: "180-300%"
+      complexity: "High"
     },
     {
       icon: <Shield className="w-8 h-8 text-red-400" />,
@@ -70,8 +109,7 @@ const UseCases = () => {
       description: "Identify and prevent fraudulent activities in real-time using machine learning algorithms",
       benefits: ["Risk reduction", "Real-time detection", "Cost prevention", "Compliance"],
       industries: ["Banking", "Insurance", "E-commerce", "Finance"],
-      complexity: "High",
-      roi: "300-400%"
+      complexity: "High"
     },
     {
       icon: <Clock className="w-8 h-8 text-indigo-400" />,
@@ -79,17 +117,7 @@ const UseCases = () => {
       description: "Predict equipment failures before they happen to minimize downtime and maintenance costs",
       benefits: ["Reduced downtime", "Cost savings", "Extended equipment life", "Safety improvement"],
       industries: ["Manufacturing", "Energy", "Transportation", "Construction"],
-      complexity: "High",
-      roi: "250-400%"
-    },
-    {
-      icon: <Brain className="w-8 h-8 text-pink-400" />,
-      title: "Content Generation",
-      description: "Automatically create high-quality content for marketing, documentation, and communications",
-      benefits: ["Content at scale", "Consistency", "Time savings", "Creative assistance"],
-      industries: ["Marketing", "Media", "Education", "Publishing"],
-      complexity: "Medium",
-      roi: "200-350%"
+      complexity: "High"
     },
     {
       icon: <Zap className="w-8 h-8 text-teal-400" />,
@@ -97,12 +125,10 @@ const UseCases = () => {
       description: "Optimize business workflows and resource allocation using AI-driven insights and automation",
       benefits: ["Efficiency improvement", "Resource optimization", "Bottleneck identification", "Performance boost"],
       industries: ["Operations", "Logistics", "HR", "Project Management"],
-      complexity: "Medium",
-      roi: "150-300%"
+      complexity: "Medium"
     }
   ];
 
-  // Get unique industries from all use cases
   const availableIndustries = useMemo(() => {
     const industries = new Set<string>();
     useCases.forEach(useCase => {
@@ -111,14 +137,9 @@ const UseCases = () => {
     return Array.from(industries).sort();
   }, []);
 
-  // Filter use cases by selected industry
   const filteredUseCases = useMemo(() => {
-    if (selectedIndustry === 'all') {
-      return useCases;
-    }
-    return useCases.filter(useCase => 
-      useCase.industries.includes(selectedIndustry)
-    );
+    if (selectedIndustry === 'all') return useCases;
+    return useCases.filter(useCase => useCase.industries.includes(selectedIndustry));
   }, [selectedIndustry]);
 
   const getComplexityColor = (complexity: string) => {
@@ -130,10 +151,18 @@ const UseCases = () => {
     }
   };
 
+  const getTagColor = (tag?: string) => {
+    switch (tag) {
+      case 'Gen AI': return 'bg-amber-600/20 text-amber-300 border-amber-500/30';
+      case 'Agentic AI': return 'bg-cyan-600/20 text-cyan-300 border-cyan-500/30';
+      default: return '';
+    }
+  };
+
   return (
     <Layout
       title="AI Use Cases | Real-World AI Applications | Githaf Consulting"
-      description="Explore 10 proven AI use cases across industries. From customer support to predictive analytics, discover how AI can transform your business operations."
+      description="Explore proven AI use cases across industries including Generative AI and Agentic AI. Discover how AI can transform your business operations."
     >
       <div className="min-h-screen bg-slate-900 pt-20">
         {/* Hero Section */}
@@ -144,11 +173,9 @@ const UseCases = () => {
               <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
                 Proven AI <span className="text-purple-400">Use Cases</span>
               </h1>
-              
               <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-                Discover 10 real-world AI applications that are transforming businesses today. From automation to intelligence, find the perfect AI solution for your needs.
+                Discover real-world AI applications — from Generative AI and Agentic systems to predictive analytics — that are transforming businesses today.
               </p>
-              
               <Button size="lg" className="bg-purple-600 hover:bg-purple-700" asChild>
                 <a href="#use-cases">Explore Use Cases</a>
               </Button>
@@ -157,7 +184,7 @@ const UseCases = () => {
         </section>
 
         {/* Use Cases Grid */}
-        <section className="py-16 relative">
+        <section id="use-cases" className="py-16 relative">
           <div className="container mx-auto px-4">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-12">
@@ -165,18 +192,16 @@ const UseCases = () => {
                   AI Use Cases That Drive Results
                 </h2>
                 <p className="text-xl text-slate-300">
-                  Real-world applications with proven ROI and measurable impact
+                  Real-world applications transforming businesses across industries
                 </p>
               </div>
 
-              {/* Industry Filter */}
               <IndustryFilter
                 selectedIndustry={selectedIndustry}
                 onIndustryChange={setSelectedIndustry}
                 availableIndustries={availableIndustries}
               />
 
-              {/* Results Count */}
               <div className="mb-6">
                 <p className="text-sm text-slate-400">
                   Showing {filteredUseCases.length} use case{filteredUseCases.length !== 1 ? 's' : ''}
@@ -197,9 +222,11 @@ const UseCases = () => {
                               <Badge className={getComplexityColor(useCase.complexity)}>
                                 {useCase.complexity} Complexity
                               </Badge>
-                              <Badge className="bg-green-600/20 text-green-300 border-green-500/30">
-                                {useCase.roi} ROI
-                              </Badge>
+                              {useCase.tag && (
+                                <Badge className={getTagColor(useCase.tag)}>
+                                  {useCase.tag}
+                                </Badge>
+                              )}
                             </div>
                           </div>
                         </div>
@@ -220,7 +247,6 @@ const UseCases = () => {
                           ))}
                         </div>
                       </div>
-                      
                       <div>
                         <h4 className="text-sm font-semibold text-slate-400 uppercase tracking-wide mb-2">Relevant Industries:</h4>
                         <div className="flex flex-wrap gap-2">
@@ -238,7 +264,6 @@ const UseCases = () => {
             </div>
           </div>
         </section>
-
       </div>
     </Layout>
   );
