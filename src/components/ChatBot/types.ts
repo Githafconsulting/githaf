@@ -3,7 +3,7 @@ import { ReactNode } from 'react';
 
 export interface Message {
   id: number;
-  content: string | ReactNode;
+  content: string;
   isBot: boolean;
 }
 
