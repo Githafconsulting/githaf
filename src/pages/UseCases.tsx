@@ -126,6 +126,14 @@ const UseCases = () => {
       benefits: ["Efficiency improvement", "Resource optimization", "Bottleneck identification", "Performance boost"],
       industries: ["Operations", "Logistics", "HR", "Project Management"],
       complexity: "Medium"
+    },
+    {
+      icon: <Cog className="w-8 h-8 text-lime-400" />,
+      title: "Workflow Automation",
+      description: "Design and deploy end-to-end automated workflows that connect systems, eliminate manual handoffs, and keep operations running seamlessly",
+      benefits: ["Reduced manual effort", "Faster turnaround", "Error elimination", "Cross-system integration"],
+      industries: ["Finance", "HR", "Operations", "SaaS"],
+      complexity: "Medium"
     }
   ];
 
