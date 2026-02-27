@@ -19,7 +19,7 @@ const HeroContent: React.FC<HeroContentProps> = ({ isVisible }) => {
 
       {/* Subtitle */}
       <p className={`text-slate-300 text-lg md:text-xl leading-relaxed mb-10 md:mb-12 max-w-2xl mx-auto opacity-0 transform translate-y-8 transition-all duration-1000 delay-400 ease-out ${isVisible ? 'opacity-100 translate-y-0' : ''}`}>
-        From strategy to deployment, we architect and implement AI systems that automate operations, unlock insights, and accelerate growth — so you can focus on what matters most.
+        We partner with businesses to navigate digital transformation and harness the power of AI — from consulting and strategy through to full implementation. Whether it's intelligent automation, custom AI agents, web platforms, or data-driven marketing, we deliver end-to-end solutions that drive measurable results.
       </p>
 
       {/* Dual CTA */}
