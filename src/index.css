@@ -384,3 +384,24 @@ section {
     opacity: 0;
   }
 }
+
+/* Chatbot message styling */
+.chatbot-message p {
+  color: #1e293b;
+  margin-bottom: 0.25rem;
+}
+.chatbot-message strong {
+  color: #0f172a;
+  font-weight: 600;
+}
+.chatbot-message a {
+  color: #7c3aed;
+  text-decoration: underline;
+  font-weight: 500;
+}
+.chatbot-message ul {
+  color: #334155;
+}
+.chatbot-message li {
+  color: #334155;
+}

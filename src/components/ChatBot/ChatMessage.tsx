@@ -12,14 +12,15 @@ const ChatMessage: React.FC<ChatMessageProps> = ({ message }) => {
       className={`flex ${message.isBot ? 'justify-start' : 'justify-end'}`}
     >
       <div 
-        className={`max-w-[80%] p-3 rounded-lg ${
+        className={`max-w-[85%] p-3 rounded-lg text-sm leading-relaxed ${
           message.isBot 
-            ? 'bg-purple-100 text-black border border-purple-200' 
-            : 'bg-primary text-primary-foreground'
+            ? 'bg-slate-100 text-slate-900 border border-slate-200' 
+            : 'bg-purple-600 text-white'
         }`}
-        style={{ color: message.isBot ? '#000' as const : undefined }}
       >
-        {message.content}
+        <div className={message.isBot ? 'chatbot-message' : ''}>
+          {message.content}
+        </div>
       </div>
     </div>
   );
